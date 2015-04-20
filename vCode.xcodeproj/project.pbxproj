@@ -14,6 +14,25 @@
 		B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67F975B1AE3A30E0085DBB3 /* Images.xcassets */; };
 		B67F975F1AE3A30E0085DBB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */; };
 		B67F976B1AE3A30E0085DBB3 /* vCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F976A1AE3A30E0085DBB3 /* vCodeTests.m */; };
+		B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A4486A1AE4E01C0024F109 /* bitstream.c */; };
+		B6A4488C1AE4E01C0024F109 /* Dithering.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A4486D1AE4E01C0024F109 /* Dithering.mm */; };
+		B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A4486F1AE4E01C0024F109 /* Laplace_SAED.mm */; };
+		B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A448711AE4E01C0024F109 /* main_laplace.mm */; };
+		B6A4488F1AE4E01C0024F109 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448721AE4E01C0024F109 /* mask.c */; };
+		B6A448901AE4E01C0024F109 /* masking_qr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6A448741AE4E01C0024F109 /* masking_qr.cpp */; };
+		B6A448911AE4E01C0024F109 /* mmask.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448751AE4E01C0024F109 /* mmask.c */; };
+		B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448771AE4E01C0024F109 /* mqrspec.c */; };
+		B6A448931AE4E01C0024F109 /* Ostromoukhov.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A4487A1AE4E01C0024F109 /* Ostromoukhov.mm */; };
+		B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A4487C1AE4E01C0024F109 /* QR_GuideOstromoukhov.mm */; };
+		B6A448951AE4E01C0024F109 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A4487E1AE4E01C0024F109 /* qrencode.c */; };
+		B6A448961AE4E01C0024F109 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448811AE4E01C0024F109 /* qrinput.c */; };
+		B6A448971AE4E01C0024F109 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448831AE4E01C0024F109 /* qrspec.c */; };
+		B6A448981AE4E01C0024F109 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448851AE4E01C0024F109 /* rscode.c */; };
+		B6A448991AE4E01C0024F109 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A448871AE4E01C0024F109 /* split.c */; };
+		B6A4489E1AE4E19B0024F109 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A4489D1AE4E19B0024F109 /* opencv2.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */; };
+		B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448DF1AE514E90024F109 /* CoreGraphics.framework */; };
+		B6A448E21AE514FD0024F109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448E11AE514FD0024F109 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +59,42 @@
 		B67F97641AE3A30E0085DBB3 /* vCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F97691AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F976A1AE3A30E0085DBB3 /* vCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vCodeTests.m; sourceTree = "<group>"; };
+		B6A4486A1AE4E01C0024F109 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
+		B6A4486B1AE4E01C0024F109 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
+		B6A4486C1AE4E01C0024F109 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		B6A4486D1AE4E01C0024F109 /* Dithering.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Dithering.mm; sourceTree = "<group>"; };
+		B6A4486E1AE4E01C0024F109 /* Dithering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dithering.h; sourceTree = "<group>"; };
+		B6A4486F1AE4E01C0024F109 /* Laplace_SAED.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Laplace_SAED.mm; sourceTree = "<group>"; };
+		B6A448701AE4E01C0024F109 /* Laplace_SAED.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Laplace_SAED.hpp; sourceTree = "<group>"; };
+		B6A448711AE4E01C0024F109 /* main_laplace.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main_laplace.mm; sourceTree = "<group>"; };
+		B6A448721AE4E01C0024F109 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
+		B6A448731AE4E01C0024F109 /* mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mask.h; sourceTree = "<group>"; };
+		B6A448741AE4E01C0024F109 /* masking_qr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = masking_qr.cpp; sourceTree = "<group>"; };
+		B6A448751AE4E01C0024F109 /* mmask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mmask.c; sourceTree = "<group>"; };
+		B6A448761AE4E01C0024F109 /* mmask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mmask.h; sourceTree = "<group>"; };
+		B6A448771AE4E01C0024F109 /* mqrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mqrspec.c; sourceTree = "<group>"; };
+		B6A448781AE4E01C0024F109 /* mqrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mqrspec.h; sourceTree = "<group>"; };
+		B6A448791AE4E01C0024F109 /* OstrHeader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OstrHeader.hpp; sourceTree = "<group>"; };
+		B6A4487A1AE4E01C0024F109 /* Ostromoukhov.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Ostromoukhov.mm; sourceTree = "<group>"; };
+		B6A4487B1AE4E01C0024F109 /* Ostromoukhov.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ostromoukhov.hpp; sourceTree = "<group>"; };
+		B6A4487C1AE4E01C0024F109 /* QR_GuideOstromoukhov.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QR_GuideOstromoukhov.mm; sourceTree = "<group>"; };
+		B6A4487D1AE4E01C0024F109 /* QR_GuideOstromoukhov.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QR_GuideOstromoukhov.hpp; sourceTree = "<group>"; };
+		B6A4487E1AE4E01C0024F109 /* qrencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrencode.c; sourceTree = "<group>"; };
+		B6A4487F1AE4E01C0024F109 /* qrencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode.h; sourceTree = "<group>"; };
+		B6A448801AE4E01C0024F109 /* qrencode_inner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode_inner.h; sourceTree = "<group>"; };
+		B6A448811AE4E01C0024F109 /* qrinput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrinput.c; sourceTree = "<group>"; };
+		B6A448821AE4E01C0024F109 /* qrinput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrinput.h; sourceTree = "<group>"; };
+		B6A448831AE4E01C0024F109 /* qrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrspec.c; sourceTree = "<group>"; };
+		B6A448841AE4E01C0024F109 /* qrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrspec.h; sourceTree = "<group>"; };
+		B6A448851AE4E01C0024F109 /* rscode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rscode.c; sourceTree = "<group>"; };
+		B6A448861AE4E01C0024F109 /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
+		B6A448871AE4E01C0024F109 /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
+		B6A448881AE4E01C0024F109 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
+		B6A4489D1AE4E19B0024F109 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = vCode/opencv2.framework; sourceTree = "<group>"; };
+		B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B6A448DF1AE514E90024F109 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B6A448E11AE514FD0024F109 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B6A448E31AE5158E0024F109 /* vCode.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vCode.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +102,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A448E21AE514FD0024F109 /* Foundation.framework in Frameworks */,
+				B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */,
+				B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */,
+				B6A4489E1AE4E19B0024F109 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +122,10 @@
 		B67F97421AE3A30D0085DBB3 = {
 			isa = PBXGroup;
 			children = (
+				B6A448E11AE514FD0024F109 /* Foundation.framework */,
+				B6A448DF1AE514E90024F109 /* CoreGraphics.framework */,
+				B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */,
+				B6A4489D1AE4E19B0024F109 /* opencv2.framework */,
 				B67F974D1AE3A30E0085DBB3 /* vCode */,
 				B67F97671AE3A30E0085DBB3 /* vCodeTests */,
 				B67F974C1AE3A30E0085DBB3 /* Products */,
@@ -81,6 +144,7 @@
 		B67F974D1AE3A30E0085DBB3 /* vCode */ = {
 			isa = PBXGroup;
 			children = (
+				B6A448691AE4E01C0024F109 /* HQR */,
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
 				B67F97531AE3A30E0085DBB3 /* AppDelegate.m */,
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
@@ -89,6 +153,7 @@
 				B67F975B1AE3A30E0085DBB3 /* Images.xcassets */,
 				B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */,
 				B67F974E1AE3A30E0085DBB3 /* Supporting Files */,
+				B6A448E31AE5158E0024F109 /* vCode.pch */,
 			);
 			path = vCode;
 			sourceTree = "<group>";
@@ -117,6 +182,60 @@
 				B67F97691AE3A30E0085DBB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6A448691AE4E01C0024F109 /* HQR */ = {
+			isa = PBXGroup;
+			children = (
+				B6A4489C1AE4E1010024F109 /* LSAED */,
+				B6A4489B1AE4E04E0024F109 /* qrencode */,
+				B6A4486C1AE4E01C0024F109 /* config.h */,
+				B6A4486D1AE4E01C0024F109 /* Dithering.mm */,
+				B6A4486E1AE4E01C0024F109 /* Dithering.h */,
+				B6A448711AE4E01C0024F109 /* main_laplace.mm */,
+			);
+			path = HQR;
+			sourceTree = "<group>";
+		};
+		B6A4489B1AE4E04E0024F109 /* qrencode */ = {
+			isa = PBXGroup;
+			children = (
+				B6A4487E1AE4E01C0024F109 /* qrencode.c */,
+				B6A4487F1AE4E01C0024F109 /* qrencode.h */,
+				B6A448801AE4E01C0024F109 /* qrencode_inner.h */,
+				B6A448811AE4E01C0024F109 /* qrinput.c */,
+				B6A448821AE4E01C0024F109 /* qrinput.h */,
+				B6A448831AE4E01C0024F109 /* qrspec.c */,
+				B6A448841AE4E01C0024F109 /* qrspec.h */,
+				B6A448851AE4E01C0024F109 /* rscode.c */,
+				B6A448861AE4E01C0024F109 /* rscode.h */,
+				B6A448871AE4E01C0024F109 /* split.c */,
+				B6A448881AE4E01C0024F109 /* split.h */,
+				B6A4486A1AE4E01C0024F109 /* bitstream.c */,
+				B6A4486B1AE4E01C0024F109 /* bitstream.h */,
+				B6A448721AE4E01C0024F109 /* mask.c */,
+				B6A448731AE4E01C0024F109 /* mask.h */,
+				B6A448741AE4E01C0024F109 /* masking_qr.cpp */,
+				B6A448751AE4E01C0024F109 /* mmask.c */,
+				B6A448761AE4E01C0024F109 /* mmask.h */,
+				B6A448771AE4E01C0024F109 /* mqrspec.c */,
+				B6A448781AE4E01C0024F109 /* mqrspec.h */,
+			);
+			name = qrencode;
+			sourceTree = "<group>";
+		};
+		B6A4489C1AE4E1010024F109 /* LSAED */ = {
+			isa = PBXGroup;
+			children = (
+				B6A4486F1AE4E01C0024F109 /* Laplace_SAED.mm */,
+				B6A448791AE4E01C0024F109 /* OstrHeader.hpp */,
+				B6A448701AE4E01C0024F109 /* Laplace_SAED.hpp */,
+				B6A4487A1AE4E01C0024F109 /* Ostromoukhov.mm */,
+				B6A4487B1AE4E01C0024F109 /* Ostromoukhov.hpp */,
+				B6A4487C1AE4E01C0024F109 /* QR_GuideOstromoukhov.mm */,
+				B6A4487D1AE4E01C0024F109 /* QR_GuideOstromoukhov.hpp */,
+			);
+			name = LSAED;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +338,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A4488C1AE4E01C0024F109 /* Dithering.mm in Sources */,
+				B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */,
+				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
+				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
+				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
+				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
+				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
 				B67F97571AE3A30E0085DBB3 /* ViewController.m in Sources */,
+				B6A448971AE4E01C0024F109 /* qrspec.c in Sources */,
+				B6A448901AE4E01C0024F109 /* masking_qr.cpp in Sources */,
+				B6A448931AE4E01C0024F109 /* Ostromoukhov.mm in Sources */,
+				B6A4488F1AE4E01C0024F109 /* mask.c in Sources */,
+				B6A448991AE4E01C0024F109 /* split.c in Sources */,
+				B6A448911AE4E01C0024F109 /* mmask.c in Sources */,
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
 				B67F97511AE3A30E0085DBB3 /* main.m in Sources */,
+				B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */,
+				B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +402,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -286,6 +420,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -310,7 +445,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -327,6 +462,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -345,6 +481,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ruitaocc/Desktop/2VMa,
+					"$(PROJECT_DIR)/vCode",
+				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = vCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +500,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ruitaocc/Desktop/2VMa,
+					"$(PROJECT_DIR)/vCode",
+				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = vCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +568,7 @@
 				B67F97701AE3A30E0085DBB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B67F97711AE3A30E0085DBB3 /* Build configuration list for PBXNativeTarget "vCodeTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +577,7 @@
 				B67F97731AE3A30E0085DBB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
