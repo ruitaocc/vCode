@@ -10,7 +10,27 @@
 #import "HQR.h"
 #import <opencv2/highgui/highgui_c.h>
 
-@interface HQR ()
+@interface HQR (){
+    int _qr_point;
+    int _h_qr_point;
+}
+
+@property(nonatomic,assign)int casesensitive;
+@property(nonatomic,assign)int eightbit;
+@property(nonatomic,assign)int size;
+//@property(nonatomic,assign)int qr_point;
+//@property(nonatomic,assign)int h_qr_point;
+@property(nonatomic,assign)int margin;
+@property(nonatomic,assign)int dpi;
+@property(nonatomic,assign)int structured;
+@property(nonatomic,assign)int micro;
+@property(nonatomic,assign)int padding;
+@property(nonatomic,assign)QRencodeMode hint;
+@property(nonatomic,assign)imageType image_type;
+-(QRcode*) encode:(const unsigned char *)intext length:(int)length maskImage:(int *)maskImg ;
+-(UIImage *)UIImageFromIplImage:(IplImage *)image;
+-(UIImage *)UIImageFromMat:(cv::Mat)aMat;
+-(IplImage *)CreateIplImageFromUIImage:(UIImage *)image;
 
 @end
 
@@ -80,7 +100,22 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     _qr_point = (_version-1)*4+21;
     _h_qr_point = _qr_point*_size;
 }
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str{
+-(bool)setThreshold_PaddingArea:(float)parea nodePaddingArea:(float)nparea GuideRatio:(float)guideRatio{
+    if(parea<0.0||parea>127.5){
+        return true;
+    }
+    if(nparea<0.0||nparea>127.5){
+        return true;
+    }
+    if(guideRatio<0.0||guideRatio>1.0){
+        return true;
+    }
+    GUIDE_RATIO = guideRatio;
+    MODIFY_THRESHOLD_PADDING_AREA = parea;
+    MODIFY_THRESHOLD_NONE_PADDING_AREA = nparea;
+    return true;
+};
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray{
     cout<<"start"<<endl;
     //string *inputfilepath = new string(inputfile);
     //string *outputfilepath = new string(outputfile);
@@ -119,7 +154,7 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     unsigned char *intext =(unsigned char *)[str cStringUsingEncoding:NSUTF8StringEncoding];
     
     int length = 0;
-    length = strlen((char *)intext);
+    length = (int)strlen((char *)intext);
 #if USE_PADDING_EREA
     qrcode = [self encode:intext length:length maskImage:paddingArea];
 #else

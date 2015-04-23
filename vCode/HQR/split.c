@@ -95,7 +95,7 @@ static int Split_eatNum(const char *string, QRinput *input,QRencodeMode hint)
 	while(isdigit(*p)) {
 		p++;
 	}
-	run = p - string;
+	run = (int)(p - string);
 	mode = Split_identifyMode(p, hint);
 	if(mode == QR_MODE_8) {
 		dif = QRinput_estimateBitsModeNum(run) + 4 + ln
@@ -138,10 +138,10 @@ static int Split_eatAn(const char *string, QRinput *input, QRencodeMode hint)
 			while(isdigit(*q)) {
 				q++;
 			}
-			dif = QRinput_estimateBitsModeAn(p - string) /* + 4 + la */
-				+ QRinput_estimateBitsModeNum(q - p) + 4 + ln
+			dif = QRinput_estimateBitsModeAn((int)(p - string)) /* + 4 + la */
+				+ QRinput_estimateBitsModeNum((int)(q - p)) + 4 + ln
 				+ (isalnum(*q)?(4 + ln):0)
-				- QRinput_estimateBitsModeAn(q - string) /* - 4 - la */;
+				- QRinput_estimateBitsModeAn((int)(q - string)) /* - 4 - la */;
 			if(dif < 0) {
 				break;
 			} else {
@@ -152,7 +152,7 @@ static int Split_eatAn(const char *string, QRinput *input, QRencodeMode hint)
 		}
 	}
 
-	run = p - string;
+	run = (int)(p - string);
 
 	if(*p && !isalnum(*p)) {
 		dif = QRinput_estimateBitsModeAn(run) + 4 + la
@@ -179,7 +179,7 @@ static int Split_eatKanji(const char *string, QRinput *input, QRencodeMode hint)
 	while(Split_identifyMode(p, hint) == QR_MODE_KANJI) {
 		p += 2;
 	}
-	run = p - string;
+	run = (int)(p - string);
 	ret = QRinput_append(input, QR_MODE_KANJI, run, (unsigned char *)string);
 	if(ret < 0) return -1;
 
@@ -216,10 +216,10 @@ static int Split_eat8(const char *string, QRinput *input, QRencodeMode hint)
 			} else {
 				swcost = 0;
 			}
-			dif = QRinput_estimateBitsMode8(p - string) /* + 4 + l8 */
-				+ QRinput_estimateBitsModeNum(q - p) + 4 + ln
+			dif = QRinput_estimateBitsMode8((int)(p - string)) /* + 4 + l8 */
+				+ QRinput_estimateBitsModeNum((int)(q - p)) + 4 + ln
 				+ swcost
-				- QRinput_estimateBitsMode8(q - string) /* - 4 - l8 */;
+				- QRinput_estimateBitsMode8((int)(q - string)) /* - 4 - l8 */;
 			if(dif < 0) {
 				break;
 			} else {
@@ -235,10 +235,10 @@ static int Split_eat8(const char *string, QRinput *input, QRencodeMode hint)
 			} else {
 				swcost = 0;
 			}
-			dif = QRinput_estimateBitsMode8(p - string) /* + 4 + l8 */
-				+ QRinput_estimateBitsModeAn(q - p) + 4 + la
+			dif = QRinput_estimateBitsMode8((int)(p - string)) /* + 4 + l8 */
+				+ QRinput_estimateBitsModeAn((int)(q - p)) + 4 + la
 				+ swcost
-				- QRinput_estimateBitsMode8(q - string) /* - 4 - l8 */;
+				- QRinput_estimateBitsMode8((int)(q - string)) /* - 4 - l8 */;
 			if(dif < 0) {
 				break;
 			} else {
@@ -249,7 +249,7 @@ static int Split_eat8(const char *string, QRinput *input, QRencodeMode hint)
 		}
 	}
 
-	run = p - string;
+	run = (int)(p - string);
 	ret = QRinput_append(input, QR_MODE_8, run, (unsigned char *)string);
 	if(ret < 0) return -1;
 

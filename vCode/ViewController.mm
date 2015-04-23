@@ -25,13 +25,17 @@
 }
 -(IBAction)doComput:(id)sender{
     UIImage *img = [_iamgeView image];
-    //HQR *hqr = [[HQR alloc] init];
+    
     HQR *hqr = [HQR getInstance];
+
+    //corection level 4level QR_ECLEVEL_L QR_ECLEVEL_M QR_ECLEVEL_Q QR_ECLEVEL_H
+    [hqr setLevel:QR_ECLEVEL_L];
     
-    [hqr setLevel:QR_ECLEVEL_L];//corection level
+    [hqr setVersion:5];//2-40
     
-    [hqr setSize:3];
-    UIImage *outimg = [hqr generateQRwithImg:img text:@"http://cairuitao.com"];
+    [hqr setThreshold_PaddingArea:50 nodePaddingArea:50 GuideRatio:1.0];
+    
+    UIImage *outimg = [hqr generateQRwithImg:img text:@"http://www.cairuitao.com" isGray: NO];
                                                      //"http://2vma.co/zxcASD"
     [_iamgeView setImage:outimg];
 };

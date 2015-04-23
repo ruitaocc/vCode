@@ -160,6 +160,21 @@ double round2(double d)
 	return floor(d + 0.5);
 }
 
+//
+//static double d(int i, int j) {
+//    double res;
+//    if (i > 127) i = 255 - i;
+//    res = table[i][j] / (table[i][0] + table[i][1] + table[i][2]);
+//    return res;
+//}
+
+
+static bool isQrPoint(int i, int j,int size){
+    int scale = size/3;
+    i = i/scale;
+    j = j/scale;
+    return ((i%3)==1)&&((j%3)==1);
+}
 IplImage *QR_Guide_OstromoukhovHalftone(IplImage *I,IplImage *Qr) {
 	vector<double> vd; vd.reserve(I->width * I->height);
 	for (int i = 0; i < I->width * I->height; i++) {
@@ -168,8 +183,8 @@ IplImage *QR_Guide_OstromoukhovHalftone(IplImage *I,IplImage *Qr) {
 	sort(vd.begin(), vd.end());
 	reverse(vd.begin(), vd.end());
 	double avgLum = cvAvg(I).val[0];//average lumination
-	int idx = round2(avgLum * I->width * I->height);
-	double thres = vd[idx];
+	//int idx = round2(avgLum * I->width * I->height);
+	//double thres = vd[idx];
 	//printf("%lf %lf\n", thres, avgLum);
 	IplImage *temp = cvCloneImage(I);
 	IplImage *Qrtemp = cvCloneImage(Qr);

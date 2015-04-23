@@ -202,9 +202,10 @@ static QRRawCode *QRraw_new(QRinput *input)
 {
 	QRRawCode *raw;
 	int spec[5], ret;
-	int i = 0,j = 0;
+    int i = 0;
+    //int j = 0;
 	unsigned char * cp;
-	unsigned char  c;
+	//unsigned char  c;
 	raw = (QRRawCode *)malloc(sizeof(QRRawCode));
 	if(raw == NULL) return NULL;
 
@@ -605,9 +606,10 @@ static QRcode *QRcode_encodeMask(QRinput *input, int mask,int *maskImage)
 	int *paddingArea;
 	QRRawCode *raw;
 	QRRawCode *raw_sec;//!!!
-	unsigned char *frame, *masked, *p, code, bit, *codePtr;
+	unsigned char *frame, *masked, *p, bit, *codePtr;
+    //unsigned char* code;
 	FrameFiller *filler;
-	FrameFiller *filler_sec;//!!!
+	//FrameFiller *filler_sec;//!!!
 	int i, j;
 	QRcode *qrcode = NULL;
 
@@ -654,7 +656,7 @@ static QRcode *QRcode_encodeMask(QRinput *input, int mask,int *maskImage)
 		for(j=0; j<8; j++) {
 			p = FrameFiller_next(filler);
 			if(p == NULL)  goto EXIT;
-			f_index = p - frame;
+			f_index = (int)(p - frame);
 			f_row = f_index/width;
 			f_cul = f_index%width;
 			//if(f_row>13&&f_row<24&&f_cul>13&&f_cul<24){
@@ -930,7 +932,7 @@ QRcode *QRcode_encodeString8bitMQR(const char *string, int version, QRecLevel le
 		errno = EINVAL;
 		return NULL;
 	}
-	return QRcode_encodeDataReal((unsigned char *)string, strlen(string), version, level, 1,NULL);
+	return QRcode_encodeDataReal((unsigned char *)string, (int)strlen(string), version, level, 1,NULL);
 }
 
 
@@ -1097,7 +1099,7 @@ QRcode_List *QRcode_encodeStringStructured(const char *string, int version, QRec
 		errno = EINVAL;
 		return NULL;
 	}
-	return QRcode_encodeDataStructuredReal(strlen(string), (unsigned char *)string, version, level, 0, hint, casesensitive);
+	return QRcode_encodeDataStructuredReal((int)strlen(string), (unsigned char *)string, version, level, 0, hint, casesensitive);
 }
 
 /******************************************************************************

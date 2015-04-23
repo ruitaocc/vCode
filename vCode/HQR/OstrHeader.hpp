@@ -145,32 +145,3 @@ static double table[128][3] = {
 	{4, 1, 1}
 };
 
-static double d(int i, int j) {
-	double res;
-	if (i > 127) i = 255 - i;
-	res = table[i][j] / (table[i][0] + table[i][1] + table[i][2]);
-	return res;
-}
-
-static double d10(int i) {
-	return d(i,0);
-}
-
-static double d_11(int i) {
-	return d(i,1);
-}
-
-static double d01(int i) {
-	return d(i,2);
-}
-
-static double mround(double d)
-{
-	return floor(d + 0.5);
-}
-static bool isQrPoint(int i, int j,int size){
-    int scale = size/3;
-    i = i/scale;
-    j = j/scale;
-	return ((i%3)==1)&&((j%3)==1);
-}

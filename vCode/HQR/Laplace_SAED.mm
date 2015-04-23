@@ -6,12 +6,44 @@
 #include <math.h>
 #include <random>
 using namespace std;
-#define QR_GUIDE 1
-#define CONSIDER_EDGE 1
-#define GUIDE_RATIO 1
-int MODIFY_THRESHOLD_PADDING_AREA = 50;
-int MODIFY_THRESHOLD_NONE_PADDING_AREA =50;  //127.5-50   127.5+50
+#define QR_GUIDE 1 //use qr code guide halftoning
+#define CONSIDER_EDGE 1 //edge sharpen
 
+//#define GUIDE_RATIO 1 // [0,1]
+float GUIDE_RATIO  = 1.0;                      //[0,1]
+float MODIFY_THRESHOLD_PADDING_AREA = 50;      //127.5-50   127.5+50
+float MODIFY_THRESHOLD_NONE_PADDING_AREA =50;  //127.5-50   127.5+50
+
+
+static double d(int i, int j) {
+    double res;
+    if (i > 127) i = 255 - i;
+    res = table[i][j] / (table[i][0] + table[i][1] + table[i][2]);
+    return res;
+}
+
+static double d10(int i) {
+    return d(i,0);
+}
+
+static double d_11(int i) {
+    return d(i,1);
+}
+
+static double d01(int i) {
+    return d(i,2);
+}
+
+static double mround(double d)
+{
+    return floor(d + 0.5);
+}
+static bool isQrPoint(int i, int j,int size){
+    int scale = size/3;
+    i = i/scale;
+    j = j/scale;
+    return ((i%3)==1)&&((j%3)==1);
+}
 void hcvSet2D(IplImage *img,int i,int j, Scalar s,int size){
     size = 1;
     for(int k = 0; k<size;k++){
@@ -26,7 +58,7 @@ IplImage *Laplace_SAED_Halftone(IplImage *I) {
 	
 	IplImage *Laplace_o = cvCloneImage(I);
 	IplImage *Laplace = cvCloneImage(I);
-	IplImage *Laplace_Sobel = cvCloneImage(I);
+	//IplImage *Laplace_Sobel = cvCloneImage(I);
 	//edge detection
 	cvLaplace(I,Laplace_o,3);
 	cvScale(Laplace_o,Laplace,1,Laplace_clipping);

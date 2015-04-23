@@ -3,13 +3,12 @@
 //  vCode
 //
 //  Created by ruitaocc on 15/4/20.
-//  Copyright (c) 2015年 ruitaocc. All rights reserved.
+//  Copyright (c) 2015年 ruitaocc. All rights reserved. contract email@cairuitao.com
 //
 
 #ifndef vCode_HQR_h
 #define vCode_HQR_h
 #define HAVE_CONFIG_H  1
-//#include <python2.7/Python.h>
 #include "qrencode.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +19,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
-//#include <random>
 #include <functional>
 #include <string>
 #include <vector>
@@ -30,8 +28,9 @@
 #include "Dithering.h"
 using namespace std;
 
-extern int MODIFY_THRESHOLD_PADDING_AREA ;
-extern int MODIFY_THRESHOLD_NONE_PADDING_AREA ;  //127.5-50   127.5+50
+extern float GUIDE_RATIO ;                      //[0,1]
+extern float MODIFY_THRESHOLD_PADDING_AREA ;
+extern float MODIFY_THRESHOLD_NONE_PADDING_AREA ;  //127.5-50   127.5+50
 
 
 #define OTHER_INFO 1
@@ -52,33 +51,36 @@ typedef enum _imageType {
     ANSIUTF8_TYPE
 }imageType;
 
-@interface HQR : NSObject {
-    int _qr_point;
-    int _h_qr_point;
-}
+@interface HQR : NSObject
+//singletone instance
 +(HQR*)getInstance;
 
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str;
+/*
+   @img: target image
+   @str: target short url
+   @isgray:Default NO;
+ */
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray;
 
--(QRcode*) encode:(const unsigned char *)intext length:(int)length maskImage:(int *)maskImg ;
+/*
+  @parea:threshold range [0.0, 127.5]
+  @nparea:threshold range [0.0, 127.5]
+  @guideRatio: range[0.0,1.0]
+  threshold lower than 50 should give a warning. is hard for scan
+*/
+-(bool)setThreshold_PaddingArea:(float)parea nodePaddingArea:(float)nparea GuideRatio:(float)guideRatio;
 
--(UIImage *)UIImageFromIplImage:(IplImage *)image;
--(UIImage *)UIImageFromMat:(cv::Mat)aMat;
--(IplImage *)CreateIplImageFromUIImage:(UIImage *)image;
-@property(nonatomic,assign)int version;//qr code version
+
+@property(nonatomic,assign)int version;//qr code version ,range [2,40]
+
+/*
+    QR_ECLEVEL_L = 0,
+	QR_ECLEVEL_M,
+	QR_ECLEVEL_Q,
+	QR_ECLEVEL_H
+ */
 @property(nonatomic,assign)QRecLevel level;//error correction level
-@property(nonatomic,assign)int casesensitive;
-@property(nonatomic,assign)int eightbit;
-@property(nonatomic,assign)int size;
-//@property(nonatomic,assign)int qr_point;
-//@property(nonatomic,assign)int h_qr_point;
-@property(nonatomic,assign)int margin;
-@property(nonatomic,assign)int dpi;
-@property(nonatomic,assign)int structured;
-@property(nonatomic,assign)int micro;
-@property(nonatomic,assign)int padding;
-@property(nonatomic,assign)QRencodeMode hint;
-@property(nonatomic,assign)imageType image_type;
+
 
 
 @end
