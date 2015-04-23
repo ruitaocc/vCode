@@ -168,6 +168,9 @@ static double mround(double d)
 {
 	return floor(d + 0.5);
 }
-static bool isQrPoint(int i, int j){
+static bool isQrPoint(int i, int j,int size){
+    int scale = size/3;
+    i = i/scale;
+    j = j/scale;
 	return ((i%3)==1)&&((j%3)==1);
 }

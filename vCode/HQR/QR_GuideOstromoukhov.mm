@@ -177,7 +177,7 @@ IplImage *QR_Guide_OstromoukhovHalftone(IplImage *I,IplImage *Qr) {
 	cvZero(res);
 	for (int i = 0; i < I->height; i++) {
 		for (int j = 0; j < I->width; j++) {
-			bool isQr_Point = isQrPoint(i,j);
+			bool isQr_Point = isQrPoint(i,j,3);
 			double error = 0.;
 			double val = cvGet2D(temp,i,j).val[0];
 			//val = clamp(val, 0., 1.);

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
 		B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97531AE3A30E0085DBB3 /* AppDelegate.m */; };
-		B67F97571AE3A30E0085DBB3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.m */; };
+		B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.mm */; };
 		B67F975A1AE3A30E0085DBB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67F97581AE3A30E0085DBB3 /* Main.storyboard */; };
 		B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67F975B1AE3A30E0085DBB3 /* Images.xcassets */; };
 		B67F975F1AE3A30E0085DBB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */; };
@@ -33,6 +33,11 @@
 		B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */; };
 		B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448DF1AE514E90024F109 /* CoreGraphics.framework */; };
 		B6A448E21AE514FD0024F109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448E11AE514FD0024F109 /* Foundation.framework */; };
+		B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A448EC1AE526DD0024F109 /* HQR.mm */; };
+		B6A448F11AE527B20024F109 /* UIImage+opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A448F01AE527B20024F109 /* UIImage+opencv.mm */; };
+		B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448F21AE5282E0024F109 /* CoreImage.framework */; };
+		B6A448F51AE76BC80024F109 /* 128.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F41AE76BC80024F109 /* 128.jpg */; };
+		B6A448F71AE7EC310024F109 /* lena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F61AE7EC310024F109 /* lena.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +57,7 @@
 		B67F97521AE3A30E0085DBB3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B67F97531AE3A30E0085DBB3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B67F97551AE3A30E0085DBB3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B67F97561AE3A30E0085DBB3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B67F97561AE3A30E0085DBB3 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		B67F97591AE3A30E0085DBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B67F975B1AE3A30E0085DBB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B67F975E1AE3A30E0085DBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -95,6 +100,13 @@
 		B6A448DF1AE514E90024F109 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B6A448E11AE514FD0024F109 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B6A448E31AE5158E0024F109 /* vCode.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vCode.pch; sourceTree = "<group>"; };
+		B6A448EC1AE526DD0024F109 /* HQR.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HQR.mm; sourceTree = "<group>"; };
+		B6A448EE1AE526F20024F109 /* HQR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQR.h; sourceTree = "<group>"; };
+		B6A448EF1AE527B20024F109 /* UIImage+opencv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+opencv.h"; sourceTree = "<group>"; };
+		B6A448F01AE527B20024F109 /* UIImage+opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+opencv.mm"; sourceTree = "<group>"; };
+		B6A448F21AE5282E0024F109 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		B6A448F41AE76BC80024F109 /* 128.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 128.jpg; sourceTree = "<group>"; };
+		B6A448F61AE7EC310024F109 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = HQR/lena.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */,
 				B6A448E21AE514FD0024F109 /* Foundation.framework in Frameworks */,
 				B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */,
 				B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */,
@@ -122,6 +135,7 @@
 		B67F97421AE3A30D0085DBB3 = {
 			isa = PBXGroup;
 			children = (
+				B6A448F21AE5282E0024F109 /* CoreImage.framework */,
 				B6A448E11AE514FD0024F109 /* Foundation.framework */,
 				B6A448DF1AE514E90024F109 /* CoreGraphics.framework */,
 				B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */,
@@ -148,7 +162,7 @@
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
 				B67F97531AE3A30E0085DBB3 /* AppDelegate.m */,
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
-				B67F97561AE3A30E0085DBB3 /* ViewController.m */,
+				B67F97561AE3A30E0085DBB3 /* ViewController.mm */,
 				B67F97581AE3A30E0085DBB3 /* Main.storyboard */,
 				B67F975B1AE3A30E0085DBB3 /* Images.xcassets */,
 				B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */,
@@ -161,6 +175,8 @@
 		B67F974E1AE3A30E0085DBB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6A448F61AE7EC310024F109 /* lena.jpg */,
+				B6A448F41AE76BC80024F109 /* 128.jpg */,
 				B67F974F1AE3A30E0085DBB3 /* Info.plist */,
 				B67F97501AE3A30E0085DBB3 /* main.m */,
 			);
@@ -190,9 +206,11 @@
 				B6A4489C1AE4E1010024F109 /* LSAED */,
 				B6A4489B1AE4E04E0024F109 /* qrencode */,
 				B6A4486C1AE4E01C0024F109 /* config.h */,
-				B6A4486D1AE4E01C0024F109 /* Dithering.mm */,
-				B6A4486E1AE4E01C0024F109 /* Dithering.h */,
 				B6A448711AE4E01C0024F109 /* main_laplace.mm */,
+				B6A448EC1AE526DD0024F109 /* HQR.mm */,
+				B6A448EE1AE526F20024F109 /* HQR.h */,
+				B6A448EF1AE527B20024F109 /* UIImage+opencv.h */,
+				B6A448F01AE527B20024F109 /* UIImage+opencv.mm */,
 			);
 			path = HQR;
 			sourceTree = "<group>";
@@ -227,6 +245,8 @@
 		B6A4489C1AE4E1010024F109 /* LSAED */ = {
 			isa = PBXGroup;
 			children = (
+				B6A4486D1AE4E01C0024F109 /* Dithering.mm */,
+				B6A4486E1AE4E01C0024F109 /* Dithering.h */,
 				B6A4486F1AE4E01C0024F109 /* Laplace_SAED.mm */,
 				B6A448791AE4E01C0024F109 /* OstrHeader.hpp */,
 				B6A448701AE4E01C0024F109 /* Laplace_SAED.hpp */,
@@ -319,6 +339,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B67F975A1AE3A30E0085DBB3 /* Main.storyboard in Resources */,
+				B6A448F71AE7EC310024F109 /* lena.jpg in Resources */,
+				B6A448F51AE76BC80024F109 /* 128.jpg in Resources */,
 				B67F975F1AE3A30E0085DBB3 /* LaunchScreen.xib in Resources */,
 				B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */,
 			);
@@ -345,8 +367,9 @@
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
-				B67F97571AE3A30E0085DBB3 /* ViewController.m in Sources */,
+				B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */,
 				B6A448971AE4E01C0024F109 /* qrspec.c in Sources */,
+				B6A448F11AE527B20024F109 /* UIImage+opencv.mm in Sources */,
 				B6A448901AE4E01C0024F109 /* masking_qr.cpp in Sources */,
 				B6A448931AE4E01C0024F109 /* Ostromoukhov.mm in Sources */,
 				B6A4488F1AE4E01C0024F109 /* mask.c in Sources */,
@@ -355,6 +378,7 @@
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
 				B67F97511AE3A30E0085DBB3 /* main.m in Sources */,
 				B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */,
+				B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */,
 				B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,8 +425,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -419,6 +443,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -444,8 +469,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -462,6 +487,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -481,15 +507,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ruitaocc/Desktop/2VMa,
 					"$(PROJECT_DIR)/vCode",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
-				GCC_PREFIX_HEADER = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/vCode/vCode.pch";
 				INFOPLIST_FILE = vCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,15 +527,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ruitaocc/Desktop/2VMa,
 					"$(PROJECT_DIR)/vCode",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
-				GCC_PREFIX_HEADER = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/vCode/vCode.pch";
 				INFOPLIST_FILE = vCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

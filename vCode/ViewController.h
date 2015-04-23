@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @interface ViewController : UIViewController
 
-
+@property IBOutlet UIImageView *iamgeView;
+-(IBAction)doComput:(id)sender;
 @end
 

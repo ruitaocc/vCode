@@ -9,7 +9,17 @@ using namespace std;
 #define QR_GUIDE 1
 #define CONSIDER_EDGE 1
 #define GUIDE_RATIO 1
+int MODIFY_THRESHOLD_PADDING_AREA = 50;
+int MODIFY_THRESHOLD_NONE_PADDING_AREA =50;  //127.5-50   127.5+50
 
+void hcvSet2D(IplImage *img,int i,int j, Scalar s,int size){
+    size = 1;
+    for(int k = 0; k<size;k++){
+        for(int h = 0; h<size;h++){
+            cvSet2D(img, i*size+k, j*size+h, s);
+        }
+    }
+};
 
 
 IplImage *Laplace_SAED_Halftone(IplImage *I) {
@@ -301,7 +311,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_gray(IplImage *I,IplImage *Qr){
 		for (int j = 1; j < I->width - 1; j++) {
 #endif
 #if QR_GUIDE
-			bool isQr_Point = isQrPoint(i,j);
+			bool isQr_Point = isQrPoint(i,j,3);
 #endif
 			Threshold = cvGet2D(ThresholdMatrix,i,j).val[0];
 			double error = 0;
@@ -545,7 +555,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color(IplImage *I_color,IplImage *I_gra
 		for (int j = 1; j < I_gray->width - 1; j++) {
 #endif
 #if QR_GUIDE
-			bool isQr_Point = isQrPoint(i,j);
+			bool isQr_Point = isQrPoint(i,j,3);
 #endif
 #if LAPLACE_THREHOLD_MODULATION
 			Threshold = cvGet2D(ThresholdMatrix,i,j).val[0];
@@ -820,8 +830,8 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color(IplImage *I_color,IplImage *I_gra
 	return res;
 };
 
-IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,IplImage *I_gray,IplImage *Qr,int * paddingArea){
-	int width = Qr->width/3;
+IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,IplImage *I_gray,IplImage *Qr,int * paddingArea,int size){
+	int width = Qr->width/size;
 	IplImage *Laplace_o = cvCloneImage(I_gray);
 	IplImage *Laplace = cvCloneImage(I_gray);
 	IplImage *Laplace_Sobel = cvCloneImage(I_gray);
@@ -945,7 +955,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 		for (int j = 0; j < I_color->width; j++) {
 
 
-			bool isQr_Point = isQrPoint(i,j);
+			bool isQr_Point = isQrPoint(i,j,size);
 
 
 			Threshold = cvGet2D(ThresholdMatrix,i,j).val[0];
@@ -962,7 +972,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 			bool modified = 0;
 			if(isQr_Point){
 				double val_qr = cvGet2D(Qrtemp,i,j).val[0];
-				if(!paddingArea[(i/3)*width + (j/3)]){
+				if(!paddingArea[(i/size)*width + (j/size)]){
 					if(val_qr>0.01){
 						gray_val = clamp(gray_val,127.5+MODIFY_THRESHOLD_NONE_PADDING_AREA,255.0);
 							
@@ -1031,7 +1041,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d10(r_level);
 				next_g_val+=g_error *d10(g_level);
 				next_b_val+=b_error *d10(b_level);
-				cvSet2D(temp,i,j+1,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i,j+1,cvScalar(next_b_val,next_g_val,next_r_val),size);
 				
 				next_r_val = cvGet2D(temp,i+1,j).val[2];
 				next_g_val = cvGet2D(temp,i+1,j).val[1];
@@ -1039,7 +1049,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d01(r_level);
 				next_g_val+=g_error *d01(g_level);
 				next_b_val+=b_error *d01(b_level);
-				cvSet2D(temp,i+1,j,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i+1,j,cvScalar(next_b_val,next_g_val,next_r_val),size);
 
 			}else if((i!=(I_gray->height-1))&&(j!=(I_gray->width-1))){
 				
@@ -1049,7 +1059,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d10(r_level);
 				next_g_val+=g_error *d10(g_level);
 				next_b_val+=b_error *d10(b_level);
-				cvSet2D(temp,i,j+1,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i,j+1,cvScalar(next_b_val,next_g_val,next_r_val),size);
 				
 				next_r_val = cvGet2D(temp,i+1,j-1).val[2];
 				next_g_val = cvGet2D(temp,i+1,j-1).val[1];
@@ -1057,7 +1067,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d_11(r_level);
 				next_g_val+=g_error *d_11(g_level);
 				next_b_val+=b_error *d_11(b_level);
-				cvSet2D(temp,i+1,j-1,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i+1,j-1,cvScalar(next_b_val,next_g_val,next_r_val),size);
 				
 				next_r_val = cvGet2D(temp,i+1,j).val[2];
 				next_g_val = cvGet2D(temp,i+1,j).val[1];
@@ -1065,7 +1075,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d01(r_level);
 				next_g_val+=g_error *d01(g_level);
 				next_b_val+=b_error *d01(b_level);
-				cvSet2D(temp,i+1,j,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i+1,j,cvScalar(next_b_val,next_g_val,next_r_val),size);
 				
 			}else if((i==(I_gray->height-1))&&(j==(I_gray->width-1))){
 				continue;
@@ -1077,7 +1087,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d10(r_level);
 				next_g_val+=g_error *d10(g_level);
 				next_b_val+=b_error *d10(b_level);
-				cvSet2D(temp,i,j+1,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i,j+1,cvScalar(next_b_val,next_g_val,next_r_val),size);
 				
 			}else if(j==(I_gray->width-1)){
 				next_r_val = cvGet2D(temp,i+1,j-1).val[2];
@@ -1086,7 +1096,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d_11(r_level);
 				next_g_val+=g_error *d_11(g_level);
 				next_b_val+=b_error *d_11(b_level);
-				cvSet2D(temp,i+1,j-1,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i+1,j-1,cvScalar(next_b_val,next_g_val,next_r_val),size);
 				
 				next_r_val = cvGet2D(temp,i+1,j).val[2];
 				next_g_val = cvGet2D(temp,i+1,j).val[1];
@@ -1094,7 +1104,7 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				next_r_val+=r_error *d01(r_level);
 				next_g_val+=g_error *d01(g_level);
 				next_b_val+=b_error *d01(b_level);
-				cvSet2D(temp,i+1,j,cvScalar(next_b_val,next_g_val,next_r_val));
+				hcvSet2D(temp,i+1,j,cvScalar(next_b_val,next_g_val,next_r_val),size);
 			}	
 		}
 	}
