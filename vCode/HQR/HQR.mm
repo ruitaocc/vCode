@@ -207,13 +207,15 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     cvResize(Iqr_color, img_color_3, CV_INTER_NN);
     
     IplImage *img_color_3_margin = cvCreateImage(cvSize(Iqr_color->width * 3 + 24, Iqr_color->height * 3 + 24), Iqr_color->depth, Iqr_color->nChannels);
+    IplImage i;
+    //cv::Mat m(i.imageData);
     //cv::Mat img_color_mat(Iqr_color);66
-    cv::Mat img_color_mat(Iqr_color->width,Iqr_color->height,CV_8UC3,Iqr_color->imageData);
+    cv::Mat img_color_mat(Iqr_color->width,Iqr_color->height,CV_8UC3,Iqr_color->imageData,Iqr_color->widthStep);
     //cv::Mat img_color_3_mat(img_color_3);
-    cv::Mat img_color_3_mat(img_color_3->width,img_color_3->height,CV_8UC3,img_color_3->imageData);
+    cv::Mat img_color_3_mat(img_color_3->width,img_color_3->height,CV_8UC3,img_color_3->imageData,img_color_3->widthStep);
     
     //cv::Mat img_color_3_margin_mat(img_color_3_margin);
-    cv::Mat img_color_3_margin_mat(img_color_3_margin->width,img_color_3_margin->height,CV_8UC3,img_color_3_margin->imageData);
+    cv::Mat img_color_3_margin_mat(img_color_3_margin->width,img_color_3_margin->height,CV_8UC3,img_color_3_margin->imageData,img_color_3_margin->widthStep);
     img_color_3_margin_mat.setTo(255);
     cv::Mat imageROI_color;
     imageROI_color = img_color_3_margin_mat(cv::Rect(12, 12, img_color_mat.cols * 3, img_color_mat.rows*3));
@@ -229,7 +231,8 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     cout<<"finish"<<endl;
    // delete [] maskImage; maskImage = NULL;
     //delete [] bits; bits = NULL;
-    return [self UIImageFromIplImage:img_color_3];
+    //return [self UIImageFromMat:img_color_mat];
+    return [self UIImageFromIplImage:img_color_3_margin];
     
 
     // return [self UIImageFromMat:img_color_3_margin_mat];
