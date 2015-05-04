@@ -11,5 +11,6 @@
 
 @property IBOutlet UIImageView *iamgeView;
 -(IBAction)doComput:(id)sender;
+-(IBAction)chooseimg:(id)sender;
 @end
 

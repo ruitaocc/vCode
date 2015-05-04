@@ -39,4 +39,9 @@
                                                      //"http://2vma.co/zxcASD"
     [_iamgeView setImage:outimg];
 };
+
+-(IBAction)chooseimg:(id)sender{
+    printf("choose\n");
+}
+
 @end
