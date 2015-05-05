@@ -1007,27 +1007,38 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 				if(!paddingArea[(i/size)*width + (j/size)]){
 					if(val_qr>0.01){
 						gray_val = clamp(gray_val,127.5+MODIFY_THRESHOLD_NONE_PADDING_AREA,255.0);
-							
-						double ratio = gray_val/gray_val_pre;
-						b_error = b_val- b_val*ratio; b_val = b_val*ratio;
-						g_error = g_val- g_val*ratio;g_val = g_val*ratio;
-						r_error = r_val- r_val*ratio;r_val = r_val*ratio;
-						r_error*=GUIDE_RATIO;
-						g_error*=GUIDE_RATIO;
-						b_error*=GUIDE_RATIO;
-						cvSet2D(res, i, j, cvScalar(b_val,g_val,r_val));
-						
+                        if((gray_val_pre-0.0)<0.0001){
+                            b_error = 0;
+                            g_error = 0;
+                            r_error = 0;
+                            cvSet2D(res, i, j, cvScalar(gray_val,gray_val,gray_val));
+                        }else{
+                            double ratio = gray_val/gray_val_pre;
+                            b_error = b_val- b_val*ratio; b_val = b_val*ratio;
+                            g_error = g_val- g_val*ratio;g_val = g_val*ratio;
+                            r_error = r_val- r_val*ratio;r_val = r_val*ratio;
+                            r_error*=GUIDE_RATIO;
+                            g_error*=GUIDE_RATIO;
+                            b_error*=GUIDE_RATIO;
+                            cvSet2D(res, i, j, cvScalar(b_val,g_val,r_val));
+                        }
 					}else{
 						gray_val = clamp(gray_val,0.0,127.5-MODIFY_THRESHOLD_NONE_PADDING_AREA);
-						double ratio = gray_val/gray_val_pre;
-						b_error = b_val- b_val*ratio; b_val = b_val*ratio;
-						g_error = g_val- g_val*ratio;g_val = g_val*ratio;
-						r_error = r_val- r_val*ratio;r_val = r_val*ratio;
-						r_error*=GUIDE_RATIO;
-						g_error*=GUIDE_RATIO;
-						b_error*=GUIDE_RATIO;
-						cvSet2D(res, i, j, cvScalar(b_val,g_val,r_val));
-						
+                        if((gray_val_pre-0.0)<0.0001){
+                            b_error = 0;
+                            g_error = 0;
+                            r_error = 0;
+                            cvSet2D(res, i, j, cvScalar(gray_val,gray_val,gray_val));
+                        }else{
+                            double ratio = gray_val/gray_val_pre;
+                            b_error = b_val- b_val*ratio; b_val = b_val*ratio;
+                            g_error = g_val- g_val*ratio;g_val = g_val*ratio;
+                            r_error = r_val- r_val*ratio;r_val = r_val*ratio;
+                            r_error*=GUIDE_RATIO;
+                            g_error*=GUIDE_RATIO;
+                            b_error*=GUIDE_RATIO;
+                            cvSet2D(res, i, j, cvScalar(b_val,g_val,r_val));
+                        }
 					}
 				}else{
 						modified = isModified(gray_val,127.5-MODIFY_THRESHOLD_PADDING_AREA,127.5+MODIFY_THRESHOLD_PADDING_AREA);
@@ -1038,14 +1049,22 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
 							b_error = 0;
 						}
 						else{
-							double ratio = gray_val/gray_val_pre;
-							b_error = b_val- b_val*ratio; b_val = b_val*ratio;
-							g_error = g_val- g_val*ratio;g_val = g_val*ratio;
-							r_error = r_val- r_val*ratio;r_val = r_val*ratio;
-							r_error*=GUIDE_RATIO;
-							g_error*=GUIDE_RATIO;
-							b_error*=GUIDE_RATIO;
-							cvSet2D(res, i, j, cvScalar(b_val,g_val,r_val));
+                            if ((gray_val_pre - 0.0)< 0.0001){
+                                b_error = 0;
+                                g_error = 0;
+                                r_error = 0;
+                                cvSet2D(res, i, j, cvScalar(gray_val, gray_val, gray_val));
+                            }
+                            else{
+                                double ratio = gray_val/gray_val_pre;
+                                b_error = b_val- b_val*ratio; b_val = b_val*ratio;
+                                g_error = g_val- g_val*ratio;g_val = g_val*ratio;
+                                r_error = r_val- r_val*ratio;r_val = r_val*ratio;
+                                r_error*=GUIDE_RATIO;
+                                g_error*=GUIDE_RATIO;
+                                b_error*=GUIDE_RATIO;
+                                cvSet2D(res, i, j, cvScalar(b_val,g_val,r_val));
+                            }
 						}
 				}
 			}else{
