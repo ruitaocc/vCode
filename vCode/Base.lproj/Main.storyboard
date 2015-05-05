@@ -22,35 +22,84 @@
                                     <rect key="frame" x="13" y="88" width="350" height="350"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alm-ub-qlK">
-                                <rect key="frame" x="270" y="528" width="61" height="30"/>
-                                <state key="normal" title="compute">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="154" y="523" width="69" height="57"/>
-                                </variation>
-                                <connections>
-                                    <action selector="doComput:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MJC-iA-lov"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVS-jq-ut3">
                                 <rect key="frame" x="277" y="490" width="51" height="30"/>
                                 <state key="normal" title="choose">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="138" y="592" width="51" height="30"/>
+                                </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="163" y="472" width="51" height="30"/>
+                                    <rect key="frame" x="38" y="510" width="51" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="chooseimg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KWN-Gk-Zs0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alm-ub-qlK">
+                                <rect key="frame" x="270" y="528" width="61" height="30"/>
+                                <state key="normal" title="compute">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="275" y="592" width="61" height="30"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="166" y="496" width="69" height="57"/>
+                                </variation>
+                                <connections>
+                                    <action selector="doComput:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MJC-iA-lov"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMR-Y6-jyV">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="406" y="592" width="32" height="30"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="306" y="510" width="32" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="saveImg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uqx-lY-sQT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWx-9h-5Of">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="306" y="510" width="32" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="saveImg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vNd-bH-cSW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ZMR-Y6-jyV"/>
+                                <exclude reference="ZWx-9h-5Of"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="ZMR-Y6-jyV"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ZWx-9h-5Of"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="iamgeView" destination="7yR-HI-8xQ" id="xjy-OF-Abc"/>
+                        <outlet property="imageView" destination="7yR-HI-8xQ" id="3Eh-lx-d3s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

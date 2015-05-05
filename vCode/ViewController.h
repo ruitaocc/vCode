@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface ViewController : UIViewController
-
-@property IBOutlet UIImageView *iamgeView;
+@interface ViewController:UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property IBOutlet UIImageView *imageView;
 -(IBAction)doComput:(id)sender;
 -(IBAction)chooseimg:(id)sender;
+-(IBAction)saveImg:(id)sender;
 @end
 

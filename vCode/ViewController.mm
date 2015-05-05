@@ -24,7 +24,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(IBAction)doComput:(id)sender{
-    UIImage *img = [_iamgeView image];
+    UIImage *img = [_imageView image];
     
     HQR *hqr = [HQR getInstance];
 
@@ -35,13 +35,42 @@
     
     [hqr setThreshold_PaddingArea:50 nodePaddingArea:50 GuideRatio:1.0];
     
-    UIImage *outimg = [hqr generateQRwithImg:img text:@"http://www.cairuitao.com" isGray: NO];
+    UIImage *outimg = [hqr generateQRwithImg:img text:@"helloworld!" isGray: NO];
                                                      //"http://2vma.co/zxcASD"
-    [_iamgeView setImage:outimg];
+    [_imageView setImage:outimg];
 };
 
 -(IBAction)chooseimg:(id)sender{
     printf("choose\n");
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
+    [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+
+    [picker setDelegate:self];
+    [self presentViewController:picker animated:YES completion:nil];
+    
 }
 
+
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    void (^com)(void);
+    com = ^(void)
+    {
+        NSLog(@"wtf");
+    };
+    
+    
+    UIImage* finalimg = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.imageView setImage:finalimg];
+    [self dismissViewControllerAnimated:YES completion:com];
+    
+}
+
+
+-(IBAction)saveImg:(id)sender{
+    UIImageWriteToSavedPhotosAlbum([_imageView image], nil, nil, nil);
+    NSLog(@"saved complete!");
+}
 @end
