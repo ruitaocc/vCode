@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface ViewController:UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import <CommonCrypto/CommonDigest.h>
+@interface ViewController:UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,NSURLConnectionDataDelegate>{
+    NSMutableData *_responseData;
+}
 @property IBOutlet UIImageView *imageView;
 -(IBAction)doComput:(id)sender;
 -(IBAction)chooseimg:(id)sender;
