@@ -23,23 +23,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)doComput:(id)sender{
-    [self sendRequest];
-    UIImage *img = [_imageView image];
-    
-    HQR *hqr = [HQR getInstance];
 
-    //corection level 4level QR_ECLEVEL_L QR_ECLEVEL_M QR_ECLEVEL_Q QR_ECLEVEL_H
-    [hqr setLevel:QR_ECLEVEL_L];
-    
-    [hqr setVersion:5];//2-40
-    
-    [hqr setThreshold_PaddingArea:50 nodePaddingArea:50 GuideRatio:1.0];
-    
-    UIImage *outimg = [hqr generateQRwithImg:img text:@"helloworld!" isGray: NO];
-                                                     //"http://2vma.co/zxcASD"
-    [_imageView setImage:outimg];
-};
 
 -(IBAction)chooseimg:(id)sender{
     printf("choose\n");
@@ -52,7 +36,10 @@
     
 }
 
-
+-(IBAction)doComput:(id)sender{
+    [self sendRequest:@"http://www.baidu.com"];
+    
+};
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -89,23 +76,25 @@
             ]; 
 }
 
--(void)sendRequest{
+-(void)sendRequest:(NSString*)url{
     // Create the request.
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://2v.co/api/short_url"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://2vma.co/api/short_url"]];
     
     // Specify that it will be a POST request
     request.HTTPMethod = @"POST";
     
     // This is how we set header fields
-    [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/x-www-form-urlencoded ; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
     
     // Convert your data and set your request's HTTPBody property
-    NSString *stringData = @"some data";
+    NSString *stringData = [NSString stringWithFormat:@"tm=111&uuid=123&sign=1339ba084d895328187e53d1fe497d77&url=%@",url];
     NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = requestBodyData;
     
     // Create url connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSLog(@"send request.");
 }
 
 #pragma mark NSURLConnection Delegate Methods
@@ -122,8 +111,22 @@
     // Append the new data to the instance variable you declared
     [_responseData appendData:data];
     NSString *aString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
+    NSError* jsonError;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableContainers error:&jsonError];
     NSLog(aString);
-
+    NSString* encodedata = [[json objectForKey:@"data"] objectForKey:@"shortUrl"];
+    NSLog(@"%@",encodedata);
+    UIImage *img = [_imageView image];
+    NSLog(@"begin compute");
+    HQR *hqr = [HQR getInstance];
+    //corection level 4level QR_ECLEVEL_L QR_ECLEVEL_M QR_ECLEVEL_Q QR_ECLEVEL_H
+    [hqr setLevel:QR_ECLEVEL_L];
+    [hqr setVersion:5];//2-40
+    [hqr setThreshold_PaddingArea:50 nodePaddingArea:50 GuideRatio:1.0];
+    UIImage *outimg = [hqr generateQRwithImg:img text:encodedata isGray: NO];
+    //"http://2vma.co/zxcASD"
+    [_imageView setImage:outimg];
+    NSLog(@"finished!");
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
