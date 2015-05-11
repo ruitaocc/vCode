@@ -115,6 +115,7 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableContainers error:&jsonError];
     NSLog(aString);
     NSString* encodedata = [[json objectForKey:@"data"] objectForKey:@"shortUrl"];
+    
     NSLog(@"%@",encodedata);
     UIImage *img = [_imageView image];
     NSLog(@"begin compute");
@@ -122,7 +123,7 @@
     //corection level 4level QR_ECLEVEL_L QR_ECLEVEL_M QR_ECLEVEL_Q QR_ECLEVEL_H
     [hqr setLevel:QR_ECLEVEL_L];
     [hqr setVersion:5];//2-40
-    [hqr setThreshold_PaddingArea:50 nodePaddingArea:50 GuideRatio:1.0];
+    [hqr setThreshold_PaddingArea:0 nodePaddingArea:100 GuideRatio:1.0];
     UIImage *outimg = [hqr generateQRwithImg:img text:encodedata isGray: NO];
     //"http://2vma.co/zxcASD"
     [_imageView setImage:outimg];
