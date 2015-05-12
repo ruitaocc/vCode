@@ -7,13 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CommonCrypto/CommonDigest.h>
-@interface ViewController:UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,NSURLConnectionDataDelegate>{
-    NSMutableData *_responseData;
-}
-@property IBOutlet UIImageView *imageView;
--(IBAction)doComput:(id)sender;
--(IBAction)chooseimg:(id)sender;
--(IBAction)saveImg:(id)sender;
+@interface ViewController:UIViewController
 @end
 

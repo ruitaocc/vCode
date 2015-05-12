@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1121B00E3E200DC9432 /* FinalViewController.swift */; };
+		267C3E751B004F93001D917A /* md5Encryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E741B004F93001D917A /* md5Encryptor.m */; };
+		267C3E791B005408001D917A /* setTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E781B005408001D917A /* setTextViewController.swift */; };
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
 		B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97531AE3A30E0085DBB3 /* AppDelegate.m */; };
 		B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.mm */; };
@@ -51,6 +54,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2672D1121B00E3E200DC9432 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		267C3E741B004F93001D917A /* md5Encryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = md5Encryptor.m; sourceTree = "<group>"; };
+		267C3E761B004FB9001D917A /* md5Encryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = md5Encryptor.h; sourceTree = "<group>"; };
+		267C3E771B005408001D917A /* vCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vCode-Bridging-Header.h"; sourceTree = "<group>"; };
+		267C3E781B005408001D917A /* setTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setTextViewController.swift; sourceTree = "<group>"; };
 		B67F974B1AE3A30E0085DBB3 /* vCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F974F1AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F97501AE3A30E0085DBB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,11 +171,16 @@
 				B67F97531AE3A30E0085DBB3 /* AppDelegate.m */,
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
 				B67F97561AE3A30E0085DBB3 /* ViewController.mm */,
+				2672D1121B00E3E200DC9432 /* FinalViewController.swift */,
+				267C3E741B004F93001D917A /* md5Encryptor.m */,
+				267C3E781B005408001D917A /* setTextViewController.swift */,
+				267C3E761B004FB9001D917A /* md5Encryptor.h */,
 				B67F97581AE3A30E0085DBB3 /* Main.storyboard */,
 				B67F975B1AE3A30E0085DBB3 /* Images.xcassets */,
 				B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */,
 				B67F974E1AE3A30E0085DBB3 /* Supporting Files */,
 				B6A448E31AE5158E0024F109 /* vCode.pch */,
+				267C3E771B005408001D917A /* vCode-Bridging-Header.h */,
 			);
 			path = vCode;
 			sourceTree = "<group>";
@@ -363,6 +376,7 @@
 				B6A4488C1AE4E01C0024F109 /* Dithering.mm in Sources */,
 				B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
+				267C3E751B004F93001D917A /* md5Encryptor.m in Sources */,
 				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
@@ -374,11 +388,13 @@
 				B6A448931AE4E01C0024F109 /* Ostromoukhov.mm in Sources */,
 				B6A4488F1AE4E01C0024F109 /* mask.c in Sources */,
 				B6A448991AE4E01C0024F109 /* split.c in Sources */,
+				2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */,
 				B6A448911AE4E01C0024F109 /* mmask.c in Sources */,
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
 				B67F97511AE3A30E0085DBB3 /* main.m in Sources */,
 				B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */,
 				B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */,
+				267C3E791B005408001D917A /* setTextViewController.swift in Sources */,
 				B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ruitaocc/Desktop/2VMa,
@@ -520,6 +537,8 @@
 				INFOPLIST_FILE = vCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "vCode/vCode-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -529,6 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ruitaocc/Desktop/2VMa,
@@ -540,6 +560,7 @@
 				INFOPLIST_FILE = vCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "vCode/vCode-Bridging-Header.h";
 			};
 			name = Release;
 		};

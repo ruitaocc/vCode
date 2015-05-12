@@ -1,6 +1,7 @@
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/Dithering.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/mqrspec.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/qrinput.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/md5Encryptor.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/QR_GuideOstromoukhov.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/rscode.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/main_laplace.o
@@ -18,3 +19,5 @@
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/bitstream.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/HQR.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/Laplace_SAED.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/FinalViewController.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphoneos/vCode.build/Objects-normal/armv7/setTextViewController.o

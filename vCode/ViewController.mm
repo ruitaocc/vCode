@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "HQR.h"
+#import "md5Encryptor.h"
 @interface ViewController ()
 
 @end
@@ -16,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog([md5Encryptor md5:@"123"]);
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,7 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
 -(IBAction)chooseimg:(id)sender{
     printf("choose\n");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -115,7 +118,7 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableContainers error:&jsonError];
     NSLog(aString);
     NSString* encodedata = [[json objectForKey:@"data"] objectForKey:@"shortUrl"];
-    
+    secretkey = C10-705;
     NSLog(@"%@",encodedata);
     UIImage *img = [_imageView image];
     NSLog(@"begin compute");
@@ -146,6 +149,6 @@
     // The request has failed for some reason!
     // Check the error var
 }
-
+*/
 
 @end

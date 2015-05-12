@@ -48,4 +48,5 @@ dependencies: /Users/changxiao/Documents/vCode/vCode/ViewController.mm \
   /Users/changxiao/Documents/vCode/vCode/HQR/QR_GuideOstromoukhov.hpp \
   /Users/changxiao/Documents/vCode/vCode/HQR/OstrHeader.hpp \
   /Users/changxiao/Documents/vCode/vCode/HQR/Laplace_SAED.hpp \
-  /Users/changxiao/Documents/vCode/vCode/HQR/Dithering.h
+  /Users/changxiao/Documents/vCode/vCode/HQR/Dithering.h \
+  /Users/changxiao/Documents/vCode/vCode/md5Encryptor.h
