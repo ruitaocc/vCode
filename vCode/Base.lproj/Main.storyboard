@@ -19,7 +19,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2VMa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zp-oq-lXO">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="167" y="65" width="66" height="38"/>
@@ -33,15 +33,21 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="83" y="183" width="47" height="30"/>
                                 </variation>
+                                <connections>
+                                    <segue destination="dpn-wM-WlY" kind="show" id="rL5-wY-YsH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-w0-IYz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="微信">
+                                <state key="normal" title="二维码">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="266" y="183" width="30" height="30"/>
+                                    <rect key="frame" x="266" y="183" width="45" height="30"/>
                                 </variation>
+                                <connections>
+                                    <segue destination="JAz-fn-3Kg" kind="show" id="bMy-gR-9LH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oz-DN-O6Y">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -100,6 +106,7 @@
                         <viewControllerLayoutGuide type="bottom" id="jSy-IG-uQ7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fvs-No-V9d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEA-iY-hZT">
@@ -119,6 +126,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="248" y="477" width="34" height="30"/>
                                 </variation>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="XPl-lD-00i"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vn2-o4-P4c">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -144,6 +154,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="qiu-KE-Rkt" id="KbY-3e-WfN"/>
                         <outlet property="imageView" destination="vn2-o4-P4c" id="T45-IT-LrX"/>
                     </connections>
                 </viewController>
@@ -192,18 +203,6 @@
                                     <action selector="chooseImg" destination="Ztp-xa-1vd" eventType="touchUpInside" id="22t-Dz-Yvx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXc-X2-gc9">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="250" y="489" width="36" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="send" destination="Ztp-xa-1vd" eventType="touchUpInside" id="0mX-YG-YAF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -211,7 +210,6 @@
                                 <exclude reference="96Z-6g-Hbw"/>
                                 <exclude reference="TZ2-Um-XOz"/>
                                 <exclude reference="Mnu-Zf-kcr"/>
-                                <exclude reference="iXc-X2-gc9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -219,7 +217,6 @@
                                 <include reference="96Z-6g-Hbw"/>
                                 <include reference="TZ2-Um-XOz"/>
                                 <include reference="Mnu-Zf-kcr"/>
-                                <include reference="iXc-X2-gc9"/>
                             </mask>
                         </variation>
                     </view>
@@ -227,13 +224,174 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imgView" destination="TZ2-Um-XOz" id="64s-9H-aGy"/>
-                        <outlet property="sender" destination="iXc-X2-gc9" id="kbC-FG-C4c"/>
                         <outlet property="textField" destination="96Z-6g-Hbw" id="3NO-AC-mcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJm-8c-kgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1449" y="72"/>
+        </scene>
+        <!--SetURL View Controller-->
+        <scene sceneID="BY2-Ag-II3">
+            <objects>
+                <viewController id="dpn-wM-WlY" customClass="setURLViewController" customModule="vCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="emv-hM-inb"/>
+                        <viewControllerLayoutGuide type="bottom" id="3yd-Di-38o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7dC-VJ-Whg">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-lp-hqm">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="123" y="118" width="155" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="textFieldDidEnd:" destination="dpn-wM-WlY" eventType="editingDidEnd" id="L55-wH-HEj"/>
+                                    <action selector="textFieldDidEnd:" destination="dpn-wM-WlY" eventType="editingDidEndOnExit" id="mWR-V6-DsG"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MbX-tH-EYr">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="100" y="225" width="200" height="200"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEO-so-kjJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="choose">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="122" y="509" width="51" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="chooseImg" destination="dpn-wM-WlY" eventType="touchUpInside" id="gR8-g5-CZF"/>
+                                    <action selector="chooseImg" destination="Ztp-xa-1vd" eventType="touchUpInside" id="vXI-Td-Daf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSb-T2-zNd">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="68" y="122" width="47" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hzP-lp-hqm"/>
+                                <exclude reference="MbX-tH-EYr"/>
+                                <exclude reference="GEO-so-kjJ"/>
+                                <exclude reference="jSb-T2-zNd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="hzP-lp-hqm"/>
+                                <include reference="MbX-tH-EYr"/>
+                                <include reference="GEO-so-kjJ"/>
+                                <include reference="jSb-T2-zNd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="MbX-tH-EYr" id="hPy-6I-uhj"/>
+                        <outlet property="textField" destination="hzP-lp-hqm" id="qHK-nY-TJD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0qq-BD-8bi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610.5" y="-682"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="ECa-5f-nN7">
+            <objects>
+                <viewController id="JAz-fn-3Kg" customClass="QRCodeViewController" customModule="vCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ubl-Rq-NcW"/>
+                        <viewControllerLayoutGuide type="bottom" id="s2V-Ev-i1N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p1w-mG-arh">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择你的二维码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tG-RE-5rw">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="51" y="84" width="280" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkA-4M-AIs">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="scan">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="120" y="122" width="33" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="beginCapture" destination="JAz-fn-3Kg" eventType="touchUpInside" id="Axa-6b-wdd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UT-I5-Rak">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="235" y="122" width="42" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="readFromImage" destination="JAz-fn-3Kg" eventType="touchUpInside" id="erl-ef-gEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-Fd-V5o">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="选择图片">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="170" y="447" width="60" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="chooseIMG" destination="JAz-fn-3Kg" eventType="touchUpInside" id="nnF-Ob-ejX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0tG-RE-5rw"/>
+                                <exclude reference="lkA-4M-AIs"/>
+                                <exclude reference="7UT-I5-Rak"/>
+                                <exclude reference="JMd-Fd-V5o"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="0tG-RE-5rw"/>
+                                <include reference="lkA-4M-AIs"/>
+                                <include reference="7UT-I5-Rak"/>
+                                <include reference="JMd-Fd-V5o"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="0tG-RE-5rw" id="B3s-d8-Tss"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wau-0P-f3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174.5" y="-989"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D1z-IV-u01">
@@ -252,4 +410,7 @@
             <point key="canvasLocation" x="-91.5" y="-107"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XPl-lD-00i"/>
+    </inferredMetricsTieBreakers>
 </document>

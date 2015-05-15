@@ -29,9 +29,17 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
     }
 
     @IBAction func chooseImg(){
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
-            println("button capture")
-            
+        if textField.text == ""{
+            let alert:UIAlertView = UIAlertView()
+            alert.message = "no input text!"
+            alert.addButtonWithTitle("ok")
+            alert.show()
+            return
+        }
+        saveToUserDefaults()
+        RequestSender.sendRequest()
+        println(RequestSender.shortURL)
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){            
             var picker:UIImagePickerController = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -43,7 +51,6 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         }
     }
     @IBAction func send(){
-        saveToUserDefaults()
         var finalview:FinalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
         //self.presentViewController(finalview, animated: true, completion: nil)
         self.showViewController(finalview, sender: sender)
@@ -51,14 +58,15 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
     func saveToUserDefaults(){
         var ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(textField.text, forKey: "text")
-        ud.setObject(UIImagePNGRepresentation(imgView.image), forKey: "originImg")
         ud.setObject("txt", forKey: "uploadType")
         ud.synchronize()
         println("saved complete!")
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imgView.image = image
+        NSUserDefaults.standardUserDefaults().setObject(UIImagePNGRepresentation(imgView.image), forKey: "originImg")
         println("image choosen.")
+        send()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*

@@ -85,32 +85,62 @@ typedef struct _NSZone NSZone;
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import Foundation;
+@import AVFoundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 @class UIImageView;
+@class UIButton;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC5vCode19FinalViewController")
 @interface FinalViewController : UIViewController <NSURLConnectionDelegate>
 @property (nonatomic) IBOutlet UIImageView * __null_unspecified imageView;
+@property (nonatomic) IBOutlet UIButton * __null_unspecified backButton;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
-- (void)sendRequest;
+- (void)didReceiveShortURL:(id __nonnull)sender;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UILabel;
+
+SWIFT_CLASS("_TtC5vCode20QRCodeViewController")
+@interface QRCodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
+@property (nonatomic) IBOutlet UILabel * __null_unspecified label;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UITextField;
-@class UIButton;
 @class UIImagePickerController;
 @class UIImage;
 @class NSObject;
 
 SWIFT_CLASS("_TtC5vCode21setTextViewController")
 @interface setTextViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (nonatomic) IBOutlet UIImageView * __null_unspecified imgView;
+@property (nonatomic) IBOutlet UITextField * __null_unspecified textField;
+@property (nonatomic) IBOutlet UIButton * __null_unspecified sender;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (IBAction)textFieldDidEnd:(id __nonnull)sender;
+- (IBAction)chooseImg;
+- (IBAction)send;
+- (void)saveToUserDefaults;
+- (void)imagePickerController:(UIImagePickerController * __nonnull)picker didFinishPickingImage:(UIImage * __null_unspecified)image editingInfo:(NSDictionary * __null_unspecified)editingInfo;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5vCode20setURLViewController")
+@interface setURLViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) IBOutlet UIImageView * __null_unspecified imgView;
 @property (nonatomic) IBOutlet UITextField * __null_unspecified textField;
 @property (nonatomic) IBOutlet UIButton * __null_unspecified sender;

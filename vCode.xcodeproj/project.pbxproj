@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1121B00E3E200DC9432 /* FinalViewController.swift */; };
+		2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1141B01D5B200DC9432 /* RequestSender.swift */; };
+		267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267BB3771B060D0D00F5031A /* setURLViewController.swift */; };
+		267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267BB3791B061FC400F5031A /* QRCodeViewController.swift */; };
+		267BB37E1B06207E00F5031A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB37D1B06207E00F5031A /* AVFoundation.framework */; };
+		267BB3801B06208900F5031A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB37F1B06208900F5031A /* CoreMedia.framework */; };
+		267BB3821B06209000F5031A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB3811B06209000F5031A /* CoreVideo.framework */; };
+		267BB3841B06209E00F5031A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB3831B06209E00F5031A /* QuartzCore.framework */; };
+		267BB3861B0620AC00F5031A /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB3851B0620AC00F5031A /* libiconv.dylib */; };
 		267C3E751B004F93001D917A /* md5Encryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E741B004F93001D917A /* md5Encryptor.m */; };
 		267C3E791B005408001D917A /* setTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E781B005408001D917A /* setTextViewController.swift */; };
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
@@ -55,6 +63,14 @@
 
 /* Begin PBXFileReference section */
 		2672D1121B00E3E200DC9432 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		2672D1141B01D5B200DC9432 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
+		267BB3771B060D0D00F5031A /* setURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setURLViewController.swift; sourceTree = "<group>"; };
+		267BB3791B061FC400F5031A /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		267BB37D1B06207E00F5031A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		267BB37F1B06208900F5031A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		267BB3811B06209000F5031A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		267BB3831B06209E00F5031A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		267BB3851B0620AC00F5031A /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		267C3E741B004F93001D917A /* md5Encryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = md5Encryptor.m; sourceTree = "<group>"; };
 		267C3E761B004FB9001D917A /* md5Encryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = md5Encryptor.h; sourceTree = "<group>"; };
 		267C3E771B005408001D917A /* vCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vCode-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -122,6 +138,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267BB3861B0620AC00F5031A /* libiconv.dylib in Frameworks */,
+				267BB3841B06209E00F5031A /* QuartzCore.framework in Frameworks */,
+				267BB3821B06209000F5031A /* CoreVideo.framework in Frameworks */,
+				267BB3801B06208900F5031A /* CoreMedia.framework in Frameworks */,
+				267BB37E1B06207E00F5031A /* AVFoundation.framework in Frameworks */,
 				B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */,
 				B6A448E21AE514FD0024F109 /* Foundation.framework in Frameworks */,
 				B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */,
@@ -143,6 +164,11 @@
 		B67F97421AE3A30D0085DBB3 = {
 			isa = PBXGroup;
 			children = (
+				267BB3851B0620AC00F5031A /* libiconv.dylib */,
+				267BB3831B06209E00F5031A /* QuartzCore.framework */,
+				267BB3811B06209000F5031A /* CoreVideo.framework */,
+				267BB37F1B06208900F5031A /* CoreMedia.framework */,
+				267BB37D1B06207E00F5031A /* AVFoundation.framework */,
 				B6A448F21AE5282E0024F109 /* CoreImage.framework */,
 				B6A448E11AE514FD0024F109 /* Foundation.framework */,
 				B6A448DF1AE514E90024F109 /* CoreGraphics.framework */,
@@ -172,11 +198,14 @@
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
 				B67F97561AE3A30E0085DBB3 /* ViewController.mm */,
 				2672D1121B00E3E200DC9432 /* FinalViewController.swift */,
+				2672D1141B01D5B200DC9432 /* RequestSender.swift */,
 				267C3E741B004F93001D917A /* md5Encryptor.m */,
 				267C3E781B005408001D917A /* setTextViewController.swift */,
+				267BB3791B061FC400F5031A /* QRCodeViewController.swift */,
+				267BB3771B060D0D00F5031A /* setURLViewController.swift */,
 				267C3E761B004FB9001D917A /* md5Encryptor.h */,
-				B67F97581AE3A30E0085DBB3 /* Main.storyboard */,
 				B67F975B1AE3A30E0085DBB3 /* Images.xcassets */,
+				B67F97581AE3A30E0085DBB3 /* Main.storyboard */,
 				B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */,
 				B67F974E1AE3A30E0085DBB3 /* Supporting Files */,
 				B6A448E31AE5158E0024F109 /* vCode.pch */,
@@ -375,12 +404,15 @@
 			files = (
 				B6A4488C1AE4E01C0024F109 /* Dithering.mm in Sources */,
 				B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */,
+				267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
 				267C3E751B004F93001D917A /* md5Encryptor.m in Sources */,
 				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
+				267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */,
+				2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */,
 				B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */,
 				B6A448971AE4E01C0024F109 /* qrspec.c in Sources */,
 				B6A448F11AE527B20024F109 /* UIImage+opencv.mm in Sources */,
