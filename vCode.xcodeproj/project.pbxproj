@@ -18,12 +18,14 @@
 		267BB3861B0620AC00F5031A /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB3851B0620AC00F5031A /* libiconv.dylib */; };
 		267C3E751B004F93001D917A /* md5Encryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E741B004F93001D917A /* md5Encryptor.m */; };
 		267C3E791B005408001D917A /* setTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E781B005408001D917A /* setTextViewController.swift */; };
+		B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */; };
+		B65B1CCA1B16023E0028F631 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC91B16014F0028F631 /* intro.mp4 */; };
+		B65B1CCC1B1606200028F631 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B1CCB1B1606200028F631 /* MediaPlayer.framework */; };
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
 		B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97531AE3A30E0085DBB3 /* AppDelegate.m */; };
 		B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.mm */; };
 		B67F975A1AE3A30E0085DBB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67F97581AE3A30E0085DBB3 /* Main.storyboard */; };
 		B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67F975B1AE3A30E0085DBB3 /* Images.xcassets */; };
-		B67F975F1AE3A30E0085DBB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */; };
 		B67F976B1AE3A30E0085DBB3 /* vCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F976A1AE3A30E0085DBB3 /* vCodeTests.m */; };
 		B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = B6A4486A1AE4E01C0024F109 /* bitstream.c */; };
 		B6A4488C1AE4E01C0024F109 /* Dithering.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A4486D1AE4E01C0024F109 /* Dithering.mm */; };
@@ -75,6 +77,9 @@
 		267C3E761B004FB9001D917A /* md5Encryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = md5Encryptor.h; sourceTree = "<group>"; };
 		267C3E771B005408001D917A /* vCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		267C3E781B005408001D917A /* setTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setTextViewController.swift; sourceTree = "<group>"; };
+		B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		B65B1CC91B16014F0028F631 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
+		B65B1CCB1B1606200028F631 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B67F974B1AE3A30E0085DBB3 /* vCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F974F1AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F97501AE3A30E0085DBB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,7 +89,6 @@
 		B67F97561AE3A30E0085DBB3 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		B67F97591AE3A30E0085DBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B67F975B1AE3A30E0085DBB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B67F975E1AE3A30E0085DBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B67F97641AE3A30E0085DBB3 /* vCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F97691AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F976A1AE3A30E0085DBB3 /* vCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vCodeTests.m; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65B1CCC1B1606200028F631 /* MediaPlayer.framework in Frameworks */,
 				267BB3861B0620AC00F5031A /* libiconv.dylib in Frameworks */,
 				267BB3841B06209E00F5031A /* QuartzCore.framework in Frameworks */,
 				267BB3821B06209000F5031A /* CoreVideo.framework in Frameworks */,
@@ -164,6 +169,7 @@
 		B67F97421AE3A30D0085DBB3 = {
 			isa = PBXGroup;
 			children = (
+				B65B1CCB1B1606200028F631 /* MediaPlayer.framework */,
 				267BB3851B0620AC00F5031A /* libiconv.dylib */,
 				267BB3831B06209E00F5031A /* QuartzCore.framework */,
 				267BB3811B06209000F5031A /* CoreVideo.framework */,
@@ -192,6 +198,7 @@
 		B67F974D1AE3A30E0085DBB3 /* vCode */ = {
 			isa = PBXGroup;
 			children = (
+				B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */,
 				B6A448691AE4E01C0024F109 /* HQR */,
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
 				B67F97531AE3A30E0085DBB3 /* AppDelegate.m */,
@@ -206,7 +213,6 @@
 				267C3E761B004FB9001D917A /* md5Encryptor.h */,
 				B67F975B1AE3A30E0085DBB3 /* Images.xcassets */,
 				B67F97581AE3A30E0085DBB3 /* Main.storyboard */,
-				B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */,
 				B67F974E1AE3A30E0085DBB3 /* Supporting Files */,
 				B6A448E31AE5158E0024F109 /* vCode.pch */,
 				267C3E771B005408001D917A /* vCode-Bridging-Header.h */,
@@ -217,6 +223,7 @@
 		B67F974E1AE3A30E0085DBB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B65B1CC91B16014F0028F631 /* intro.mp4 */,
 				B6A448F61AE7EC310024F109 /* lena.jpg */,
 				B6A448F41AE76BC80024F109 /* 128.jpg */,
 				B67F974F1AE3A30E0085DBB3 /* Info.plist */,
@@ -380,10 +387,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65B1CCA1B16023E0028F631 /* intro.mp4 in Resources */,
 				B67F975A1AE3A30E0085DBB3 /* Main.storyboard in Resources */,
 				B6A448F71AE7EC310024F109 /* lena.jpg in Resources */,
 				B6A448F51AE76BC80024F109 /* 128.jpg in Resources */,
-				B67F975F1AE3A30E0085DBB3 /* LaunchScreen.xib in Resources */,
+				B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */,
 				B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,14 +464,6 @@
 				B67F97591AE3A30E0085DBB3 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B67F975D1AE3A30E0085DBB3 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B67F975E1AE3A30E0085DBB3 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -555,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -578,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
