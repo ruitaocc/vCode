@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HQR.h"
 #import "md5Encryptor.h"
+#import "../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h"
 @interface ViewController ()
 
 @end
@@ -17,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog([md5Encryptor md5:@"123"]);
+    //NSLog([md5Encryptor md5:@"123"]);
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -27,6 +28,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)feedback:(id)sender{
+    [self.navigationController pushViewController:[UMFeedback feedbackViewController] animated:YES];
+};
 /*
 -(IBAction)chooseimg:(id)sender{
     printf("choose\n");

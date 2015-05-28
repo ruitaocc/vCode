@@ -1,6 +1,11 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## UMengFeedback
+
+Copyright 2011 - 2014 UMeng.com. All rights reserved.
+
+
 ## ZXingObjC
 
                                  Apache License

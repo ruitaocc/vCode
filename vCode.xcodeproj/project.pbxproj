@@ -196,17 +196,6 @@
 		B67F97421AE3A30D0085DBB3 = {
 			isa = PBXGroup;
 			children = (
-				B65B1CCB1B1606200028F631 /* MediaPlayer.framework */,
-				267BB3851B0620AC00F5031A /* libiconv.dylib */,
-				267BB3831B06209E00F5031A /* QuartzCore.framework */,
-				267BB3811B06209000F5031A /* CoreVideo.framework */,
-				267BB37F1B06208900F5031A /* CoreMedia.framework */,
-				267BB37D1B06207E00F5031A /* AVFoundation.framework */,
-				B6A448F21AE5282E0024F109 /* CoreImage.framework */,
-				B6A448E11AE514FD0024F109 /* Foundation.framework */,
-				B6A448DF1AE514E90024F109 /* CoreGraphics.framework */,
-				B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */,
-				B6A4489D1AE4E19B0024F109 /* opencv2.framework */,
 				B67F974D1AE3A30E0085DBB3 /* vCode */,
 				B67F97671AE3A30E0085DBB3 /* vCodeTests */,
 				B67F974C1AE3A30E0085DBB3 /* Products */,
@@ -345,6 +334,17 @@
 		EF63D086C40D816A2ED01E1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B65B1CCB1B1606200028F631 /* MediaPlayer.framework */,
+				267BB3851B0620AC00F5031A /* libiconv.dylib */,
+				267BB3831B06209E00F5031A /* QuartzCore.framework */,
+				267BB3811B06209000F5031A /* CoreVideo.framework */,
+				267BB37F1B06208900F5031A /* CoreMedia.framework */,
+				267BB37D1B06207E00F5031A /* AVFoundation.framework */,
+				B6A448F21AE5282E0024F109 /* CoreImage.framework */,
+				B6A448E11AE514FD0024F109 /* Foundation.framework */,
+				B6A448DF1AE514E90024F109 /* CoreGraphics.framework */,
+				B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */,
+				B6A4489D1AE4E19B0024F109 /* opencv2.framework */,
 				8FEA7AA7771EA76030F983B6 /* libPods.a */,
 			);
 			name = Frameworks;

@@ -71,6 +71,18 @@
                                     <segue destination="Ztp-xa-1vd" kind="show" id="lUM-jT-hCU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kc4-fP-Of3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Feedback">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="295" y="65" width="76" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="feedback:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osS-A2-5E6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -80,6 +92,7 @@
                                 <exclude reference="GZB-w0-IYz"/>
                                 <exclude reference="5oz-DN-O6Y"/>
                                 <exclude reference="zYm-0o-hwi"/>
+                                <exclude reference="Kc4-fP-Of3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -89,6 +102,7 @@
                                 <include reference="GZB-w0-IYz"/>
                                 <include reference="5oz-DN-O6Y"/>
                                 <include reference="zYm-0o-hwi"/>
+                                <include reference="Kc4-fP-Of3"/>
                             </mask>
                         </variation>
                     </view>

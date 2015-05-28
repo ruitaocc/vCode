@@ -57,6 +57,42 @@ install_resource()
       ;;
   esac
 }
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/zh-Hans.lproj/UMFeedbackLocalizable.strings"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/bubble_min@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/cancel@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/microphone@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/save@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputText@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputTextHL@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputVoice@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputVoiceHL@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_add_photo@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_dialog_cancel@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_dialog_content@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_01@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_02@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_03@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_default@2x.png"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/zh-Hans.lproj/UMFeedbackLocalizable.strings"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/bubble_min@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/cancel@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/microphone@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/save@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputText@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputTextHL@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputVoice@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/ToolViewInputVoiceHL@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_add_photo@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_dialog_cancel@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_dialog_content@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_01@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_02@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_03@2x.png"
+  install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_default@2x.png"
+fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then

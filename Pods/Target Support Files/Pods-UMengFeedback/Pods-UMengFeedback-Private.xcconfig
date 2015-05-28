@@ -1,0 +1,7 @@
+#include "Pods-UMengFeedback.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/UMengFeedback" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/UMengFeedback" "${PODS_ROOT}/Headers/Public/ZXingObjC"
+LIBRARY_SEARCH_PATHS = ${PODS_UMENGFEEDBACK_LIBRARY_SEARCH_PATHS}
+OTHER_LDFLAGS = ${PODS_UMENGFEEDBACK_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES
