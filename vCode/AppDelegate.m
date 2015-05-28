@@ -9,11 +9,16 @@
 #import "AppDelegate.h"
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
-@interface AppDelegate ()
+@interface AppDelegate (){
+    bool isSkip;
+}
 
 @property (strong, nonatomic) UIView *lunchView;
 @property (strong, nonatomic) UIView *moviePlayView;
 @property (strong,nonatomic)MPMoviePlayerViewController *moviePlayerController;
+
+@property (strong,nonatomic)UIButton *skip_btn;
+@property (strong,nonatomic)UIImageView *intro_musk;
 @end
 
 @implementation AppDelegate
@@ -21,7 +26,8 @@
 @synthesize moviePlayerController;
 @synthesize lunchView;
 @synthesize moviePlayView;
-
+@synthesize skip_btn;
+@synthesize intro_musk;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //splash animation
@@ -38,10 +44,11 @@
         videoURL = [NSURL fileURLWithPath:path];
     }
     moviePlayerController= [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-    int x =  (self.window.screen.bounds.size.width-333)/2;
-    int y =  (self.window.screen.bounds.size.height-333)/2*0.6;
     
-    [moviePlayerController.view setFrame:CGRectMake(x,y,333,333)];
+    float width = 0.57*self.window.screen.bounds.size.width, height = width;
+    float x =  (self.window.screen.bounds.size.width-width)/2.0;
+    float y =  (self.window.screen.bounds.size.height-height)/2.0;
+    [moviePlayerController.view setFrame:CGRectMake(x,y,width,height)];
     moviePlayerController.moviePlayer.movieSourceType=MPMovieSourceTypeFile;
     [moviePlayerController.moviePlayer setScalingMode:MPMovieScalingModeNone];
     [moviePlayerController.moviePlayer setRepeatMode:MPMovieRepeatModeOne];
@@ -49,17 +56,47 @@
     [moviePlayerController.moviePlayer setFullscreen:NO animated:YES];
     [moviePlayerController.moviePlayer play];
     //视频播放组件的容器,加这个容器是为了兼容iOS6,如果不加容器在iOS7下面没有任何问题,如果在iOS6下面视频的播放画面会自动铺满self.view;
-    moviePlayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 333, 333)];
+    moviePlayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width,height)];
     [lunchView addSubview:moviePlayView];
     [moviePlayView addSubview:[moviePlayerController.moviePlayer view]];
+    
+    //
+    float exWidth = 330.0*351.0/325.0;
+    float musk_with = exWidth*width/333.0 , musk_height = musk_with;
+    float mx =  (self.window.screen.bounds.size.width-musk_with)/2.0;
+    float my =  (self.window.screen.bounds.size.height-musk_height)/2.0;
+    UIImage *intro_musk_img = [UIImage imageNamed:@"intro_musk351_325.png"];
+    intro_musk = [[UIImageView alloc] initWithFrame:CGRectMake(mx, my, musk_with, musk_height)];
+    [intro_musk setImage:intro_musk_img];
+    [lunchView addSubview:intro_musk];
+    
+    CGRect btnframe;
+    btnframe.size.width = 0.8*width;
+    btnframe.size.height = 0.25*btnframe.size.width;
+    btnframe.origin.x = (self.window.screen.bounds.size.width-btnframe.size.width)/2;
+    btnframe.origin.y= y+height+(self.window.screen.bounds.size.height-y-height)/2*0.7;
+    skip_btn = [[UIButton alloc] initWithFrame:btnframe];
+    UIImage *skipBG = [UIImage imageNamed:@"skip_normal_w.png"];
+    [skip_btn setBackgroundImage:skipBG forState:UIControlStateNormal];
+    UIImage *skipCL = [UIImage imageNamed:@"skip_highlight.png"];
+    [skip_btn setBackgroundImage:skipCL forState:UIControlStateHighlighted];
+    //skip_btn set
+    [skip_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [skip_btn setTitle:NSLocalizedString(@"skip_text", nill) forState:UIControlStateNormal];
+    [lunchView addSubview:skip_btn];
+    [skip_btn addTarget:self action:@selector(skip_btn_click) forControlEvents:UIControlEventTouchUpInside];
+    
     
     
     [self.window addSubview:lunchView];
     
     [self.window bringSubviewToFront:lunchView];
-    
+    isSkip = false;
     [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     return YES;
+}
+-(void)skip_btn_click{
+    [self removeLun];
 }
 #pragma mark -------------------视频播放结束委托--------------------
 
@@ -78,9 +115,14 @@
   
 }
 -(void)removeLun {
-    [moviePlayerController.moviePlayer.view removeFromSuperview];
-    [moviePlayView removeFromSuperview];
-    [lunchView removeFromSuperview];
+    if(!isSkip){
+        [intro_musk  removeFromSuperview];
+        [skip_btn removeFromSuperview];
+        [moviePlayerController.moviePlayer.view removeFromSuperview];
+        [moviePlayView removeFromSuperview];
+        [lunchView removeFromSuperview];
+        isSkip=!isSkip;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
