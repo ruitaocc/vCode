@@ -10,6 +10,7 @@
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import "../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h"
+#import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
 @interface AppDelegate (){
     bool isSkip;
 }
@@ -96,7 +97,9 @@
     [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     
     //UMengFeedBack otion
+    
     [UMFeedback setAppkey:@"5566c41067e58e4d69004417"];
+    [UMSocialData setAppKey:@"5566c41067e58e4d69004417"];
     return YES;
 }
 -(void)skip_btn_click{
