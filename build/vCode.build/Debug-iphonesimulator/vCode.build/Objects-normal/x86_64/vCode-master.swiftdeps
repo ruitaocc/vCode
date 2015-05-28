@@ -1,0 +1,8 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.49.6 clang-602.0.49)"
+options: "d5a1e0d9e5c60ee7ae36d2772634d006"
+inputs: 
+- "/Users/changxiao/Documents/vCode/vCode/QRCodeViewController.swift"
+- "/Users/changxiao/Documents/vCode/vCode/setURLViewController.swift"
+- "/Users/changxiao/Documents/vCode/vCode/RequestSender.swift"
+- "/Users/changxiao/Documents/vCode/vCode/FinalViewController.swift"
+- "/Users/changxiao/Documents/vCode/vCode/setTextViewController.swift"

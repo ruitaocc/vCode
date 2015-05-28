@@ -1,0 +1,43 @@
+dependencies: \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXResultParser.m \
+  /Users/changxiao/Documents/vCode/Pods/Target\ Support\ Files/Pods-ZXingObjC/Pods-ZXingObjC-prefix.pch \
+  /Users/changxiao/Documents/vCode/Pods/Target\ Support\ Files/Pods/Pods-environment.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXAddressBookAUResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXAddressBookDoCoMoResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXAbstractDoCoMoResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/core/ZXResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/core/ZXBarcodeFormat.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/core/ZXResultMetadataType.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXAddressBookParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXParsedResultType.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXBizcardResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXBookmarkDoCoMoResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXCalendarParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXEmailAddressParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXEmailAddressResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXEmailDoCoMoResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXExpandedProductParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXExpandedProductResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXGeoParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXGeoResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXISBNParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXISBNResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXProductParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXProductResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXSMSMMSResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXSMSParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXSMSTOMMSTOResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXSMTPResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXTelParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXTelResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXTextParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXURIParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXURIResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXURLTOResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXVCardResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXVEventResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXVINResultParser.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXWifiParsedResult.h \
+  /Users/changxiao/Documents/vCode/Pods/ZXingObjC/ZXingObjC/client/result/ZXWifiResultParser.h
