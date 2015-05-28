@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "HQR.h"
 #import <opencv2/highgui/highgui_c.h>
+#import "../../Pods/Headers/Public/ZXingObjC/ZXLuminanceSource.h"
 
+#import "../../Pods/Headers/Public/ZXingObjC/ZXingObjC.h"
 @interface HQR (){
     int _qr_point;
     int _h_qr_point;
@@ -114,6 +116,43 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     MODIFY_THRESHOLD_PADDING_AREA = parea;
     MODIFY_THRESHOLD_NONE_PADDING_AREA = nparea;
     return true;
+};
+
+-(NSString *)decodeQRwithImg:(UIImage *)img{
+    if (img==nil) {
+        return nil;
+    }
+    CGImageRef imageToDecode=img.CGImage;// Given a CGImage in which we are looking for barcodes
+    
+    ZXLuminanceSource *source = [[ZXCGImageLuminanceSource alloc] initWithCGImage:imageToDecode];
+    ZXBinaryBitmap *bitmap = [ZXBinaryBitmap binaryBitmapWithBinarizer:[ZXHybridBinarizer binarizerWithSource:source]];
+    
+    NSError *error = nil;
+    
+    // There are a number of hints we can give to the reader, including
+    // possible formats, allowed lengths, and the string encoding.
+    ZXDecodeHints *hints = [ZXDecodeHints hints];
+    
+    ZXMultiFormatReader *reader = [ZXMultiFormatReader reader];
+    ZXResult *result = [reader decode:bitmap
+                                hints:hints
+                                error:&error];
+    if (result) {
+        // The coded result as a string. The raw data can be accessed with
+        // result.rawBytes and result.length.
+        NSString *contents = result.text;
+        
+        // The barcode format, such as a QR code or UPC-A
+        ZXBarcodeFormat format = result.barcodeFormat;
+        if(format==ZXBarcodeFormat::kBarcodeFormatQRCode){
+            return contents;
+        }
+    } else {
+        // Use error to determine why we didn't get a result, such as a barcode
+        // not being found, an invalid checksum, or a format inconsistency.
+        
+    }
+    return  nil;
 };
 -(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray{
     cout<<"start"<<endl;

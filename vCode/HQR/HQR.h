@@ -63,6 +63,12 @@ typedef enum _imageType {
 -(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray;
 
 /*
+ @img: target image
+ @ret: return the decoded result text.
+  */
+-(NSString *)decodeQRwithImg:(UIImage *)img;
+
+/*
   @parea:threshold range [0.0, 127.5]
   @nparea:threshold range [0.0, 127.5]
   @guideRatio: range[0.0,1.0]
