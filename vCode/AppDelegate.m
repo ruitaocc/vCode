@@ -12,12 +12,16 @@
 @interface AppDelegate ()
 
 @property (strong, nonatomic) UIView *lunchView;
+@property (strong, nonatomic) UIView *moviePlayView;
+@property (strong,nonatomic)MPMoviePlayerViewController *moviePlayerController;
 @end
 
 @implementation AppDelegate
 
-
+@synthesize moviePlayerController;
 @synthesize lunchView;
+@synthesize moviePlayView;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //splash animation
@@ -33,29 +37,28 @@
     }else{
         videoURL = [NSURL fileURLWithPath:path];
     }
-    MPMoviePlayerViewController *_moviePlayerController= [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+    moviePlayerController= [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
     int x =  (self.window.screen.bounds.size.width-333)/2;
     int y =  (self.window.screen.bounds.size.height-333)/2*0.6;
     
-    [_moviePlayerController.view setFrame:CGRectMake(x,y,333,333)];
-    _moviePlayerController.moviePlayer.movieSourceType=MPMovieSourceTypeFile;
-    [_moviePlayerController.moviePlayer setScalingMode:MPMovieScalingModeNone];
-    [_moviePlayerController.moviePlayer setRepeatMode:MPMovieRepeatModeOne];
-    [_moviePlayerController.moviePlayer setControlStyle:MPMovieControlStyleNone];
-    [_moviePlayerController.moviePlayer setFullscreen:NO animated:YES];
-    [_moviePlayerController.moviePlayer play];
+    [moviePlayerController.view setFrame:CGRectMake(x,y,333,333)];
+    moviePlayerController.moviePlayer.movieSourceType=MPMovieSourceTypeFile;
+    [moviePlayerController.moviePlayer setScalingMode:MPMovieScalingModeNone];
+    [moviePlayerController.moviePlayer setRepeatMode:MPMovieRepeatModeOne];
+    [moviePlayerController.moviePlayer setControlStyle:MPMovieControlStyleNone];
+    [moviePlayerController.moviePlayer setFullscreen:NO animated:YES];
+    [moviePlayerController.moviePlayer play];
     //视频播放组件的容器,加这个容器是为了兼容iOS6,如果不加容器在iOS7下面没有任何问题,如果在iOS6下面视频的播放画面会自动铺满self.view;
-    UIView *moviePlayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 333, 333)];
-    [self.window addSubview:moviePlayView];
-    [moviePlayView addSubview:[_moviePlayerController.moviePlayer view]];
+    moviePlayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 333, 333)];
+    [lunchView addSubview:moviePlayView];
+    [moviePlayView addSubview:[moviePlayerController.moviePlayer view]];
     
     
-    //[self.window addSubview:lunchView];
+    [self.window addSubview:lunchView];
     
     [self.window bringSubviewToFront:lunchView];
     
-    //[self.window bringSubviewToFront:webView];
-    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     return YES;
 }
 #pragma mark -------------------视频播放结束委托--------------------
@@ -75,6 +78,8 @@
   
 }
 -(void)removeLun {
+    [moviePlayerController.moviePlayer.view removeFromSuperview];
+    [moviePlayView removeFromSuperview];
     [lunchView removeFromSuperview];
 }
 
