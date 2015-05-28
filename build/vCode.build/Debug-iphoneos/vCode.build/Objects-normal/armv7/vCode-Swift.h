@@ -107,20 +107,38 @@ SWIFT_CLASS("_TtC5vCode19FinalViewController")
 @end
 
 @class UILabel;
+@class AVCaptureSession;
+@class AVCaptureVideoPreviewLayer;
+@class UIView;
+@class UIImage;
+@class AVCaptureOutput;
+@class AVCaptureConnection;
+@class UIImagePickerController;
+@class NSObject;
 
 SWIFT_CLASS("_TtC5vCode20QRCodeViewController")
-@interface QRCodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
+@interface QRCodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) IBOutlet UILabel * __null_unspecified label;
+@property (nonatomic) AVCaptureSession * __nullable captureSession;
+@property (nonatomic) AVCaptureVideoPreviewLayer * __nullable videoPreviewLayer;
+@property (nonatomic) UIView * __nullable qrCodeFrameView;
+@property (nonatomic) UIImage * __nullable qrcodeimg;
+@property (nonatomic) BOOL setted;
 - (void)viewDidLoad;
+- (IBAction)beginCapture;
+- (IBAction)readFromImage;
+- (IBAction)chooseIMG;
+- (void)choose;
+- (void)beginCaptureSession;
 - (void)didReceiveMemoryWarning;
+- (void)detectQRcode;
+- (void)captureOutput:(AVCaptureOutput * __null_unspecified)captureOutput didOutputMetadataObjects:(NSArray * __null_unspecified)metadataObjects fromConnection:(AVCaptureConnection * __null_unspecified)connection;
+- (void)imagePickerController:(UIImagePickerController * __nonnull)picker didFinishPickingImage:(UIImage * __null_unspecified)image editingInfo:(NSDictionary * __null_unspecified)editingInfo;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UITextField;
-@class UIImagePickerController;
-@class UIImage;
-@class NSObject;
 
 SWIFT_CLASS("_TtC5vCode21setTextViewController")
 @interface setTextViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>

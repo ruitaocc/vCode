@@ -119,19 +119,20 @@ SWIFT_CLASS("_TtC5vCode19FinalViewController")
 SWIFT_CLASS("_TtC5vCode20QRCodeViewController")
 @interface QRCodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) IBOutlet UILabel * __null_unspecified label;
+@property (nonatomic) IBOutlet UIButton * __null_unspecified nextstep;
 @property (nonatomic) AVCaptureSession * __nullable captureSession;
 @property (nonatomic) AVCaptureVideoPreviewLayer * __nullable videoPreviewLayer;
 @property (nonatomic) UIView * __nullable qrCodeFrameView;
 @property (nonatomic) UIImage * __nullable qrcodeimg;
+@property (nonatomic, copy) NSString * __nonnull stringInQRCode;
 @property (nonatomic) BOOL setted;
 - (void)viewDidLoad;
 - (IBAction)beginCapture;
 - (IBAction)readFromImage;
-- (IBAction)chooseIMG;
+- (IBAction)next;
 - (void)choose;
 - (void)beginCaptureSession;
 - (void)didReceiveMemoryWarning;
-- (void)detectQRcode;
 - (void)captureOutput:(AVCaptureOutput * __null_unspecified)captureOutput didOutputMetadataObjects:(NSArray * __null_unspecified)metadataObjects fromConnection:(AVCaptureConnection * __null_unspecified)connection;
 - (void)imagePickerController:(UIImagePickerController * __nonnull)picker didFinishPickingImage:(UIImage * __null_unspecified)image editingInfo:(NSDictionary * __null_unspecified)editingInfo;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -148,8 +149,7 @@ SWIFT_CLASS("_TtC5vCode21setTextViewController")
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (IBAction)textFieldDidEnd:(id __nonnull)sender;
-- (IBAction)chooseImg;
-- (IBAction)send;
+- (IBAction)nextStep;
 - (void)saveToUserDefaults;
 - (void)imagePickerController:(UIImagePickerController * __nonnull)picker didFinishPickingImage:(UIImage * __null_unspecified)image editingInfo:(NSDictionary * __null_unspecified)editingInfo;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -165,10 +165,8 @@ SWIFT_CLASS("_TtC5vCode20setURLViewController")
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (IBAction)textFieldDidEnd:(id __nonnull)sender;
-- (IBAction)chooseImg;
-- (IBAction)send;
+- (IBAction)next;
 - (void)saveToUserDefaults;
-- (void)imagePickerController:(UIImagePickerController * __nonnull)picker didFinishPickingImage:(UIImage * __null_unspecified)image editingInfo:(NSDictionary * __null_unspecified)editingInfo;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

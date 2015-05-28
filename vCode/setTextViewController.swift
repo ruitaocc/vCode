@@ -16,6 +16,10 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        sender.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal);
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,10 +32,11 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
        // println(textField.text)
     }
 
-    @IBAction func chooseImg(){
+    @IBAction func nextStep(){
+
         if textField.text == ""{
             let alert:UIAlertView = UIAlertView()
-            alert.message = "no input text!"
+            alert.message = NSLocalizedString("noinputtext", comment: "")
             alert.addButtonWithTitle("ok")
             alert.show()
             return
@@ -39,7 +44,7 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         saveToUserDefaults()
         RequestSender.sendRequest()
         println(RequestSender.shortURL)
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){            
+        /*if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
             var picker:UIImagePickerController = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -48,13 +53,12 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
             
             self.presentViewController(picker, animated: true, completion: nil)
             
-        }
-    }
-    @IBAction func send(){
-        var finalview:FinalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
+        }*/
+        var cutview:CutViewController = CutViewController()
         //self.presentViewController(finalview, animated: true, completion: nil)
-        self.showViewController(finalview, sender: sender)
+        self.showViewController(cutview, sender: sender)
     }
+
     func saveToUserDefaults(){
         var ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(textField.text, forKey: "text")
@@ -66,7 +70,6 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         imgView.image = image
         NSUserDefaults.standardUserDefaults().setObject(UIImagePNGRepresentation(imgView.image), forKey: "originImg")
         println("image choosen.")
-        send()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*

@@ -1,6 +1,7 @@
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/Dithering.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/mqrspec.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/qrinput.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/md5Encryptor.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/QR_GuideOstromoukhov.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/rscode.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/main_laplace.o
@@ -18,3 +19,8 @@
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/bitstream.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/HQR.o
 /Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/Laplace_SAED.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/QRCodeViewController.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/setURLViewController.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/RequestSender.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/FinalViewController.o
+/Users/changxiao/Documents/vCode/build/vCode.build/Debug-iphonesimulator/vCode.build/Objects-normal/x86_64/setTextViewController.o

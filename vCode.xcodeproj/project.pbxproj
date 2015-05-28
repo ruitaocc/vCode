@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		266FDAB91B174651000675CB /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266FDAB81B174651000675CB /* VPImageCropperViewController.m */; };
+		266FDABC1B174679000675CB /* CutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266FDABB1B174679000675CB /* CutViewController.m */; };
+		266FDABF1B175FC5000675CB /* QRDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 266FDABE1B175FC5000675CB /* QRDetector.mm */; };
 		2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1121B00E3E200DC9432 /* FinalViewController.swift */; };
 		2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1141B01D5B200DC9432 /* RequestSender.swift */; };
 		267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267BB3771B060D0D00F5031A /* setURLViewController.swift */; };
@@ -82,6 +85,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		266FDAB71B174651000675CB /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		266FDAB81B174651000675CB /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
+		266FDABA1B174679000675CB /* CutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CutViewController.h; sourceTree = "<group>"; };
+		266FDABB1B174679000675CB /* CutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CutViewController.m; sourceTree = "<group>"; };
+		266FDABD1B175FC5000675CB /* QRDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRDetector.h; sourceTree = "<group>"; };
+		266FDABE1B175FC5000675CB /* QRDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QRDetector.mm; sourceTree = "<group>"; };
 		2672D1121B00E3E200DC9432 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		2672D1141B01D5B200DC9432 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		267BB3771B060D0D00F5031A /* setURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setURLViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +259,10 @@
 				B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */,
 				B6A448691AE4E01C0024F109 /* HQR */,
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
+				266FDAB71B174651000675CB /* VPImageCropperViewController.h */,
+				266FDAB81B174651000675CB /* VPImageCropperViewController.m */,
+				266FDABA1B174679000675CB /* CutViewController.h */,
+				266FDABB1B174679000675CB /* CutViewController.m */,
 				B67F97531AE3A30E0085DBB3 /* AppDelegate.m */,
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
 				B67F97561AE3A30E0085DBB3 /* ViewController.mm */,
@@ -309,6 +322,8 @@
 		B6A448691AE4E01C0024F109 /* HQR */ = {
 			isa = PBXGroup;
 			children = (
+				266FDABD1B175FC5000675CB /* QRDetector.h */,
+				266FDABE1B175FC5000675CB /* QRDetector.mm */,
 				B6A4489C1AE4E1010024F109 /* LSAED */,
 				B6A4489B1AE4E04E0024F109 /* qrencode */,
 				B6A4486C1AE4E01C0024F109 /* config.h */,
@@ -544,6 +559,8 @@
 				267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
 				267C3E751B004F93001D917A /* md5Encryptor.m in Sources */,
+				266FDABC1B174679000675CB /* CutViewController.m in Sources */,
+				266FDABF1B175FC5000675CB /* QRDetector.mm in Sources */,
 				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
@@ -562,6 +579,7 @@
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
 				B67F97511AE3A30E0085DBB3 /* main.m in Sources */,
 				B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */,
+				266FDAB91B174651000675CB /* VPImageCropperViewController.m in Sources */,
 				B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */,
 				267C3E791B005408001D917A /* setTextViewController.swift in Sources */,
 				B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */,

@@ -12,28 +12,28 @@ import MobileCoreServices
 
 class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
     @IBOutlet var label:UILabel!
+    @IBOutlet var nextstep:UIButton!
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     var qrcodeimg:UIImage?
-    var whichIMG:Bool?
+    var stringInQRCode:String = ""
     var setted:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nextstep.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal)
                // Do any additional setup after loading the view.
     }
 
     @IBAction func beginCapture(){
+        stringInQRCode = ""
         beginCaptureSession()
     }
     
     @IBAction func readFromImage(){
-        whichIMG = true
         choose()
     }
-    @IBAction func chooseIMG(){
-        whichIMG = false
+    @IBAction func next(){
         if !setted{
             let alert:UIAlertView = UIAlertView()
             alert.message = "please scan QR code!"
@@ -41,17 +41,18 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             alert.show()
             return
         }
-        choose()
+        let cutview = CutViewController()
+        self.showViewController(cutview, sender: nextstep);
     }
     func choose(){
-
+        setted = false
+        stringInQRCode = ""
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
             var picker:UIImagePickerController = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             picker.mediaTypes = [kUTTypeImage]
             picker.allowsEditing = false
-            
             self.presentViewController(picker, animated: true, completion: nil)
         }
     }
@@ -95,9 +96,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    func detectQRcode(){
-        
-    }
+
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0{
@@ -123,15 +122,21 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        if whichIMG!{
-            qrcodeimg = image
-            detectQRcode()
+        
+        
+        if let str = QRDetector.decodeQRwithImg(image){
+            stringInQRCode = str
+        }
+        if stringInQRCode != "" {
+            setted = true
+            label.text = stringInQRCode
+            println(stringInQRCode)
         }
         else{
-            NSUserDefaults.standardUserDefaults().setObject(UIImagePNGRepresentation(image), forKey: "originImg")
-            var finalview:FinalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
-            //self.presentViewController(finalview, animated: true, completion: nil)
-            self.showViewController(finalview, sender: self)
+            let alertview = UIAlertView()
+            alertview.message = "No QR Code detect!"
+            alertview.addButtonWithTitle("OK")
+            alertview.show()
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }

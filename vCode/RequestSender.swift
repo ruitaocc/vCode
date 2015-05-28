@@ -30,6 +30,7 @@ class RequestSender{
         let uploadType:String = NSUserDefaults.standardUserDefaults().objectForKey("uploadType") as! String
         
         //set tm
+
         let dat:NSDate = NSDate(timeIntervalSinceNow: 0)
         let a:NSTimeInterval = dat.timeIntervalSince1970
         tm = String(stringInterpolationSegment: a)

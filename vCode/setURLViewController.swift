@@ -17,6 +17,7 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        sender.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +30,7 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
          //println(textField.text)
     }
     
-    @IBAction func chooseImg(){
+    @IBAction func next(){
         if textField.text == ""{
             let alert:UIAlertView = UIAlertView()
             alert.message = "no input text!"
@@ -40,22 +41,11 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         saveToUserDefaults()
         RequestSender.sendRequest()
         println(RequestSender.shortURL)
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
-            var picker:UIImagePickerController = UIImagePickerController()
-            picker.delegate = self
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            picker.mediaTypes = [kUTTypeImage]
-            picker.allowsEditing = false
-            
-            self.presentViewController(picker, animated: true, completion: nil)
-            
-        }
-    }
-    @IBAction func send(){
-        var finalview:FinalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
+        var cutview:CutViewController = CutViewController();
         //self.presentViewController(finalview, animated: true, completion: nil)
-        self.showViewController(finalview, sender: sender)
+        self.showViewController(cutview, sender: sender)
     }
+
     func saveToUserDefaults(){
         var ud = NSUserDefaults.standardUserDefaults()
         ud.setObject("http://"+textField.text, forKey: "url")
@@ -63,12 +53,4 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         ud.synchronize()
         println("saved complete!")
     }
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        imgView.image = image
-        NSUserDefaults.standardUserDefaults().setObject(UIImagePNGRepresentation(imgView.image), forKey: "originImg")
-        println("image choosen.")
-        send()
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-
 }

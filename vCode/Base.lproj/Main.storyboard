@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Moe-b0-cad">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Moe-b0-cad">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
@@ -112,6 +112,24 @@
             </objects>
             <point key="canvasLocation" x="685.5" y="30"/>
         </scene>
+        <!--Cut View Controller-->
+        <scene sceneID="FSb-mX-xa6">
+            <objects>
+                <viewController id="yM9-xF-iRM" customClass="CutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yfo-mJ-fST"/>
+                        <viewControllerLayoutGuide type="bottom" id="er2-24-z0k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gv6-fm-w6v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SjT-lP-QRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080" y="289"/>
+        </scene>
         <!--Final View Controller-->
         <scene sceneID="f89-7e-tlO">
             <objects>
@@ -200,22 +218,16 @@
                                     <action selector="textFieldDidEnd:" destination="Ztp-xa-1vd" eventType="editingDidEndOnExit" id="gCQ-up-v8I"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TZ2-Um-XOz">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="87" y="218" width="240" height="240"/>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnu-Zf-kcr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbX-wB-CB8">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="choose">
+                                <state key="normal" title="next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="122" y="489" width="51" height="30"/>
+                                    <rect key="frame" x="65" y="461" width="274" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="chooseImg" destination="Ztp-xa-1vd" eventType="touchUpInside" id="22t-Dz-Yvx"/>
+                                    <action selector="nextStep" destination="Ztp-xa-1vd" eventType="touchUpInside" id="3Vg-wy-QfP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -223,22 +235,20 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="96Z-6g-Hbw"/>
-                                <exclude reference="TZ2-Um-XOz"/>
-                                <exclude reference="Mnu-Zf-kcr"/>
+                                <exclude reference="DbX-wB-CB8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="96Z-6g-Hbw"/>
-                                <include reference="TZ2-Um-XOz"/>
-                                <include reference="Mnu-Zf-kcr"/>
+                                <include reference="DbX-wB-CB8"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imgView" destination="TZ2-Um-XOz" id="64s-9H-aGy"/>
+                        <outlet property="sender" destination="DbX-wB-CB8" id="HGq-lf-jQX"/>
                         <outlet property="textField" destination="96Z-6g-Hbw" id="3NO-AC-mcp"/>
                     </connections>
                 </viewController>
@@ -276,19 +286,6 @@
                                     <rect key="frame" x="100" y="225" width="200" height="200"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEO-so-kjJ">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="choose">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="122" y="509" width="51" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="chooseImg" destination="dpn-wM-WlY" eventType="touchUpInside" id="gR8-g5-CZF"/>
-                                    <action selector="chooseImg" destination="Ztp-xa-1vd" eventType="touchUpInside" id="vXI-Td-Daf"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSb-T2-zNd">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -298,27 +295,40 @@
                                     <rect key="frame" x="68" y="122" width="47" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yji-80-t8I">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="515" width="317" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="next" destination="dpn-wM-WlY" eventType="touchUpInside" id="Lq9-Op-vx1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="hzP-lp-hqm"/>
                                 <exclude reference="MbX-tH-EYr"/>
-                                <exclude reference="GEO-so-kjJ"/>
                                 <exclude reference="jSb-T2-zNd"/>
+                                <exclude reference="Yji-80-t8I"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="hzP-lp-hqm"/>
                                 <include reference="MbX-tH-EYr"/>
-                                <include reference="GEO-so-kjJ"/>
                                 <include reference="jSb-T2-zNd"/>
+                                <include reference="Yji-80-t8I"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="imgView" destination="MbX-tH-EYr" id="hPy-6I-uhj"/>
+                        <outlet property="sender" destination="Yji-80-t8I" id="Lwx-EW-bah"/>
                         <outlet property="textField" destination="hzP-lp-hqm" id="qHK-nY-TJD"/>
                     </connections>
                 </viewController>
@@ -371,16 +381,16 @@
                                     <action selector="readFromImage" destination="JAz-fn-3Kg" eventType="touchUpInside" id="erl-ef-gEc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-Fd-V5o">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-6P-wnJ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="选择图片">
+                                <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="170" y="447" width="60" height="30"/>
+                                    <rect key="frame" x="82" y="487" width="237" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="chooseIMG" destination="JAz-fn-3Kg" eventType="touchUpInside" id="nnF-Ob-ejX"/>
+                                    <action selector="next" destination="JAz-fn-3Kg" eventType="touchUpInside" id="9g6-gY-YEH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -390,7 +400,7 @@
                                 <exclude reference="0tG-RE-5rw"/>
                                 <exclude reference="lkA-4M-AIs"/>
                                 <exclude reference="7UT-I5-Rak"/>
-                                <exclude reference="JMd-Fd-V5o"/>
+                                <exclude reference="7ge-6P-wnJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -398,12 +408,13 @@
                                 <include reference="0tG-RE-5rw"/>
                                 <include reference="lkA-4M-AIs"/>
                                 <include reference="7UT-I5-Rak"/>
-                                <include reference="JMd-Fd-V5o"/>
+                                <include reference="7ge-6P-wnJ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="label" destination="0tG-RE-5rw" id="B3s-d8-Tss"/>
+                        <outlet property="nextstep" destination="7ge-6P-wnJ" id="uvY-fT-LUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wau-0P-f3t" userLabel="First Responder" sceneMemberID="firstResponder"/>

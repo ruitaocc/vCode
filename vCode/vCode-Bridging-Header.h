@@ -4,3 +4,5 @@
 
 #import "md5Encryptor.h"
 #import "AppDelegate.h"
+#import "CutViewController.h"
+#import "QRDetector.h"

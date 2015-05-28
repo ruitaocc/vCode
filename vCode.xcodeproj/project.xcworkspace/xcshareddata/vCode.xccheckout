@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>44D9681F-1A5F-40A4-8028-D03BD6CC6918</string>
 	<key>IDESourceControlProjectName</key>
-	<string>vCode</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B90423384B83E17C2BF1F67A82ACED46434FDED6</key>
 		<string>https://github.com/ruitaocc/vCode.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>vCode.xcodeproj</string>
+	<string>vCode.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B90423384B83E17C2BF1F67A82ACED46434FDED6</key>
