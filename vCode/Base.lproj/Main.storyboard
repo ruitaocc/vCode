@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685.5" y="30"/>
+            <point key="canvasLocation" x="222" y="101"/>
         </scene>
         <!--Cut View Controller-->
         <scene sceneID="FSb-mX-xa6">
@@ -435,10 +435,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJ5-8k-8U4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91.5" y="-107"/>
+            <point key="canvasLocation" x="-424.5" y="101"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XPl-lD-00i"/>
+        <segue reference="79Z-PZ-kYM"/>
     </inferredMetricsTieBreakers>
 </document>

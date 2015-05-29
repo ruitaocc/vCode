@@ -10,6 +10,7 @@
 #import "HQR.h"
 #import "md5Encryptor.h"
 #import "../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h"
+#import "WZFlashButton.h"
 @interface ViewController ()
 
 @end
@@ -19,7 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //NSLog([md5Encryptor md5:@"123"]);
+    //
+    // Inner Flash Button with text
+    WZFlashButton *innerFlashTextButton = [[WZFlashButton alloc] initWithFrame:CGRectMake(100, 300, 200, 60)];
     
+    innerFlashTextButton.backgroundColor = [UIColor colorWithRed:153.0f/255.0f green:204.0f/255.0f blue:0 alpha:1.0f];
+    innerFlashTextButton.flashColor = [UIColor orangeColor];
+    [innerFlashTextButton setText:@"Hello World!" withTextColor:nil];
+    [self.view addSubview:innerFlashTextButton];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 

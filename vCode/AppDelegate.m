@@ -11,6 +11,9 @@
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import "../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h"
 #import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
+#import "UIDeviceHardware.h"
+
+
 @interface AppDelegate (){
     bool isSkip;
 }
@@ -87,14 +90,32 @@
     [skip_btn setTitle:NSLocalizedString(@"skip_text", nill) forState:UIControlStateNormal];
     [lunchView addSubview:skip_btn];
     [skip_btn addTarget:self action:@selector(skip_btn_click) forControlEvents:UIControlEventTouchUpInside];
+    float sheight = self.window.screen.bounds.size.height;
     
+    float sweight = self.window.screen.bounds.size.width;
+    
+//    UIImage *grid_bg_img = [UIImage imageNamed:@"ip56bg"];
+//    UIImageView *grid_bg_view = [[UIImageView alloc]initWithFrame:CGRectMake(40,20,sweight,sheight) ];
+//    [grid_bg_view setContentMode:UIViewContentModeScaleAspectFill];
+//    [grid_bg_view setImage:grid_bg_img];
+//    
+//    float grid_unit_width = self.window.screen.bounds.size.width/10.0;
+//
+    NSLog(@"%f %f",sheight,sweight);
+//    float tx = 2*grid_unit_width;
+//    float ty = sheight/2+8*grid_unit_width;
+//    UIImage *timg = [UIImage imageNamed:@"128.jpg"];
+//    UIImageView *tview = [[UIImageView alloc]initWithFrame:CGRectMake(tx, ty, grid_unit_width, grid_unit_width)];
+//    [tview setContentMode:UIViewContentModeScaleAspectFill];
+//    [tview setImage:timg];
     
     
     [self.window addSubview:lunchView];
-    
-    [self.window bringSubviewToFront:lunchView];
+//    [self.window addSubview:grid_bg_view];
+//    [self.window addSubview:tview];
+    //[self.window bringSubviewToFront:lunchView];
     isSkip = false;
-    [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     
     //UMengFeedBack otion
     
