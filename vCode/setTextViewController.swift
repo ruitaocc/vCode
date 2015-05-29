@@ -42,7 +42,7 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
             return
         }
         saveToUserDefaults()
-        RequestSender.sendRequest()
+        //RequestSender.sendRequest()
         println(RequestSender.shortURL)
         /*if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
             var picker:UIImagePickerController = UIImagePickerController()

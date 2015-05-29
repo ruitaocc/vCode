@@ -11,6 +11,8 @@
 @implementation QRDetector
 +(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray{
     HQR* hqr = [HQR getInstance];
+    [hqr setLevel:QRecLevel::QR_ECLEVEL_H];
+    [hqr setVersion:10];
     return [hqr generateQRwithImg:img text:str isGray:isgray];
 }
 

@@ -53,6 +53,7 @@
 - (void) next{
     NSLog(@"prepare to compute QR code");
     if (_haveDataToEncode) {
+        NSLog(_dataToEncode);
         UIImage* img = [QRDetector generateQRwithImg:_portraitImageView.image text:_dataToEncode isGray:NO];
         _portraitImageView.image = img;
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
