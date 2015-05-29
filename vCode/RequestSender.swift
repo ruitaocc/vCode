@@ -7,9 +7,9 @@
 //
 
 import Foundation
-class RequestSender{
+class RequestSender:NSObject{
     static var shortURL:String = ""
-    init(){
+    override init(){
         println("init for sender")
     }
     
@@ -95,5 +95,8 @@ class RequestSender{
         else{
             return true
         }
+    }
+    func url()->String{
+        return RequestSender.shortURL;
     }
 }

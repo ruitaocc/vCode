@@ -10,6 +10,8 @@
 #import "VPImageCropperViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "vCode-swift.h"
+#import "QRDetector.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
@@ -17,15 +19,51 @@
 
 @property (nonatomic, strong) UIImageView *portraitImageView;
 
+
 @end
 
 @implementation CutViewController
 
 - (void)viewDidLoad
 {
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [super viewDidLoad];
     [self.view addSubview:self.portraitImageView];
     [self loadPortrait];
+    UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btn setTitle:NSLocalizedString(@"next_step2", @"") forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor whiteColor];
+    CGRect rect = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, 50);
+    btn.frame = rect;
+    UITapGestureRecognizer *Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(next)];
+    [btn addGestureRecognizer:Tap];
+    [self.view addSubview:btn];
+    UIImageView *qrcodeview = [[UIImageView alloc] initWithFrame:_portraitImageView.frame];
+    qrcodeview.image = [UIImage imageNamed:@"qrcode_mask.png"];
+    [self.view addSubview:qrcodeview];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveShortURL:) name:@"didReceiveURL" object:nil];
+}
+
+- (void) didReceiveShortURL:(NSNotification*) notification{
+    _dataToEncode = RequestSender.shortURL;
+    NSLog(_dataToEncode);
+    _haveDataToEncode = YES;
+}
+
+- (void) next{
+    NSLog(@"prepare to compute QR code");
+    if (_haveDataToEncode) {
+        UIImage* img = [QRDetector generateQRwithImg:_portraitImageView.image text:_dataToEncode isGray:NO];
+        _portraitImageView.image = img;
+        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc] init];
+        [alert setTitle:@"did not receive response yet."];
+        [alert addButtonWithTitle:@"ok"];
+        [alert show];
+    }
+    
 }
 
 - (void)loadPortrait {
@@ -35,6 +73,8 @@
             self.portraitImageView.image = protraitImg;
         });
     });
+    //UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"];
+    //self.portraitImageView.image = protraitImg;
 }
 
 - (void)editPortrait {
@@ -240,11 +280,11 @@
 #pragma mark portraitImageView getter
 - (UIImageView *)portraitImageView {
     if (!_portraitImageView) {
-        CGFloat w = 100.0f; CGFloat h = w;
+        CGFloat w = self.view.frame.size.width*0.57; CGFloat h = w;
         CGFloat x = (self.view.frame.size.width - w) / 2;
         CGFloat y = (self.view.frame.size.height - h) / 2;
         _portraitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-        [_portraitImageView.layer setCornerRadius:(_portraitImageView.frame.size.height/2)];
+        //[_portraitImageView.layer setCornerRadius:(_portraitImageView.frame.size.height/2)];
         [_portraitImageView.layer setMasksToBounds:YES];
         [_portraitImageView setContentMode:UIViewContentModeScaleAspectFill];
         [_portraitImageView setClipsToBounds:YES];
@@ -252,8 +292,8 @@
         _portraitImageView.layer.shadowOffset = CGSizeMake(4, 4);
         _portraitImageView.layer.shadowOpacity = 0.5;
         _portraitImageView.layer.shadowRadius = 2.0;
-        _portraitImageView.layer.borderColor = [[UIColor blackColor] CGColor];
-        _portraitImageView.layer.borderWidth = 2.0f;
+       // _portraitImageView.layer.borderColor = [[UIColor blackColor] CGColor];
+        _portraitImageView.layer.borderWidth = .0f;
         _portraitImageView.userInteractionEnabled = YES;
         _portraitImageView.backgroundColor = [UIColor blackColor];
         UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];

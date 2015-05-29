@@ -42,6 +42,8 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             return
         }
         let cutview = CutViewController()
+        cutview.haveDataToEncode = true
+        cutview.dataToEncode = stringInQRCode
         self.showViewController(cutview, sender: nextstep);
     }
     func choose(){
@@ -112,6 +114,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             if metadataObj.stringValue != nil{
                 setted = true
                 label.text = metadataObj.stringValue
+                stringInQRCode = label.text!
                 RequestSender.shortURL = label.text!
                 captureSession?.stopRunning()
                 videoPreviewLayer?.removeFromSuperlayer()

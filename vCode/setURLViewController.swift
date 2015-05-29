@@ -42,6 +42,7 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         RequestSender.sendRequest()
         println(RequestSender.shortURL)
         var cutview:CutViewController = CutViewController();
+        cutview.haveDataToEncode = false;
         //self.presentViewController(finalview, animated: true, completion: nil)
         self.showViewController(cutview, sender: sender)
     }

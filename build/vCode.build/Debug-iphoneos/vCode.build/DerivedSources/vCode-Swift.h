@@ -86,6 +86,7 @@ typedef struct _NSZone NSZone;
 @import UIKit;
 @import Foundation;
 @import AVFoundation;
+@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -137,6 +138,16 @@ SWIFT_CLASS("_TtC5vCode20QRCodeViewController")
 - (void)imagePickerController:(UIImagePickerController * __nonnull)picker didFinishPickingImage:(UIImage * __null_unspecified)image editingInfo:(NSDictionary * __null_unspecified)editingInfo;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5vCode13RequestSender")
+@interface RequestSender : NSObject
++ (NSString * __nonnull)shortURL;
++ (void)setShortURL:(NSString * __nonnull)value;
+- (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
++ (BOOL)sendRequest;
+- (NSString * __nonnull)url;
 @end
 
 @class UITextField;

@@ -55,6 +55,8 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
             
         }*/
         var cutview:CutViewController = CutViewController()
+        cutview.haveDataToEncode = true;
+        cutview.dataToEncode = textField.text;
         //self.presentViewController(finalview, animated: true, completion: nil)
         self.showViewController(cutview, sender: sender)
     }
