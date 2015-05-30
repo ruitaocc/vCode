@@ -29,7 +29,10 @@ class FinalViewController: UIViewController,NSURLConnectionDelegate {
         if a != ""{
             backButton.hidden = false
         }
-        // Do any additional setup after loading the view.
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
 
     override func didReceiveMemoryWarning() {

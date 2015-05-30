@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2VMa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zp-oq-lXO">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2VMa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zp-oq-lXO">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -26,19 +26,7 @@
                                     <rect key="frame" x="167" y="65" width="66" height="38"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk1-lW-Mg2">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="URL">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="83" y="183" width="47" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="dpn-wM-WlY" kind="show" id="rL5-wY-YsH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-w0-IYz">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-w0-IYz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="二维码">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,10 +35,10 @@
                                     <rect key="frame" x="266" y="183" width="45" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="JAz-fn-3Kg" kind="show" id="bMy-gR-9LH"/>
+                                    <segue destination="JAz-fn-3Kg" kind="show" identifier="HomeToCode" id="bMy-gR-9LH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oz-DN-O6Y">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oz-DN-O6Y">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="名片">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,7 +47,7 @@
                                     <rect key="frame" x="83" y="273" width="30" height="30"/>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYm-0o-hwi">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYm-0o-hwi">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="文本">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,10 +56,10 @@
                                     <rect key="frame" x="266" y="273" width="30" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="Ztp-xa-1vd" kind="show" id="lUM-jT-hCU"/>
+                                    <segue destination="Ztp-xa-1vd" kind="show" identifier="HomeToText" id="lUM-jT-hCU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kc4-fP-Of3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kc4-fP-Of3">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Feedback">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,34 +71,49 @@
                                     <action selector="feedback:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osS-A2-5E6"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk1-lW-Mg2">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="URL">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="83" y="183" width="47" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="dpn-wM-WlY" kind="show" identifier="HomeToURL" id="rL5-wY-YsH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="2zp-oq-lXO"/>
-                                <exclude reference="Hk1-lW-Mg2"/>
                                 <exclude reference="GZB-w0-IYz"/>
                                 <exclude reference="5oz-DN-O6Y"/>
                                 <exclude reference="zYm-0o-hwi"/>
                                 <exclude reference="Kc4-fP-Of3"/>
+                                <exclude reference="Hk1-lW-Mg2"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="2zp-oq-lXO"/>
-                                <include reference="Hk1-lW-Mg2"/>
                                 <include reference="GZB-w0-IYz"/>
                                 <include reference="5oz-DN-O6Y"/>
                                 <include reference="zYm-0o-hwi"/>
                                 <include reference="Kc4-fP-Of3"/>
+                                <include reference="Hk1-lW-Mg2"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="AS0-F2-taT"/>
+                    <connections>
+                        <segue destination="cJQ-PA-wcv" kind="show" identifier="HomeToInfo" id="lav-q6-if6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="101"/>
+            <point key="canvasLocation" x="-334.5" y="489"/>
         </scene>
         <!--Cut View Controller-->
         <scene sceneID="FSb-mX-xa6">
@@ -128,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjT-lP-QRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="289"/>
+            <point key="canvasLocation" x="1854" y="329"/>
         </scene>
         <!--Final View Controller-->
         <scene sceneID="f89-7e-tlO">
@@ -193,7 +196,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jah-vJ-3Ii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="-604"/>
+            <point key="canvasLocation" x="-129" y="-856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OLZ-lv-i5u">
+            <objects>
+                <viewController id="cJQ-PA-wcv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G95-CD-J32"/>
+                        <viewControllerLayoutGuide type="bottom" id="072-NW-Fx2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xyU-1h-lZa">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QdU-bC-BJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="1160"/>
         </scene>
         <!--Set Text View Controller-->
         <scene sceneID="QmL-kF-q8d">
@@ -254,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJm-8c-kgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="72"/>
+            <point key="canvasLocation" x="976.5" y="432"/>
         </scene>
         <!--SetURL View Controller-->
         <scene sceneID="BY2-Ag-II3">
@@ -334,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qq-BD-8bi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610.5" y="-682"/>
+            <point key="canvasLocation" x="969" y="-282"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="ECa-5f-nN7">
@@ -419,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wau-0P-f3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1174.5" y="-989"/>
+            <point key="canvasLocation" x="976.5" y="-1021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D1z-IV-u01">
@@ -435,10 +455,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJ5-8k-8U4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-424.5" y="101"/>
+            <point key="canvasLocation" x="-1152" y="489"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="79Z-PZ-kYM"/>
+        <segue reference="XPl-lD-00i"/>
     </inferredMetricsTieBreakers>
 </document>

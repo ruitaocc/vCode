@@ -6,6 +6,14 @@
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
 "skip_text"="      Design V Code";
+"menu_qnamecard"="Online\nNameCard";
+"menu_history"="History";
+"menu_qr2vc"="QR Code\nto V Code";
+"menu_text"="Text";
+"menu_url"="URL";
+"menu_weichat"="WeiChat\nNameCard";
+"alert_coming" = "coming soon...";
+"alert_ok"="OK";
 "next_step"=" Next Step: Choose Your Photo";
 "noinputtext"="No Input Text!";
 "next_step2"="Next Step: Generate QR Code";

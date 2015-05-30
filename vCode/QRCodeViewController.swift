@@ -22,7 +22,10 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         nextstep.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal)
-               // Do any additional setup after loading the view.
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
 
     @IBAction func beginCapture(){

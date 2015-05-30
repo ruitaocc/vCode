@@ -6,6 +6,14 @@
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
 "skip_text"="     开启创作V码";
+"menu_qnamecard"="网络\n名片";
+"menu_history"="历史\n纪录";
+"menu_qr2vc"="二维码\n转2V码";
+"menu_text"="文本码";
+"menu_url"="网络\n链接";
+"menu_weichat"="微信\n名片";
+"alert_coming"="即将到来...";
+"alert_ok"="确定";
 "next_step"="下一步：选择你要编码的图片";
 "noinputtext"="请输入文本！";
 "next_step2"="下一步：生成二维码";

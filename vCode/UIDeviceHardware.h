@@ -14,9 +14,10 @@
 
 @interface UIDeviceHardware : NSObject
 
-+ (NSString *) platform;
-+ (NSString *) platformString;
-+ (BOOL)Is_IPH_56;
+- (NSString *) platform;
+- (NSString *) platformString;
+- (BOOL)Is_IPH_56;
+-(BOOL)Is_Simulator;
 @end
 
 #endif

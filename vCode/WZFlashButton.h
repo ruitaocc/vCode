@@ -15,13 +15,15 @@ typedef NS_ENUM(NSUInteger, WZFlashButtonType) {
     WZFlashButtonTypeOuter = 1
 };
 
-@interface WZFlashButton : UIView
+@interface WZFlashButton : UIView{
+    
+}
 
 @property (nonatomic, assign) WZFlashButtonType buttonType;
 @property (nonatomic, copy) WZFlashButtonDidClickBlock clickBlock;
 
+@property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) UIColor *flashColor;
-
 - (void)setText:(NSString *)text;
 - (void)setTextColor:(UIColor *)textColor;
 - (void)setText:(NSString *)text withTextColor:(UIColor *)textColor;

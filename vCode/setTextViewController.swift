@@ -17,9 +17,10 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         sender.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal);
-        
-        
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
 
     override func didReceiveMemoryWarning() {

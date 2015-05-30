@@ -90,5 +90,12 @@
     return NO;
     
 }
+-(BOOL)Is_Simulator{
+    NSString *platform = [self platform];
+    if ([platform isEqualToString:@"i386"] ||
+        [platform isEqualToString:@"x86_64"])    return YES;
+    return NO;
+
+}
 
 @end
