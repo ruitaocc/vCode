@@ -31,6 +31,7 @@
 		B65B1CD91B16D5210028F631 /* skip_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CD71B16D5210028F631 /* skip_highlight.png */; };
 		B65B1CDA1B16D5210028F631 /* skip_normal_w.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CD81B16D5210028F631 /* skip_normal_w.png */; };
 		B65B1CDC1B16E0270028F631 /* intro_musk351_325.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */; };
+		B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */; };
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
 		B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97531AE3A30E0085DBB3 /* AppDelegate.m */; };
 		B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.mm */; };
@@ -80,7 +81,6 @@
 		B6EB472C1B18975E00495FBA /* slogan.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB472A1B18975E00495FBA /* slogan.png */; };
 		B6EB472E1B18976600495FBA /* ip56_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB472D1B18976600495FBA /* ip56_bg.png */; };
 		B6EB47301B189DC100495FBA /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB472F1B189DC100495FBA /* UIDeviceHardware.m */; };
-		B6EB47331B18A95400495FBA /* qrcode_musk.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB47321B18A95400495FBA /* qrcode_musk.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +126,7 @@
 		B65B1CD71B16D5210028F631 /* skip_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip_highlight.png; sourceTree = "<group>"; };
 		B65B1CD81B16D5210028F631 /* skip_normal_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip_normal_w.png; sourceTree = "<group>"; };
 		B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_musk351_325.png; sourceTree = "<group>"; };
+		B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode_mask.png; sourceTree = "<group>"; };
 		B67F974B1AE3A30E0085DBB3 /* vCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F974F1AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F97501AE3A30E0085DBB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -202,7 +203,6 @@
 		B6EB472D1B18976600495FBA /* ip56_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ip56_bg.png; sourceTree = "<group>"; };
 		B6EB472F1B189DC100495FBA /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		B6EB47311B189DE000495FBA /* UIDeviceHardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
-		B6EB47321B18A95400495FBA /* qrcode_musk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode_musk.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,7 +316,7 @@
 				B6EB47241B18973E00495FBA /* info_icon.png */,
 				B6EB47251B18973E00495FBA /* ip4_bg.png */,
 				B6EB471F1B17525300495FBA /* grid_bg.png */,
-				B6EB47321B18A95400495FBA /* qrcode_musk.png */,
+				B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */,
 				B65B1CD11B16B4E90028F631 /* Localizable.strings */,
 				B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */,
 				B65B1CD71B16D5210028F631 /* skip_highlight.png */,
@@ -540,7 +540,7 @@
 				B6EB472B1B18975E00495FBA /* like_icon.png in Resources */,
 				B65B1CDA1B16D5210028F631 /* skip_normal_w.png in Resources */,
 				B6EB47281B18973E00495FBA /* ip4_bg.png in Resources */,
-				B6EB47331B18A95400495FBA /* qrcode_musk.png in Resources */,
+				B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */,
 				B6EB47271B18973E00495FBA /* info_icon.png in Resources */,
 				B65B1CCF1B16B4E90028F631 /* Localizable.strings in Resources */,
 				B6A448F51AE76BC80024F109 /* 128.jpg in Resources */,

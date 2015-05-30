@@ -14,7 +14,10 @@ typedef NS_ENUM(NSUInteger, WZFlashButtonType) {
     WZFlashButtonTypeInner = 0,
     WZFlashButtonTypeOuter = 1
 };
-
+typedef enum _FlashState{
+    OK,
+    Flashing
+}FlashState;
 @interface WZFlashButton : UIView{
     
 }

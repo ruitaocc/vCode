@@ -10,7 +10,9 @@
 
 const CGFloat WZFlashInnerCircleInitialRaius = 20;
 
-@interface WZFlashButton()
+@interface WZFlashButton(){
+    FlashState  flashState;
+}
 @end
 
 @implementation WZFlashButton
@@ -36,6 +38,7 @@ const CGFloat WZFlashInnerCircleInitialRaius = 20;
 
 - (void)commonInit
 {
+    flashState = OK;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
     [self addGestureRecognizer:tap];
     
@@ -86,6 +89,10 @@ const CGFloat WZFlashInnerCircleInitialRaius = 20;
 #pragma mark - Private
 - (void)didTap:(UITapGestureRecognizer *)tapGestureHandler
 {
+    if (flashState!=OK) {
+        return;
+    }
+    flashState = Flashing;
     CGPoint tapLocation = [tapGestureHandler locationInView:self];
     CAShapeLayer *circleShape = nil;
     CGFloat scale = 1.0f;
@@ -167,6 +174,7 @@ const CGFloat WZFlashInnerCircleInitialRaius = 20;
 #pragma mark - CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
+    flashState = OK;
     CALayer *layer = [anim valueForKey:@"circleShaperLayer"];
     if (layer) {
         [layer removeFromSuperlayer];
