@@ -49,7 +49,6 @@
         videoURL = [NSURL fileURLWithPath:path];
     }
     moviePlayerController= [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-    
     float width = 0.57*self.window.screen.bounds.size.width, height = width;
     float x =  (self.window.screen.bounds.size.width-width)/2.0;
     float y =  (self.window.screen.bounds.size.height-height)/2.0;

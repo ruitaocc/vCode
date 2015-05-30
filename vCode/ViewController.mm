@@ -65,9 +65,9 @@
     BOOL isSumulator = [hd Is_Simulator];
     isIPH56 = isSumulator?YES:NO;
     
-    UIImage *bg;
+    UIImage *bg,*resized_bg;
     UIImage *img_rating,*img_feedback,*img_info,*img_slogan;
-    CGRect bg_frame;
+    CGRect bg_frame,bg_view_frame;
     CGRect menu_btn_frame;
     CGRect icon_btn_frame;
     CGRect slogan_frame;
@@ -76,13 +76,17 @@
     menu_btn_frame.size.width = grid_size*3;
     slogan_frame.size.width = 6*grid_size;
     slogan_frame.size.height = 2*grid_size;
+    bg_view_frame.size.width = s_width;
+    bg_view_frame.size.height = s_height -20;
+    bg_view_frame.origin.x = 0;
+    bg_view_frame.origin.y =20;
+    
     if(isIPH56){
         bg = [UIImage imageNamed:@"ip56_bg.png"];
         bg_frame.size.width = s_width;
         bg_frame.size.height = bg.size.height/640.0*s_width;
         bg_frame.origin.x = 0;
         bg_frame.origin.y = s_height-bg_frame.size.height;
-        
         menu_btn_frame.size.height = grid_size*3;
         slogan_frame.origin.x = 2*grid_size;
         slogan_frame.origin.y = s_height-16*grid_size;
@@ -106,8 +110,27 @@
     
     slogan = [[UIImageView alloc] initWithFrame:slogan_frame];
     [slogan setImage:img_slogan];
-    bg_view = [[UIImageView alloc]initWithFrame:bg_frame];
-    [bg_view setImage:bg];
+    
+    CGRect myImageRect;
+    myImageRect.origin.x = 0;
+    myImageRect.origin.y = bg.size.height-(s_height-20)/s_width*640;
+    myImageRect.size.width = 640;
+    myImageRect.size.height =(s_height-20)/s_width*640;
+    CGImageRef imageRef = bg.CGImage;
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(imageRef, myImageRect);
+    CGSize size;
+    size.width = myImageRect.size.width;
+    size.height = myImageRect.size.height;
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, myImageRect, subImageRef);
+    UIImage* smallImage = [UIImage imageWithCGImage:subImageRef];
+    UIGraphicsEndImageContext();
+
+    
+   bg_view = [[UIImageView alloc]initWithFrame:bg_view_frame];
+    [bg_view setImage:smallImage];
+    
     
     //icon buttons
     icon_btn_frame.origin.x = 0;
@@ -225,6 +248,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:YES];
