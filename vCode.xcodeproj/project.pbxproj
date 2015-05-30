@@ -60,7 +60,6 @@
 		B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A448EC1AE526DD0024F109 /* HQR.mm */; };
 		B6A448F11AE527B20024F109 /* UIImage+opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A448F01AE527B20024F109 /* UIImage+opencv.mm */; };
 		B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448F21AE5282E0024F109 /* CoreImage.framework */; };
-		B6A448F51AE76BC80024F109 /* 128.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F41AE76BC80024F109 /* 128.jpg */; };
 		B6A448F71AE7EC310024F109 /* lena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F61AE7EC310024F109 /* lena.jpg */; };
 		B6EB46FC1B170AB200495FBA /* UMSocial_Sdk_4.2.3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */; };
 		B6EB46FE1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks in Resources */ = {isa = PBXBuildFile; fileRef = B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */; };
@@ -73,7 +72,6 @@
 		B6EB470C1B1728FF00495FBA /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB470B1B1728FF00495FBA /* libUMSocial_Sdk_Comment_4.2.3.a */; };
 		B6EB470E1B17290D00495FBA /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB470D1B17290D00495FBA /* libUMSocial_Sdk_4.2.3.a */; };
 		B6EB471C1B173D1200495FBA /* WZFlashButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB471B1B173D1200495FBA /* WZFlashButton.m */; };
-		B6EB47201B17525300495FBA /* grid_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB471F1B17525300495FBA /* grid_bg.png */; };
 		B6EB47261B18973E00495FBA /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB47231B18973E00495FBA /* feedback_icon.png */; };
 		B6EB47271B18973E00495FBA /* info_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB47241B18973E00495FBA /* info_icon.png */; };
 		B6EB47281B18973E00495FBA /* ip4_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB47251B18973E00495FBA /* ip4_bg.png */; };
@@ -180,7 +178,6 @@
 		B6A448EF1AE527B20024F109 /* UIImage+opencv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+opencv.h"; sourceTree = "<group>"; };
 		B6A448F01AE527B20024F109 /* UIImage+opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+opencv.mm"; sourceTree = "<group>"; };
 		B6A448F21AE5282E0024F109 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		B6A448F41AE76BC80024F109 /* 128.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 128.jpg; sourceTree = "<group>"; };
 		B6A448F61AE7EC310024F109 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = HQR/lena.jpg; sourceTree = "<group>"; };
 		B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_4.2.3; sourceTree = "<group>"; };
 		B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_Extra_Frameworks; sourceTree = "<group>"; };
@@ -194,7 +191,6 @@
 		B6EB470D1B17290D00495FBA /* libUMSocial_Sdk_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUMSocial_Sdk_4.2.3.a; path = vCode/UMSocial_Sdk_4.2.3/libUMSocial_Sdk_4.2.3.a; sourceTree = "<group>"; };
 		B6EB471A1B173D1200495FBA /* WZFlashButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZFlashButton.h; sourceTree = "<group>"; };
 		B6EB471B1B173D1200495FBA /* WZFlashButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZFlashButton.m; sourceTree = "<group>"; };
-		B6EB471F1B17525300495FBA /* grid_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_bg.png; sourceTree = "<group>"; };
 		B6EB47231B18973E00495FBA /* feedback_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_icon.png; sourceTree = "<group>"; };
 		B6EB47241B18973E00495FBA /* info_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_icon.png; sourceTree = "<group>"; };
 		B6EB47251B18973E00495FBA /* ip4_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ip4_bg.png; sourceTree = "<group>"; };
@@ -315,7 +311,6 @@
 				B6EB47231B18973E00495FBA /* feedback_icon.png */,
 				B6EB47241B18973E00495FBA /* info_icon.png */,
 				B6EB47251B18973E00495FBA /* ip4_bg.png */,
-				B6EB471F1B17525300495FBA /* grid_bg.png */,
 				B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */,
 				B65B1CD11B16B4E90028F631 /* Localizable.strings */,
 				B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */,
@@ -325,7 +320,6 @@
 				B65B1CD41B16C7EE0028F631 /* skip_normal.png */,
 				B65B1CC91B16014F0028F631 /* intro.mp4 */,
 				B6A448F61AE7EC310024F109 /* lena.jpg */,
-				B6A448F41AE76BC80024F109 /* 128.jpg */,
 				B67F974F1AE3A30E0085DBB3 /* Info.plist */,
 				B67F97501AE3A30E0085DBB3 /* main.m */,
 			);
@@ -543,9 +537,7 @@
 				B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */,
 				B6EB47271B18973E00495FBA /* info_icon.png in Resources */,
 				B65B1CCF1B16B4E90028F631 /* Localizable.strings in Resources */,
-				B6A448F51AE76BC80024F109 /* 128.jpg in Resources */,
 				B65B1CD51B16C7EE0028F631 /* skip_click.png in Resources */,
-				B6EB47201B17525300495FBA /* grid_bg.png in Resources */,
 				B65B1CD91B16D5210028F631 /* skip_highlight.png in Resources */,
 				B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */,
 				B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */,
