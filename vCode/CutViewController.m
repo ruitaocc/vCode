@@ -33,7 +33,7 @@
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [btn setTitle:NSLocalizedString(@"next_step2", @"") forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor whiteColor];
-    CGRect rect = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, 50);
+    CGRect rect = CGRectMake(0, self.view.frame.size.height*3/4, self.view.frame.size.width, 50);
     btn.frame = rect;
     UITapGestureRecognizer *Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(next)];
     [btn addGestureRecognizer:Tap];

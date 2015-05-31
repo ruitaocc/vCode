@@ -9,6 +9,7 @@
 import Foundation
 class RequestSender:NSObject{
     static var shortURL:String = ""
+    static var baseURL:String = "http://2vma.co"
     override init(){
         println("init for sender")
     }
@@ -41,12 +42,17 @@ class RequestSender:NSObject{
         let secretKey:String = "C10-705"
         sign = md5Encryptor.md5(secretKey+tm+uuid)
         
+        let request = NSMutableURLRequest()
+        
+        
         //set upload params
         switch uploadType{
         case "txt":
+            request.URL = NSURL(string: "http://2vma.co/message")
             message = NSUserDefaults.standardUserDefaults().objectForKey("text") as! String
             println(message)
         case "url":
+            request.URL = NSURL(string: "http://2vma.co/short_url")
             url = NSUserDefaults.standardUserDefaults().objectForKey("url") as! String
             println(url)
         case "qrcode":
@@ -56,9 +62,7 @@ class RequestSender:NSObject{
         default:
             break
         }
-        let request = NSMutableURLRequest()
-        request.URL = NSURL(string: "http://2vma.co/api/short_url")
-        request.HTTPMethod = "POST"
+         request.HTTPMethod = "POST"
         request.setValue("application/x-www-form-urlencoded ; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&message="+message+"&url="+url+"&vcard="+vcard
         //let postData = "tm=111&uuid=123&sign=1339ba084d895328187e53d1fe497d77&url=http://www.baidu.com"
@@ -97,6 +101,7 @@ class RequestSender:NSObject{
         }
     }
     func url()->String{
-        return RequestSender.shortURL;
+        let URL = RequestSender.baseURL+RequestSender.shortURL;
+        return URL;
     }
 }
