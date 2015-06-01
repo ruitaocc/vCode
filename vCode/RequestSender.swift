@@ -42,7 +42,7 @@ class RequestSender:NSObject{
         let secretKey:String = "C10-705"
         sign = md5Encryptor.md5(secretKey+tm+uuid)
         
-        let request = NSMutableURLRequest()
+        let request = NSMutableURLRequest();
         
         
         //set upload params
@@ -62,7 +62,7 @@ class RequestSender:NSObject{
         default:
             break
         }
-         request.HTTPMethod = "POST"
+        request.HTTPMethod = "POST"
         request.setValue("application/x-www-form-urlencoded ; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&message="+message+"&url="+url+"&vcard="+vcard
         //let postData = "tm=111&uuid=123&sign=1339ba084d895328187e53d1fe497d77&url=http://www.baidu.com"
@@ -70,28 +70,40 @@ class RequestSender:NSObject{
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {
             (response,data,error) in
             
+            if (error != nil){
+                println(error)
+                self.alert(error.localizedDescription, button: "OK")
+                return
+                
+            }
             let strdata = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
             println(strdata)
-            println(json)
-            println(json["code"])
-            //NSString* encodedata = [[json objectForKey:@"data"] objectForKey:@"shortUrl"];
-            if let code = json["code"] as? NSNumber{
-                //println("in")
-                if code != 0{
-                    println("code error")
-                    self.shortURL = ""
-                }
-                else{
-                    if let data = json["data"] as? NSDictionary{
-                        if let url = data["shortUrl"] as? String{
-                            self.shortURL = url
+            if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary{
+                println(strdata)
+                println(json)
+                println(json["code"])
+                //NSString* encodedata = [[json objectForKey:@"data"] objectForKey:@"shortUrl"];
+                if let code = json["code"] as? NSNumber{
+                    //println("in")
+                    if code != 0{
+                        println("code error")
+                        self.shortURL = ""
+                    }
+                    else{
+                        if let data = json["data"] as? NSDictionary{
+                            if let url = data["shortUrl"] as? String{
+                                self.shortURL = self.baseURL+url
+                            }
                         }
                     }
                 }
+                NSNotificationCenter.defaultCenter().postNotificationName("didReceiveURL", object: self)
+                println(self.shortURL)
             }
-            NSNotificationCenter.defaultCenter().postNotificationName("didReceiveURL", object: self)
-            println(self.shortURL)
+            else{
+                self.alert("Unexpected Error", button: "OK")
+                return
+            }
         })
         if shortURL == ""{
             return false
@@ -99,9 +111,19 @@ class RequestSender:NSObject{
         else{
             return true
         }
+        
     }
+    
     func url()->String{
-        let URL = RequestSender.baseURL+RequestSender.shortURL;
-        return URL;
+        return RequestSender.shortURL;
+    }
+    
+    class func alert(title:String,button:String){
+        let alert = UIAlertView()
+        alert.title = title
+        alert.addButtonWithTitle(button)
+        alert.show()
+        return
+
     }
 }

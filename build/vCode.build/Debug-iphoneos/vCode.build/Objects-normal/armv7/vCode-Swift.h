@@ -101,6 +101,7 @@ SWIFT_CLASS("_TtC5vCode19FinalViewController")
 @property (nonatomic) IBOutlet UIImageView * __null_unspecified imageView;
 @property (nonatomic) IBOutlet UIButton * __null_unspecified backButton;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (void)didReceiveShortURL:(id __nonnull)sender;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -128,6 +129,7 @@ SWIFT_CLASS("_TtC5vCode20QRCodeViewController")
 @property (nonatomic, copy) NSString * __nonnull stringInQRCode;
 @property (nonatomic) BOOL setted;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (IBAction)beginCapture;
 - (IBAction)readFromImage;
 - (IBAction)next;
@@ -145,6 +147,8 @@ SWIFT_CLASS("_TtC5vCode13RequestSender")
 @interface RequestSender : NSObject
 + (NSString * __nonnull)shortURL;
 + (void)setShortURL:(NSString * __nonnull)value;
++ (NSString * __nonnull)baseURL;
++ (void)setBaseURL:(NSString * __nonnull)value;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 + (BOOL)sendRequest;
 - (NSString * __nonnull)url;
@@ -158,6 +162,7 @@ SWIFT_CLASS("_TtC5vCode21setTextViewController")
 @property (nonatomic) IBOutlet UITextField * __null_unspecified textField;
 @property (nonatomic) IBOutlet UIButton * __null_unspecified sender;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (IBAction)textFieldDidEnd:(id __nonnull)sender;
 - (IBAction)nextStep;
@@ -174,6 +179,7 @@ SWIFT_CLASS("_TtC5vCode20setURLViewController")
 @property (nonatomic) IBOutlet UITextField * __null_unspecified textField;
 @property (nonatomic) IBOutlet UIButton * __null_unspecified sender;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (IBAction)textFieldDidEnd:(id __nonnull)sender;
 - (IBAction)next;
