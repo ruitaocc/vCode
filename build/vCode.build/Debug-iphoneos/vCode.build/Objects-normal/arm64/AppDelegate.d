@@ -13,4 +13,5 @@ dependencies: /Users/changxiao/Documents/vCode/vCode/AppDelegate.m \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialSnsPlatformManager.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialSnsService.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialBar.h \
-  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialConfig.h
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialConfig.h \
+  /Users/changxiao/Documents/vCode/vCode/UIDeviceHardware.h

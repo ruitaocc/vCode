@@ -62,8 +62,8 @@
     float grid_size = s_width/10;
     UIDeviceHardware*hd =  [[UIDeviceHardware  alloc ]init ];
     BOOL isIPH56 = [hd Is_IPH_56];
-    BOOL isSumulator = [hd Is_Simulator];
-    isIPH56 = isSumulator?YES:NO;
+    //BOOL isSumulator = [hd Is_Simulator];
+    //isIPH56 = isSumulator?YES:NO;
     
     UIImage *bg,*resized_bg;
     UIImage *img_rating,*img_feedback,*img_info,*img_slogan;
@@ -177,7 +177,7 @@
         [alert show];
     };
     
-    menu_btn_frame.origin.x = grid_size*5;
+    menu_btn_frame.origin.x = grid_size*6;
     menu_btn_frame.origin.y = isIPH56 ?s_height-5*grid_size : s_height-4*grid_size;
     fbtn_History = [[WZFlashButton alloc]initWithFrame:menu_btn_frame ];
     fbtn_History.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
@@ -197,7 +197,7 @@
         [weakSelf performSegueWithIdentifier:@"HomeToCode" sender:weakSelf];
     };
 
-    menu_btn_frame.origin.x = grid_size*5;
+    menu_btn_frame.origin.x = grid_size*6;
     menu_btn_frame.origin.y = isIPH56 ? s_height-9*grid_size : s_height-7*grid_size;
     fbtn_Text = [[WZFlashButton alloc]initWithFrame:menu_btn_frame ];
     fbtn_Text.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
@@ -217,7 +217,7 @@
         [weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];
     };
     
-    menu_btn_frame.origin.x = grid_size*5;
+    menu_btn_frame.origin.x = grid_size*6;
     menu_btn_frame.origin.y = isIPH56 ? s_height-13*grid_size : s_height-10*grid_size;
     fbtn_WeiChat = [[WZFlashButton alloc]initWithFrame:menu_btn_frame ];
     fbtn_WeiChat.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
