@@ -22,6 +22,8 @@
 		267C3E751B004F93001D917A /* md5Encryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E741B004F93001D917A /* md5Encryptor.m */; };
 		267C3E791B005408001D917A /* setTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E781B005408001D917A /* setTextViewController.swift */; };
 		7138B5DCA29696FB6D368F1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FEA7AA7771EA76030F983B6 /* libPods.a */; };
+		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
+		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
 		B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */; };
 		B65B1CCA1B16023E0028F631 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC91B16014F0028F631 /* intro.mp4 */; };
 		B65B1CCC1B1606200028F631 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B1CCB1B1606200028F631 /* MediaPlayer.framework */; };
@@ -115,6 +117,8 @@
 		8FEA7AA7771EA76030F983B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609A3BF0FABFE758F944F94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9C8093DD2A1D1B9DE35D11D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		B65B1CC91B16014F0028F631 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		B65B1CCB1B1606200028F631 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -275,8 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				B6EB47131B173B9700495FBA /* THirdParty */,
-				B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */,
-				B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */,
 				B6A448691AE4E01C0024F109 /* HQR */,
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
 				B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */,
@@ -310,6 +312,8 @@
 		B67F974E1AE3A30E0085DBB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B630A97D1B1C1DC700C401B3 /* en.lproj */,
+				B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */,
 				B6EB472D1B18976600495FBA /* ip56_bg.png */,
 				B6EB47291B18975E00495FBA /* like_icon.png */,
 				B6EB472A1B18975E00495FBA /* slogan.png */,
@@ -411,6 +415,8 @@
 		B6EB47131B173B9700495FBA /* THirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */,
+				B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */,
 				B6EB471A1B173D1200495FBA /* WZFlashButton.h */,
 				B6EB471B1B173D1200495FBA /* WZFlashButton.m */,
 			);
@@ -456,6 +462,7 @@
 				B67F97481AE3A30E0085DBB3 /* Frameworks */,
 				B67F97491AE3A30E0085DBB3 /* Resources */,
 				127B7F653EFE1116063EEAB0 /* Copy Pods Resources */,
+				B630A9841B1C23C400C401B3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -529,6 +536,7 @@
 			files = (
 				B65B1CD61B16C7EE0028F631 /* skip_normal.png in Resources */,
 				B6EB472C1B18975E00495FBA /* slogan.png in Resources */,
+				B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */,
 				B6EB47261B18973E00495FBA /* feedback_icon.png in Resources */,
 				B65B1CDC1B16E0270028F631 /* intro_musk351_325.png in Resources */,
 				B65B1CCA1B16023E0028F631 /* intro.mp4 in Resources */,
@@ -538,6 +546,7 @@
 				B6A448F71AE7EC310024F109 /* lena.jpg in Resources */,
 				B6EB472B1B18975E00495FBA /* like_icon.png in Resources */,
 				B65B1CDA1B16D5210028F631 /* skip_normal_w.png in Resources */,
+				B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */,
 				B6EB47281B18973E00495FBA /* ip4_bg.png in Resources */,
 				B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */,
 				B6EB47271B18973E00495FBA /* info_icon.png in Resources */,
@@ -589,6 +598,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		B630A9841B1C23C400C401B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\nbuildNumber=`date +\"%y%m%d%H%M\"`\nbuildNumber=\"$shortVersion.$buildNumber\"\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

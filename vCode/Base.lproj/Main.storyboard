@@ -198,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="-129" y="-856"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="OLZ-lv-i5u">
             <objects>
-                <viewController id="cJQ-PA-wcv" sceneMemberID="viewController">
+                <viewController id="cJQ-PA-wcv" customClass="InfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G95-CD-J32"/>
                         <viewControllerLayoutGuide type="bottom" id="072-NW-Fx2"/>
@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdU-bC-BJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="1160"/>
+            <point key="canvasLocation" x="1066.5" y="1191"/>
         </scene>
         <!--Set Text View Controller-->
         <scene sceneID="QmL-kF-q8d">
@@ -254,9 +254,6 @@
                                 <state key="normal" title="next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="63" y="456" width="274" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="nextStep" destination="Ztp-xa-1vd" eventType="touchUpInside" id="3Vg-wy-QfP"/>
                                 </connections>
@@ -349,9 +346,6 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="42" y="515" width="317" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="next" destination="dpn-wM-WlY" eventType="touchUpInside" id="Lq9-Op-vx1"/>
                                 </connections>
@@ -381,11 +375,11 @@
                                 <exclude reference="jSb-T2-zNd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AWO-Fu-HSh"/>
                                 <exclude reference="3Zh-hs-Ook"/>
                                 <exclude reference="Mdk-bo-ZMI"/>
                                 <exclude reference="omq-cq-xGY"/>
                                 <exclude reference="uVd-P1-Wfc"/>
+                                <exclude reference="AWO-Fu-HSh"/>
                                 <exclude reference="3se-Dg-8r7"/>
                             </mask>
                         </variation>
@@ -396,11 +390,11 @@
                                 <include reference="jSb-T2-zNd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AWO-Fu-HSh"/>
                                 <include reference="3Zh-hs-Ook"/>
                                 <include reference="Mdk-bo-ZMI"/>
                                 <include reference="omq-cq-xGY"/>
                                 <include reference="uVd-P1-Wfc"/>
+                                <include reference="AWO-Fu-HSh"/>
                                 <include reference="3se-Dg-8r7"/>
                             </mask>
                         </variation>
@@ -431,18 +425,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="60" y="84" width="280" height="21"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-6P-wnJ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="82" y="487" width="237" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="next" destination="JAz-fn-3Kg" eventType="touchUpInside" id="9g6-gY-YEH"/>
                                 </connections>
@@ -507,13 +495,13 @@
                                 <exclude reference="4xx-rZ-X77"/>
                                 <exclude reference="clS-2F-2vu"/>
                                 <exclude reference="kf6-Sy-EGz"/>
-                                <exclude reference="AVu-rB-Imq"/>
-                                <exclude reference="ebB-Ce-UU8"/>
+                                <exclude reference="chD-qK-RUP"/>
                                 <exclude reference="6Gk-Xy-UfW"/>
                                 <exclude reference="RUt-4b-YBe"/>
                                 <exclude reference="lF6-mP-daQ"/>
                                 <exclude reference="r3X-6m-g2x"/>
-                                <exclude reference="chD-qK-RUP"/>
+                                <exclude reference="AVu-rB-Imq"/>
+                                <exclude reference="ebB-Ce-UU8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -527,13 +515,13 @@
                                 <include reference="4xx-rZ-X77"/>
                                 <include reference="clS-2F-2vu"/>
                                 <include reference="kf6-Sy-EGz"/>
-                                <include reference="AVu-rB-Imq"/>
-                                <include reference="ebB-Ce-UU8"/>
+                                <include reference="chD-qK-RUP"/>
                                 <include reference="6Gk-Xy-UfW"/>
                                 <include reference="RUt-4b-YBe"/>
                                 <include reference="lF6-mP-daQ"/>
                                 <include reference="r3X-6m-g2x"/>
-                                <include reference="chD-qK-RUP"/>
+                                <include reference="AVu-rB-Imq"/>
+                                <include reference="ebB-Ce-UU8"/>
                             </mask>
                         </variation>
                     </view>
