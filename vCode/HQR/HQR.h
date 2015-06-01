@@ -79,7 +79,10 @@ typedef enum _imageType {
 */
 -(bool)setThreshold_PaddingArea:(float)parea nodePaddingArea:(float)nparea GuideRatio:(float)guideRatio;
 
-
+/*
+ *@return: this function will return the minimum qr code version by the given text
+ */
+-(int)getMinimunVersionWithText:(NSString*)text;
 
 
 @end

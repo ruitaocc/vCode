@@ -163,7 +163,20 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     }
     return  nil;
 };
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev isGray:(BOOL)isgray{
+
+
+-(int)getMinimunVersionWithText:(NSString*)text{
+    int resolved_version = 0;
+    QRcode *minmumQRcode;
+    unsigned char *tmp_text = (unsigned char *)[text UTF8String];
+    int t_length = 0;
+    t_length = strlen((char *)tmp_text);
+    minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
+    resolved_version = minmumQRcode->version;
+    return  resolved_version;
+};
+
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev isGray:(BOOL)isgra{
     cout<<"start"<<endl;
     //string *inputfilepath = new string(inputfile);
     //string *outputfilepath = new string(outputfile);
