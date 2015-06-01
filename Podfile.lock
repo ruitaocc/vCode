@@ -1,14 +1,17 @@
 PODS:
+  - CTFeedback (1.0.17)
   - UMengFeedback (2.2)
   - ZXingObjC (3.1.0):
     - ZXingObjC/All (= 3.1.0)
   - ZXingObjC/All (3.1.0)
 
 DEPENDENCIES:
-  - UMengFeedback
+  - CTFeedback (~> 1.0)
+  - UMengFeedback (~> 2.2)
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
+  CTFeedback: 8706fc51355f04646262441193983f6d10702d0c
   UMengFeedback: fa4cbef85478c68997433fc9e2338d55313b70e1
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 

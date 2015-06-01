@@ -74,6 +74,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_02@2x.png"
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_03@2x.png"
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_default@2x.png"
+  install_resource "${BUILT_PRODUCTS_DIR}/CTFeedback.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/zh-Hans.lproj/UMFeedbackLocalizable.strings"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_02@2x.png"
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_03@2x.png"
   install_resource "UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/Resources/umeng_fb_audio_play_default@2x.png"
+  install_resource "${BUILT_PRODUCTS_DIR}/CTFeedback.bundle"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

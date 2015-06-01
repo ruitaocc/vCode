@@ -6,6 +6,12 @@
 // project.
 
 
+// CTFeedback
+#define COCOAPODS_POD_AVAILABLE_CTFeedback
+#define COCOAPODS_VERSION_MAJOR_CTFeedback 1
+#define COCOAPODS_VERSION_MINOR_CTFeedback 0
+#define COCOAPODS_VERSION_PATCH_CTFeedback 17
+
 // UMengFeedback
 #define COCOAPODS_POD_AVAILABLE_UMengFeedback
 #define COCOAPODS_VERSION_MAJOR_UMengFeedback 2

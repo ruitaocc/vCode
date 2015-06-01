@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CTFeedback-CTFeedback.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CTFeedback.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UMengFeedback.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4B01C228F1D0B22FDF231CA7</key>
+		<key>2BD50C3FF5A1DD960EB56184</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD42E8485AFF989DD7FCAC7D</key>
+		<key>C222A31FF08DD3EB9F71725E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CECF91082F62040823E9F217</key>
+		<key>DA7BBA4FA955B74DBD1A831D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1FA79ED891F13B7184B5D6A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9CA73776EAA59D36D28A0F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
