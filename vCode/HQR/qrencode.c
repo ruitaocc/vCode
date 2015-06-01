@@ -694,7 +694,7 @@ static QRcode *QRcode_encodeMask(QRinput *input, int mask,int *maskImage)
 		}
 		
 	}
-	memcpy(maskImage,paddingArea,sizeof(int)*width*width);
+	if(maskImage!=NULL)memcpy(maskImage,paddingArea,sizeof(int)*width*width);
 	QRspec_getEccSpec(input->version, input->level, spec);
 	ret=RSblock_init(raw->rsblock, spec, raw->datacode, raw->ecccode);
 	//

@@ -56,15 +56,18 @@ typedef enum _imageType {
 +(HQR*)getInstance;
 
 /*
-   @img: target image
-   @str: target short url
-   @isgray:Default NO;
+ *  @param img: target image
+ *  @param str: target short url
+ *  @param isgray: retrun gray img or not, Default NO;
+ *  @param verdion:version version of the symbol. If 0, the library chooses the minimum
+ *               version for the given input data.
+ *  @param level:error correction level.QR_ECLEVEL_L = 0,QR_ECLEVEL_M,QR_ECLEVEL_Q,QR_ECLEVEL_H
  */
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray;
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev isGray:(BOOL)isgray;
 
 /*
- @img: target image
- @ret: return the decoded result text.
+ @param img: target image
+ @param ret: return the decoded result text.
   */
 -(NSString *)decodeQRwithImg:(UIImage *)img;
 
@@ -76,16 +79,6 @@ typedef enum _imageType {
 */
 -(bool)setThreshold_PaddingArea:(float)parea nodePaddingArea:(float)nparea GuideRatio:(float)guideRatio;
 
-
-@property(nonatomic,assign)int version;//qr code version ,range [2,40]
-
-/*
-    QR_ECLEVEL_L = 0,
-	QR_ECLEVEL_M,
-	QR_ECLEVEL_Q,
-	QR_ECLEVEL_H
- */
-@property(nonatomic,assign)QRecLevel level;//error correction level
 
 
 

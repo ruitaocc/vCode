@@ -17,6 +17,15 @@
     int _h_qr_point;
 }
 
+@property(nonatomic,assign)int version;
+/*
+ QR_ECLEVEL_L = 0,
+	QR_ECLEVEL_M,
+	QR_ECLEVEL_Q,
+	QR_ECLEVEL_H
+ */
+@property(nonatomic,assign)QRecLevel level;//error correction level
+
 @property(nonatomic,assign)int casesensitive;
 @property(nonatomic,assign)int eightbit;
 @property(nonatomic,assign)int size;
@@ -75,7 +84,7 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
 };
 -(id)init{
     if(self = [super init]){
-        _version = 5;
+        _version = 0;
         _level = QR_ECLEVEL_H;
         
         _casesensitive = 1;
@@ -154,10 +163,25 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     }
     return  nil;
 };
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray{
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev isGray:(BOOL)isgray{
     cout<<"start"<<endl;
     //string *inputfilepath = new string(inputfile);
     //string *outputfilepath = new string(outputfile);
+    
+    //resolve version
+    if (ver==0) {
+        int resolved_version = 0;
+        QRcode *minmumQRcode;
+        unsigned char *tmp_text = (unsigned char *)[str UTF8String];
+        int t_length = 0;
+        t_length = strlen((char *)tmp_text);
+        minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
+        resolved_version = minmumQRcode->version;
+        [self setVersion:resolved_version];
+    }else{
+        [self setVersion:ver];
+    }
+    [self setLevel:lev];
     
     int * maskImage = new int[_qr_point*_qr_point];
     int * paddingArea = new int[_qr_point*_qr_point];
@@ -167,10 +191,9 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     IplImage *I_color;
     IplImage *Ih_gray;//qr_guide_halftone
     IplImage *Ih_color;//qr_guide_halftone
-    //IplImage *Iqr_gray;//halftone-qr-with-ditector
+   
     IplImage *Iqr_color;//halftone-qr-with-ditector
     
-    //
     IplImage * color_original  = [self CreateIplImageFromUIImage:img];
     //gray
     //cvCvtColor(fromUiimage, color_original, CV_BGR2GRAY);
