@@ -5,7 +5,7 @@
 //  Created by ming hua on 2012-03-19.
 //  Updated by ming hua on 2013-04-17.
 //  Updated by cui guilin on 2014-09-12.
-//  Version 2.2
+//  Version 2.3
 //  Copyright (c) 2014年 umeng.com. All rights reserved.
 //
 
@@ -13,35 +13,13 @@
 #import "UMRecorder.h"
 #import <UIKit/UIKit.h>
 
-#define UMFBCheckFinishedNotification @"UMFBCheckFinishedNotification"
-#define UMFBWebViewDismissNotification @"UMFBWebViewDismissNotification"
+extern NSString *const UMFBCheckFinishedNotification;
+extern NSString *const UMFBWebViewDismissNotification;
 
 
 extern NSString *const UMFeedbackMediaTypeImage;
 
-
-#pragma mark - Feedback Data Delegate
-
-@protocol UMFeedbackDataDelegate <NSObject>
-
-@optional
-/**
- *  trigger when fetch data from server
- *
- *  @param error
- */
-- (void)getFinishedWithError: (NSError *)error;
-
-/**
- *  trigger when post data to server is finished
- *
- *  @param error
- */
-- (void)postFinishedWithError:(NSError *)error;
-
-- (void)stopRecordAndPlayback;
-@end
-
+@protocol UMFeedbackDataDelegate;
 
 #pragma mark - Feedback Object
 @interface UMFeedback : NSObject <RecorderDelegate>
@@ -110,6 +88,13 @@ extern NSString *const UMFeedbackMediaTypeImage;
  */
 + (UIViewController *)feedbackModalViewController;
 
+/**
+ * get the url of FAQ, which displayed in UIWebView
+ *
+ * @return NSURL
+ */
++ (NSURL *)FAQWebUrl;
+
 
 + (void)didReceiveRemoteNotification:(NSDictionary *)userInfo;
 
@@ -135,18 +120,23 @@ extern NSString *const UMFeedbackMediaTypeImage;
 
 
 // 数据接口
+
 /**
  *  get feedback replies from server
+ *  @param: completion call back block
  */
-- (void)get;
+- (void)get:(void (^)(NSError *error))completionCallback;
+
 
 /**
  *  post feedback reply to server
  *
- *  @param feedback_dictionary <#feedback_dictionary description#>
+ *  @param feedback_dictionary 
+ *  @param completion call back block
  */
+- (void)post:(NSDictionary *)feedback_dictionary completion:(void (^)(NSError *error))completionCallback;
 
-- (void)post:(NSDictionary *)feedback_dictionary;
+
 
 // set custom remark info
 /**
@@ -156,7 +146,13 @@ extern NSString *const UMFeedbackMediaTypeImage;
  */
 - (void)setRemarkInfo:(NSDictionary *)remarkInfo;
 
-- (void)updateUserInfo:(NSDictionary *)info;
+/**
+ *  update user info
+ *
+ *  @param info dictionary
+ *  @param completion call back block
+ */
+- (void)updateUserInfo:(NSDictionary *)info completion:(void (^)(NSError *error))completionCallback;
 - (NSDictionary *)getUserInfo;
 
 // 推送相关
@@ -187,10 +183,38 @@ extern NSString *const UMFeedbackMediaTypeImage;
 
 
 // 不建议使用的
+- (void)get;
+- (void)post:(NSDictionary *)feedback_dictionary;
+- (void)updateUserInfo:(NSDictionary *)info;
 
 + (void)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey;
 + (void)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey dictionary:(NSDictionary *)dictionary;
 + (void)checkWithAppkey:(NSString *)appkey;
 - (void)setAppkey:(NSString *)appKey delegate:(id<UMFeedbackDataDelegate>)newDelegate;
 
+@end
+
+
+
+
+#pragma mark - Feedback Data Delegate
+
+@protocol UMFeedbackDataDelegate <NSObject>
+
+@optional
+/**
+ *  trigger when fetch data from server
+ *
+ *  @param error
+ */
+- (void)getFinishedWithError: (NSError *)error;
+
+/**
+ *  trigger when post data to server is finished
+ *
+ *  @param error
+ */
+- (void)postFinishedWithError:(NSError *)error;
+
+- (void)stopRecordAndPlayback;
 @end

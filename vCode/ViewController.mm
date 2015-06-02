@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "HQR.h"
 #import "md5Encryptor.h"
-#import "../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h"
+#import "../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMFeedback.h"
+#import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
 #import "WZFlashButton.h"
 #import "UIDeviceHardware.h"
 @interface ViewController ()
@@ -35,6 +36,7 @@
 @property (strong,nonatomic)WZFlashButton *fbtn_Text;
 @property (strong,nonatomic)WZFlashButton *fbtn_QNameCard;
 @property (strong,nonatomic)WZFlashButton *fbtn_History;
+@property (strong, nonatomic)MMMaterialDesignSpinner *m_spinnerView;
 @end
 
 @implementation ViewController
@@ -49,6 +51,7 @@
 @synthesize fbtn_QNameCard;
 @synthesize fbtn_History;
 @synthesize slogan;
+@synthesize m_spinnerView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -65,7 +68,7 @@
     //BOOL isSumulator = [hd Is_Simulator];
     //isIPH56 = isSumulator?YES:NO;
     
-    UIImage *bg,*resized_bg;
+    UIImage *bg;
     UIImage *img_rating,*img_feedback,*img_info,*img_slogan;
     CGRect bg_frame,bg_view_frame;
     CGRect menu_btn_frame;
@@ -252,6 +255,10 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    if(m_spinnerView){
+        [m_spinnerView removeFromSuperview];
+        m_spinnerView = NULL;
+    }
 }
 - (void)notification_execute:(NSNotification *)notification{
    // NSString *segue =(NSString*)notification.object;
@@ -268,13 +275,23 @@
 };
 -(void)btn_click_rating{
     NSLog(@"app rating");
+    CGRect spinner_frame ;
+    spinner_frame.size.width = 40;
+    spinner_frame.size.height = 40;
+    spinner_frame.origin.x = (self.view.frame.size.width-spinner_frame.size.width)/2;
+    spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height)/2;
+    m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
+    m_spinnerView.lineWidth = 1.5f;
+    m_spinnerView.tintColor = [UIColor blueColor];
+    [self.view addSubview:m_spinnerView];
+    [m_spinnerView startAnimating];
     //初始化控制器
     SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
     //设置代理请求为当前控制器本身
     storeProductViewContorller.delegate = self;
     //加载一个新的视图展示
     [storeProductViewContorller loadProductWithParameters:
-     //appId唯一的
+     //appId唯一的987220213
      @{SKStoreProductParameterITunesItemIdentifier : @"987220213"} completionBlock:^(BOOL result, NSError *error) {
          //block回调
          if(error){
@@ -283,7 +300,9 @@
              //模态弹出appstore
              NSLog(@"store product view controller will present");
              [self presentViewController:storeProductViewContorller animated:YES completion:^{
-                 
+                 [m_spinnerView stopAnimating];
+                 [m_spinnerView removeFromSuperview];
+                 m_spinnerView = NULL;
              }
               ];
          }
@@ -299,6 +318,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 /*
 -(IBAction)chooseimg:(id)sender{
     printf("choose\n");

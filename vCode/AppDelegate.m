@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
-#import "../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h"
+#import "../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMFeedback.h"
 #import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
 #import "UIDeviceHardware.h"
 

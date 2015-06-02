@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MMMaterialDesignSpinner-MaterialDesignSpinner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MMMaterialDesignSpinner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UMengFeedback.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2BD50C3FF5A1DD960EB56184</key>
+		<key>0202C06093A37CC38721CEBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C222A31FF08DD3EB9F71725E</key>
+		<key>02030E4BCD5C09455F93FB77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA7BBA4FA955B74DBD1A831D</key>
+		<key>1B91FEB862375DA7F9C575F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F1FA79ED891F13B7184B5D6A</key>
+		<key>44801BE3EC58184A4452D397</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9CA73776EAA59D36D28A0F9</key>
+		<key>B264E6A2CCC003A0F2C31418</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D647934DD265B7EC4E0A5A03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E153CB0484B1565D90E56D9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

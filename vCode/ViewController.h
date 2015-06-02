@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import <StoreKit/StoreKit.h>
 @interface ViewController:UIViewController<SKStoreProductViewControllerDelegate>
--(IBAction)feedback:(id)sender;
 @end
 
