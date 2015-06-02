@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface ViewController:UIViewController
+#import <StoreKit/StoreKit.h>
+@interface ViewController:UIViewController<SKStoreProductViewControllerDelegate>
 -(IBAction)feedback:(id)sender;
 @end
 

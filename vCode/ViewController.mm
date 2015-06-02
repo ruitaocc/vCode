@@ -267,16 +267,38 @@
     [self.navigationController pushViewController:[UMFeedback feedbackViewController] animated:YES];
 };
 -(void)btn_click_rating{
-    NSLog(@"undefine");
+    NSLog(@"app rating");
+    //初始化控制器
+    SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
+    //设置代理请求为当前控制器本身
+    storeProductViewContorller.delegate = self;
+    //加载一个新的视图展示
+    [storeProductViewContorller loadProductWithParameters:
+     //appId唯一的
+     @{SKStoreProductParameterITunesItemIdentifier : @"987220213"} completionBlock:^(BOOL result, NSError *error) {
+         //block回调
+         if(error){
+             NSLog(@"error %@ with userInfo %@",error,[error userInfo]);
+         }else{
+             //模态弹出appstore
+             NSLog(@"store product view controller will present");
+             [self presentViewController:storeProductViewContorller animated:YES completion:^{
+                 
+             }
+              ];
+         }
+     }];
 };
-
+//取消按钮监听
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)feedback:(id)sender{
-    [self.navigationController pushViewController:[UMFeedback feedbackViewController] animated:YES];
-};
 /*
 -(IBAction)chooseimg:(id)sender{
     printf("choose\n");

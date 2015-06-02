@@ -24,6 +24,7 @@
 		7138B5DCA29696FB6D368F1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FEA7AA7771EA76030F983B6 /* libPods.a */; };
 		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
 		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
+		B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630A9851B1D6DE900C401B3 /* StoreKit.framework */; };
 		B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */; };
 		B65B1CCA1B16023E0028F631 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC91B16014F0028F631 /* intro.mp4 */; };
 		B65B1CCC1B1606200028F631 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B1CCB1B1606200028F631 /* MediaPlayer.framework */; };
@@ -119,6 +120,7 @@
 		A9C8093DD2A1D1B9DE35D11D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
+		B630A9851B1D6DE900C401B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		B65B1CC91B16014F0028F631 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		B65B1CCB1B1606200028F631 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -213,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */,
 				B6EB470E1B17290D00495FBA /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				B6EB470C1B1728FF00495FBA /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */,
 				B6EB470A1B170CC200495FBA /* libz.dylib in Frameworks */,
@@ -426,6 +429,7 @@
 		EF63D086C40D816A2ED01E1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B630A9851B1D6DE900C401B3 /* StoreKit.framework */,
 				B6EB470D1B17290D00495FBA /* libUMSocial_Sdk_4.2.3.a */,
 				B6EB470B1B1728FF00495FBA /* libUMSocial_Sdk_Comment_4.2.3.a */,
 				B6EB47091B170CC200495FBA /* libz.dylib */,
