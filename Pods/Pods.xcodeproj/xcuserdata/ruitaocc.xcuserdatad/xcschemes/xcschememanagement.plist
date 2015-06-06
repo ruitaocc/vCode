@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-LKDBHelper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MMMaterialDesignSpinner-MaterialDesignSpinner.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0202C06093A37CC38721CEBA</key>
+		<key>06B13451D64B0643F9781E73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>02030E4BCD5C09455F93FB77</key>
+		<key>2972919EAF3C57B82060A1E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B91FEB862375DA7F9C575F6</key>
+		<key>51BFC0E3245D0BF81DD301EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44801BE3EC58184A4452D397</key>
+		<key>572E7B50F4389FAA8AF51192</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B264E6A2CCC003A0F2C31418</key>
+		<key>5E62EB4501AB356FFAEE4E3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D647934DD265B7EC4E0A5A03</key>
+		<key>7352C8C6B08F8737E9EE42ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E153CB0484B1565D90E56D9B</key>
+		<key>9FD97E25395C8F1E5C415A04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A8FE36F71C3479D6A6285AAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAD75E11B88010B6D9804E64</key>
 		<dict>
 			<key>primary</key>
 			<true/>

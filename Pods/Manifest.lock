@@ -1,5 +1,12 @@
 PODS:
   - CTFeedback (1.0.17)
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - LKDBHelper (HEAD based on 2.1.3):
+    - FMDB
   - MMMaterialDesignSpinner (0.2.0)
   - UMengFeedback (2.3)
   - ZXingObjC (3.1.0):
@@ -8,12 +15,15 @@ PODS:
 
 DEPENDENCIES:
   - CTFeedback (~> 1.0)
+  - LKDBHelper (HEAD)
   - MMMaterialDesignSpinner (~> 0.2.0)
   - UMengFeedback (~> 2.2)
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
   CTFeedback: 8706fc51355f04646262441193983f6d10702d0c
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  LKDBHelper: 64b2c85c6783d453d6db4635a8cfa6c5cc6783ed
   MMMaterialDesignSpinner: 8f1a50270b789c76ec500957e518fc3e05e55b9d
   UMengFeedback: df6efa07a806d9eaa6c62e80299ccaeed00e5691
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
