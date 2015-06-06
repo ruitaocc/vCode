@@ -12,7 +12,7 @@
 #import "../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMFeedback.h"
 #import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
 #import "UIDeviceHardware.h"
-
+#import "HistoryEntry.h"
 
 @interface AppDelegate (){
     bool isSkip;
@@ -34,6 +34,25 @@
 @synthesize skip_btn;
 @synthesize intro_musk;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    /*test*/
+    HistoryEntry *h1 = [[HistoryEntry alloc] init];
+    [h1 saveToDB];
+    sleep(2);
+    
+    HistoryEntry *h2 = [[HistoryEntry alloc] init];
+
+    [h2 saveToDB];
+    sleep(2);
+    HistoryEntry *h3 = [[HistoryEntry alloc] init];
+
+    [h3 saveToDB];
+    sleep(2);
+    NSMutableArray *his = [HistoryEntry getAllHistory];
+    NSLog(@"history row:%d",(int)[his count]);
+    
+    
+    
     // Override point for customization after application launch.
     //splash animation
     [self.window makeKeyAndVisible];
@@ -47,7 +66,7 @@
         videoURL = [NSURL URLWithString:path];
     }else{
         videoURL = [NSURL fileURLWithPath:path];
-    }
+    }	
     moviePlayerController= [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
     float width = 0.57*self.window.screen.bounds.size.width, height = width;
     float x =  (self.window.screen.bounds.size.width-width)/2.0;

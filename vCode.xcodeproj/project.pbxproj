@@ -83,6 +83,8 @@
 		B6EB472C1B18975E00495FBA /* slogan.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB472A1B18975E00495FBA /* slogan.png */; };
 		B6EB472E1B18976600495FBA /* ip56_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B6EB472D1B18976600495FBA /* ip56_bg.png */; };
 		B6EB47301B189DC100495FBA /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB472F1B189DC100495FBA /* UIDeviceHardware.m */; };
+		B6EB91251B23235200F403B1 /* HistoryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB91241B23235200F403B1 /* HistoryEntry.m */; };
+		B6EB912E1B2331E000F403B1 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB912D1B2331E000F403B1 /* DateHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +210,11 @@
 		B6EB472D1B18976600495FBA /* ip56_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ip56_bg.png; sourceTree = "<group>"; };
 		B6EB472F1B189DC100495FBA /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		B6EB47311B189DE000495FBA /* UIDeviceHardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		B6EB91241B23235200F403B1 /* HistoryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryEntry.m; sourceTree = "<group>"; };
+		B6EB91261B23237800F403B1 /* HistoryEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryEntry.h; sourceTree = "<group>"; };
+		B6EB91271B2324EC00F403B1 /* HQR_typedef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HQR_typedef.h; sourceTree = "<group>"; };
+		B6EB912C1B2331E000F403B1 /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
+		B6EB912D1B2331E000F403B1 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,13 +222,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EB47041B170C9A00495FBA /* libsqlite3.dylib in Frameworks */,
 				B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */,
 				B6EB470E1B17290D00495FBA /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				B6EB470C1B1728FF00495FBA /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */,
 				B6EB470A1B170CC200495FBA /* libz.dylib in Frameworks */,
 				B6EB47081B170CB800495FBA /* libstdc++.dylib in Frameworks */,
 				B6EB47061B170CAB00495FBA /* CoreTelephony.framework in Frameworks */,
-				B6EB47041B170C9A00495FBA /* libsqlite3.dylib in Frameworks */,
 				B6EB47021B170C8B00495FBA /* SystemConfiguration.framework in Frameworks */,
 				B6EB47001B170C7500495FBA /* Security.framework in Frameworks */,
 				B65B1CCC1B1606200028F631 /* MediaPlayer.framework in Frameworks */,
@@ -281,6 +288,8 @@
 		B67F974D1AE3A30E0085DBB3 /* vCode */ = {
 			isa = PBXGroup;
 			children = (
+				B6EB912B1B2331C400F403B1 /* Tool */,
+				B6EB91221B2322AD00F403B1 /* DB */,
 				B6EB47131B173B9700495FBA /* THirdParty */,
 				B6A448691AE4E01C0024F109 /* HQR */,
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
@@ -368,6 +377,7 @@
 				B6A448EE1AE526F20024F109 /* HQR.h */,
 				B6A448EF1AE527B20024F109 /* UIImage+opencv.h */,
 				B6A448F01AE527B20024F109 /* UIImage+opencv.mm */,
+				B6EB91271B2324EC00F403B1 /* HQR_typedef.h */,
 			);
 			path = HQR;
 			sourceTree = "<group>";
@@ -424,6 +434,32 @@
 				B6EB471B1B173D1200495FBA /* WZFlashButton.m */,
 			);
 			name = THirdParty;
+			sourceTree = "<group>";
+		};
+		B6EB91221B2322AD00F403B1 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				B6EB91231B2322DF00F403B1 /* History */,
+			);
+			name = DB;
+			sourceTree = "<group>";
+		};
+		B6EB91231B2322DF00F403B1 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				B6EB91241B23235200F403B1 /* HistoryEntry.m */,
+				B6EB91261B23237800F403B1 /* HistoryEntry.h */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		B6EB912B1B2331C400F403B1 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				B6EB912C1B2331E000F403B1 /* DateHelper.h */,
+				B6EB912D1B2331E000F403B1 /* DateHelper.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 		EF63D086C40D816A2ED01E1A /* Frameworks */ = {
@@ -644,7 +680,9 @@
 				B6A448901AE4E01C0024F109 /* masking_qr.cpp in Sources */,
 				B6A448931AE4E01C0024F109 /* Ostromoukhov.mm in Sources */,
 				B6A4488F1AE4E01C0024F109 /* mask.c in Sources */,
+				B6EB91251B23235200F403B1 /* HistoryEntry.m in Sources */,
 				B6A448991AE4E01C0024F109 /* split.c in Sources */,
+				B6EB912E1B2331E000F403B1 /* DateHelper.m in Sources */,
 				2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */,
 				B6A448911AE4E01C0024F109 /* mmask.c in Sources */,
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
