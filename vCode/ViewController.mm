@@ -281,8 +281,8 @@
     spinner_frame.origin.x = (self.view.frame.size.width-spinner_frame.size.width)/2;
     spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height)/2;
     m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
-    m_spinnerView.lineWidth = 1.5f;
-    m_spinnerView.tintColor = [UIColor blueColor];
+    m_spinnerView.lineWidth = 2.5f;
+    m_spinnerView.tintColor = [UIColor colorWithRed:69/255.0 green:209.0/255.0 blue:250/255.0 alpha:1.0];
     [self.view addSubview:m_spinnerView];
     [m_spinnerView startAnimating];
     //初始化控制器
@@ -290,6 +290,7 @@
     //设置代理请求为当前控制器本身
     storeProductViewContorller.delegate = self;
     //加载一个新的视图展示
+    
     [storeProductViewContorller loadProductWithParameters:
      //appId唯一的987220213
      @{SKStoreProductParameterITunesItemIdentifier : @"987220213"} completionBlock:^(BOOL result, NSError *error) {

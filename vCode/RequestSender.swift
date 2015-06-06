@@ -48,11 +48,11 @@ class RequestSender:NSObject{
         //set upload params
         switch uploadType{
         case "txt":
-            request.URL = NSURL(string: "http://2vma.co/message")
+            request.URL = NSURL(string: "http://2vma.co/api/message")
             message = NSUserDefaults.standardUserDefaults().objectForKey("text") as! String
             println(message)
         case "url":
-            request.URL = NSURL(string: "http://2vma.co/short_url")
+            request.URL = NSURL(string: "http://2vma.co/api/short_url")
             url = NSUserDefaults.standardUserDefaults().objectForKey("url") as! String
             println(url)
         case "qrcode":
