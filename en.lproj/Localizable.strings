@@ -18,3 +18,5 @@
 "noinputtext"="No Input Text!";
 "next_step2"="Next Step: Generate QR Code";
 "info_title"="About";
+"history" = "History";
+"historyDetail" = "Detail";

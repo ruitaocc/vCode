@@ -18,4 +18,6 @@
 "noinputtext"="请输入文本！";
 "next_step2"="下一步：生成二维码";
 "info_title"="关于";
+"history" = "历史记录";
+"historyDetail" = "详细信息";
 

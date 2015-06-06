@@ -85,6 +85,8 @@
 		B6EB47301B189DC100495FBA /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB472F1B189DC100495FBA /* UIDeviceHardware.m */; };
 		B6EB91251B23235200F403B1 /* HistoryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB91241B23235200F403B1 /* HistoryEntry.m */; };
 		B6EB912E1B2331E000F403B1 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB912D1B2331E000F403B1 /* DateHelper.m */; };
+		B6EB91311B233D9A00F403B1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB91301B233D9A00F403B1 /* HistoryViewController.m */; };
+		B6EB91341B23496A00F403B1 /* HistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +217,10 @@
 		B6EB91271B2324EC00F403B1 /* HQR_typedef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HQR_typedef.h; sourceTree = "<group>"; };
 		B6EB912C1B2331E000F403B1 /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		B6EB912D1B2331E000F403B1 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
+		B6EB912F1B233D9A00F403B1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = ../HistoryViewController.h; sourceTree = "<group>"; };
+		B6EB91301B233D9A00F403B1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = ../HistoryViewController.m; sourceTree = "<group>"; };
+		B6EB91321B23496900F403B1 /* HistoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailViewController.h; sourceTree = "<group>"; };
+		B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +300,10 @@
 				B6A448691AE4E01C0024F109 /* HQR */,
 				B67F97521AE3A30E0085DBB3 /* AppDelegate.h */,
 				B67F97531AE3A30E0085DBB3 /* AppDelegate.m */,
+				B6EB912F1B233D9A00F403B1 /* HistoryViewController.h */,
+				B6EB91301B233D9A00F403B1 /* HistoryViewController.m */,
+				B6EB91321B23496900F403B1 /* HistoryDetailViewController.h */,
+				B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */,
 				B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */,
 				B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */,
 				266FDAB71B174651000675CB /* VPImageCropperViewController.h */,
@@ -663,6 +673,7 @@
 				B6EB47301B189DC100495FBA /* UIDeviceHardware.m in Sources */,
 				B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */,
 				267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */,
+				B6EB91341B23496A00F403B1 /* HistoryDetailViewController.m in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
 				267C3E751B004F93001D917A /* md5Encryptor.m in Sources */,
 				266FDABC1B174679000675CB /* CutViewController.m in Sources */,
@@ -692,6 +703,7 @@
 				266FDAB91B174651000675CB /* VPImageCropperViewController.m in Sources */,
 				B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */,
 				267C3E791B005408001D917A /* setTextViewController.swift in Sources */,
+				B6EB91311B233D9A00F403B1 /* HistoryViewController.m in Sources */,
 				B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

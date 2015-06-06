@@ -9,25 +9,26 @@
 #import "DateHelper.h"
 
 @implementation DateHelper
-+(NSDate *)dateFromString:(NSString *)dateString{
+//@"yyyy_MM_dd_HH_mm_ss
++(NSDate *)dateFromString:(NSString *)dateString withFormat:(NSString*)format{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat: @"yyyy_MM_dd_HH_mm_ss"];
+    [dateFormatter setDateFormat: format];
     NSDate *destDate= [dateFormatter dateFromString:dateString];
     dateFormatter = nil;
     return destDate;
     
 }
 
-+ (NSString *)stringFromDate:(NSDate *)date{
++ (NSString *)stringFromDate:(NSDate *)date withFormat:(NSString*)format{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy_MM_dd_HH_mm_ss"];
+    [dateFormatter setDateFormat:format];
     NSString *destDateString = [dateFormatter stringFromDate:date];
     dateFormatter = nil;
     return destDateString;
 }
 
 
-+(NSString *)getCurDateString{
-    return [DateHelper stringFromDate:[NSDate date]];
++(NSString *)getCurDateStringWithFormat:(NSString*)format{
+    return [DateHelper stringFromDate:[NSDate date] withFormat:format];
 };
 @end

@@ -46,7 +46,7 @@
 
 -(id)init{
     if(self = [super init]){
-        m_time = [DateHelper getCurDateString];
+        m_time = [DateHelper getCurDateStringWithFormat:@"yyyy_MM_dd_HH_mm_ss"];
         m_generated_picName = @"";
         m_original_picName = @"";
         m_embedded_message = @"";

@@ -187,7 +187,7 @@
     fbtn_History.flashColor = [UIColor whiteColor];
     [fbtn_History setText:NSLocalizedString(@"menu_history", nil) withTextColor:nil];
     fbtn_History.clickBlock = ^(void){
-        //[weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];
+        [weakSelf performSegueWithIdentifier:@"Home2History" sender:weakSelf];
     };
 
     menu_btn_frame.origin.x = grid_size;

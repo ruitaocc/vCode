@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface DateHelper : NSObject
-+(NSDate*) dateFromString:(NSString*)uiDate;
++(NSDate*) dateFromString:(NSString*)uiDate withFormat:(NSString*)format;
 
-+ (NSString *)stringFromDate:(NSDate *)date;
++ (NSString *)stringFromDate:(NSDate *)date withFormat:(NSString*)format;
 
-+(NSString *)getCurDateString;
++(NSString *)getCurDateStringWithFormat:(NSString*)format;
 @end
