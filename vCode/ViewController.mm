@@ -168,16 +168,13 @@
     menu_btn_frame.origin.x = grid_size;
     menu_btn_frame.origin.y = isIPH56 ? s_height-5*grid_size : s_height-4*grid_size;
     fbtn_QNameCard = [[WZFlashButton alloc]initWithFrame:menu_btn_frame ];
-    //fbtn_QNameCard.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
-    fbtn_QNameCard.backgroundColor = [UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0 alpha:1.0f];
+    fbtn_QNameCard.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
+    //fbtn_QNameCard.backgroundColor = [UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0 alpha:1.0f];
     fbtn_QNameCard.flashColor = [UIColor whiteColor];
     [fbtn_QNameCard setText:NSLocalizedString(@"menu_qnamecard", nil) withTextColor:nil];
     fbtn_QNameCard.clickBlock = ^(void){
-       // [weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];
-        UIAlertView *alert = [[UIAlertView alloc] init];
-        [alert setMessage:NSLocalizedString(@"alert_coming", nil)];
-        [alert addButtonWithTitle:NSLocalizedString(@"alert_ok", nil)];
-        [alert show];
+        [weakSelf performSegueWithIdentifier:@"Home2OnlineNameCard" sender:weakSelf];
+        
     };
     
     menu_btn_frame.origin.x = grid_size*6;

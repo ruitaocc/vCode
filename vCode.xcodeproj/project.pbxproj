@@ -21,7 +21,7 @@
 		267BB3861B0620AC00F5031A /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB3851B0620AC00F5031A /* libiconv.dylib */; };
 		267C3E751B004F93001D917A /* md5Encryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E741B004F93001D917A /* md5Encryptor.m */; };
 		267C3E791B005408001D917A /* setTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E781B005408001D917A /* setTextViewController.swift */; };
-		7138B5DCA29696FB6D368F1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FEA7AA7771EA76030F983B6 /* libPods.a */; };
+		9941A2B1ACD03EA21D674C08 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19838ED5BCCB6054657B9310 /* libPods.a */; };
 		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
 		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
 		B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630A9851B1D6DE900C401B3 /* StoreKit.framework */; };
@@ -65,6 +65,15 @@
 		B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448F21AE5282E0024F109 /* CoreImage.framework */; };
 		B6A448F71AE7EC310024F109 /* lena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F61AE7EC310024F109 /* lena.jpg */; };
 		B6D2AD391B1B01AD0024AA42 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */; };
+		B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA7D1B2466E5008334C8 /* OnlineNameCardController.m */; };
+		B6DBAA971B24759C008334C8 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA961B24759C008334C8 /* HoshiTextField.swift */; };
+		B6DBAAA01B2475C9008334C8 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA981B2475C9008334C8 /* IsaoTextField.swift */; };
+		B6DBAAA11B2475C9008334C8 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA991B2475C9008334C8 /* JiroTextField.swift */; };
+		B6DBAAA21B2475C9008334C8 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9A1B2475C9008334C8 /* KaedeTextField.swift */; };
+		B6DBAAA31B2475C9008334C8 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9B1B2475C9008334C8 /* MadokaTextField.swift */; };
+		B6DBAAA41B2475C9008334C8 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9C1B2475C9008334C8 /* MinoruTextField.swift */; };
+		B6DBAAA51B2475C9008334C8 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9E1B2475C9008334C8 /* TextFieldsEffects.swift */; };
+		B6DBAAA61B2475C9008334C8 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9F1B2475C9008334C8 /* YokoTextField.swift */; };
 		B6EB46FC1B170AB200495FBA /* UMSocial_Sdk_4.2.3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */; };
 		B6EB46FE1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks in Resources */ = {isa = PBXBuildFile; fileRef = B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */; };
 		B6EB47001B170C7500495FBA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB46FF1B170C7500495FBA /* Security.framework */; };
@@ -100,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19838ED5BCCB6054657B9310 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		266FDAB71B174651000675CB /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		266FDAB81B174651000675CB /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		266FDABA1B174679000675CB /* CutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CutViewController.h; sourceTree = "<group>"; };
@@ -119,7 +129,6 @@
 		267C3E761B004FB9001D917A /* md5Encryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = md5Encryptor.h; sourceTree = "<group>"; };
 		267C3E771B005408001D917A /* vCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		267C3E781B005408001D917A /* setTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setTextViewController.swift; sourceTree = "<group>"; };
-		8FEA7AA7771EA76030F983B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609A3BF0FABFE758F944F94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9C8093DD2A1D1B9DE35D11D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
@@ -192,6 +201,18 @@
 		B6A448F61AE7EC310024F109 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = HQR/lena.jpg; sourceTree = "<group>"; };
 		B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		B6DBAA7C1B2466E5008334C8 /* OnlineNameCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineNameCardController.h; sourceTree = "<group>"; };
+		B6DBAA7D1B2466E5008334C8 /* OnlineNameCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineNameCardController.m; sourceTree = "<group>"; };
+		B6DBAA961B24759C008334C8 /* HoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
+		B6DBAA981B2475C9008334C8 /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IsaoTextField.swift; path = TextFieldEffects/IsaoTextField.swift; sourceTree = "<group>"; };
+		B6DBAA991B2475C9008334C8 /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JiroTextField.swift; path = TextFieldEffects/JiroTextField.swift; sourceTree = "<group>"; };
+		B6DBAA9A1B2475C9008334C8 /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KaedeTextField.swift; path = TextFieldEffects/KaedeTextField.swift; sourceTree = "<group>"; };
+		B6DBAA9B1B2475C9008334C8 /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MadokaTextField.swift; path = TextFieldEffects/MadokaTextField.swift; sourceTree = "<group>"; };
+		B6DBAA9C1B2475C9008334C8 /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MinoruTextField.swift; path = TextFieldEffects/MinoruTextField.swift; sourceTree = "<group>"; };
+		B6DBAA9D1B2475C9008334C8 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldEffects.h; path = TextFieldEffects/TextFieldEffects.h; sourceTree = "<group>"; };
+		B6DBAA9E1B2475C9008334C8 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = TextFieldEffects/TextFieldsEffects.swift; sourceTree = "<group>"; };
+		B6DBAA9F1B2475C9008334C8 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
+		B6DBAAAC1B247908008334C8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_4.2.3; sourceTree = "<group>"; };
 		B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_Extra_Frameworks; sourceTree = "<group>"; };
 		B6EB46FF1B170C7500495FBA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -248,7 +269,7 @@
 				B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */,
 				B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */,
 				B6A4489E1AE4E19B0024F109 /* opencv2.framework in Frameworks */,
-				7138B5DCA29696FB6D368F1F /* libPods.a in Frameworks */,
+				9941A2B1ACD03EA21D674C08 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +327,8 @@
 				B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */,
 				B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */,
 				B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */,
+				B6DBAA7C1B2466E5008334C8 /* OnlineNameCardController.h */,
+				B6DBAA7D1B2466E5008334C8 /* OnlineNameCardController.m */,
 				266FDAB71B174651000675CB /* VPImageCropperViewController.h */,
 				266FDAB81B174651000675CB /* VPImageCropperViewController.m */,
 				266FDABA1B174679000675CB /* CutViewController.h */,
@@ -435,9 +458,26 @@
 			name = LSAED;
 			sourceTree = "<group>";
 		};
+		B6DBAAAD1B249302008334C8 /* TextEffects */ = {
+			isa = PBXGroup;
+			children = (
+				B6DBAA961B24759C008334C8 /* HoshiTextField.swift */,
+				B6DBAA981B2475C9008334C8 /* IsaoTextField.swift */,
+				B6DBAA991B2475C9008334C8 /* JiroTextField.swift */,
+				B6DBAA9A1B2475C9008334C8 /* KaedeTextField.swift */,
+				B6DBAA9B1B2475C9008334C8 /* MadokaTextField.swift */,
+				B6DBAA9C1B2475C9008334C8 /* MinoruTextField.swift */,
+				B6DBAA9D1B2475C9008334C8 /* TextFieldEffects.h */,
+				B6DBAA9E1B2475C9008334C8 /* TextFieldsEffects.swift */,
+				B6DBAA9F1B2475C9008334C8 /* YokoTextField.swift */,
+			);
+			name = TextEffects;
+			sourceTree = "<group>";
+		};
 		B6EB47131B173B9700495FBA /* THirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B6DBAAAD1B249302008334C8 /* TextEffects */,
 				B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */,
 				B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */,
 				B6EB471A1B173D1200495FBA /* WZFlashButton.h */,
@@ -495,7 +535,7 @@
 				B6A448DF1AE514E90024F109 /* CoreGraphics.framework */,
 				B6A448A01AE4F3C20024F109 /* AssetsLibrary.framework */,
 				B6A4489D1AE4E19B0024F109 /* opencv2.framework */,
-				8FEA7AA7771EA76030F983B6 /* libPods.a */,
+				19838ED5BCCB6054657B9310 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -680,28 +720,37 @@
 				266FDABF1B175FC5000675CB /* QRDetector.mm in Sources */,
 				B6EB471C1B173D1200495FBA /* WZFlashButton.m in Sources */,
 				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
+				B6DBAAA11B2475C9008334C8 /* JiroTextField.swift in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
+				B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */,
 				267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */,
 				2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */,
+				B6DBAAA31B2475C9008334C8 /* MadokaTextField.swift in Sources */,
 				B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */,
 				B6A448971AE4E01C0024F109 /* qrspec.c in Sources */,
 				B6A448F11AE527B20024F109 /* UIImage+opencv.mm in Sources */,
 				B6A448901AE4E01C0024F109 /* masking_qr.cpp in Sources */,
+				B6DBAAA01B2475C9008334C8 /* IsaoTextField.swift in Sources */,
+				B6DBAAA41B2475C9008334C8 /* MinoruTextField.swift in Sources */,
+				B6DBAAA21B2475C9008334C8 /* KaedeTextField.swift in Sources */,
 				B6A448931AE4E01C0024F109 /* Ostromoukhov.mm in Sources */,
 				B6A4488F1AE4E01C0024F109 /* mask.c in Sources */,
 				B6EB91251B23235200F403B1 /* HistoryEntry.m in Sources */,
 				B6A448991AE4E01C0024F109 /* split.c in Sources */,
 				B6EB912E1B2331E000F403B1 /* DateHelper.m in Sources */,
 				2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */,
+				B6DBAA971B24759C008334C8 /* HoshiTextField.swift in Sources */,
 				B6A448911AE4E01C0024F109 /* mmask.c in Sources */,
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
 				B67F97511AE3A30E0085DBB3 /* main.m in Sources */,
 				B6D2AD391B1B01AD0024AA42 /* InfoViewController.m in Sources */,
 				B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */,
+				B6DBAAA51B2475C9008334C8 /* TextFieldsEffects.swift in Sources */,
 				266FDAB91B174651000675CB /* VPImageCropperViewController.m in Sources */,
 				B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */,
+				B6DBAAA61B2475C9008334C8 /* YokoTextField.swift in Sources */,
 				267C3E791B005408001D917A /* setTextViewController.swift in Sources */,
 				B6EB91311B233D9A00F403B1 /* HistoryViewController.m in Sources */,
 				B6A4488D1AE4E01C0024F109 /* Laplace_SAED.mm in Sources */,
@@ -741,6 +790,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B67F97591AE3A30E0085DBB3 /* Base */,
+				B6DBAAAC1B247908008334C8 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

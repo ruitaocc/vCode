@@ -110,11 +110,734 @@
                     <connections>
                         <segue destination="cJQ-PA-wcv" kind="show" identifier="HomeToInfo" id="lav-q6-if6"/>
                         <segue destination="mgr-L3-JP6" kind="show" identifier="Home2History" id="ZGy-kk-UrH"/>
+                        <segue destination="LQB-T4-Rpd" kind="show" identifier="Home2OnlineNameCard" id="SLo-ta-hZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-334.5" y="489"/>
+        </scene>
+        <!--Online Name Card Controller-->
+        <scene sceneID="Zpt-EW-yBP">
+            <objects>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="qSw-JW-r6T">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ryB-bc-oqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="LQB-T4-Rpd" customClass="OnlineNameCardController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yOb-UO-S6d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="BHd-gO-jPS">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="10" rowHeight="156" id="gZH-ss-WuD">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gZH-ss-WuD" id="Jki-bu-t91">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lena.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-CK-KL6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="108" id="6FP-21-rlh"/>
+                                                        <constraint firstAttribute="height" constant="108" id="ni3-II-q51"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="6FP-21-rlh"/>
+                                                            <exclude reference="ni3-II-q51"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="6FP-21-rlh"/>
+                                                            <include reference="ni3-II-q51"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEw-u3-GFb" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Kbn-0w-CN5"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Kbn-0w-CN5"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="148" y="56" width="232" height="44"/>
+                                                        <mask key="constraints">
+                                                            <include reference="Kbn-0w-CN5"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-Ae-jha" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="DHk-dA-Crk"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="DHk-dA-Crk"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="148" y="96" width="232" height="44"/>
+                                                        <mask key="constraints">
+                                                            <include reference="DHk-dA-Crk"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Real Name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r89-B7-Tw6" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="N71-dS-EnE"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="N71-dS-EnE"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="148" y="8" width="232" height="44"/>
+                                                        <mask key="constraints">
+                                                            <include reference="N71-dS-EnE"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="width" secondItem="r89-B7-Tw6" secondAttribute="width" id="0RK-zb-COq"/>
+                                                <constraint firstItem="r89-B7-Tw6" firstAttribute="top" secondItem="Jki-bu-t91" secondAttribute="top" constant="4" id="2cn-G8-qmn"/>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="width" secondItem="r89-B7-Tw6" secondAttribute="width" id="4He-9I-IP7"/>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="leading" secondItem="r89-B7-Tw6" secondAttribute="leading" id="4Om-A8-qSY"/>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="leading" secondItem="ykN-Ae-jha" secondAttribute="leading" id="AEm-iE-VNx"/>
+                                                <constraint firstAttribute="trailing" secondItem="r89-B7-Tw6" secondAttribute="trailing" constant="20" id="H7M-xc-g9h"/>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="top" secondItem="r89-B7-Tw6" secondAttribute="bottom" constant="4" id="Isf-i3-fCE"/>
+                                                <constraint firstItem="r89-B7-Tw6" firstAttribute="leading" secondItem="zpJ-CK-KL6" secondAttribute="trailing" constant="20" id="Jcd-Sh-xV6"/>
+                                                <constraint firstItem="ykN-Ae-jha" firstAttribute="top" secondItem="AEw-u3-GFb" secondAttribute="bottom" constant="4" id="Pla-1h-0Vs"/>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="leading" secondItem="r89-B7-Tw6" secondAttribute="leading" id="ZSI-N7-UjR"/>
+                                                <constraint firstItem="zpJ-CK-KL6" firstAttribute="top" secondItem="Jki-bu-t91" secondAttribute="top" constant="32" id="Zzl-Vf-hnC"/>
+                                                <constraint firstItem="zpJ-CK-KL6" firstAttribute="leading" secondItem="Jki-bu-t91" secondAttribute="leading" constant="20" id="bsu-Lx-CPi"/>
+                                                <constraint firstItem="AEw-u3-GFb" firstAttribute="width" secondItem="ykN-Ae-jha" secondAttribute="width" id="yjQ-nF-3Cp"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="zpJ-CK-KL6"/>
+                                                    <exclude reference="AEw-u3-GFb"/>
+                                                    <exclude reference="ykN-Ae-jha"/>
+                                                    <exclude reference="r89-B7-Tw6"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Zzl-Vf-hnC"/>
+                                                    <exclude reference="bsu-Lx-CPi"/>
+                                                    <exclude reference="2cn-G8-qmn"/>
+                                                    <exclude reference="H7M-xc-g9h"/>
+                                                    <exclude reference="Jcd-Sh-xV6"/>
+                                                    <exclude reference="0RK-zb-COq"/>
+                                                    <exclude reference="4He-9I-IP7"/>
+                                                    <exclude reference="4Om-A8-qSY"/>
+                                                    <exclude reference="AEm-iE-VNx"/>
+                                                    <exclude reference="Isf-i3-fCE"/>
+                                                    <exclude reference="ZSI-N7-UjR"/>
+                                                    <exclude reference="yjQ-nF-3Cp"/>
+                                                    <exclude reference="Pla-1h-0Vs"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="zpJ-CK-KL6"/>
+                                                    <include reference="AEw-u3-GFb"/>
+                                                    <include reference="ykN-Ae-jha"/>
+                                                    <include reference="r89-B7-Tw6"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="Zzl-Vf-hnC"/>
+                                                    <include reference="bsu-Lx-CPi"/>
+                                                    <include reference="2cn-G8-qmn"/>
+                                                    <include reference="H7M-xc-g9h"/>
+                                                    <include reference="Jcd-Sh-xV6"/>
+                                                    <include reference="0RK-zb-COq"/>
+                                                    <include reference="4He-9I-IP7"/>
+                                                    <include reference="4Om-A8-qSY"/>
+                                                    <include reference="AEm-iE-VNx"/>
+                                                    <include reference="Isf-i3-fCE"/>
+                                                    <include reference="ZSI-N7-UjR"/>
+                                                    <include reference="yjQ-nF-3Cp"/>
+                                                    <include reference="Pla-1h-0Vs"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="b69-Ty-Kb3">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b69-Ty-Kb3" id="itO-7f-me7">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job tittle" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9GV-7U-Rdu" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="rUt-Xh-Lr6"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="rUt-Xh-Lr6"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="rUt-Xh-Lr6"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9GV-7U-Rdu" firstAttribute="leading" secondItem="itO-7f-me7" secondAttribute="leading" constant="20" id="Alx-z5-DQi"/>
+                                                <constraint firstItem="9GV-7U-Rdu" firstAttribute="top" secondItem="itO-7f-me7" secondAttribute="top" constant="4" id="KFx-4s-NJq"/>
+                                                <constraint firstAttribute="trailing" secondItem="9GV-7U-Rdu" secondAttribute="trailing" constant="20" id="spA-pS-tix"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="9GV-7U-Rdu"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Alx-z5-DQi"/>
+                                                    <exclude reference="KFx-4s-NJq"/>
+                                                    <exclude reference="spA-pS-tix"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="9GV-7U-Rdu"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="Alx-z5-DQi"/>
+                                                    <include reference="KFx-4s-NJq"/>
+                                                    <include reference="spA-pS-tix"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="C6A-bm-ePw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6A-bm-ePw" id="UsT-Ef-HWA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RA-M2-UaQ" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="W76-jT-Kgk"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="W76-jT-Kgk"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="20" y="2" width="360" height="44"/>
+                                                        <mask key="constraints">
+                                                            <include reference="W76-jT-Kgk"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="7RA-M2-UaQ" secondAttribute="trailing" constant="20" id="0j8-7P-Ktt"/>
+                                                <constraint firstItem="7RA-M2-UaQ" firstAttribute="top" secondItem="UsT-Ef-HWA" secondAttribute="top" constant="4" id="LNb-Xc-4wO"/>
+                                                <constraint firstItem="7RA-M2-UaQ" firstAttribute="leading" secondItem="UsT-Ef-HWA" secondAttribute="leading" constant="20" id="wFe-3x-u7Z"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="7RA-M2-UaQ"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="wFe-3x-u7Z"/>
+                                                    <exclude reference="LNb-Xc-4wO"/>
+                                                    <exclude reference="0j8-7P-Ktt"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="7RA-M2-UaQ"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="wFe-3x-u7Z"/>
+                                                    <include reference="LNb-Xc-4wO"/>
+                                                    <include reference="0j8-7P-Ktt"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="eqq-WV-6Tu">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eqq-WV-6Tu" id="raV-97-hmn">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEo-F5-0L0" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="HCi-S0-1zX"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="HCi-S0-1zX"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="HCi-S0-1zX"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iEo-F5-0L0" firstAttribute="leading" secondItem="raV-97-hmn" secondAttribute="leading" constant="20" id="e67-Wf-pb5"/>
+                                                <constraint firstItem="iEo-F5-0L0" firstAttribute="top" secondItem="raV-97-hmn" secondAttribute="top" constant="4" id="maK-U7-qsj"/>
+                                                <constraint firstAttribute="trailing" secondItem="iEo-F5-0L0" secondAttribute="trailing" constant="20" id="xD4-iZ-eaA"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="iEo-F5-0L0"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="e67-Wf-pb5"/>
+                                                    <exclude reference="maK-U7-qsj"/>
+                                                    <exclude reference="xD4-iZ-eaA"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="iEo-F5-0L0"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="e67-Wf-pb5"/>
+                                                    <include reference="maK-U7-qsj"/>
+                                                    <include reference="xD4-iZ-eaA"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="XGR-b8-2Bw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGR-b8-2Bw" id="a2T-fj-FLt">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile phone" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WuG-mt-pDb" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Siu-vm-lGE"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Siu-vm-lGE"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="Siu-vm-lGE"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WuG-mt-pDb" firstAttribute="leading" secondItem="a2T-fj-FLt" secondAttribute="leading" constant="20" id="55h-GI-J5p"/>
+                                                <constraint firstItem="WuG-mt-pDb" firstAttribute="top" secondItem="a2T-fj-FLt" secondAttribute="top" constant="4" id="QQn-9J-u23"/>
+                                                <constraint firstAttribute="trailing" secondItem="WuG-mt-pDb" secondAttribute="trailing" constant="20" id="duj-kB-KKC"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="WuG-mt-pDb"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="55h-GI-J5p"/>
+                                                    <exclude reference="QQn-9J-u23"/>
+                                                    <exclude reference="duj-kB-KKC"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="WuG-mt-pDb"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="55h-GI-J5p"/>
+                                                    <include reference="QQn-9J-u23"/>
+                                                    <include reference="duj-kB-KKC"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="RCW-wm-E4s">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RCW-wm-E4s" id="11v-aq-Bzp">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="QQ" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycz-j8-doQ" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="gF8-f5-8NK"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="gF8-f5-8NK"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="gF8-f5-8NK"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ycz-j8-doQ" secondAttribute="trailing" constant="20" id="PJY-UT-UAI"/>
+                                                <constraint firstItem="ycz-j8-doQ" firstAttribute="leading" secondItem="11v-aq-Bzp" secondAttribute="leading" constant="20" id="VUf-TF-tJI"/>
+                                                <constraint firstItem="ycz-j8-doQ" firstAttribute="top" secondItem="11v-aq-Bzp" secondAttribute="top" constant="4" id="bN4-Yo-5gy"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="ycz-j8-doQ"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="VUf-TF-tJI"/>
+                                                    <exclude reference="bN4-Yo-5gy"/>
+                                                    <exclude reference="PJY-UT-UAI"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="ycz-j8-doQ"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="VUf-TF-tJI"/>
+                                                    <include reference="bN4-Yo-5gy"/>
+                                                    <include reference="PJY-UT-UAI"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="B0z-0K-xtb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B0z-0K-xtb" id="BfA-Gm-9zy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weichat" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-T5-DoG" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="RQE-xB-Qhd"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="RQE-xB-Qhd"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="RQE-xB-Qhd"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ub2-T5-DoG" firstAttribute="leading" secondItem="BfA-Gm-9zy" secondAttribute="leading" constant="20" id="B23-VG-7qc"/>
+                                                <constraint firstItem="Ub2-T5-DoG" firstAttribute="top" secondItem="BfA-Gm-9zy" secondAttribute="top" constant="4" id="Qyl-qO-rE3"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ub2-T5-DoG" secondAttribute="trailing" constant="20" id="e5x-Og-tO3"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Ub2-T5-DoG"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="B23-VG-7qc"/>
+                                                    <exclude reference="Qyl-qO-rE3"/>
+                                                    <exclude reference="e5x-Og-tO3"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Ub2-T5-DoG"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="B23-VG-7qc"/>
+                                                    <include reference="Qyl-qO-rE3"/>
+                                                    <include reference="e5x-Og-tO3"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="WbY-D6-jiE">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WbY-D6-jiE" id="cUh-qT-uZr">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv6-yZ-HN9" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="pcJ-Hn-hGN"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="pcJ-Hn-hGN"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="pcJ-Hn-hGN"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jv6-yZ-HN9" firstAttribute="leading" secondItem="cUh-qT-uZr" secondAttribute="leading" constant="20" id="3lc-bL-qpa"/>
+                                                <constraint firstAttribute="trailing" secondItem="Jv6-yZ-HN9" secondAttribute="trailing" constant="20" id="6ra-ZC-ebH"/>
+                                                <constraint firstItem="Jv6-yZ-HN9" firstAttribute="top" secondItem="cUh-qT-uZr" secondAttribute="top" constant="4" id="U2T-KN-gIs"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Jv6-yZ-HN9"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="3lc-bL-qpa"/>
+                                                    <exclude reference="U2T-KN-gIs"/>
+                                                    <exclude reference="6ra-ZC-ebH"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Jv6-yZ-HN9"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="3lc-bL-qpa"/>
+                                                    <include reference="U2T-KN-gIs"/>
+                                                    <include reference="6ra-ZC-ebH"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="jRm-Nb-KNb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jRm-Nb-KNb" id="3Av-P4-cBF">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Notes" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAd-2G-II6" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Ldq-81-rJ7"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                            <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Ldq-81-rJ7"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="Ldq-81-rJ7"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GAd-2G-II6" firstAttribute="top" secondItem="3Av-P4-cBF" secondAttribute="top" constant="4" id="CVa-7X-oKk"/>
+                                                <constraint firstItem="GAd-2G-II6" firstAttribute="leading" secondItem="3Av-P4-cBF" secondAttribute="leading" constant="20" id="QV6-vH-cn6"/>
+                                                <constraint firstAttribute="trailing" secondItem="GAd-2G-II6" secondAttribute="trailing" constant="20" id="tjR-uk-7J8"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="GAd-2G-II6"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="QV6-vH-cn6"/>
+                                                    <exclude reference="CVa-7X-oKk"/>
+                                                    <exclude reference="tjR-uk-7J8"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="GAd-2G-II6"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="QV6-vH-cn6"/>
+                                                    <include reference="CVa-7X-oKk"/>
+                                                    <include reference="tjR-uk-7J8"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="cC8-fq-OA2">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cC8-fq-OA2" id="9je-a6-Y0s">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="LQB-T4-Rpd" id="WcV-Jf-3eb"/>
+                            <outlet property="delegate" destination="LQB-T4-Rpd" id="lIo-PK-jVY"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-183" y="1269"/>
         </scene>
         <!--Cut View Controller-->
         <scene sceneID="FSb-mX-xa6">
@@ -222,6 +945,7 @@
             <objects>
                 <tableViewController id="mgr-L3-JP6" customClass="HistoryViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZvF-BP-WEj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -254,6 +978,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MmS-vq-zE2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vBP-2L-QYG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -597,6 +1322,9 @@
             <point key="canvasLocation" x="-1152" y="489"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lena.jpg" width="256" height="256"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XPl-lD-00i"/>
     </inferredMetricsTieBreakers>

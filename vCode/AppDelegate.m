@@ -38,16 +38,7 @@
     /*test*/
     HistoryEntry *h1 = [[HistoryEntry alloc] init];
     [h1 saveToDB];
-    sleep(2);
     
-    HistoryEntry *h2 = [[HistoryEntry alloc] init];
-
-    [h2 saveToDB];
-    sleep(2);
-    HistoryEntry *h3 = [[HistoryEntry alloc] init];
-
-    [h3 saveToDB];
-    sleep(2);
     NSMutableArray *his = [HistoryEntry getAllHistory];
     NSLog(@"history row:%d",(int)[his count]);
     

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "572E7B50F4389FAA8AF51192"
+               BlueprintIdentifier = "C8A621C2C319A88EFAEDA0C9"
                BuildableName = "libPods-ZXingObjC.a"
                BlueprintName = "Pods-ZXingObjC"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "选择你的二维码"; ObjectID = "0tG-RE-5rw"; */
+"0tG-RE-5rw.text" = "选择你的二维码";
+
+/* Class = "UILabel"; text = "2VMa"; ObjectID = "2zp-oq-lXO"; */
+"2zp-oq-lXO.text" = "2VMa";
+
+/* Class = "UITextField"; placeholder = "First name"; ObjectID = "37I-pP-kT4"; */
+"37I-pP-kT4.placeholder" = "First name";
+
+/* Class = "UIButton"; normalTitle = "名片"; ObjectID = "5oz-DN-O6Y"; */
+"5oz-DN-O6Y.normalTitle" = "名片";
+
+/* Class = "UIButton"; normalTitle = "image"; ObjectID = "7UT-I5-Rak"; */
+"7UT-I5-Rak.normalTitle" = "image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7ge-6P-wnJ"; */
+"7ge-6P-wnJ.normalTitle" = "Button";
+
+/* Class = "UITableViewSection"; headerTitle = "Avatar"; ObjectID = "BHd-gO-jPS"; */
+"BHd-gO-jPS.headerTitle" = "头像";
+
+/* Class = "UIButton"; normalTitle = "next"; ObjectID = "DbX-wB-CB8"; */
+"DbX-wB-CB8.normalTitle" = "next";
+
+/* Class = "UIButton"; normalTitle = "二维码"; ObjectID = "GZB-w0-IYz"; */
+"GZB-w0-IYz.normalTitle" = "二维码";
+
+/* Class = "UIButton"; normalTitle = "URL"; ObjectID = "Hk1-lW-Mg2"; */
+"Hk1-lW-Mg2.normalTitle" = "URL";
+
+/* Class = "UIButton"; normalTitle = "Feedback"; ObjectID = "Kc4-fP-Of3"; */
+"Kc4-fP-Of3.normalTitle" = "Feedback";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Yji-80-t8I"; */
+"Yji-80-t8I.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "save"; ObjectID = "fEA-iY-hZT"; */
+"fEA-iY-hZT.normalTitle" = "save";
+
+/* Class = "UILabel"; text = "http://"; ObjectID = "jSb-T2-zNd"; */
+"jSb-T2-zNd.text" = "http://";
+
+/* Class = "UITextField"; text = "RRRR"; ObjectID = "l5V-8V-zXv"; */
+"l5V-8V-zXv.text" = "RRRR";
+
+/* Class = "UITableViewSection"; headerTitle = "Section-2"; ObjectID = "ma9-0p-GRK"; */
+"ma9-0p-GRK.headerTitle" = "Section-2";
+
+/* Class = "UIButton"; normalTitle = "back"; ObjectID = "qiu-KE-Rkt"; */
+"qiu-KE-Rkt.normalTitle" = "back";
+
+/* Class = "UIButton"; normalTitle = "文本"; ObjectID = "zYm-0o-hwi"; */
+"zYm-0o-hwi.normalTitle" = "文本";
+
+/* Class = "UIButton"; normalTitle = "scan"; ObjectID = "zsg-ZY-HoV"; */
+"zsg-ZY-HoV.normalTitle" = "scan";
