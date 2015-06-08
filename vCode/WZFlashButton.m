@@ -26,6 +26,20 @@ const CGFloat WZFlashInnerCircleInitialRaius = 20;
     return self;
 }
 
+-(void)resetFrame:(CGRect)frame{
+    [self setFrame:frame];
+     flashState = OK;
+    [self.textLabel setFrame:self.bounds];
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    [self.textLabel setTextColor:[UIColor whiteColor]];
+    [self.textLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.textLabel setNumberOfLines:3];
+    [self addSubview:self.textLabel];
+    
+    self.backgroundColor = [UIColor grayColor];
+    self.buttonType = WZFlashButtonTypeInner;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];

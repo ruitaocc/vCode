@@ -42,7 +42,8 @@
     NSMutableArray *his = [HistoryEntry getAllHistory];
     NSLog(@"history row:%d",(int)[his count]);
     
-    
+    UIDeviceHardware* hw = [[UIDeviceHardware alloc] init];
+    BOOL is_ip56 = [hw Is_IPH_56];
     
     // Override point for customization after application launch.
     //splash animation
@@ -97,6 +98,9 @@
     //skip_btn set
     [skip_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [skip_btn setTitle:NSLocalizedString(@"skip_text", nill) forState:UIControlStateNormal];
+    if(!is_ip56){
+        [[skip_btn titleLabel]setFont:[UIFont systemFontOfSize:14]];
+    }
     [lunchView addSubview:skip_btn];
     [skip_btn addTarget:self action:@selector(skip_btn_click) forControlEvents:UIControlEventTouchUpInside];
     float sheight = self.window.screen.bounds.size.height;

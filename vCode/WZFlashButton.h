@@ -30,4 +30,5 @@ typedef enum _FlashState{
 - (void)setText:(NSString *)text;
 - (void)setTextColor:(UIColor *)textColor;
 - (void)setText:(NSString *)text withTextColor:(UIColor *)textColor;
+-(void)resetFrame:(CGRect)frame;
 @end

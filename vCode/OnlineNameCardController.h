@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WZFlashButton.h"
 
 @interface OnlineNameCardController : UITableViewController<UITableViewDelegate>
-
+@property(strong,nonatomic)IBOutlet WZFlashButton *m_gebtn;
 @end

@@ -20,4 +20,6 @@
 "info_title"="关于";
 "history" = "历史记录";
 "historyDetail" = "详细信息";
+"ol_generate" = "生成2V码";
+"OnlineNameCardTittle" = "在线名片";
 
