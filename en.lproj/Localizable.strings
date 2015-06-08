@@ -22,3 +22,6 @@
 "historyDetail" = "Detail";
 "ol_generate"="Generate V Code";
 "OnlineNameCardTittle"="Online NameCard";
+"actionsheet_cancel" = "Cancel";
+"actionsheet_take_photo" = "Take a photo";
+"actionsheet_select_form_albums" = "Select form albums";

@@ -140,25 +140,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gZH-ss-WuD" id="Jki-bu-t91">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lena.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-CK-KL6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="108" id="6FP-21-rlh"/>
-                                                        <constraint firstAttribute="height" constant="108" id="ni3-II-q51"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="6FP-21-rlh"/>
-                                                            <exclude reference="ni3-II-q51"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="6FP-21-rlh"/>
-                                                            <include reference="ni3-II-q51"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r89-B7-Tw6" customClass="HoshiTextField" customModule="vCode" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
                                                     <constraints>
@@ -226,6 +207,25 @@
                                                         <segment title="Female"/>
                                                     </segments>
                                                 </segmentedControl>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lena.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-CK-KL6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="108" id="6FP-21-rlh"/>
+                                                        <constraint firstAttribute="height" constant="108" id="ni3-II-q51"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="6FP-21-rlh"/>
+                                                            <exclude reference="ni3-II-q51"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="6FP-21-rlh"/>
+                                                            <include reference="ni3-II-q51"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="AEw-u3-GFb" firstAttribute="width" secondItem="r89-B7-Tw6" secondAttribute="width" id="0RK-zb-COq"/>
@@ -244,10 +244,10 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="zpJ-CK-KL6"/>
                                                     <exclude reference="r89-B7-Tw6"/>
                                                     <exclude reference="AEw-u3-GFb"/>
                                                     <exclude reference="Yri-0K-9N9"/>
+                                                    <exclude reference="zpJ-CK-KL6"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="Zzl-Vf-hnC"/>
@@ -267,10 +267,10 @@
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="zpJ-CK-KL6"/>
                                                     <include reference="r89-B7-Tw6"/>
                                                     <include reference="AEw-u3-GFb"/>
                                                     <include reference="Yri-0K-9N9"/>
+                                                    <include reference="zpJ-CK-KL6"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="Zzl-Vf-hnC"/>
@@ -956,6 +956,7 @@
                     </tableView>
                     <connections>
                         <outlet property="m_gebtn" destination="gN9-ff-dol" id="Hg1-Ax-VxM"/>
+                        <outlet property="m_portraitImageView" destination="zpJ-CK-KL6" id="84H-RO-HB5"/>
                     </connections>
                 </tableViewController>
             </objects>

@@ -22,4 +22,6 @@
 "historyDetail" = "详细信息";
 "ol_generate" = "生成2V码";
 "OnlineNameCardTittle" = "在线名片";
-
+"actionsheet_cancel" = "取消";
+"actionsheet_take_photo" = "拍照";
+"actionsheet_select_form_albums" = "从相册中选取";
