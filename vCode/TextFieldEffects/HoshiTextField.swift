@@ -1,4 +1,4 @@
-//
+	//
 //  HoshiTextField.swift
 //  TextFieldEffects
 //
@@ -8,7 +8,17 @@
 
 import UIKit
 
-@IBDesignable public class HoshiTextField: TextFieldEffects {
+@IBDesignable public class HoshiTextField: TextFieldEffects ,UITextFieldDelegate{
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        delegate = self;
+    }
+
+    required public init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        delegate = self;
+    }
     
     @IBInspectable public var borderInactiveColor: UIColor? {
         didSet {
@@ -30,6 +40,26 @@ import UIKit
         didSet {
             updatePlaceholder()
         }
+    }
+    
+    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if(limmitLength==0){
+            lengthLimitLabel.text = ""
+            return true;
+        }
+        let old:NSString = textField.text as NSString
+        let rep:NSString = string as NSString
+        let curLength = old.length
+        let selectedLength = range.length
+        let replaceLength = rep.length
+        let after = curLength - selectedLength + replaceLength
+        if(after <= limmitLength){
+            var denominator : String = String(limmitLength)
+            var numerator  : String = String(after)
+            lengthLimitLabel.text = numerator + "/" + denominator
+            return true;
+        }
+        return false;
     }
     
     override public var bounds: CGRect {
@@ -55,6 +85,9 @@ import UIKit
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(self.font)
+        
+        lengthLimitLabel.frame = CGRect(x: frame.size.width-20,y: placeholderInsets.y,width: 20,height: frame.size.height)
+        lengthLimitLabel.font = placeholderFontFromFont(self.font)
         
         updateBorder()
         updatePlaceholder()
@@ -120,6 +153,8 @@ import UIKit
     }
     
     override func animateViewsForTextEntry() {
+        
+        lengthLimitLabel.textColor = placeholderColor
         UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
             
             if self.text.isEmpty {

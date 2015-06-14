@@ -19,6 +19,10 @@ protocol TextFieldsEffectsProtocol {
 public class TextFieldEffects : UITextField, TextFieldsEffectsProtocol {
     
     let placeholderLabel = UILabel()
+    let lengthLimitLabel = UILabel()
+    
+    public var limmitLength:Int = 0
+
     
     func animateViewsForTextEntry() {
         fatalError("\(__FUNCTION__) must be overridden")

@@ -7,34 +7,98 @@
 //
 
 #import "OnlineNameCardController.h"
-#import "vCode-swift.h"
+
 #import "WZFlashButton.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "DateHelper.h"
+#import "NameCardKey.h"
+#import "SHEmailValidator.h"
+
 @interface OnlineNameCardController()
+@property (assign,nonatomic)BOOL isNeedWaitForAvatarUp;
 @end
 
 @implementation OnlineNameCardController
 @synthesize m_gebtn;
 @synthesize m_portraitImageView;
+@synthesize isNeedWaitForAvatarUp;
+
+@synthesize m_ui_address;
+@synthesize m_ui_birthday;
+@synthesize m_ui_email;
+@synthesize m_ui_fullname;
+@synthesize m_ui_gender;
+@synthesize m_ui_homepage;
+@synthesize m_ui_intr;
+@synthesize m_ui_job;
+@synthesize m_ui_nickname;
+@synthesize m_ui_org;
+@synthesize m_ui_qq;
+@synthesize m_ui_tel;
+@synthesize m_ui_wechat;
+
 -(void)viewDidLoad{
     [self setTitle:NSLocalizedString(@"OnlineNameCardTittle", nil) ];
     //UITableViewCell* lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:10 inSection:0]];
+    
+    
+    [m_ui_fullname setLimmitLength:30];
+    [m_ui_address setLimmitLength:80];
+    [m_ui_birthday setLimmitLength:20];
+    [m_ui_email setLimmitLength:30];
+    [m_ui_homepage setLimmitLength:120];
+    [m_ui_intr setLimmitLength:60];
+    [m_ui_job setLimmitLength:40];
+    [m_ui_nickname setLimmitLength:30];
+    [m_ui_org setLimmitLength:60];
+    [m_ui_wechat setLimmitLength:40];
+    [m_ui_tel setLimmitLength:20];
+    [m_ui_qq setLimmitLength:20];
+    
     float s_width = self.view.frame.size.width;;
     CGRect btn_frame;
     btn_frame.size.width = 0.57*s_width;
     btn_frame.size.height = 44;
     btn_frame.origin.x = (s_width-btn_frame.size.width)/2;
     btn_frame.origin.y = (84-btn_frame.size.height)/2;
-    //__weak __typeof(self) weakSelf = self;
-    //m_gebtn = [[WZFlashButton alloc]initWithFrame:btn_frame ];
     [m_gebtn resetFrame:btn_frame];
     m_gebtn.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
     m_gebtn.flashColor = [UIColor whiteColor];
     [m_gebtn setText:NSLocalizedString(@"ol_generate", nil) withTextColor:[UIColor whiteColor]];
     [m_gebtn setTextColor:[UIColor whiteColor]];
+    __weak typeof(self) weakSefl = self;
     m_gebtn.clickBlock = ^(void){
         //[weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];
+        //vilad data
+        if([[weakSefl.m_ui_fullname text] isEqualToString:@""]||[[weakSefl.m_ui_email text] isEqualToString:@""]){
+            UIAlertView *alert = [[UIAlertView alloc] init];
+            [alert setTitle:NSLocalizedString(@"namecard_must_fill", nil)];
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            return ;
+        };
+        
+        NSString *email = [weakSefl.m_ui_email text];
+        NSError *error = nil;
+        [[SHEmailValidator validator]validateSyntaxOfEmailAddress:email withError:&error];
+        if (error) {
+            // An error occurred
+            UIAlertView *alert = [[UIAlertView alloc] init];
+            [alert setTitle:NSLocalizedString(@"namecard_email_format_error", nil)];
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            return ;
+        } else { 
+            // Basic email syntax is correct 
+        }
+        
+        //check avatar
+        if (isNeedWaitForAvatarUp) {
+            if([RequestSender imgurl]){
+                //showhdu
+            }
+        }
         NSLog(@"generate call");
     };
     NSLog(@"tableview loaded");
@@ -56,7 +120,8 @@
     m_portraitImageView.backgroundColor = [UIColor blackColor];
     UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
     [m_portraitImageView addGestureRecognizer:portraitTap];
-
+    
+    isNeedWaitForAvatarUp = NO;
 }
 - (void)editPortrait {
     UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -79,6 +144,36 @@
 #pragma mark VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     self.m_portraitImageView.image = editedImage;
+    //save doc
+    
+    NSString *docDir  = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSString *avatarDir = [NSString stringWithFormat:@"%@%@",docDir,@"/avatar/"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL dirExist;
+    [fm fileExistsAtPath:avatarDir isDirectory:&dirExist];
+    if(!dirExist)[fm createDirectoryAtPath:avatarDir withIntermediateDirectories:NO attributes:nil error:nil];
+    NSString *avatarName = [DateHelper stringFromDate:[NSDate date] withFormat:@"yyyy_MM_dd_HH_mm_ss"];
+    
+    NSString *avatarPath = [NSString stringWithFormat:@"%@%@.png",avatarDir,avatarName];
+    
+    NSData *data  = UIImagePNGRepresentation(editedImage);
+    
+    [fm createFileAtPath:avatarPath contents:data attributes:nil];
+    
+    if([fm fileExistsAtPath:avatarPath]){
+        NSLog(@"File Save To Path:%@",avatarPath);
+        [[NSUserDefaults standardUserDefaults]setObject:avatarPath forKey:@"NC_K_AVATAR_LOCAL_NAME"];
+        unsigned long long size = [[fm attributesOfItemAtPath:avatarPath error:nil] fileSize];
+        NSNumber *num = [NSNumber numberWithLongLong:size];
+        //send request
+        [[NSUserDefaults standardUserDefaults]setObject:@"image" forKey:@"uploadType"];
+        [[NSUserDefaults standardUserDefaults]setObject:[num description] forKey:@"avatar_size"];
+        isNeedWaitForAvatarUp = YES;
+        [RequestSender sendRequest];
+    }
+    
+    
+    
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         // TO DO
     }];

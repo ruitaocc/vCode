@@ -192,10 +192,10 @@ class RequestSender:NSObject{
         
     }
     
-    func url()->String{
+    class func url()->String{
         return RequestSender.shortURL;
     }
-    func imgurl()->String{
+    class func imgurl()->String{
         return RequestSender.namecardAvatarURL;
     }
     

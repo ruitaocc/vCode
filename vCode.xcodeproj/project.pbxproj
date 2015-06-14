@@ -36,6 +36,10 @@
 		B65B1CDC1B16E0270028F631 /* intro_musk351_325.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */; };
 		B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */; };
 		B661C7281B2D3F3500B501EF /* NameCardEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B661C7271B2D3F3500B501EF /* NameCardEntry.m */; };
+		B661C72B1B2D613F00B501EF /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = B661C72A1B2D613F00B501EF /* avatar.png */; };
+		B661C7311B2DC87300B501EF /* SHEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B661C72E1B2DC87300B501EF /* SHEmailValidator.m */; };
+		B661C7321B2DC87300B501EF /* SHValidationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B661C7301B2DC87300B501EF /* SHValidationResult.m */; };
+		B661C7351B2DCA7B00B501EF /* NSString+LevenshteinDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = B661C7341B2DCA7B00B501EF /* NSString+LevenshteinDistance.m */; };
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
 		B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97531AE3A30E0085DBB3 /* AppDelegate.m */; };
 		B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.mm */; };
@@ -149,6 +153,13 @@
 		B661C7261B2D3F3500B501EF /* NameCardEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameCardEntry.h; sourceTree = "<group>"; };
 		B661C7271B2D3F3500B501EF /* NameCardEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameCardEntry.m; sourceTree = "<group>"; };
 		B661C7291B2D48D400B501EF /* NameCardKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NameCardKey.h; sourceTree = "<group>"; };
+		B661C72A1B2D613F00B501EF /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		B661C72D1B2DC87300B501EF /* SHEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHEmailValidator.h; sourceTree = "<group>"; };
+		B661C72E1B2DC87300B501EF /* SHEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEmailValidator.m; sourceTree = "<group>"; };
+		B661C72F1B2DC87300B501EF /* SHValidationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHValidationResult.h; sourceTree = "<group>"; };
+		B661C7301B2DC87300B501EF /* SHValidationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHValidationResult.m; sourceTree = "<group>"; };
+		B661C7331B2DCA7B00B501EF /* NSString+LevenshteinDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LevenshteinDistance.h"; sourceTree = "<group>"; };
+		B661C7341B2DCA7B00B501EF /* NSString+LevenshteinDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LevenshteinDistance.m"; sourceTree = "<group>"; };
 		B67F974B1AE3A30E0085DBB3 /* vCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F974F1AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F97501AE3A30E0085DBB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -296,6 +307,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B661C72C1B2DC85A00B501EF /* EmailValidator */ = {
+			isa = PBXGroup;
+			children = (
+				B661C72D1B2DC87300B501EF /* SHEmailValidator.h */,
+				B661C72E1B2DC87300B501EF /* SHEmailValidator.m */,
+				B661C72F1B2DC87300B501EF /* SHValidationResult.h */,
+				B661C7301B2DC87300B501EF /* SHValidationResult.m */,
+				B661C7331B2DCA7B00B501EF /* NSString+LevenshteinDistance.h */,
+				B661C7341B2DCA7B00B501EF /* NSString+LevenshteinDistance.m */,
+			);
+			name = EmailValidator;
+			sourceTree = "<group>";
+		};
 		B67F97421AE3A30D0085DBB3 = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +391,7 @@
 				B6EB47291B18975E00495FBA /* like_icon.png */,
 				B6EB472D1B18976600495FBA /* ip56_bg.png */,
 				B6EB472A1B18975E00495FBA /* slogan.png */,
+				B661C72A1B2D613F00B501EF /* avatar.png */,
 				B6EB47231B18973E00495FBA /* feedback_icon.png */,
 				B6EB47241B18973E00495FBA /* info_icon.png */,
 				B6EB47251B18973E00495FBA /* ip4_bg.png */,
@@ -481,6 +506,7 @@
 		B6EB47131B173B9700495FBA /* THirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B661C72C1B2DC85A00B501EF /* EmailValidator */,
 				B6DBAAAD1B249302008334C8 /* TextEffects */,
 				B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */,
 				B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */,
@@ -632,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65B1CD61B16C7EE0028F631 /* skip_normal.png in Resources */,
+				B661C72B1B2D613F00B501EF /* avatar.png in Resources */,
 				B6EB472C1B18975E00495FBA /* slogan.png in Resources */,
 				B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */,
 				B6EB47261B18973E00495FBA /* feedback_icon.png in Resources */,
@@ -720,18 +747,21 @@
 				B6EB47301B189DC100495FBA /* UIDeviceHardware.m in Sources */,
 				B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */,
 				267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */,
+				B661C7321B2DC87300B501EF /* SHValidationResult.m in Sources */,
 				B6EB91341B23496A00F403B1 /* HistoryDetailViewController.m in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
 				267C3E751B004F93001D917A /* md5Encryptor.m in Sources */,
 				266FDABC1B174679000675CB /* CutViewController.m in Sources */,
 				266FDABF1B175FC5000675CB /* QRDetector.mm in Sources */,
 				B6EB471C1B173D1200495FBA /* WZFlashButton.m in Sources */,
+				B661C7351B2DCA7B00B501EF /* NSString+LevenshteinDistance.m in Sources */,
 				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
 				B6DBAAA11B2475C9008334C8 /* JiroTextField.swift in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
 				B661C7281B2D3F3500B501EF /* NameCardEntry.m in Sources */,
+				B661C7311B2DC87300B501EF /* SHEmailValidator.m in Sources */,
 				B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */,
 				267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */,
 				2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */,
