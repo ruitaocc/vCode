@@ -6,3 +6,5 @@
 #import "AppDelegate.h"
 #import "CutViewController.h"
 #import "QRDetector.h"
+#import "NameCardEntry.h"
+#import "NameCardKey.h"

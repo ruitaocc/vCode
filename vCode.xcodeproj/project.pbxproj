@@ -35,6 +35,7 @@
 		B65B1CDA1B16D5210028F631 /* skip_normal_w.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CD81B16D5210028F631 /* skip_normal_w.png */; };
 		B65B1CDC1B16E0270028F631 /* intro_musk351_325.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */; };
 		B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */; };
+		B661C7281B2D3F3500B501EF /* NameCardEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B661C7271B2D3F3500B501EF /* NameCardEntry.m */; };
 		B67F97511AE3A30E0085DBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97501AE3A30E0085DBB3 /* main.m */; };
 		B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F97531AE3A30E0085DBB3 /* AppDelegate.m */; };
 		B67F97571AE3A30E0085DBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67F97561AE3A30E0085DBB3 /* ViewController.mm */; };
@@ -145,6 +146,9 @@
 		B65B1CD81B16D5210028F631 /* skip_normal_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip_normal_w.png; sourceTree = "<group>"; };
 		B65B1CDB1B16E0270028F631 /* intro_musk351_325.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_musk351_325.png; sourceTree = "<group>"; };
 		B65B6DEB1B19D4E20046B2FD /* qrcode_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode_mask.png; sourceTree = "<group>"; };
+		B661C7261B2D3F3500B501EF /* NameCardEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameCardEntry.h; sourceTree = "<group>"; };
+		B661C7271B2D3F3500B501EF /* NameCardEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameCardEntry.m; sourceTree = "<group>"; };
+		B661C7291B2D48D400B501EF /* NameCardKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NameCardKey.h; sourceTree = "<group>"; };
 		B67F974B1AE3A30E0085DBB3 /* vCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F974F1AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F97501AE3A30E0085DBB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -499,6 +503,9 @@
 			children = (
 				B6EB91241B23235200F403B1 /* HistoryEntry.m */,
 				B6EB91261B23237800F403B1 /* HistoryEntry.h */,
+				B661C7261B2D3F3500B501EF /* NameCardEntry.h */,
+				B661C7271B2D3F3500B501EF /* NameCardEntry.m */,
+				B661C7291B2D48D400B501EF /* NameCardKey.h */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -724,6 +731,7 @@
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
+				B661C7281B2D3F3500B501EF /* NameCardEntry.m in Sources */,
 				B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */,
 				267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */,
 				2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */,
