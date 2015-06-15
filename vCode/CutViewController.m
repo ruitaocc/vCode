@@ -13,9 +13,11 @@
 #import "vCode-swift.h"
 #import "QRDetector.h"
 
+#import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
 #define ORIGINAL_MAX_WIDTH 640.0f
 
 @interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate>
+@property(strong ,nonatomic)MMMaterialDesignSpinner *m_spinnerView;
 
 @property (nonatomic, strong) UIImageView *portraitImageView;
 
@@ -23,7 +25,7 @@
 @end
 
 @implementation CutViewController
-
+@synthesize m_spinnerView;
 - (void)viewDidLoad
 {
     [self.view setBackgroundColor:[UIColor whiteColor]];
@@ -41,13 +43,37 @@
     UIImageView *qrcodeview = [[UIImageView alloc] initWithFrame:_portraitImageView.frame];
     qrcodeview.image = [UIImage imageNamed:@"qrcode_mask.png"];
     [self.view addSubview:qrcodeview];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveShortURL:) name:@"didReceiveURL" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveShortURL:) name:@"requestERROR" object:nil];
+    
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self  name:@"didReceiveURL" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self  name:@"requestERROR" object:nil];
+    if(m_spinnerView){
+        [m_spinnerView stopAnimating];
+        [m_spinnerView removeFromSuperview];
+        m_spinnerView = NULL;
+    }
 }
 
 - (void) didReceiveShortURL:(NSNotification*) notification{
-    _dataToEncode = RequestSender.shortURL;
-    NSLog(@"%@",_dataToEncode);
-    _haveDataToEncode = YES;
+    if (m_spinnerView) {
+        [m_spinnerView stopAnimating];
+    }
+    if ([notification.name isEqualToString:@"didReceiveURL"]) {
+        _dataToEncode = RequestSender.shortURL;
+        NSLog(@"%@",_dataToEncode);
+        _haveDataToEncode = YES;
+    }
+    if ([notification.name isEqualToString:@"requestERROR"]) {
+        NSLog(@"Network error!");
+    }
 }
 
 - (void) next{
@@ -59,10 +85,21 @@
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     }
     else{
-        UIAlertView* alert = [[UIAlertView alloc] init];
-        [alert setTitle:@"did not receive response yet."];
-        [alert addButtonWithTitle:@"ok"];
-        [alert show];
+//        UIAlertView* alert = [[UIAlertView alloc] init];
+//        [alert setTitle:@"did not receive response yet."];
+//        [alert addButtonWithTitle:@"ok"];
+//        [alert show];
+        CGRect spinner_frame ;
+        spinner_frame.size.width = 40;
+        spinner_frame.size.height = 40;
+        spinner_frame.origin.x = (self.view.frame.size.width-spinner_frame.size.width)/2;
+        spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height)/2;
+        m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
+        m_spinnerView.lineWidth = 2.5f;
+        m_spinnerView.tintColor = [UIColor colorWithRed:69/255.0 green:209.0/255.0 blue:250/255.0 alpha:1.0];
+        [self.view addSubview:m_spinnerView];
+        [m_spinnerView startAnimating];
+
     }
     
 }

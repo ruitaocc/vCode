@@ -16,7 +16,7 @@
 
 @property(strong ,nonatomic)NSString *m_fullname;
 @property(strong ,nonatomic)NSString *m_nickname;
-@property(assign ,nonatomic)int m_gender;
+@property(assign ,nonatomic)NSInteger m_gender;
 @property(strong ,nonatomic)NSString *m_birthday;
 @property(strong ,nonatomic)NSString *m_avatar_local_name;
 @property(strong ,nonatomic)NSString *m_avatar_url;

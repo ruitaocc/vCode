@@ -7,11 +7,19 @@
 //
 
 import Foundation
+enum RSatus : Int{
+    case Unknown = 0
+    case OK
+    case Uploading
+}
 class RequestSender:NSObject{
     static var shortURL:String = ""
     static var baseURL:String = "http://2vma.co"
     static var uploadType:String = ""
     static var namecardAvatarURL = ""
+    static var status:RSatus = RSatus.OK
+    static var hasPendingReq:Bool = false // is there any request pending, should stop the follow req.
+
     override init(){
         println("init for sender")
     }
@@ -20,8 +28,25 @@ class RequestSender:NSObject{
         println("deinit for sender")
     }
     
+    class func getRStatus()->RSatus{
+        return self.status
+    }
+    
+    class func getIsPendingReq()->Bool{
+        return self.hasPendingReq
+    }
+    
     class func sendRequest()->Bool{
         
+        if(self.hasPendingReq){
+            return false
+        }
+        if(self.status == RSatus.Uploading){
+            self.hasPendingReq = true
+            return true
+        }
+        
+        self.status = RSatus.Uploading
         var uuid:String = "123"
         var message:String = ""
         var url:String = ""
@@ -46,7 +71,6 @@ class RequestSender:NSObject{
         sign = md5Encryptor.md5(secretKey+tm+uuid)
         
         let request = NSMutableURLRequest();
-        var imageStream:NSInputStream;
         var postData:String = ""
         request.HTTPMethod = "POST"
         
@@ -96,11 +120,17 @@ class RequestSender:NSObject{
             request.URL = NSURL(string: "http://2vma.co/api/card")
             namecard.m_fullname = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_FULLNAME") as! String
             namecard.m_nickname = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_NICKNAME") as! String
-            namecard.m_gender = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_GENDER") as! Int32
-            let str_gender = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_GENDER") as! String
+            namecard.m_gender = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_GENDER") as! Int
+            //let _gender = namecard.m_gender
+            //let str_gender = String(_gender)
+            
+            let str_gender : String =  NSNumberFormatter().stringFromNumber(namecard.m_gender)!
+            
             namecard.m_birthday = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_BIRTHDAY") as! String
+            
             namecard.m_avatar_url = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_AVATAR_URL") as! String
             namecard.m_avatar_local_name = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_AVATAR_LOCAL_NAME") as! String
+            
             namecard.m_tel = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_TEL") as! String
             namecard.m_email = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_EMAIL") as! String
             namecard.m_address = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_ADDRESS") as! String
@@ -123,9 +153,6 @@ class RequestSender:NSObject{
             
             let img = UIImage(contentsOfFile: localFIleName)
             let data : NSData = UIImagePNGRepresentation(img)
-            
-            let filesize = NSUserDefaults.standardUserDefaults().objectForKey("avatar_size") as! String
-            imageStream = NSInputStream(fileAtPath: localFIleName)!;
             
             let boundary : String = "----WebKitFormBoundaryG0H9jTpjN7PtmaAh"
             let contentType : String = "multipart/form-data; boundary=" + boundary
@@ -161,7 +188,11 @@ class RequestSender:NSObject{
             
             if (error != nil){
                 println(error)
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("requestERROR", object: self)
                 self.alert(error.localizedDescription, button: "OK")
+                self.status = RSatus.OK
+                self.hasPendingReq = false
                 return
                 
             }
@@ -184,28 +215,43 @@ class RequestSender:NSObject{
                                 case "txt","url":
                                     if let url = data["shortUrl"] as? String{
                                         self.shortURL = self.baseURL+url
+                                        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveURL", object: self)
+                                        println(self.shortURL)
+
                                     }
                                 case "online_namecard":
                                     if let url = data["shortUrl"] as? String{
                                         self.shortURL = self.baseURL+url
                                         namecard.m_id = self.shortURL
                                         namecard.saveToDB()
+                                        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveURL", object: self)
+                                        println(self.shortURL)
+
                                     }
                                 case "image":
                                     if let url = data["image"] as? String{
                                         self.namecardAvatarURL = url
+                                        NSUserDefaults.standardUserDefaults().setObject(url, forKey: "NC_K_AVATAR_URL")
+                                    
                                     }
                                 default:
                                     break;
                             }
                         }
                     }
+                    
+                    self.status = RSatus.OK
+                    if(self.hasPendingReq){
+                        self.hasPendingReq = false
+                        self.sendRequest()
+                    }
                 }
-                NSNotificationCenter.defaultCenter().postNotificationName("didReceiveURL", object: self)
-                println(self.shortURL)
             }
             else{
+                NSNotificationCenter.defaultCenter().postNotificationName("requestERROR", object: self)
+                
                 self.alert("Unexpected Error", button: "OK")
+                
                 return
             }
         })

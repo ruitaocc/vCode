@@ -55,7 +55,8 @@
     [m_ui_wechat setLimmitLength:40];
     [m_ui_tel setLimmitLength:20];
     [m_ui_qq setLimmitLength:20];
-    
+    m_ui_fullname.text = @"cairuti";
+    m_ui_email.text = @"email@caruitao.com";
     float s_width = self.view.frame.size.width;;
     CGRect btn_frame;
     btn_frame.size.width = 0.57*s_width;
@@ -71,6 +72,7 @@
     m_gebtn.clickBlock = ^(void){
         //[weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];
         //vilad data
+        NSLog(@"Generate but click");
         if([[weakSefl.m_ui_fullname text] isEqualToString:@""]||[[weakSefl.m_ui_email text] isEqualToString:@""]){
             UIAlertView *alert = [[UIAlertView alloc] init];
             [alert setTitle:NSLocalizedString(@"namecard_must_fill", nil)];
@@ -91,12 +93,53 @@
             return ;
         }
         
-        //check avatar
-        if (isNeedWaitForAvatarUp) {
-            if([RequestSender imgurl]){
-                //showhdu
-            }
+        if (![RequestSender getIsPendingReq]) {
+            //
+            /*
+             #define NC_K_FULLNAME @"NC_K_FULLNAME";
+             #define NC_K_NICKNAME @"NC_K_NICKNAME";
+             #define NC_K_GENDER  @"NC_K_GENDER";
+             #define NC_K_BIRTHDAY  @"NC_K_BIRTHDAY";
+             #define NC_K_AVATAR_LOCAL_NAME  @"NC_K_AVATAR_LOCAL_NAME";   <----no use for server
+             #define NC_K_AVATAR_URL  @"NC_K_AVATAR_URL";
+             #define NC_K_TEL  @"NC_K_TEL";
+             #define NC_K_EMAIL  @"NC_K_EMAIL";
+             #define NC_K_ADDRESS  @"NC_K_ADDRESS";
+             #define NC_K_QQ  @"NC_K_QQ";
+             #define NC_K_WECHAT @"NC_K_WECHAT";
+             #define NC_K_HOMEPAGE  @"NC_K_HOMEPAGE";
+             #define NC_K_JOB @"NC_K_JOB";
+             #define NC_K_ORG  @"NC_K_ORG";
+             #define NC_K_INTR  @"NC_K_INTR";
+             */
+
+            //
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_fullname text] forKey:@"NC_K_FULLNAME"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_nickname text] forKey:@"NC_K_NICKNAME"];
+            [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInteger:[weakSefl.m_ui_gender selectedSegmentIndex]] forKey:@"NC_K_GENDER"];
+            //[[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_AVATAR_LOCAL_NAME"];
+            //[[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_AVATAR_URL"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_birthday text] forKey:@"NC_K_BIRTHDAY"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_tel text] forKey:@"NC_K_TEL"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_email text] forKey:@"NC_K_EMAIL"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_address text] forKey:@"NC_K_ADDRESS"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_qq text] forKey:@"NC_K_QQ"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_wechat text] forKey:@"NC_K_WECHAT"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_homepage text] forKey:@"NC_K_HOMEPAGE"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_job text] forKey:@"NC_K_JOB"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_org text] forKey:@"NC_K_ORG"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSefl.m_ui_intr text] forKey:@"NC_K_INTR"];
+            
+            //send request
+            [[NSUserDefaults standardUserDefaults]setObject:@"online_namecard" forKey:@"uploadType"];
+            [RequestSender sendRequest];
+            [weakSefl performSegueWithIdentifier:@"OnlineNameCardToCutView" sender:weakSefl];
+
+        }else{
+            //pending
         }
+        
+        
         NSLog(@"generate call");
     };
     NSLog(@"tableview loaded");
@@ -118,9 +161,37 @@
     m_portraitImageView.backgroundColor = [UIColor blackColor];
     UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
     [m_portraitImageView addGestureRecognizer:portraitTap];
-    
+    [self initPreference];
     isNeedWaitForAvatarUp = NO;
 }
+-(void)initPreference{
+    
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_FULLNAME"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_NICKNAME"];
+    [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:0] forKey:@"NC_K_GENDER"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_AVATAR_LOCAL_NAME"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_AVATAR_URL"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_BIRTHDAY"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_TEL"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_EMAIL"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_ADDRESS"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_QQ"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_WECHAT"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_HOMEPAGE"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_JOB"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_ORG"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_INTR"];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // cutview.haveDataToEncode = true;
+    //cutview.dataToEncode = textField.text;
+    UIViewController *receiver = segue.destinationViewController;
+    if([receiver respondsToSelector:@selector(setHaveDataToEncode:)]){
+        NSNumber *val = [NSNumber numberWithBool:false];
+        [receiver setValue:val forKey:@"haveDataToEncode"];
+    }
+}
+
 - (void)editPortrait {
     UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
