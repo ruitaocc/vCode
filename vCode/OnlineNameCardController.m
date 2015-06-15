@@ -89,8 +89,6 @@
             [alert addButtonWithTitle:@"OK"];
             [alert show];
             return ;
-        } else { 
-            // Basic email syntax is correct 
         }
         
         //check avatar

@@ -58,6 +58,7 @@ class RequestSender:NSObject{
             message = NSUserDefaults.standardUserDefaults().objectForKey("text") as! String
             postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&message="+message+"&url="+url+"&vcard="+vcard
             request.setValue("application/x-www-form-urlencoded ; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = postData.dataUsingEncoding(NSUTF8StringEncoding)
             
             println(message)
         case "url":
@@ -67,6 +68,7 @@ class RequestSender:NSObject{
             url = NSUserDefaults.standardUserDefaults().objectForKey("url") as! String
             postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&message="+message+"&url="+url+"&vcard="+vcard
             request.setValue("application/x-www-form-urlencoded ; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = postData.dataUsingEncoding(NSUTF8StringEncoding)
             
             println(url)
         case "qrcode":
@@ -110,6 +112,7 @@ class RequestSender:NSObject{
             namecard.m_intr = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_INTR") as! String
             postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&fullname="+namecard.m_fullname+"&nickname="+namecard.m_nickname+"&gender="+str_gender+"&birthday="+namecard.m_birthday+"&avatar="+namecard.m_avatar_url+"&tel="+namecard.m_tel+"&email="+namecard.m_email+"&address="+namecard.m_address+"&qq="+namecard.m_qq+"&wechat="+namecard.m_wechat+"&homepate="+namecard.m_homepage+"&job="+namecard.m_job+"&org="+namecard.m_org+"&intr="+namecard.m_intr
             request.setValue("application/x-www-form-urlencoded ; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = postData.dataUsingEncoding(NSUTF8StringEncoding)
             
             println(url)
         case "image":
@@ -118,18 +121,41 @@ class RequestSender:NSObject{
             //file
             let localFIleName = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_AVATAR_LOCAL_NAME") as! String
             
+            let img = UIImage(contentsOfFile: localFIleName)
+            let data : NSData = UIImagePNGRepresentation(img)
+            
             let filesize = NSUserDefaults.standardUserDefaults().objectForKey("avatar_size") as! String
             imageStream = NSInputStream(fileAtPath: localFIleName)!;
             
+            let boundary : String = "----WebKitFormBoundaryG0H9jTpjN7PtmaAh"
+            let contentType : String = "multipart/form-data; boundary=" + boundary
             
-            request.setValue("application/x-www-form-urlencoded ; charset=utf-8;image/png", forHTTPHeaderField: "Content-Type")
-            request.setValue(filesize, forHTTPHeaderField: "Content-Length")
-            postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign
+            request.addValue(contentType, forHTTPHeaderField: "Content-Type")
+            
+            var body : NSMutableData = NSMutableData()
+            // tm + uuid +sign
+            var b : String = "--" + boundary + "\r\n"
+            body.appendData(b.dataUsingEncoding(NSUTF8StringEncoding)!)
+            b = "Content-Disposition: form-data; name=\"tm\"\r\n\r\n" + tm + "\r\n--" + boundary + "\r\n"
+            body.appendData(b.dataUsingEncoding(NSUTF8StringEncoding)!)
+            b = "Content-Disposition: form-data; name=\"uuid\"\r\n\r\n" + uuid + "\r\n--" + boundary + "\r\n"
+            body.appendData(b.dataUsingEncoding(NSUTF8StringEncoding)!)
+            b = "Content-Disposition: form-data; name=\"sign\"\r\n\r\n" + sign + "\r\n--" + boundary + "\r\n"
+            body.appendData(b.dataUsingEncoding(NSUTF8StringEncoding)!)
+            //image
+            b = "Content-Disposition: form-data; name=\"image\"; filename=\"" + localFIleName + "\"\r\n" + "Content-Type: image/png\r\n\r\n"
+            body.appendData(b.dataUsingEncoding(NSUTF8StringEncoding)!)
+            body.appendData(data)
+            b = "\r\n--" + boundary + "--\r\n"
+            body.appendData(b.dataUsingEncoding(NSUTF8StringEncoding)!)
+
+            
+            request.HTTPBody = body
+            
         default:
             break
         }
          //let postData = "tm=111&uuid=123&sign=1339ba084d895328187e53d1fe497d77&url=http://www.baidu.com"
-        request.HTTPBody = postData.dataUsingEncoding(NSUTF8StringEncoding)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {
             (response,data,error) in
             
