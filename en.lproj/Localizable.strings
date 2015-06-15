@@ -27,4 +27,5 @@
 "actionsheet_select_form_albums" = "Select form albums";
 "namecard_must_fill" = "Items with (*) must be filled";
 "namecard_email_format_error"="The e-mail should be filled in proper format";
+"infodetail"= "About Me";
 

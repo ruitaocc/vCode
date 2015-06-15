@@ -79,6 +79,7 @@
 		B6DBAAA41B2475C9008334C8 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9C1B2475C9008334C8 /* MinoruTextField.swift */; };
 		B6DBAAA51B2475C9008334C8 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9E1B2475C9008334C8 /* TextFieldsEffects.swift */; };
 		B6DBAAA61B2475C9008334C8 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA9F1B2475C9008334C8 /* YokoTextField.swift */; };
+		B6E110A51B2F0175001B10DE /* InfoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E110A41B2F0175001B10DE /* InfoDetailViewController.m */; };
 		B6EB46FC1B170AB200495FBA /* UMSocial_Sdk_4.2.3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */; };
 		B6EB46FE1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks in Resources */ = {isa = PBXBuildFile; fileRef = B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */; };
 		B6EB47001B170C7500495FBA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB46FF1B170C7500495FBA /* Security.framework */; };
@@ -228,6 +229,8 @@
 		B6DBAA9E1B2475C9008334C8 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = TextFieldEffects/TextFieldsEffects.swift; sourceTree = "<group>"; };
 		B6DBAA9F1B2475C9008334C8 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
 		B6DBAAAC1B247908008334C8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B6E110A31B2F0175001B10DE /* InfoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDetailViewController.h; sourceTree = "<group>"; };
+		B6E110A41B2F0175001B10DE /* InfoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDetailViewController.m; sourceTree = "<group>"; };
 		B6EB46FB1B170AB200495FBA /* UMSocial_Sdk_4.2.3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_4.2.3; sourceTree = "<group>"; };
 		B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_Extra_Frameworks; sourceTree = "<group>"; };
 		B6EB46FF1B170C7500495FBA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -355,6 +358,8 @@
 				B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */,
 				B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */,
 				B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */,
+				B6E110A31B2F0175001B10DE /* InfoDetailViewController.h */,
+				B6E110A41B2F0175001B10DE /* InfoDetailViewController.m */,
 				B6DBAA7C1B2466E5008334C8 /* OnlineNameCardController.h */,
 				B6DBAA7D1B2466E5008334C8 /* OnlineNameCardController.m */,
 				266FDAB71B174651000675CB /* VPImageCropperViewController.h */,
@@ -750,6 +755,7 @@
 				B661C7321B2DC87300B501EF /* SHValidationResult.m in Sources */,
 				B6EB91341B23496A00F403B1 /* HistoryDetailViewController.m in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
+				B6E110A51B2F0175001B10DE /* InfoDetailViewController.m in Sources */,
 				267C3E751B004F93001D917A /* md5Encryptor.m in Sources */,
 				266FDABC1B174679000675CB /* CutViewController.m in Sources */,
 				266FDABF1B175FC5000675CB /* QRDetector.mm in Sources */,
