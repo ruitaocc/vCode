@@ -29,4 +29,6 @@
 @property(strong, nonatomic)IBOutlet HoshiTextField *m_ui_job;
 @property(strong, nonatomic)IBOutlet HoshiTextField *m_ui_org;
 @property(strong, nonatomic)IBOutlet HoshiTextField *m_ui_intr;
+
+@property(strong, nonatomic)IBOutlet UITableView *m_tableView;
 @end

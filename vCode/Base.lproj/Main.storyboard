@@ -973,6 +973,7 @@
                     <connections>
                         <outlet property="m_gebtn" destination="gN9-ff-dol" id="Hg1-Ax-VxM"/>
                         <outlet property="m_portraitImageView" destination="zpJ-CK-KL6" id="84H-RO-HB5"/>
+                        <outlet property="m_tableView" destination="yOb-UO-S6d" id="vm4-ih-w1c"/>
                         <outlet property="m_ui_address" destination="7RA-M2-UaQ" id="H4z-yv-10W"/>
                         <outlet property="m_ui_birthday" destination="iEo-F5-0L0" id="STF-fO-TET"/>
                         <outlet property="m_ui_email" destination="9GV-7U-Rdu" id="IdN-CW-Q0v"/>

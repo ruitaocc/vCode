@@ -37,7 +37,7 @@
 @synthesize m_ui_qq;
 @synthesize m_ui_tel;
 @synthesize m_ui_wechat;
-
+@synthesize m_tableView;
 -(void)viewDidLoad{
     [self setTitle:NSLocalizedString(@"OnlineNameCardTittle", nil) ];
     //UITableViewCell* lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:10 inSection:0]];
@@ -162,6 +162,7 @@
     UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
     [m_portraitImageView addGestureRecognizer:portraitTap];
     [self initPreference];
+   self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, -36, 0);
     isNeedWaitForAvatarUp = NO;
 }
 -(void)initPreference{
