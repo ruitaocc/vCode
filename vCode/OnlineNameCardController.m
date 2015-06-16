@@ -14,9 +14,11 @@
 #import "DateHelper.h"
 #import "NameCardKey.h"
 #import "SHEmailValidator.h"
+#import "ZHPickView.h"
 
-@interface OnlineNameCardController()
+@interface OnlineNameCardController()<ZHPickViewDelegate>
 @property (assign,nonatomic)BOOL isNeedWaitForAvatarUp;
+@property(nonatomic,strong)ZHPickView *m_pickview;
 @end
 
 @implementation OnlineNameCardController
@@ -38,6 +40,7 @@
 @synthesize m_ui_tel;
 @synthesize m_ui_wechat;
 @synthesize m_tableView;
+@synthesize m_pickview;
 -(void)viewDidLoad{
     [self setTitle:NSLocalizedString(@"OnlineNameCardTittle", nil) ];
     //UITableViewCell* lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:10 inSection:0]];
@@ -183,6 +186,7 @@
     [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_ORG"];
     [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_INTR"];
 }
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     // cutview.haveDataToEncode = true;
     //cutview.dataToEncode = textField.text;
@@ -212,6 +216,51 @@
         });
     });
 }
+-(IBAction)birthdaySelect:(id)sender{
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+    NSDate *date=[DateHelper dateFromString:@"1995-01-01 16:00:00" withFormat:@"yyyy-MM-dd HH:mm:ss"];
+    m_pickview=[[ZHPickView alloc] initDatePickWithDate:date datePickerMode:UIDatePickerModeDate isHaveNavControler:NO];
+    [m_pickview setDelegate:self];
+    [m_pickview show];
+};
+-(IBAction)AddressSelect:(id)sender{
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+    m_pickview=[[ZHPickView alloc] initPickviewWithPlistName:@"city" isHaveNavControler:NO];
+    [m_pickview setDelegate:self];
+    [m_pickview show];
+};
+#pragma mark ZHPickerDelegate
+-(void)toobarDonBtnHaveClick:(ZHPickView *)pickView resultString:(NSString *)resultString{
+    NSLog(@"%@",resultString);
+    NSString *copy = [NSString stringWithFormat:@"%@",resultString];
+    NSArray *result = [copy componentsSeparatedByString:@"#"];
+    if ([result count]==3) {
+        //address
+        NSLog(@"%@ %@",result[1],result[2]);
+        NSString *addr = [NSString stringWithFormat:@"%@ %@",result[1],result[2]];
+        [m_ui_address becomeFirstResponder];
+        m_ui_address.text = addr;
+        [m_ui_address resignFirstResponder];
+    }else if([result count]==1){
+        //date
+        NSString *birday = [result[0] substringToIndex:10];
+        NSLog(@"%@",birday);
+        [m_ui_birthday becomeFirstResponder];
+        m_ui_birthday.text = birday;
+        [m_ui_birthday resignFirstResponder];
+    }
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+};
+
 #pragma mark VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     self.m_portraitImageView.image = editedImage;

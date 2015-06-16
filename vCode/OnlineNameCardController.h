@@ -31,4 +31,6 @@
 @property(strong, nonatomic)IBOutlet HoshiTextField *m_ui_intr;
 
 @property(strong, nonatomic)IBOutlet UITableView *m_tableView;
+-(IBAction)birthdaySelect:(id)sender;
+-(IBAction)AddressSelect:(id)sender;
 @end

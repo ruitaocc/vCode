@@ -25,6 +25,8 @@
 		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
 		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
 		B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630A9851B1D6DE900C401B3 /* StoreKit.framework */; };
+		B657C2C31B300CBB007DD277 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = B657C2C21B300CBB007DD277 /* city.plist */; };
+		B657C2C71B300CEF007DD277 /* ZHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = B657C2C61B300CEF007DD277 /* ZHPickView.m */; };
 		B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */; };
 		B65B1CCA1B16023E0028F631 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC91B16014F0028F631 /* intro.mp4 */; };
 		B65B1CCC1B1606200028F631 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B1CCB1B1606200028F631 /* MediaPlayer.framework */; };
@@ -140,6 +142,9 @@
 		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		B630A9851B1D6DE900C401B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B657C2C21B300CBB007DD277 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		B657C2C51B300CEF007DD277 /* ZHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPickView.h; sourceTree = "<group>"; };
+		B657C2C61B300CEF007DD277 /* ZHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPickView.m; sourceTree = "<group>"; };
 		B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		B65B1CC91B16014F0028F631 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		B65B1CCB1B1606200028F631 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -310,6 +315,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B657C2C11B300CAB007DD277 /* picker */ = {
+			isa = PBXGroup;
+			children = (
+				B657C2C21B300CBB007DD277 /* city.plist */,
+			);
+			name = picker;
+			sourceTree = "<group>";
+		};
+		B657C2C41B300CDC007DD277 /* ZHPickView */ = {
+			isa = PBXGroup;
+			children = (
+				B657C2C51B300CEF007DD277 /* ZHPickView.h */,
+				B657C2C61B300CEF007DD277 /* ZHPickView.m */,
+			);
+			name = ZHPickView;
+			sourceTree = "<group>";
+		};
 		B661C72C1B2DC85A00B501EF /* EmailValidator */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +412,7 @@
 		B67F974E1AE3A30E0085DBB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B657C2C11B300CAB007DD277 /* picker */,
 				B630A97D1B1C1DC700C401B3 /* en.lproj */,
 				B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */,
 				B65B1CD11B16B4E90028F631 /* Localizable.strings */,
@@ -511,6 +534,7 @@
 		B6EB47131B173B9700495FBA /* THirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B657C2C41B300CDC007DD277 /* ZHPickView */,
 				B661C72C1B2DC85A00B501EF /* EmailValidator */,
 				B6DBAAAD1B249302008334C8 /* TextEffects */,
 				B6EB46FD1B170C0F00495FBA /* UMSocial_Sdk_Extra_Frameworks */,
@@ -683,6 +707,7 @@
 				B65B1CD51B16C7EE0028F631 /* skip_click.png in Resources */,
 				B65B1CD91B16D5210028F631 /* skip_highlight.png in Resources */,
 				B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */,
+				B657C2C31B300CBB007DD277 /* city.plist in Resources */,
 				B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */,
 				B6EB472E1B18976600495FBA /* ip56_bg.png in Resources */,
 			);
@@ -765,6 +790,7 @@
 				B6DBAAA11B2475C9008334C8 /* JiroTextField.swift in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
+				B657C2C71B300CEF007DD277 /* ZHPickView.m in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
 				B661C7281B2D3F3500B501EF /* NameCardEntry.m in Sources */,
 				B661C7311B2DC87300B501EF /* SHEmailValidator.m in Sources */,
