@@ -28,3 +28,11 @@
 "namecard_must_fill" = "带有(*)的项目不能为空";
 "namecard_email_format_error"="邮箱格式不正确，请重新填写";
 "infodetail"="关于我";
+"scan_qr_code"="扫一扫";
+"album_qr_code"="从相册读取";
+"cut_indicater_wechat"="第一步:\n选择你的微信二维码名片";
+"cut_notes_wechat"="\"您可以选择你的微信二维码名片，然后我们可以帮您重新生成2V码，扫描后就可以添加微信好友哦!\"";
+"cut_indicater_qr"="第一步:\n选择你的二维码";
+"cut_notes_qr"="\"您可以选择你二维码，二维码可以是任意内容（网址，文本，名片等），然后我们可以帮您重新生成2V码，扫描后还是原来二维码的内容!\"";
+"cut_title_wechat"="微信名片";
+"cut_title_qr"="二维码转2V码";

@@ -52,8 +52,15 @@
 @synthesize fbtn_History;
 @synthesize slogan;
 @synthesize m_spinnerView;
+
+-(void)test{
+  //  NSLog(@"URL:%d", [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"wwww.cairuitao.com"]]);
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self test];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                             selector:@selector(notification_execute:)
                                                 name:@"NOTIFICATION_SWITCH"
@@ -194,7 +201,7 @@
     fbtn_QR2VC.flashColor = [UIColor whiteColor];
     [fbtn_QR2VC setText:NSLocalizedString(@"menu_qr2vc", nil) withTextColor:nil];
     fbtn_QR2VC.clickBlock = ^(void){
-        [weakSelf performSegueWithIdentifier:@"HomeToCode" sender:weakSelf];
+        [weakSelf performSegueWithIdentifier:@"HomeQRToCode" sender:weakSelf];
     };
 
     menu_btn_frame.origin.x = grid_size*6;
@@ -225,7 +232,7 @@
     [fbtn_WeiChat setText:NSLocalizedString(@"menu_weichat", nil) withTextColor:nil];
     [fbtn_WeiChat.textLabel setNumberOfLines:3];
     fbtn_WeiChat.clickBlock = ^(void){
-        [weakSelf performSegueWithIdentifier:@"HomeToCode" sender:weakSelf];
+        [weakSelf performSegueWithIdentifier:@"HomeWeChatToCode" sender:weakSelf];
     };
 
     
@@ -245,6 +252,31 @@
 
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     // Do any additional setup after loading the view, typically from a nib.
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UIViewController *receiver = segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"HomeWeChatToCode"]){
+        if([receiver respondsToSelector:@selector(setStr_label:)]){
+            [receiver setValue:NSLocalizedString(@"cut_indicater_wechat", nil) forKey:@"str_label"];
+        }
+        if([receiver respondsToSelector:@selector(setStr_noteLable:)]){
+            [receiver setValue:NSLocalizedString(@"cut_notes_wechat", nil) forKey:@"str_noteLable"];
+        }
+        if([receiver respondsToSelector:@selector(setTitle:)]){
+            [receiver setValue:NSLocalizedString(@"cut_title_wechat", nil) forKey:@"title"];
+        }
+    }
+    if([segue.identifier isEqualToString:@"HomeQRToCode"]){
+        if([receiver respondsToSelector:@selector(setStr_label:)]){
+            [receiver setValue:NSLocalizedString(@"cut_indicater_qr", nil) forKey:@"str_label"];
+        }
+        if([receiver respondsToSelector:@selector(setStr_noteLable:)]){
+            [receiver setValue:NSLocalizedString(@"cut_notes_qr", nil) forKey:@"str_noteLable"];
+        }
+        if([receiver respondsToSelector:@selector(setTitle:)]){
+            [receiver setValue:NSLocalizedString(@"cut_title_qr", nil) forKey:@"title"];
+        }
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -306,6 +338,7 @@
          }
      }];
 };
+
 //取消按钮监听
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{
     [self dismissViewControllerAnimated:YES completion:^{

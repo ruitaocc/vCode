@@ -11,8 +11,15 @@ import AVFoundation
 import MobileCoreServices
 
 class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
-    @IBOutlet var label:UILabel!
+     var label:UILabel!
+     var noteLabel:UILabel!
     @IBOutlet var nextstep:UIButton!
+    
+    var str_label:String = ""
+    var str_noteLable:String = ""
+    
+    var m_btn_Scan:WZFlashButton!
+    var m_btn_Album:WZFlashButton!
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
@@ -22,6 +29,79 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         nextstep.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal)
+        //
+        
+        let s_width = self.view.frame.size.width
+        let s_height = self.view.frame.size.height
+        let grid_size = s_width/10.0;
+        
+        
+        //Scan
+        m_btn_Album = WZFlashButton()
+        m_btn_Scan = WZFlashButton()
+        var btn_frame:CGRect = CGRect()
+        btn_frame.size.width = grid_size*3;
+        btn_frame.size.height = grid_size*2;
+        btn_frame.origin.x = grid_size*1.5;
+        btn_frame.origin.y = (s_height-btn_frame.size.height)/2;
+        m_btn_Scan.setText(NSLocalizedString("scan_qr_code", comment: ""), withTextColor: UIColor.whiteColor())
+        m_btn_Scan.resetFrame(btn_frame);
+        m_btn_Scan.backgroundColor = UIColor(red: 67.0/255.0, green:209.0/255.0, blue: 250.0/255.0, alpha: 1.0)
+        m_btn_Scan.flashColor = UIColor.whiteColor()
+        m_btn_Scan.setTextColor(UIColor.whiteColor())
+        //__weak typeof(self) weakSefl = self;
+        m_btn_Scan.clickBlock = {
+            self.beginCapture()
+        }
+        
+        //Choose form album
+        btn_frame.size.width = grid_size*3;
+        btn_frame.size.height = grid_size*2;
+        btn_frame.origin.x = grid_size*5.5;
+        btn_frame.origin.y = (s_height-btn_frame.size.height)/2;
+        m_btn_Album.setText(NSLocalizedString("album_qr_code", comment: ""), withTextColor: UIColor.whiteColor())
+        m_btn_Album.resetFrame(btn_frame);
+        m_btn_Album.backgroundColor = UIColor(red: 67.0/255.0, green:209.0/255.0, blue: 250.0/255.0, alpha: 1.0)
+        m_btn_Album.flashColor = UIColor.whiteColor()
+        m_btn_Album.setTextColor(UIColor.whiteColor())
+        //__weak typeof(self) weakSefl = self;
+        m_btn_Album.clickBlock = {
+            self.readFromImage()
+        }
+        
+        
+        //lable
+        label = UILabel()
+        var label_frame:CGRect = CGRect()
+        label_frame.size.width = s_width
+        label_frame.size.height = 44
+        label_frame.origin.x = 0;
+        label_frame.origin.y = btn_frame.origin.y - 44 - btn_frame.size.height*0.5
+        label.frame = label_frame
+        label.textAlignment = NSTextAlignment.Center
+        label.numberOfLines = 5
+        label.text = str_label
+        
+        //notes
+        noteLabel = UILabel()
+        label_frame.size.width = s_width*0.8
+        label_frame.size.height = 44*4
+        label_frame.origin.x = s_width*0.1;
+        label_frame.origin.y = btn_frame.origin.y + btn_frame.size.height*1.5
+        noteLabel.frame = label_frame
+        noteLabel.textAlignment = NSTextAlignment.Left
+        //noteLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
+        noteLabel.numberOfLines = 5
+        noteLabel.text = str_noteLable
+        let fontsize = UIFont.systemFontSize()
+        noteLabel.font = UIFont.systemFontOfSize(fontsize*0.9)
+        noteLabel.textColor = UIColor.lightGrayColor()
+        
+        self.view.addSubview(label)
+        self.view.addSubview(noteLabel)
+        self.view.addSubview(m_btn_Scan)
+        self.view.addSubview(m_btn_Album)
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
     override func viewWillAppear(animated: Bool) {

@@ -191,6 +191,7 @@
         NSNumber *val = [NSNumber numberWithBool:false];
         [receiver setValue:val forKey:@"haveDataToEncode"];
     }
+    
 }
 
 - (void)editPortrait {

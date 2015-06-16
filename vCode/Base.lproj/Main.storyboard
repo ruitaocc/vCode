@@ -35,7 +35,7 @@
                                     <rect key="frame" x="266" y="183" width="45" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="JAz-fn-3Kg" kind="show" identifier="HomeToCode" id="bMy-gR-9LH"/>
+                                    <segue destination="JAz-fn-3Kg" kind="show" identifier="HomeWeChatToCode" id="bMy-gR-9LH"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oz-DN-O6Y">
@@ -111,6 +111,7 @@
                         <segue destination="cJQ-PA-wcv" kind="show" identifier="HomeToInfo" id="lav-q6-if6"/>
                         <segue destination="mgr-L3-JP6" kind="show" identifier="Home2History" id="ZGy-kk-UrH"/>
                         <segue destination="LQB-T4-Rpd" kind="show" identifier="Home2OnlineNameCard" id="SLo-ta-hZk"/>
+                        <segue destination="JAz-fn-3Kg" kind="show" identifier="HomeQRToCode" id="fXk-r7-AfF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -214,8 +215,7 @@
                                                             <exclude reference="N71-dS-EnE"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="148" y="0.0" width="232" height="44"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="N71-dS-EnE"/>
                                                         </mask>
@@ -1112,6 +1112,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PMZ-gw-JA6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f1N-bH-ICd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1371,113 +1372,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择你的二维码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tG-RE-5rw">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-6P-wnJ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-6P-wnJ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="177" y="487" width="46" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="next" destination="JAz-fn-3Kg" eventType="touchUpInside" id="9g6-gY-YEH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UT-I5-Rak">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="image">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="readFromImage" destination="JAz-fn-3Kg" eventType="touchUpInside" id="erl-ef-gEc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsg-ZY-HoV">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="Kgf-eR-r8Q"/>
-                                </constraints>
-                                <state key="normal" title="scan">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Kgf-eR-r8Q"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Kgf-eR-r8Q"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="beginCapture" destination="JAz-fn-3Kg" eventType="touchUpInside" id="wKn-sP-NjZ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0tG-RE-5rw" firstAttribute="centerX" secondItem="7ge-6P-wnJ" secondAttribute="centerX" id="4xx-rZ-X77"/>
-                            <constraint firstItem="7UT-I5-Rak" firstAttribute="leading" secondItem="zsg-ZY-HoV" secondAttribute="trailing" constant="96" id="6Gk-Xy-UfW"/>
-                            <constraint firstItem="zsg-ZY-HoV" firstAttribute="top" secondItem="0tG-RE-5rw" secondAttribute="bottom" constant="28" id="AVu-rB-Imq"/>
-                            <constraint firstItem="7UT-I5-Rak" firstAttribute="baseline" secondItem="zsg-ZY-HoV" secondAttribute="baseline" id="RUt-4b-YBe"/>
                             <constraint firstItem="s2V-Ev-i1N" firstAttribute="top" secondItem="7ge-6P-wnJ" secondAttribute="bottom" constant="83" id="chD-qK-RUP"/>
-                            <constraint firstItem="0tG-RE-5rw" firstAttribute="centerX" secondItem="p1w-mG-arh" secondAttribute="centerX" id="clS-2F-2vu"/>
-                            <constraint firstAttribute="centerX" secondItem="zsg-ZY-HoV" secondAttribute="centerX" id="ebB-Ce-UU8">
-                                <variation key="widthClass=compact" constant="69"/>
-                            </constraint>
-                            <constraint firstItem="0tG-RE-5rw" firstAttribute="top" secondItem="ubl-Rq-NcW" secondAttribute="bottom" constant="64" id="kf6-Sy-EGz"/>
-                            <constraint firstItem="7UT-I5-Rak" firstAttribute="centerY" secondItem="zsg-ZY-HoV" secondAttribute="centerY" id="lF6-mP-daQ"/>
-                            <constraint firstAttribute="centerX" secondItem="7UT-I5-Rak" secondAttribute="centerX" id="r3X-6m-g2x">
-                                <variation key="widthClass=compact" constant="-66"/>
-                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="0tG-RE-5rw"/>
                                 <exclude reference="7ge-6P-wnJ"/>
-                                <exclude reference="7UT-I5-Rak"/>
-                                <exclude reference="zsg-ZY-HoV"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4xx-rZ-X77"/>
-                                <exclude reference="clS-2F-2vu"/>
-                                <exclude reference="kf6-Sy-EGz"/>
                                 <exclude reference="chD-qK-RUP"/>
-                                <exclude reference="6Gk-Xy-UfW"/>
-                                <exclude reference="RUt-4b-YBe"/>
-                                <exclude reference="lF6-mP-daQ"/>
-                                <exclude reference="r3X-6m-g2x"/>
-                                <exclude reference="AVu-rB-Imq"/>
-                                <exclude reference="ebB-Ce-UU8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="0tG-RE-5rw"/>
                                 <include reference="7ge-6P-wnJ"/>
-                                <include reference="7UT-I5-Rak"/>
-                                <include reference="zsg-ZY-HoV"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4xx-rZ-X77"/>
-                                <include reference="clS-2F-2vu"/>
-                                <include reference="kf6-Sy-EGz"/>
                                 <include reference="chD-qK-RUP"/>
-                                <include reference="6Gk-Xy-UfW"/>
-                                <include reference="RUt-4b-YBe"/>
-                                <include reference="lF6-mP-daQ"/>
-                                <include reference="r3X-6m-g2x"/>
-                                <include reference="AVu-rB-Imq"/>
-                                <include reference="ebB-Ce-UU8"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="label" destination="0tG-RE-5rw" id="B3s-d8-Tss"/>
                         <outlet property="nextstep" destination="7ge-6P-wnJ" id="uvY-fT-LUf"/>
                     </connections>
                 </viewController>
@@ -1507,5 +1436,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XPl-lD-00i"/>
+        <segue reference="fXk-r7-AfF"/>
     </inferredMetricsTieBreakers>
 </document>

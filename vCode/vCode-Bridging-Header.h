@@ -8,3 +8,5 @@
 #import "QRDetector.h"
 #import "NameCardEntry.h"
 #import "NameCardKey.h"
+#import "WZFlashButton.h"
+#import "UIDeviceHardware.h"

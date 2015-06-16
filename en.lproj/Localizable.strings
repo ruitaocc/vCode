@@ -28,4 +28,11 @@
 "namecard_must_fill" = "Items with (*) must be filled";
 "namecard_email_format_error"="The e-mail should be filled in proper format";
 "infodetail"= "About Me";
-
+"scan_qr_code"="Scan QR Code";
+"album_qr_code"="Choose QR Code from Album";
+"cut_indicater_wechat"="Step 1:\nChoose your WeChat QR Code";
+"cut_notes_wechat"="\"You can choose your WeChat QR Code, and then we will auto generate a V-Code for you, Your friends can add you to WeChat contacts when they scan this V-Code!\"";
+"cut_indicater_qr"="Step 1:\nChoose QR Code";
+"cut_notes_qr"="\"You can choose your QR Code, and then we will auto translate it to a V-Code for you!\"";
+"cut_title_wechat"="WeChat NameCard";
+"cut_title_qr"="QR Code 2 VCode";
