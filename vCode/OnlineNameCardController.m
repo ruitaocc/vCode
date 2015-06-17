@@ -243,7 +243,7 @@
     if ([result count]==3) {
         //address
         NSLog(@"%@ %@",result[1],result[2]);
-        NSString *addr = [NSString stringWithFormat:@"%@ %@",result[1],result[2]];
+        NSString *addr = [NSString stringWithFormat:@"%@･%@",result[1],result[2]];
         [m_ui_address becomeFirstResponder];
         m_ui_address.text = addr;
         [m_ui_address resignFirstResponder];

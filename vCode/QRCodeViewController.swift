@@ -216,15 +216,23 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         if stringInQRCode != "" {
             setted = true
             label.text = stringInQRCode
+            self.performSegueWithIdentifier("QRtoCutView", sender: self)
             println(stringInQRCode)
         }
         else{
             let alertview = UIAlertView()
-            alertview.message = "No QR Code detect!"
+            alertview.message = NSLocalizedString("no_qr_code_detect", comment: "")
             alertview.addButtonWithTitle("OK")
             alertview.show()
         }
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let receiver:UIViewController = segue.destinationViewController as! UIViewController
+        if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
+            let val:NSNumber = NSNumber(bool:false)
+            receiver.setValue(val, forKey: "haveDataToEncode")
+        }
     }
     /*
     // MARK: - Navigation

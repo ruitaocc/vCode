@@ -36,3 +36,13 @@
 "cut_notes_qr"="\"You can choose your QR Code, and then we will auto translate it to a V-Code for you!\"";
 "cut_title_wechat"="WeChat NameCard";
 "cut_title_qr"="QR Code 2 VCode";
+"text_indicator"="Step 1:\nInput the text";
+"text_title"="Custom";
+"text_guide"="You can input whatever you want here，the format is up to you.";
+"text_next_btn"="Next Step: Choose Your Photo";
+"url_indicator"="Step 1:\nInput the URL";
+"url_title"="URL";
+"url_guide"="You can input URL here. For example 'http://www.google.com'.";
+"url_next_btn"="Next Step: Choose Your Photo";
+"no_input_text"="No input text!";
+"no_qr_code_detect"="No QR Code detected!";
