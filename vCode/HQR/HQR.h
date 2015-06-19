@@ -26,6 +26,7 @@
 #include "QR_GuideOstromoukhov.hpp"
 #include "Laplace_SAED.hpp"
 #include "Dithering.h"
+#include "HQR_typedef.h"
 using namespace std;
 
 extern float GUIDE_RATIO ;                      //[0,1]

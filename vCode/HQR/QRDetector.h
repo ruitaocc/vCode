@@ -11,4 +11,8 @@
 @interface QRDetector : NSObject
 +(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray;
 +(NSString *)decodeQRwithImg:(UIImage *)img;
+
++(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str style:(int)style version:(int)ver level:(int)lev codingarea:(float)codingarea paddingarea:(float)paddingarea guideratio:(float)ratio;
++(int)getMinimunVersionWithText:(NSString*)text;
+
 @end

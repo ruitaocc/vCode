@@ -10,12 +10,20 @@
 #define vCode_HQR_typedef_h
 
 typedef enum _HQR_type{
-    HQR_Unknown,
+    HQR_Unknown = 0,
     HQR_Url,
     HQR_Weichat,
     HQR_Qr2vCode,//qr code 2 v code
     HQR_Text,
     HQR_Online_NameCard
 }HQR_type;
+
+typedef enum _HQR_style{
+    HQR_Style_Unknown = 0,
+    HQR_Style_ColorHalftone,
+    HQR_Style_GrayHalftone,
+    HQR_Style_ImageGuide,
+    HQR_Style_Normal
+}HQR_style;
 
 #endif

@@ -46,3 +46,17 @@
 "url_next_btn"="Next Step: Choose Your Photo";
 "no_input_text"="No input text!";
 "no_qr_code_detect"="No QR Code detected!";
+"p_label_style"="Style";
+"p_label_ratio"="Ratio";
+"p_label_padding_area"="Padding\narea";
+"p_label_style_color_halftone"="Color Halftone";
+"p_label_style_gray_halftone"="Gray Halftone";
+"p_label_style_gray_guide"="Image Guide";
+"p_label_style_random"="Normal";
+"p_label_coding_area"="Coding\narea";
+"p_label_version"="Version";
+"p_label_correct"="Correction\nLevel";
+"correct_low"="L(7%)";
+"correct_mid"="M(15%)";
+"correct_quality"="Q(25%)";
+"correct_high"="H(30%)";
