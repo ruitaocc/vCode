@@ -13,6 +13,7 @@
 #import "vCode-swift.h"
 #import "QRDetector.h"
 #import "CPPickerView.h"
+#import "ASValueTrackingSlider.h"
 
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
 #define ORIGINAL_MAX_WIDTH 640.0f
@@ -101,9 +102,10 @@
     m_second_paraView.contentSize = CGSizeMake(6*s_witdh, height);
     m_second_paraView.pagingEnabled = NO;
     m_second_paraView.scrollEnabled = NO;
-    m_second_paraView.backgroundColor = [UIColor blueColor];
+    m_second_paraView.backgroundColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:0.6];
     m_second_paraView.showsHorizontalScrollIndicator = NO;
     //m_second_paraView.delegate = self;
+    
     //style
     
     float sysFontSize = [UIFont systemFontSize];
@@ -114,8 +116,23 @@
     UILabel *style_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0.2*s_witdh, height)];
     style_label.textAlignment = NSTextAlignmentCenter;
     style_label.text = NSLocalizedString(@"p_label_style", nil);
-    style_label.textColor = [UIColor whiteColor];
+    style_label.textColor = [UIColor blackColor];
     [stylesubview addSubview:style_label];
+    
+    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:11];
+    UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:12];
+    UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:13];
+    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:14];
+    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithFrame:CGRectMake(0.2*s_witdh, (height-49)/2, 0.78*s_witdh, 49) withItems:[NSArray arrayWithObjects:topRated,
+                                                                                                                          featured,
+                                                                                                                          recents,
+                                                                                                                          contacts,
+                                                                                                                          nil]];
+    m_style_TabBar.infiniTabBarDelegate = self;
+    m_style_TabBar.bounces = NO;
+    m_style_TabBar.layer.cornerRadius = 10;
+    [stylesubview addSubview:m_style_TabBar];
+    
     [m_second_paraView addSubview:stylesubview];
     
     //version
@@ -166,7 +183,23 @@
     coding_label.lineBreakMode = NSLineBreakByWordWrapping;
     coding_label.text = NSLocalizedString(@"p_label_coding_area", nil);
     [sub_coding_view addSubview:coding_label];
-    UISlider *coding_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 0, 0.65*s_witdh, height)];
+    //UISlider *coding_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 0, 0.65*s_witdh, height)];
+    ASValueTrackingSlider  *coding_slider = [[ASValueTrackingSlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 20, 0.35*s_witdh, 30)];
+    // customize slider 2
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setNumberStyle:NSNumberFormatterPercentStyle];
+    [coding_slider setNumberFormatter:formatter];
+    
+    coding_slider.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:10];
+    UIColor *blue = [UIColor colorWithHue:0.55 saturation:0.75 brightness:1.0 alpha:1.0];
+    UIColor *green = [UIColor colorWithHue:0.3 saturation:0.65 brightness:0.8 alpha:1.0];
+    UIColor *red = [UIColor colorWithHue:0.0 saturation:0.8 brightness:1.0 alpha:1.0];
+    [coding_slider setPopUpViewAnimatedColors:@[red,blue, green,]
+                               withPositions:@[@40, @60, @100]];
+    
+    coding_slider.popUpViewArrowLength = 4.0;
+    coding_slider.popUpViewCornerRadius = 5.0;
     [sub_coding_view addSubview:coding_slider];
     [m_second_paraView addSubview:sub_coding_view];
     
@@ -474,8 +507,8 @@
 
 - (void)loadPortrait {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"] ;
         dispatch_sync(dispatch_get_main_queue(), ^{
+            UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"] ;
             self.portraitImageView.image = protraitImg;
         });
     });

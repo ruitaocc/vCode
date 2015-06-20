@@ -110,6 +110,8 @@
 		B6EB91311B233D9A00F403B1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB91301B233D9A00F403B1 /* HistoryViewController.m */; };
 		B6EB91341B23496A00F403B1 /* HistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */; };
 		B6EBB5DF1B32D9CD0083D8D5 /* InfiniTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EBB5DE1B32D9CD0083D8D5 /* InfiniTabBar.m */; };
+		B6EF27531B35547100D485F2 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EF27501B35547100D485F2 /* ASValuePopUpView.m */; };
+		B6EF27541B35547100D485F2 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EF27521B35547100D485F2 /* ASValueTrackingSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +282,10 @@
 		B6EB91331B23496A00F403B1 /* HistoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailViewController.m; sourceTree = "<group>"; };
 		B6EBB5DD1B32D9CD0083D8D5 /* InfiniTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniTabBar.h; sourceTree = "<group>"; };
 		B6EBB5DE1B32D9CD0083D8D5 /* InfiniTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniTabBar.m; sourceTree = "<group>"; };
+		B6EF274F1B35547100D485F2 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		B6EF27501B35547100D485F2 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		B6EF27511B35547100D485F2 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		B6EF27521B35547100D485F2 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -613,6 +619,7 @@
 		B6EB912B1B2331C400F403B1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B6EF274E1B35542900D485F2 /* ASValueTrackingSlider */,
 				B6EBB5DD1B32D9CD0083D8D5 /* InfiniTabBar.h */,
 				B6EBB5DE1B32D9CD0083D8D5 /* InfiniTabBar.m */,
 				B68E7F9C1B344FA6003EFEED /* DateHelper */,
@@ -620,6 +627,17 @@
 				B657C2C41B300CDC007DD277 /* ZHPickView */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		B6EF274E1B35542900D485F2 /* ASValueTrackingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				B6EF274F1B35547100D485F2 /* ASValuePopUpView.h */,
+				B6EF27501B35547100D485F2 /* ASValuePopUpView.m */,
+				B6EF27511B35547100D485F2 /* ASValueTrackingSlider.h */,
+				B6EF27521B35547100D485F2 /* ASValueTrackingSlider.m */,
+			);
+			name = ASValueTrackingSlider;
 			sourceTree = "<group>";
 		};
 		EF63D086C40D816A2ED01E1A /* Frameworks */ = {
@@ -840,6 +858,8 @@
 				B6A448941AE4E01C0024F109 /* QR_GuideOstromoukhov.mm in Sources */,
 				B6DBAAA11B2475C9008334C8 /* JiroTextField.swift in Sources */,
 				B6A448981AE4E01C0024F109 /* rscode.c in Sources */,
+				B6EF27531B35547100D485F2 /* ASValuePopUpView.m in Sources */,
+				B6EF27541B35547100D485F2 /* ASValueTrackingSlider.m in Sources */,
 				B6A4488E1AE4E01C0024F109 /* main_laplace.mm in Sources */,
 				B657C2C71B300CEF007DD277 /* ZHPickView.m in Sources */,
 				B6EBB5DF1B32D9CD0083D8D5 /* InfiniTabBar.m in Sources */,
