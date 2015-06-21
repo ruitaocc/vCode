@@ -18,8 +18,10 @@
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
 #define ORIGINAL_MAX_WIDTH 640.0f
 
+#define TabHeight 49.0f
+#define ParaHeight 64.0f
 
-@interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITabBarDelegate,InfiniTabBarDelegate,CPPickerViewDataSource, CPPickerViewDelegate>{
+@interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITabBarDelegate,InfiniTabBarDelegate,CPPickerViewDataSource, CPPickerViewDelegate, ASValueTrackingSliderDelegate>{
 
     int min_version;
     int max_version;
@@ -31,8 +33,10 @@
     float m_para_padding_area;
     float m_para_ratio;
 }
+@property(strong ,nonatomic)UIImage *m_selected_img;
 @property(strong ,nonatomic)CPPickerView *horizontalPickerView;
 @property(strong ,nonatomic)MMMaterialDesignSpinner *m_spinnerView;
+@property(strong ,nonatomic)UISegmentedControl *correct_level_segment_contrl;
 @property (nonatomic, strong) UIImageView *portraitImageView;
 //control buttons
 @property(strong , nonatomic)UIView* m_control_View;
@@ -46,7 +50,9 @@
 @end
 
 @implementation CutViewController
+@synthesize m_selected_img;
 @synthesize horizontalPickerView;
+@synthesize correct_level_segment_contrl;
 @synthesize m_spinnerView;
 @synthesize m_para_TabBar;
 @synthesize m_auto_TabBar;
@@ -71,7 +77,7 @@
     [self.view addSubview:btn];
     UIImageView *qrcodeview = [[UIImageView alloc] initWithFrame:_portraitImageView.frame];
     qrcodeview.image = [UIImage imageNamed:@"qrcode_mask.png"];
-    [self.view addSubview:qrcodeview];
+    //[self.view addSubview:qrcodeview];
     min_version = 5;
     [self loadSecondaryParaView];
     [self loadControllTab];
@@ -90,46 +96,50 @@
 
 - (void)pickerView:(CPPickerView *)pickerView didSelectItem:(NSInteger)item
 {
-    NSLog(@"%@",[NSString stringWithFormat:@"%i", min_version + item]);
+    NSLog(@"Version :%@",[NSString stringWithFormat:@"%i", min_version + item]);
+    m_para_version = min_version + item;
+    
+    [self computeQR];
 }
 
 -(void)loadSecondaryParaView{
     float s_witdh = self.view.frame.size.width;
     float s_height = self.view.frame.size.height;
-    float height = 60;
+    float height = ParaHeight;
     CGRect frame = CGRectMake(0, s_height, s_witdh, height);
     m_second_paraView = [[UIScrollView alloc] initWithFrame:frame];
     m_second_paraView.contentSize = CGSizeMake(6*s_witdh, height);
     m_second_paraView.pagingEnabled = NO;
     m_second_paraView.scrollEnabled = NO;
-    m_second_paraView.backgroundColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:0.6];
+    m_second_paraView.backgroundColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1.0];
     m_second_paraView.showsHorizontalScrollIndicator = NO;
     //m_second_paraView.delegate = self;
     
     //style
-    
     float sysFontSize = [UIFont systemFontSize];
-    
     frame.origin.x = 0*s_witdh;
     frame.origin.y = 0;
     UIView *stylesubview = [[UIView alloc] initWithFrame:frame];
     UILabel *style_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0.2*s_witdh, height)];
     style_label.textAlignment = NSTextAlignmentCenter;
     style_label.text = NSLocalizedString(@"p_label_style", nil);
+    style_label.font = [UIFont systemFontOfSize:0.9*sysFontSize];
     style_label.textColor = [UIColor blackColor];
     [stylesubview addSubview:style_label];
-    
-    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:11];
-    UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:12];
-    UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:13];
-    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:14];
-    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithFrame:CGRectMake(0.2*s_witdh, (height-49)/2, 0.78*s_witdh, 49) withItems:[NSArray arrayWithObjects:topRated,
+    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:10];
+    UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:11];
+    UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:12];
+    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:13];
+    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithFrame:CGRectMake(0.2*s_witdh, (ParaHeight-TabHeight)/2, 0.78*s_witdh, TabHeight) withItems:[NSArray arrayWithObjects:topRated,
                                                                                                                           featured,
                                                                                                                           recents,
                                                                                                                           contacts,
                                                                                                                           nil]];
+    [m_style_TabBar selectItemWithTag:10];
     m_style_TabBar.infiniTabBarDelegate = self;
     m_style_TabBar.bounces = NO;
+    m_style_TabBar.scrollEnabled = NO;
+    m_style_TabBar.pagingEnabled = NO;
     m_style_TabBar.layer.cornerRadius = 10;
     [stylesubview addSubview:m_style_TabBar];
     
@@ -141,9 +151,9 @@
     UILabel *version_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0.3*s_witdh, height)];
     version_label.textAlignment = NSTextAlignmentCenter;
     version_label.text = NSLocalizedString(@"p_label_version", nil);
+    version_label.font = [UIFont systemFontOfSize:0.9*sysFontSize];
     [sub_verison_view addSubview:version_label];
-    //UISlider *version_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.35*s_witdh, 0, 0.6*s_witdh, height)];
-    horizontalPickerView = [[CPPickerView alloc] initWithFrame:CGRectMake(0.35*s_witdh, (height-44)/2, 0.6*s_witdh, 44)];
+    horizontalPickerView = [[CPPickerView alloc] initWithFrame:CGRectMake(0.35*s_witdh, (height-40)/2, 0.6*s_witdh, 40)];
     horizontalPickerView.backgroundColor = [UIColor whiteColor];
     horizontalPickerView.dataSource = self;
     horizontalPickerView.delegate = self;
@@ -153,6 +163,7 @@
     [horizontalPickerView reloadData];;
     [sub_verison_view addSubview:horizontalPickerView];
     [m_second_paraView addSubview:sub_verison_view];
+    
     
     //correction level
     frame.origin.x = 2 * s_witdh;
@@ -164,10 +175,11 @@
     correct_level_label.lineBreakMode = NSLineBreakByWordWrapping;
     correct_level_label.text = NSLocalizedString(@"p_label_correct", nil);
     [sub_correct_level_view addSubview:correct_level_label];
-    //UISlider *coding_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.25*s_witdh, 0, 0.7*s_witdh, height)];
     NSArray *segmentedArray = [[NSArray alloc]initWithObjects:NSLocalizedString(@"correct_low", nil),NSLocalizedString(@"correct_mid", nil),NSLocalizedString(@"correct_quality", nil),NSLocalizedString(@"correct_high", nil),nil];
-    UISegmentedControl *correct_level_segment_contrl = [[UISegmentedControl alloc] initWithItems:segmentedArray];
+    correct_level_segment_contrl = [[UISegmentedControl alloc] initWithItems:segmentedArray];
     [correct_level_segment_contrl setFrame:CGRectMake(0.3*s_witdh, (height-28)/2, 0.65*s_witdh, 28)];
+    [correct_level_segment_contrl setSelectedSegmentIndex:0];
+    [correct_level_segment_contrl addTarget:self action:@selector(correctionLevelChanged:) forControlEvents:UIControlEventValueChanged];
     [sub_correct_level_view addSubview:correct_level_segment_contrl];
     [m_second_paraView addSubview:sub_correct_level_view];
 
@@ -183,21 +195,17 @@
     coding_label.lineBreakMode = NSLineBreakByWordWrapping;
     coding_label.text = NSLocalizedString(@"p_label_coding_area", nil);
     [sub_coding_view addSubview:coding_label];
-    //UISlider *coding_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 0, 0.65*s_witdh, height)];
-    ASValueTrackingSlider  *coding_slider = [[ASValueTrackingSlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 20, 0.35*s_witdh, 30)];
-    // customize slider 2
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    
-    [formatter setNumberStyle:NSNumberFormatterPercentStyle];
-    [coding_slider setNumberFormatter:formatter];
-    
-    coding_slider.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:10];
     UIColor *blue = [UIColor colorWithHue:0.55 saturation:0.75 brightness:1.0 alpha:1.0];
     UIColor *green = [UIColor colorWithHue:0.3 saturation:0.65 brightness:0.8 alpha:1.0];
     UIColor *red = [UIColor colorWithHue:0.0 saturation:0.8 brightness:1.0 alpha:1.0];
-    [coding_slider setPopUpViewAnimatedColors:@[red,blue, green,]
-                               withPositions:@[@40, @60, @100]];
-    
+    ASValueTrackingSlider  *coding_slider = [[ASValueTrackingSlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 24, 0.65*s_witdh, 30)];
+    [coding_slider setTag:40];
+    coding_slider.delegate = self;
+    coding_slider.maximumValue = 127.0;
+    [coding_slider setMaxFractionDigitsDisplayed:0];
+    coding_slider.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:10];
+    [coding_slider setPopUpViewAnimatedColors:@[red, green,]
+                               withPositions:@[@20, @100]];
     coding_slider.popUpViewArrowLength = 4.0;
     coding_slider.popUpViewCornerRadius = 5.0;
     [sub_coding_view addSubview:coding_slider];
@@ -213,7 +221,16 @@
     padding_label.lineBreakMode = NSLineBreakByWordWrapping;
     padding_label.text = NSLocalizedString(@"p_label_padding_area", nil);
     [sub_papding_view addSubview:padding_label];
-    UISlider *padding_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 0, 0.65*s_witdh, height)];
+    ASValueTrackingSlider * padding_slider = [[ASValueTrackingSlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 24, 0.65*s_witdh, 30)];
+    [padding_slider setTag:50];
+    padding_slider.delegate = self;
+    padding_slider.maximumValue = 127.0;
+    [padding_slider setMaxFractionDigitsDisplayed:0];
+    padding_slider.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:10];
+    [padding_slider setPopUpViewAnimatedColors:@[red, green,]
+                                withPositions:@[@20, @100]];
+    padding_slider.popUpViewArrowLength = 4.0;
+    padding_slider.popUpViewCornerRadius = 5.0;
     [sub_papding_view addSubview:padding_slider];
     [m_second_paraView addSubview:sub_papding_view];
     
@@ -223,22 +240,62 @@
     UILabel *r_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0.3*s_witdh, height)];
     r_label.textAlignment = NSTextAlignmentCenter;
     r_label.text = NSLocalizedString(@"p_label_ratio", nil);
+    r_label.font = [UIFont systemFontOfSize:0.9*sysFontSize];
     [subview addSubview:r_label];
-    UISlider *r_slider = [[UISlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 0, 0.65*s_witdh, height)];
+    ASValueTrackingSlider  *r_slider = [[ASValueTrackingSlider alloc] initWithFrame:CGRectMake(0.3*s_witdh, 24, 0.65*s_witdh, 30)];
+    [r_slider setTag:60];
+    r_slider.delegate = self;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterPercentStyle];
+    [r_slider setNumberFormatter:formatter];
+    [r_slider setMaxFractionDigitsDisplayed:0];
+    r_slider.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:10];
+    [r_slider setPopUpViewAnimatedColors:@[blue, blue,]
+                                 withPositions:@[@0.2, @1.0]];
+    r_slider.popUpViewArrowLength = 4.0;
+    r_slider.popUpViewCornerRadius = 5.0;
     [subview addSubview:r_slider];
     [m_second_paraView addSubview:subview];
     
-    
     [self.view addSubview:m_second_paraView];
 }
+
+#pragma -mark ASValueTrackingSliderDelegate
+- (void)sliderWillDisplayPopUpView:(ASValueTrackingSlider *)slider{
+};
+- (void)sliderWillHidePopUpView:(ASValueTrackingSlider *)slider{
+    if(slider.tag == 40){
+        m_para_coding_area = slider.value;
+        NSLog(@"m_para_coding_area : %f",m_para_coding_area);
+    }else if (slider.tag == 50){
+        m_para_padding_area = slider.value;
+        NSLog(@"m_para_padding_area : %f",m_para_padding_area);
+    }else if (slider.tag == 60){
+        m_para_ratio = slider.value;
+        NSLog(@"m_para_ratio : %f",m_para_ratio);
+    }
+    [self computeQR];
+};
+- (void)sliderDidHidePopUpView:(ASValueTrackingSlider *)slider{
+    
+};
+
+
+-(void)correctionLevelChanged:(UISegmentedControl *)Seg{
+    m_para_level = Seg.selectedSegmentIndex;
+    NSLog(@"Correction Level:%d",m_para_level);
+    [self computeQR];
+}
+
 -(void)loadControllTab{
     float s_witdh = self.view.frame.size.width;
     float s_height = self.view.frame.size.height;
     float auto_width = s_witdh*0.3;
     float seperate = 0;
     float para_width = s_witdh-auto_width-seperate;
-    float height = 49;
+    float height = TabHeight;
     m_control_View = [[UIView alloc] initWithFrame:CGRectMake(0, s_height, s_witdh, height)];
+    m_control_View.backgroundColor = [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1];
     [m_control_View.layer setMasksToBounds:YES];
     
     //[m_control_View setBackgroundColor:[UIColor lightGrayColor]];
@@ -249,7 +306,6 @@
     [m_auto_TabBar setItems:items];
     m_selected_item_tag = 0;
     [m_auto_TabBar setSelectedItem:auto_item];
-    
     m_auto_TabBar.delegate = self;
    
     UITabBarItem *topRated = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
@@ -269,6 +325,9 @@
                                                          nil]];
     m_para_TabBar.infiniTabBarDelegate = self;
     m_para_TabBar.bounces = NO;
+    //[m_para_TabBar setContentInset:UIEdgeInsetsMake(0, 30, 0, 0)];
+    [m_para_TabBar setContentOffset:CGPointMake(s_witdh/10, 0) animated:YES];
+    [m_para_TabBar showsHorizontalScrollIndicator];
     [m_control_View addSubview:m_auto_TabBar];
     [m_control_View addSubview:m_para_TabBar];
     [m_control_View addSubview:sep];
@@ -289,6 +348,15 @@
 
 -(void)selectTabWithTag:(int)tag{
     NSLog(@"select tag %d",tag);
+    
+    //
+    if(tag>=10 && tag<=13){
+        m_para_style = tag-10;
+        NSLog(@"Style:%d",m_para_style);
+        [self computeQR];
+        return;
+    }
+    
     if(m_selected_item_tag==tag){
         NSLog(@"do no thing");
         return;
@@ -327,14 +395,14 @@
 
 -(void)hideSecondParaView{
     float s_height = self.view.frame.size.height;
-    float f_height = 49;
-    float sec_height = 60;
+    float f_height = TabHeight;
+    float sec_height = ParaHeight;
     m_second_paraView.alpha = 1.0;
     CGRect sf = m_second_paraView.frame;
     sf.origin.y = s_height-f_height-sec_height;
     m_second_paraView.frame = sf;
     sf.origin.y = s_height-f_height;
-    [UIView animateWithDuration:0.5 //时长
+    [UIView animateWithDuration:0.25 //时长
                           delay:0 //延迟时间
                         options:UIViewAnimationOptionTransitionNone//动画效果
                      animations:^{
@@ -350,8 +418,8 @@
 }
 -(void)showSecondParaView{
     float s_height = self.view.frame.size.height;
-    float f_height = 49;
-    float sec_height = 60;
+    float f_height = TabHeight;
+    float sec_height = ParaHeight;
     m_second_paraView.alpha = 0.0;
     CGRect sf = m_second_paraView.frame;
     sf.origin.y = s_height-f_height;
@@ -374,7 +442,7 @@
 
 -(void)showParaMainControlTab{
     float s_height = self.view.frame.size.height;
-    float height = 49;
+    float height = TabHeight;
     CGRect f = m_control_View.frame;
     f.origin.y = s_height -height;
     m_control_View.alpha = 0.0;
@@ -388,9 +456,9 @@
                          
                          //动画设置区域
                          m_control_View.frame=f;
-                         m_control_View.alpha=1;
+                         m_control_View.alpha = 1.0;
+                         
                          m_second_paraView.frame = sf;
-                         m_second_paraView.alpha = 1;
                          
                      } completion:^(BOOL finish){
                          //动画结束时调用
@@ -403,6 +471,8 @@
     CGRect f = m_control_View.frame;
     f.origin.y = s_height;
     m_control_View.alpha = 1.0;
+    CGRect sf = m_second_paraView.frame;
+    sf.origin.y = s_height;
     [UIView animateWithDuration:0.5 //时长
                           delay:0 //延迟时间
                         options:UIViewAnimationOptionTransitionNone//动画效果
@@ -411,7 +481,8 @@
                          //动画设置区域
                          m_control_View.frame=f;
                          m_control_View.alpha=0.0;
-                         
+                         m_second_paraView.frame = sf;
+                         m_second_paraView.alpha = 0.0;
                      } completion:^(BOOL finish){
                          //动画结束时调用
                          //[self computeQR];
@@ -427,7 +498,7 @@
 //    int m_para_padding_area;
 //    int m_para_ration;
     NSLog(@"ComputeQR With Data:%@",_dataToEncode);
-    UIImage *img = [QRDetector generateQRwithImg:_portraitImageView.image text:_dataToEncode style:m_para_style version: m_para_version level:m_para_level codingarea:m_para_coding_area paddingarea:m_para_padding_area guideratio:m_para_ratio];
+    UIImage *img = [QRDetector generateQRwithImg:m_selected_img text:_dataToEncode style:m_para_style version: m_para_version level:m_para_level codingarea:m_para_coding_area paddingarea:m_para_padding_area guideratio:m_para_ratio];
     //UIImage* img = [QRDetector generateQRwithImg:_portraitImageView.image text:_dataToEncode isGray:NO];
     _portraitImageView.image = img;
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
@@ -510,6 +581,7 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"] ;
             self.portraitImageView.image = protraitImg;
+            m_selected_img = [protraitImg copy];
         });
     });
     //UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"];
@@ -527,6 +599,7 @@
 
 #pragma mark VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
+    m_selected_img = [editedImage copy];
     self.portraitImageView.image = editedImage;
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         // TO DO
