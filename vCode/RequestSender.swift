@@ -140,7 +140,7 @@ class RequestSender:NSObject{
             namecard.m_job = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_JOB") as! String
             namecard.m_org = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_ORG") as! String
             namecard.m_intr = NSUserDefaults.standardUserDefaults().objectForKey("NC_K_INTR") as! String
-            postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&fullname="+namecard.m_fullname+"&nickname="+namecard.m_nickname+"&gender="+str_gender+"&birthday="+namecard.m_birthday+"&avatar="+namecard.m_avatar_url+"&tel="+namecard.m_tel+"&email="+namecard.m_email+"&address="+namecard.m_address+"&qq="+namecard.m_qq+"&wechat="+namecard.m_wechat+"&homepate="+namecard.m_homepage+"&job="+namecard.m_job+"&org="+namecard.m_org+"&intr="+namecard.m_intr
+            postData = "tm="+tm+"&uuid="+uuid+"&sign="+sign+"&fullname="+namecard.m_fullname+"&nickname="+namecard.m_nickname+"&gender="+str_gender+"&birthday="+namecard.m_birthday+"&avatar="+namecard.m_avatar_url+"&tel="+namecard.m_tel+"&email="+namecard.m_email+"&address="+namecard.m_address+"&qq="+namecard.m_qq+"&wechat="+namecard.m_wechat+"&homepage="+namecard.m_homepage+"&job="+namecard.m_job+"&org="+namecard.m_org+"&intr="+namecard.m_intr
             request.setValue("application/x-www-form-urlencoded ; charset=utf-8", forHTTPHeaderField: "Content-Type")
             request.HTTPBody = postData.dataUsingEncoding(NSUTF8StringEncoding)
             
