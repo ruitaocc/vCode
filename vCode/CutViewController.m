@@ -14,14 +14,16 @@
 #import "QRDetector.h"
 #import "CPPickerView.h"
 #import "ASValueTrackingSlider.h"
-
+#import "WZFlashButton.h"
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
 #define ORIGINAL_MAX_WIDTH 640.0f
 
 #define TabHeight 49.0f
 #define ParaHeight 64.0f
+#define StatusBatHeight 22.0f
+#define NavBatHeight 44.0f
 
-@interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITabBarDelegate,InfiniTabBarDelegate,CPPickerViewDataSource, CPPickerViewDelegate, ASValueTrackingSliderDelegate>{
+@interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITabBarDelegate,InfiniTabBarDelegate,CPPickerViewDataSource, CPPickerViewDelegate, ASValueTrackingSliderDelegate,UIAlertViewDelegate>{
 
     int min_version;
     int max_version;
@@ -34,6 +36,8 @@
     float m_para_ratio;
 }
 @property(strong ,nonatomic)UIImage *m_selected_img;
+
+@property(strong ,nonatomic)UIImage *m_default_img;
 @property(strong ,nonatomic)CPPickerView *horizontalPickerView;
 @property(strong ,nonatomic)MMMaterialDesignSpinner *m_spinnerView;
 @property(strong ,nonatomic)UISegmentedControl *correct_level_segment_contrl;
@@ -46,11 +50,16 @@
 //secondary control
 @property(strong , nonatomic)UIScrollView* m_second_paraView;
 @property(assign , nonatomic)BOOL m_second_paraView_isShowed;
+
+@property(assign , nonatomic)BOOL m_isSelectUserImg;
+
+@property(strong , nonatomic)WZFlashButton *m_generateBtn;
 //p1
 @end
 
 @implementation CutViewController
 @synthesize m_selected_img;
+@synthesize m_default_img;
 @synthesize horizontalPickerView;
 @synthesize correct_level_segment_contrl;
 @synthesize m_spinnerView;
@@ -60,27 +69,62 @@
 @synthesize m_selected_item_tag;
 @synthesize m_second_paraView;
 @synthesize m_second_paraView_isShowed;
+@synthesize m_isSelectUserImg;
+@synthesize m_generateBtn;
 - (void)viewDidLoad
 {
     m_second_paraView_isShowed = NO;
+    m_isSelectUserImg = NO;
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [super viewDidLoad];
     [self.view addSubview:self.portraitImageView];
     [self loadPortrait];
-    UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn setTitle:NSLocalizedString(@"next_step2", @"") forState:UIControlStateNormal];
-    btn.backgroundColor = [UIColor whiteColor];
-    CGRect rect = CGRectMake(0, self.view.frame.size.height*3/4, self.view.frame.size.width, 50);
-    btn.frame = rect;
-    UITapGestureRecognizer *Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(next)];
-    [btn addGestureRecognizer:Tap];
-    [self.view addSubview:btn];
-    UIImageView *qrcodeview = [[UIImageView alloc] initWithFrame:_portraitImageView.frame];
-    qrcodeview.image = [UIImage imageNamed:@"qrcode_mask.png"];
+    
+//    UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [btn setTitle:NSLocalizedString(@"next_step2", @"") forState:UIControlStateNormal];
+//    btn.backgroundColor = [UIColor whiteColor];
+//    CGRect rect = CGRectMake(0, self.view.frame.size.height*3/4, self.view.frame.size.width, 50);
+//    btn.frame = rect;
+//    UITapGestureRecognizer *Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(next)];
+//    [btn addGestureRecognizer:Tap];
+//    [self.view addSubview:btn];
+    
+   // UIImageView *qrcodeview = [[UIImageView alloc] initWithFrame:_portraitImageView.frame];
+   // qrcodeview.image = [UIImage imageNamed:@"qrcode_mask.png"];
     //[self.view addSubview:qrcodeview];
     min_version = 5;
+    
+    CGRect btn_frame;
+    float s_width = self.view.frame.size.width;
+    float s_height = self.view.frame.size.height;
+    btn_frame.size.width = 0.57*s_width;
+    btn_frame.size.height = 44;
+    btn_frame.origin.x = (s_width - btn_frame.size.width)/2;
+    btn_frame.origin.y = s_height - TabHeight - ParaHeight;
+    m_generateBtn = [[WZFlashButton alloc]initWithFrame:btn_frame];
+    [m_generateBtn setText:NSLocalizedString(@"cut_generate_btn", nil) withTextColor:[UIColor whiteColor]];
+    __weak typeof(self) weakSelf = self;
+    m_generateBtn.clickBlock = ^{
+        [weakSelf next];
+    };
+    [m_generateBtn setBackgroundColor:[UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f]];
+    [self.view addSubview:m_generateBtn];
+    
     [self loadSecondaryParaView];
     [self loadControllTab];
+
+    
+    CGRect spinner_frame ;
+    spinner_frame.size.width = 40;
+    spinner_frame.size.height = 40;
+    spinner_frame.origin.x = (self.view.frame.size.width-spinner_frame.size.width)/2;
+    spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight)/2+(StatusBatHeight + NavBatHeight);
+    m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
+    m_spinnerView.lineWidth = 2.5f;
+    m_spinnerView.tintColor = [UIColor colorWithRed:69/255.0 green:209.0/255.0 blue:250/255.0 alpha:1.0];
+    
+
 }
 #pragma mark - CPPickerViewDataSource
 
@@ -90,14 +134,14 @@
 }
 - (NSString *)pickerView:(CPPickerView *)pickerView titleForItem:(NSInteger)item
 {
-    return [NSString stringWithFormat:@"%i", min_version + item];
+    return [NSString stringWithFormat:@"%d", min_version + item];
 }
 #pragma mark - CPPickerViewDelegate
 
 - (void)pickerView:(CPPickerView *)pickerView didSelectItem:(NSInteger)item
 {
-    NSLog(@"Version :%@",[NSString stringWithFormat:@"%i", min_version + item]);
-    m_para_version = min_version + item;
+    NSLog(@"Version :%@",[NSString stringWithFormat:@"%d", min_version + item]);
+    m_para_version = (int)(min_version + item);
     
     [self computeQR];
 }
@@ -161,6 +205,7 @@
     horizontalPickerView.showGlass = YES;
     horizontalPickerView.peekInset = UIEdgeInsetsMake(0, 0.6*s_witdh*0.3, 0, 0.6*s_witdh*0.3);
     [horizontalPickerView reloadData];;
+   // horizontalPickerView setSelectedItem:<#(NSUInteger)#>
     [sub_verison_view addSubview:horizontalPickerView];
     [m_second_paraView addSubview:sub_verison_view];
     
@@ -211,6 +256,8 @@
     [sub_coding_view addSubview:coding_slider];
     [m_second_paraView addSubview:sub_coding_view];
     
+    coding_slider.value = 70;
+    
     //padding data area
     frame.origin.x = 4 * s_witdh;
     UIView *sub_papding_view = [[UIView alloc] initWithFrame:frame];
@@ -234,6 +281,8 @@
     [sub_papding_view addSubview:padding_slider];
     [m_second_paraView addSubview:sub_papding_view];
     
+    padding_slider.value = 50;
+    
     //ratio
     frame.origin.x = 5*s_witdh;
     UIView *subview = [[UIView alloc] initWithFrame:frame];
@@ -256,6 +305,7 @@
     r_slider.popUpViewCornerRadius = 5.0;
     [subview addSubview:r_slider];
     [m_second_paraView addSubview:subview];
+    r_slider.value = 1.0;
     
     [self.view addSubview:m_second_paraView];
 }
@@ -366,6 +416,7 @@
     }
     if(tag==0){
         [m_para_TabBar selectItemWithTag:-1];
+        [self autoCompute];
     }
     m_selected_item_tag = tag;
     [self selectRelateParaPageWithTag:tag];
@@ -449,6 +500,7 @@
     m_second_paraView.alpha = 0.0;
     CGRect sf = m_second_paraView.frame;
     sf.origin.y = s_height-height;
+    [m_generateBtn setHidden:YES];
     [UIView animateWithDuration:0.5 //时长
                           delay:0 //延迟时间
                         options:UIViewAnimationOptionTransitionNone//动画效果
@@ -488,6 +540,11 @@
                          //[self computeQR];
                      }];
 }
+-(void)autoCompute{
+    NSLog(@"AutoParamether");
+    [self configParameters];
+    [self computeQR];
+}
 
 -(void)computeQR{
 //    paras
@@ -498,10 +555,25 @@
 //    int m_para_padding_area;
 //    int m_para_ration;
     NSLog(@"ComputeQR With Data:%@",_dataToEncode);
-    UIImage *img = [QRDetector generateQRwithImg:m_selected_img text:_dataToEncode style:m_para_style version: m_para_version level:m_para_level codingarea:m_para_coding_area paddingarea:m_para_padding_area guideratio:m_para_ratio];
-    //UIImage* img = [QRDetector generateQRwithImg:_portraitImageView.image text:_dataToEncode isGray:NO];
-    _portraitImageView.image = img;
-    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    if(m_spinnerView && [m_spinnerView isAnimating])return;
+    if(m_spinnerView){
+        [self.view addSubview:m_spinnerView];
+        [m_spinnerView startAnimating];
+    }
+    UIImage *img = nil;
+    if(m_isSelectUserImg){
+        img = m_selected_img;
+    }else{
+        img= m_default_img;
+    }
+    [QRDetector generateQRforView:_portraitImageView withImg:img text:_dataToEncode style:m_para_style version: m_para_version level:m_para_level codingarea:m_para_coding_area paddingarea:m_para_padding_area guideratio:m_para_ratio withFinishedBlock:^{
+        if(m_spinnerView && [m_spinnerView isAnimating]){
+            [m_spinnerView stopAnimating];
+            [m_spinnerView removeFromSuperview];
+        }
+    }];
+    
+    //UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     
 };
 
@@ -518,18 +590,17 @@
     if(m_spinnerView){
         [m_spinnerView stopAnimating];
         [m_spinnerView removeFromSuperview];
-        m_spinnerView = NULL;
     }
 }
 -(void)configParameters{
     if(_haveDataToEncode){
         min_version = [QRDetector getMinimunVersionWithText:_dataToEncode];
         NSLog(@"min_version:%d",min_version);
-        m_para_version = min_version;
+        m_para_version = min_version > 5 ? min_version: 5;
         m_para_level = 0;
         m_para_style = 0;
         m_para_padding_area = 50;
-        m_para_coding_area = 50;
+        m_para_coding_area = 70;
         m_para_ratio = 1.0;
         [horizontalPickerView reloadData];
     }
@@ -538,11 +609,14 @@
 - (void) didReceiveShortURL:(NSNotification*) notification{
     if (m_spinnerView) {
         [m_spinnerView stopAnimating];
+        [m_spinnerView removeFromSuperview];
     }
     if ([notification.name isEqualToString:@"didReceiveURL"]) {
         _dataToEncode = RequestSender.shortURL;
         NSLog(@"%@",_dataToEncode);
         _haveDataToEncode = YES;
+        [self configParameters];
+        [self computeQR];
     }
     if ([notification.name isEqualToString:@"requestERROR"]) {
         NSLog(@"Network error!");
@@ -550,36 +624,57 @@
     [self configParameters];
 }
 
+#pragma marks --UIAlertVIewDelegate --
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(alertView.tag==101){
+        NSLog(@"FirstOther %d",buttonIndex);
+        if(buttonIndex==1){
+            //OK --go on clicked
+            if (_haveDataToEncode) {
+                [self configParameters];
+                [self showParaMainControlTab];
+            }
+            else{
+                [self.view addSubview:m_spinnerView];
+                [m_spinnerView startAnimating];
+            }
+            
+        }
+        if(buttonIndex ==0){
+            //cancel --> choose
+            [self editPortrait];
+        }
+    }
+
+}
+
 - (void) next{
+    if (m_spinnerView && [m_spinnerView isAnimating]) {
+        return;
+    }
+    if(!m_isSelectUserImg){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"cut_isselect_user_img_title",nil) message:NSLocalizedString(@"cut_isselect_user_img",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cut_isselect_user_img_cancel",nil)
+                                             otherButtonTitles:NSLocalizedString(@"cut_isselect_user_img_ok", nil),nil];
+        alert.tag = 101;
+        [alert show];
+        return;
+    }
     NSLog(@"prepare to compute QR code");
     if (_haveDataToEncode) {
         [self configParameters];
         [self showParaMainControlTab];
     }
     else{
-//        UIAlertView* alert = [[UIAlertView alloc] init];
-//        [alert setTitle:@"did not receive response yet."];
-//        [alert addButtonWithTitle:@"ok"];
-//        [alert show];
-        CGRect spinner_frame ;
-        spinner_frame.size.width = 40;
-        spinner_frame.size.height = 40;
-        spinner_frame.origin.x = (self.view.frame.size.width-spinner_frame.size.width)/2;
-        spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height)/2;
-        m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
-        m_spinnerView.lineWidth = 2.5f;
-        m_spinnerView.tintColor = [UIColor colorWithRed:69/255.0 green:209.0/255.0 blue:250/255.0 alpha:1.0];
         [self.view addSubview:m_spinnerView];
         [m_spinnerView startAnimating];
-
     }
-    
 }
 
 - (void)loadPortrait {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         dispatch_sync(dispatch_get_main_queue(), ^{
-            UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"] ;
+            UIImage *protraitImg = [UIImage imageNamed:@"add.png"] ;
+            m_default_img = [UIImage imageNamed:@"lena.jpg"];
             self.portraitImageView.image = protraitImg;
             m_selected_img = [protraitImg copy];
         });
@@ -601,9 +696,11 @@
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     m_selected_img = [editedImage copy];
     self.portraitImageView.image = editedImage;
+    m_isSelectUserImg = YES;
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         // TO DO
     }];
+    [self next];
 }
 
 - (void)imageCropperDidCancel:(VPImageCropperViewController *)cropperViewController {
@@ -792,9 +889,9 @@
 #pragma mark portraitImageView getter
 - (UIImageView *)portraitImageView {
     if (!_portraitImageView) {
-        CGFloat w = self.view.frame.size.width*0.57; CGFloat h = w;
+        CGFloat w = self.view.frame.size.width*0.67; CGFloat h = w;
         CGFloat x = (self.view.frame.size.width - w) / 2;
-        CGFloat y = (self.view.frame.size.height - h) / 2;
+        CGFloat y = (self.view.frame.size.height - h - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight) / 2+(StatusBatHeight + NavBatHeight);
         _portraitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, w, h)];
         //[_portraitImageView.layer setCornerRadius:(_portraitImageView.frame.size.height/2)];
         [_portraitImageView.layer setMasksToBounds:YES];
@@ -807,7 +904,7 @@
        // _portraitImageView.layer.borderColor = [[UIColor blackColor] CGColor];
         _portraitImageView.layer.borderWidth = .0f;
         _portraitImageView.userInteractionEnabled = YES;
-        _portraitImageView.backgroundColor = [UIColor blackColor];
+        _portraitImageView.backgroundColor = [UIColor whiteColor];
         UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
         [_portraitImageView addGestureRecognizer:portraitTap];
     }

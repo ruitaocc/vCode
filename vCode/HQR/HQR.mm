@@ -171,6 +171,8 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     unsigned char *tmp_text = (unsigned char *)[text UTF8String];
     int t_length = 0;
     t_length = strlen((char *)tmp_text);
+    [self setVersion:0];
+    [self setLevel:QR_ECLEVEL_L];
     minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
     resolved_version = minmumQRcode->version;
     return  resolved_version;

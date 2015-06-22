@@ -25,6 +25,9 @@
 		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
 		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
 		B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630A9851B1D6DE900C401B3 /* StoreKit.framework */; };
+		B641DF641B380323004449FD /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B641DF611B380323004449FD /* ProgressHUD.bundle */; };
+		B641DF651B380323004449FD /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B641DF631B380323004449FD /* ProgressHUD.m */; };
+		B641DF671B382721004449FD /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = B641DF661B382721004449FD /* add.png */; };
 		B657C2C31B300CBB007DD277 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = B657C2C21B300CBB007DD277 /* city.plist */; };
 		B657C2C71B300CEF007DD277 /* ZHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = B657C2C61B300CEF007DD277 /* ZHPickView.m */; };
 		B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */; };
@@ -150,6 +153,10 @@
 		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		B630A9851B1D6DE900C401B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B641DF611B380323004449FD /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		B641DF621B380323004449FD /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		B641DF631B380323004449FD /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		B641DF661B382721004449FD /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		B657C2C21B300CBB007DD277 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		B657C2C51B300CEF007DD277 /* ZHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPickView.h; sourceTree = "<group>"; };
 		B657C2C61B300CEF007DD277 /* ZHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPickView.m; sourceTree = "<group>"; };
@@ -336,6 +343,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B641DF601B3802C8004449FD /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B641DF611B380323004449FD /* ProgressHUD.bundle */,
+				B641DF621B380323004449FD /* ProgressHUD.h */,
+				B641DF631B380323004449FD /* ProgressHUD.m */,
+			);
+			name = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		B657C2C11B300CAB007DD277 /* picker */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +492,7 @@
 		B68E7F9B1B344F58003EFEED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B641DF661B382721004449FD /* add.png */,
 				B6EB47291B18975E00495FBA /* like_icon.png */,
 				B6EB472D1B18976600495FBA /* ip56_bg.png */,
 				B6EB472A1B18975E00495FBA /* slogan.png */,
@@ -619,6 +637,7 @@
 		B6EB912B1B2331C400F403B1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B641DF601B3802C8004449FD /* ProgressHUD */,
 				B6EF274E1B35542900D485F2 /* ASValueTrackingSlider */,
 				B6EBB5DD1B32D9CD0083D8D5 /* InfiniTabBar.h */,
 				B6EBB5DE1B32D9CD0083D8D5 /* InfiniTabBar.m */,
@@ -768,9 +787,11 @@
 				B65B1CDA1B16D5210028F631 /* skip_normal_w.png in Resources */,
 				B68E7F9A1B344F53003EFEED /* wheelBackground@2x.png in Resources */,
 				B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */,
+				B641DF641B380323004449FD /* ProgressHUD.bundle in Resources */,
 				B6EB47281B18973E00495FBA /* ip4_bg.png in Resources */,
 				B65B6DEC1B19D4E20046B2FD /* qrcode_mask.png in Resources */,
 				B6EB47271B18973E00495FBA /* info_icon.png in Resources */,
+				B641DF671B382721004449FD /* add.png in Resources */,
 				B65B1CCF1B16B4E90028F631 /* Localizable.strings in Resources */,
 				B65B1CD51B16C7EE0028F631 /* skip_click.png in Resources */,
 				B65B1CD91B16D5210028F631 /* skip_highlight.png in Resources */,
@@ -890,6 +911,7 @@
 				B67F97511AE3A30E0085DBB3 /* main.m in Sources */,
 				B6D2AD391B1B01AD0024AA42 /* InfoViewController.m in Sources */,
 				B6A4488B1AE4E01C0024F109 /* bitstream.c in Sources */,
+				B641DF651B380323004449FD /* ProgressHUD.m in Sources */,
 				B68E7F931B344F45003EFEED /* CPPickerView.m in Sources */,
 				B6DBAAA51B2475C9008334C8 /* TextFieldsEffects.swift in Sources */,
 				266FDAB91B174651000675CB /* VPImageCropperViewController.m in Sources */,

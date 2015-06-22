@@ -60,3 +60,8 @@
 "correct_mid"="M(15%)";
 "correct_quality"="Q(25%)";
 "correct_high"="H(30%)";
+"cut_isselect_user_img_title"="Notice";
+"cut_isselect_user_img"="You didn't choose a photo for encoding,[Go on] we will provide a default photo for encoding, and [Choose] to choose one.";
+"cut_isselect_user_img_ok"="Go on";
+"cut_isselect_user_img_cancel"="Choose";
+"cut_generate_btn"="Next Step: Design V Code";

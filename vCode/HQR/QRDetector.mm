@@ -20,10 +20,22 @@
 }
 
 
-+(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str style:(int)style version:(int)ver level:(int)lev codingarea:(float)codingarea paddingarea:(float)paddingarea guideratio:(float)ratio{
-    HQR* hqr = [HQR getInstance];
-    [hqr setThreshold_PaddingArea:paddingarea nodePaddingArea:codingarea GuideRatio:ratio];
-    return [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev isGray:NO];
++(UIImage *)generateQRforView:(UIImageView *) viewRef withImg:(UIImage *)img text:(NSString *)str style:(int)style version:(int)ver level:(int)lev codingarea:(float)codingarea paddingarea:(float)paddingarea guideratio:(float)ratio withFinishedBlock:(FBlock) block{
+    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(concurrentQueue, ^{
+        __block UIImage *image = nil;
+        dispatch_sync(concurrentQueue, ^{
+            HQR* hqr = [HQR getInstance];
+            [hqr setThreshold_PaddingArea:paddingarea nodePaddingArea:codingarea GuideRatio:ratio];
+            image =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev isGray:NO];
+        });
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [viewRef setImage:image];
+            if(block)block();
+        });
+    });
+    return img;
+    
 };
 +(int)getMinimunVersionWithText:(NSString*)text{
     HQR* hqr = [HQR getInstance];
