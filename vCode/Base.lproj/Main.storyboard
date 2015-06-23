@@ -1063,10 +1063,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="EGp-ZJ-Rn6" kind="show" identifier="CutToShareView" id="3cg-WM-Sng"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjT-lP-QRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1458" y="605"/>
+        </scene>
+        <!--Share View Controller-->
+        <scene sceneID="FGq-BC-wjD">
+            <objects>
+                <viewController id="EGp-ZJ-Rn6" customClass="ShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDI-EK-VHg"/>
+                        <viewControllerLayoutGuide type="bottom" id="kQ1-Qx-nsT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D7I-Jz-sAU">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7CM-Vb-FVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2421" y="245"/>
         </scene>
         <!--Final View Controller-->
         <scene sceneID="f89-7e-tlO">

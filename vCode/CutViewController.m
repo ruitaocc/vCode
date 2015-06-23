@@ -136,8 +136,10 @@
     m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
     m_spinnerView.lineWidth = 2.5f;
     m_spinnerView.tintColor = [UIColor colorWithRed:69/255.0 green:209.0/255.0 blue:250/255.0 alpha:1.0];
+    [self setTitle:NSLocalizedString(@"cut_view_title", nil)];
     
-
+    //self.navigationController.navigationBar.barTintColor = myBlue;
+    
 }
 
 -(void)loadCSSView{
@@ -197,7 +199,7 @@
         [alert show];
     }else{
         NSLog(@"save success!");
-        
+        [self performSegueWithIdentifier:@"CutToShareView" sender:self];
     }
 }
 -(void)saveAndShare{

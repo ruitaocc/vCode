@@ -13,6 +13,8 @@
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
 #import "WZFlashButton.h"
 #import "UIDeviceHardware.h"
+
+#define myBlue [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f]
 @interface ViewController ()
 
 -(void)btn_click_info;
@@ -251,6 +253,10 @@
     
 
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController.navigationBar setTintColor:myBlue];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                     myBlue, NSForegroundColorAttributeName,
+                                                                     nil]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

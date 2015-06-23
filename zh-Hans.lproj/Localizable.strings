@@ -40,9 +40,9 @@
 "text_title"="文本二维码";
 "text_guide"="您可以在这里输入您想输入的文本信息，格式可以自己掌握，如VCard名片，扫描后就可以直接添加手机联系人。更多玩法还需要您自己发现哦。";
 "text_next_btn"="下一步：选择你要编码的图片";
-"url_indicator"="第一步:请在下面输入网址";
+"url_indicator"="第一步:\n请在下面输入网址";
 "url_title"="网络链接";
-"url_guide"="您可以在这里输入网络链接，例如把软件的下载地址放在这里，扫描后就可以点击直接下载。";
+"url_guide"="您可以在这里输入网络链接，该功能具有长链接转短链接功能，因此可以输入超长链接。例如把软件的下载地址放在这里，扫描后就可以点击直接下载。";
 "url_next_btn"="下一步：选择你要编码的图片";
 "no_input_text"="请输入信息!";
 "no_qr_code_detect"="检测不到二维码!";
@@ -69,3 +69,6 @@
 "cut_save_and_share"="保存并分享";
 "save_failed"="保存失败";
 "save_alert_ok"="确定";
+"cut_view_title"="设计2V码";
+"please_scan_QR_code"="请选择您的二维码";
+"please_scan_QR_code_ok"="确定";

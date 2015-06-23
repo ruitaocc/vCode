@@ -27,13 +27,8 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         indicatorLabel.textAlignment = NSTextAlignment.Center
         indicatorLabel.numberOfLines = 2
         indicatorLabel.text = NSLocalizedString("text_indicator", comment: "")
-        notesLabel.textAlignment = NSTextAlignment.Left
-        notesLabel.numberOfLines = 4
-        notesLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        notesLabel.text = NSLocalizedString("text_guide", comment: "")
-        let sysFontSize = UIFont.systemFontSize()
-        notesLabel.font = UIFont.systemFontOfSize(sysFontSize*0.9)
-        notesLabel.textColor = UIColor.lightGrayColor()
+        
+       
         
         //
         let s_width = self.view.frame.size.width
@@ -49,7 +44,7 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         m_btn_next.resetFrame(btn_frame);
         m_btn_next.backgroundColor = UIColor(red: 67.0/255.0, green:209.0/255.0, blue: 250.0/255.0, alpha: 1.0)
         m_btn_next.flashColor = UIColor.whiteColor()
-        m_btn_next.textLabel.font  = UIFont.systemFontOfSize(sysFontSize*0.95)
+        m_btn_next.textLabel.font  = UIFont.systemFontOfSize(14)
         m_btn_next.setTextColor(UIColor.whiteColor())
         m_btn_next.layer.cornerRadius = 5;
         m_btn_next.clipsToBounds = true;
@@ -58,6 +53,22 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
             self.nextStep()
         }
         self.view.addSubview(m_btn_next)
+        
+        //notes
+        var textinputframe:CGRect = textInput.frame
+        var label_frame:CGRect = CGRect()
+        label_frame.size.width = s_width*0.8
+        label_frame.size.height = 44*4
+        label_frame.origin.x = s_width*0.1;
+        label_frame.origin.y = ((btn_frame.origin.y - ( textinputframe.origin.y + textinputframe.size.height)) - label_frame.size.height)/2 + textinputframe.origin.y + textinputframe.size.height
+        notesLabel.frame = label_frame
+        notesLabel.textAlignment = NSTextAlignment.Left
+        notesLabel.numberOfLines = 4
+        notesLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        notesLabel.text = NSLocalizedString("text_guide", comment: "")
+        notesLabel.font = UIFont.systemFontOfSize(14)
+        notesLabel.textColor = UIColor.lightGrayColor()
+        
         self.view.endEditing(true)
         
         self.title = NSLocalizedString("text_title", comment: "")

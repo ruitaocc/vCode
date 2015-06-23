@@ -15,6 +15,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
      var noteLabel:UILabel!
     @IBOutlet var nextstep:UIButton!
     
+    var m_btn_next:WZFlashButton!
     var str_label:String = ""
     var str_noteLable:String = ""
     
@@ -73,6 +74,28 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             self.readFromImage()
         }
         
+        //next
+        m_btn_next = WZFlashButton()
+        var btn_next_frame:CGRect = CGRect()
+        btn_next_frame.size.width = s_width*0.6;
+        btn_next_frame.size.height = 44;
+        btn_next_frame.origin.x = (s_width-btn_next_frame.size.width)/2;
+        btn_next_frame.origin.y = s_height-btn_next_frame.size.height - 64;
+        m_btn_next.setText(NSLocalizedString("url_next_btn", comment: ""), withTextColor: UIColor.whiteColor())
+        m_btn_next.resetFrame(btn_next_frame);
+        m_btn_next.backgroundColor = UIColor(red: 67.0/255.0, green:209.0/255.0, blue: 250.0/255.0, alpha: 1.0)
+        m_btn_next.flashColor = UIColor.whiteColor()
+        m_btn_next.textLabel.font  = UIFont.systemFontOfSize(14)
+        m_btn_next.setTextColor(UIColor.whiteColor())
+        m_btn_next.layer.cornerRadius = 5;
+        m_btn_next.clipsToBounds = true;
+        //__weak typeof(self) weakSefl = self;
+        m_btn_next.clickBlock = {
+            self.next()
+        }
+        self.view.addSubview(m_btn_next)
+        self.view.endEditing(true)
+
         
         //lable
         label = UILabel()
@@ -91,7 +114,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         label_frame.size.width = s_width*0.8
         label_frame.size.height = 44*4
         label_frame.origin.x = s_width*0.1;
-        label_frame.origin.y = btn_frame.origin.y + btn_frame.size.height*1.5
+        label_frame.origin.y = ((btn_next_frame.origin.y - ( btn_frame.origin.y + btn_frame.size.height)) - label_frame.size.height)/2 + btn_frame.origin.y + btn_frame.size.height
         noteLabel.frame = label_frame
         noteLabel.textAlignment = NSTextAlignment.Left
         //noteLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
@@ -123,15 +146,12 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     @IBAction func next(){
         if !setted{
             let alert:UIAlertView = UIAlertView()
-            alert.message = "please scan QR code!"
-            alert.addButtonWithTitle("OK")
+            alert.message = NSLocalizedString("please_scan_QR_code", comment: "")
+            alert.addButtonWithTitle(NSLocalizedString("please_scan_QR_code_ok", comment: ""))
             alert.show()
             return
         }
-        let cutview = CutViewController()
-        cutview.haveDataToEncode = true
-        cutview.dataToEncode = stringInQRCode
-        self.showViewController(cutview, sender: nextstep);
+        self.performSegueWithIdentifier("QRtoCutView", sender: self)
     }
     func choose(){
         setted = false
@@ -202,40 +222,43 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
                 setted = true
                 label.text = metadataObj.stringValue
                 stringInQRCode = label.text!
-                RequestSender.shortURL = label.text!
+                //RequestSender.shortURL = label.text!
                 captureSession?.stopRunning()
                 videoPreviewLayer?.removeFromSuperlayer()
                 qrCodeFrameView?.removeFromSuperview()
-                
+                self.performSegueWithIdentifier("QRtoCutView", sender: self)
             }
         }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        
-        
-        if let str = QRDetector.decodeQRwithImg(image){
-            stringInQRCode = str
-        }
-        if stringInQRCode != "" {
-            setted = true
-            label.text = stringInQRCode
-            self.performSegueWithIdentifier("QRtoCutView", sender: self)
-            println(stringInQRCode)
-        }
-        else{
-            let alertview = UIAlertView()
-            alertview.message = NSLocalizedString("no_qr_code_detect", comment: "")
-            alertview.addButtonWithTitle("OK")
-            alertview.show()
-        }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: {
+            if let str = QRDetector.decodeQRwithImg(image){
+                self.stringInQRCode = str
+            }
+            if self.stringInQRCode != "" {
+                self.setted = true
+                self.label.text = self.stringInQRCode
+                self.performSegueWithIdentifier("QRtoCutView", sender: self)
+                println(self.stringInQRCode)
+            }
+            else{
+                let alertview = UIAlertView()
+                alertview.message = NSLocalizedString("no_qr_code_detect", comment: "")
+                alertview.addButtonWithTitle("OK")
+                alertview.show()
+            }
+        });
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let receiver:UIViewController = segue.destinationViewController as! UIViewController
         if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
-            let val:NSNumber = NSNumber(bool:false)
+            let val:NSNumber = NSNumber(bool:true)
             receiver.setValue(val, forKey: "haveDataToEncode")
+        }
+        if(receiver.respondsToSelector(Selector("setDataToEncode:"))){
+            let val:NSNumber = NSNumber(bool:true)
+            receiver.setValue(stringInQRCode, forKey: "dataToEncode")
         }
     }
     /*
