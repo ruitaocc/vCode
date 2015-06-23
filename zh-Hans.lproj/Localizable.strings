@@ -66,9 +66,11 @@
 "cut_isselect_user_img_cancel"="选择";
 "cut_generate_btn"="下一步: 设计2V码";
 "cut_change_img"="更换图片";
-"cut_save_and_share"="保存并分享";
+"cut_save_and_share"="保存/分享";
 "save_failed"="保存失败";
 "save_alert_ok"="确定";
 "cut_view_title"="设计2V码";
 "please_scan_QR_code"="请选择您的二维码";
 "please_scan_QR_code_ok"="确定";
+"saveed_note"="已保存到相册";
+"retouch"="重新编辑";

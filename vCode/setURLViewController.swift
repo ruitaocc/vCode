@@ -104,12 +104,16 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         saveToUserDefaults()
         RequestSender.sendRequest()
         println(RequestSender.shortURL)
-        var cutview:CutViewController = CutViewController();
-        cutview.haveDataToEncode = false;
-        //self.presentViewController(finalview, animated: true, completion: nil)
-        self.showViewController(cutview, sender: sender)
+        self.performSegueWithIdentifier("setURLToCutView", sender: self)
     }
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let receiver:UIViewController = segue.destinationViewController as! UIViewController
+        if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
+            let val:NSNumber = NSNumber(bool:false)
+            receiver.setValue(val, forKey: "haveDataToEncode")
+        }
+        
+    }
     func saveToUserDefaults(){
         var ud = NSUserDefaults.standardUserDefaults()
         var url:NSString = textInput.text

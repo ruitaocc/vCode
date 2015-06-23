@@ -22,6 +22,8 @@
 		267C3E751B004F93001D917A /* md5Encryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E741B004F93001D917A /* md5Encryptor.m */; };
 		267C3E791B005408001D917A /* setTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C3E781B005408001D917A /* setTextViewController.swift */; };
 		9941A2B1ACD03EA21D674C08 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19838ED5BCCB6054657B9310 /* libPods.a */; };
+		B60EB63A1B39787B0037018B /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EB6391B39787B0037018B /* ShareViewController.m */; };
+		B60EB63C1B397AE70037018B /* saveok.png in Resources */ = {isa = PBXBuildFile; fileRef = B60EB63B1B397AE70037018B /* saveok.png */; };
 		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
 		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
 		B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630A9851B1D6DE900C401B3 /* StoreKit.framework */; };
@@ -51,7 +53,6 @@
 		B67F975A1AE3A30E0085DBB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67F97581AE3A30E0085DBB3 /* Main.storyboard */; };
 		B67F975C1AE3A30E0085DBB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67F975B1AE3A30E0085DBB3 /* Images.xcassets */; };
 		B67F976B1AE3A30E0085DBB3 /* vCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F976A1AE3A30E0085DBB3 /* vCodeTests.m */; };
-		B68B74731B393D60006E2754 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B74721B393D60006E2754 /* ShareViewController.m */; };
 		B68E7F931B344F45003EFEED /* CPPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68E7F901B344F45003EFEED /* CPPickerView.m */; };
 		B68E7F941B344F45003EFEED /* CPPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68E7F921B344F45003EFEED /* CPPickerViewCell.m */; };
 		B68E7F981B344F53003EFEED /* shadowOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B68E7F951B344F53003EFEED /* shadowOverlay@2x.png */; };
@@ -151,6 +152,9 @@
 		267C3E781B005408001D917A /* setTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setTextViewController.swift; sourceTree = "<group>"; };
 		9609A3BF0FABFE758F944F94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9C8093DD2A1D1B9DE35D11D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B60EB6381B39787B0037018B /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		B60EB6391B39787B0037018B /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		B60EB63B1B397AE70037018B /* saveok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveok.png; sourceTree = "<group>"; };
 		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		B630A9851B1D6DE900C401B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -194,8 +198,6 @@
 		B67F97641AE3A30E0085DBB3 /* vCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F97691AE3A30E0085DBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67F976A1AE3A30E0085DBB3 /* vCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vCodeTests.m; sourceTree = "<group>"; };
-		B68B74711B393D60006E2754 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
-		B68B74721B393D60006E2754 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		B68E7F8F1B344F45003EFEED /* CPPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPickerView.h; sourceTree = "<group>"; };
 		B68E7F901B344F45003EFEED /* CPPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPickerView.m; sourceTree = "<group>"; };
 		B68E7F911B344F45003EFEED /* CPPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPickerViewCell.h; sourceTree = "<group>"; };
@@ -429,8 +431,8 @@
 				266FDAB81B174651000675CB /* VPImageCropperViewController.m */,
 				266FDABA1B174679000675CB /* CutViewController.h */,
 				266FDABB1B174679000675CB /* CutViewController.m */,
-				B68B74711B393D60006E2754 /* ShareViewController.h */,
-				B68B74721B393D60006E2754 /* ShareViewController.m */,
+				B60EB6381B39787B0037018B /* ShareViewController.h */,
+				B60EB6391B39787B0037018B /* ShareViewController.m */,
 				B6EB472F1B189DC100495FBA /* UIDeviceHardware.m */,
 				B6EB47311B189DE000495FBA /* UIDeviceHardware.h */,
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
@@ -498,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				B641DF661B382721004449FD /* add.png */,
+				B60EB63B1B397AE70037018B /* saveok.png */,
 				B6EB47291B18975E00495FBA /* like_icon.png */,
 				B6EB472D1B18976600495FBA /* ip56_bg.png */,
 				B6EB472A1B18975E00495FBA /* slogan.png */,
@@ -790,6 +793,7 @@
 				B6A448F71AE7EC310024F109 /* lena.jpg in Resources */,
 				B6EB472B1B18975E00495FBA /* like_icon.png in Resources */,
 				B65B1CDA1B16D5210028F631 /* skip_normal_w.png in Resources */,
+				B60EB63C1B397AE70037018B /* saveok.png in Resources */,
 				B68E7F9A1B344F53003EFEED /* wheelBackground@2x.png in Resources */,
 				B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */,
 				B641DF641B380323004449FD /* ProgressHUD.bundle in Resources */,
@@ -890,7 +894,7 @@
 				B657C2C71B300CEF007DD277 /* ZHPickView.m in Sources */,
 				B6EBB5DF1B32D9CD0083D8D5 /* InfiniTabBar.m in Sources */,
 				B6A448951AE4E01C0024F109 /* qrencode.c in Sources */,
-				B68B74731B393D60006E2754 /* ShareViewController.m in Sources */,
+				B60EB63A1B39787B0037018B /* ShareViewController.m in Sources */,
 				B661C7281B2D3F3500B501EF /* NameCardEntry.m in Sources */,
 				B661C7311B2DC87300B501EF /* SHEmailValidator.m in Sources */,
 				B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */,

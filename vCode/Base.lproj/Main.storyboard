@@ -125,7 +125,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yOb-UO-S6d">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="BHd-gO-jPS">
                                 <cells>
@@ -1064,7 +1064,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="EGp-ZJ-Rn6" kind="show" identifier="CutToShareView" id="3cg-WM-Sng"/>
+                        <segue destination="Age-mx-1jW" kind="show" identifier="gotoSaveAndShare" id="mOr-aR-srq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjT-lP-QRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1072,21 +1072,21 @@
             <point key="canvasLocation" x="1458" y="605"/>
         </scene>
         <!--Share View Controller-->
-        <scene sceneID="FGq-BC-wjD">
+        <scene sceneID="Kom-5v-B4z">
             <objects>
-                <viewController id="EGp-ZJ-Rn6" customClass="ShareViewController" sceneMemberID="viewController">
+                <viewController id="Age-mx-1jW" customClass="ShareViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sDI-EK-VHg"/>
-                        <viewControllerLayoutGuide type="bottom" id="kQ1-Qx-nsT"/>
+                        <viewControllerLayoutGuide type="top" id="hnE-pG-dbF"/>
+                        <viewControllerLayoutGuide type="bottom" id="UXB-2m-B9v"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D7I-Jz-sAU">
+                    <view key="view" contentMode="scaleToFill" id="fAU-2R-tzN">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7CM-Vb-FVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XGI-MF-lcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="245"/>
+            <point key="canvasLocation" x="2364" y="625"/>
         </scene>
         <!--Final View Controller-->
         <scene sceneID="f89-7e-tlO">
@@ -1219,7 +1219,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfl-9i-74H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2199" y="1197"/>
+            <point key="canvasLocation" x="2406" y="1407"/>
         </scene>
         <!--History Detail View Controller-->
         <scene sceneID="3d8-u3-WLd">
@@ -1237,7 +1237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1D-Kl-ujt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3111" y="1269"/>
+            <point key="canvasLocation" x="3162" y="1453"/>
         </scene>
         <!--Set Text View Controller-->
         <scene sceneID="QmL-kF-q8d">
@@ -1266,7 +1266,7 @@
                                     <constraint firstAttribute="height" constant="44" id="zV1-WC-rsL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1316,7 +1316,7 @@
                                     <constraint firstAttribute="height" constant="80" id="YLS-1T-BqO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1394,6 +1394,7 @@
                         <outlet property="notesLabel" destination="KOQ-ik-JWc" id="hlC-4i-CY8"/>
                         <outlet property="sender" destination="DbX-wB-CB8" id="HGq-lf-jQX"/>
                         <outlet property="textInput" destination="Qgl-QL-5bk" id="XOb-dx-9D0"/>
+                        <segue destination="yM9-xF-iRM" kind="show" identifier="setTextToCutView" id="AGe-FO-OBx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJm-8c-kgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1430,7 +1431,7 @@
                                     <constraint firstAttribute="height" constant="44" id="H0H-Nh-hWm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1449,7 +1450,7 @@
                                     <constraint firstAttribute="height" constant="80" id="CwH-9N-B62"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1553,6 +1554,7 @@
                         <outlet property="notesLabel" destination="H7l-dg-cSu" id="xH7-7V-zc0"/>
                         <outlet property="sender" destination="Yji-80-t8I" id="Lwx-EW-bah"/>
                         <outlet property="textInput" destination="3hL-60-n53" id="oXC-uD-166"/>
+                        <segue destination="yM9-xF-iRM" kind="show" identifier="setURLToCutView" id="NdS-xH-j8y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qq-BD-8bi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1637,6 +1639,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="XPl-lD-00i"/>
         <segue reference="fXk-r7-AfF"/>
-        <segue reference="gf6-f4-fbF"/>
+        <segue reference="NdS-xH-j8y"/>
     </inferredMetricsTieBreakers>
 </document>

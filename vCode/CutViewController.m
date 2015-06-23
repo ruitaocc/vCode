@@ -16,6 +16,7 @@
 #import "ASValueTrackingSlider.h"
 #import "WZFlashButton.h"
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
+
 #define ORIGINAL_MAX_WIDTH 640.0f
 
 #define TabHeight 49.0f
@@ -139,7 +140,7 @@
     [self setTitle:NSLocalizedString(@"cut_view_title", nil)];
     
     //self.navigationController.navigationBar.barTintColor = myBlue;
-    
+    NSLog(@"my storyboard = %@", self.storyboard);
 }
 
 -(void)loadCSSView{
@@ -199,13 +200,16 @@
         [alert show];
     }else{
         NSLog(@"save success!");
-        [self performSegueWithIdentifier:@"CutToShareView" sender:self];
+        [self performSegueWithIdentifier:@"gotoSaveAndShare" sender:self];
     }
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 }
 -(void)saveAndShare{
     NSLog(@"saveAndShare");
     UIImage *img = _portraitImageView.image;
     UIImageWriteToSavedPhotosAlbum(img, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+    
 }
 #pragma mark - CPPickerViewDataSource
 
@@ -861,13 +865,6 @@
     }];
 }
 
-#pragma mark - UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-}
-
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
-}
 
 #pragma mark camera utility
 - (BOOL) isCameraAvailable{

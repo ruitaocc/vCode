@@ -114,11 +114,17 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
             self.presentViewController(picker, animated: true, completion: nil)
             
         }*/
-        var cutview:CutViewController = CutViewController()
-        cutview.haveDataToEncode = true;
-        cutview.dataToEncode = textInput.text;
-        //self.presentViewController(finalview, animated: true, completion: nil)
-        self.showViewController(cutview, sender: sender)
+        self.performSegueWithIdentifier("setTextToCutView", sender: self)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let receiver:UIViewController = segue.destinationViewController as! UIViewController
+        if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
+            let val:NSNumber = NSNumber(bool:true)
+            receiver.setValue(val, forKey: "haveDataToEncode")
+        }
+        if(receiver.respondsToSelector(Selector("setDataToEncode:"))){
+            receiver.setValue(textInput.text, forKey: "dataToEncode")
+        }
     }
 
     func saveToUserDefaults(){
