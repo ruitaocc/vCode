@@ -71,6 +71,8 @@
     m_gebtn.flashColor = [UIColor whiteColor];
     [m_gebtn setText:NSLocalizedString(@"ol_generate", nil) withTextColor:[UIColor whiteColor]];
     [m_gebtn setTextColor:[UIColor whiteColor]];
+    m_gebtn.layer.cornerRadius = 5;
+    [m_gebtn clipsToBounds];
     __weak typeof(self) weakSefl = self;
     m_gebtn.clickBlock = ^(void){
         //[weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];

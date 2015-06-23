@@ -65,3 +65,7 @@
 "cut_isselect_user_img_ok"="继续";
 "cut_isselect_user_img_cancel"="选择";
 "cut_generate_btn"="下一步: 设计2V码";
+"cut_change_img"="更换图片";
+"cut_save_and_share"="保存并分享";
+"save_failed"="保存失败";
+"save_alert_ok"="确定";

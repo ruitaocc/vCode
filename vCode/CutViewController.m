@@ -22,6 +22,7 @@
 #define ParaHeight 64.0f
 #define StatusBatHeight 22.0f
 #define NavBatHeight 44.0f
+#define myBlue [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f]
 
 @interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITabBarDelegate,InfiniTabBarDelegate,CPPickerViewDataSource, CPPickerViewDelegate, ASValueTrackingSliderDelegate,UIAlertViewDelegate>{
 
@@ -51,8 +52,12 @@
 @property(strong , nonatomic)UIScrollView* m_second_paraView;
 @property(assign , nonatomic)BOOL m_second_paraView_isShowed;
 
-@property(assign , nonatomic)BOOL m_isSelectUserImg;
+//change & save &share
+@property(strong , nonatomic)UIView *m_css_view;
+@property(strong , nonatomic)WZFlashButton *m_change_img_btn;
+@property(strong , nonatomic)WZFlashButton *m_save_and_share_btn;
 
+@property(assign , nonatomic)BOOL m_isSelectUserImg;
 @property(strong , nonatomic)WZFlashButton *m_generateBtn;
 //p1
 @end
@@ -71,6 +76,10 @@
 @synthesize m_second_paraView_isShowed;
 @synthesize m_isSelectUserImg;
 @synthesize m_generateBtn;
+@synthesize m_css_view;
+@synthesize m_change_img_btn;
+@synthesize m_save_and_share_btn;
+
 - (void)viewDidLoad
 {
     m_second_paraView_isShowed = NO;
@@ -103,7 +112,10 @@
     btn_frame.origin.x = (s_width - btn_frame.size.width)/2;
     btn_frame.origin.y = s_height - TabHeight - ParaHeight;
     m_generateBtn = [[WZFlashButton alloc]initWithFrame:btn_frame];
+    m_generateBtn.textLabel.font = [UIFont systemFontOfSize:14];
     [m_generateBtn setText:NSLocalizedString(@"cut_generate_btn", nil) withTextColor:[UIColor whiteColor]];
+    m_generateBtn.layer.cornerRadius = 5;
+    [m_generateBtn clipsToBounds];
     __weak typeof(self) weakSelf = self;
     m_generateBtn.clickBlock = ^{
         [weakSelf next];
@@ -114,6 +126,7 @@
     [self loadSecondaryParaView];
     [self loadControllTab];
 
+    [self loadCSSView];
     
     CGRect spinner_frame ;
     spinner_frame.size.width = 40;
@@ -126,6 +139,72 @@
     
 
 }
+
+-(void)loadCSSView{
+    float s_witdh = self.view.frame.size.width;
+    float s_height = self.view.frame.size.height;
+    
+    CGRect viewframe;
+    viewframe.size.width = s_witdh;
+    viewframe.size.height = 38;
+    viewframe.origin.x = 0;
+    //init mid between _portraitImageView and tabcontrol
+    viewframe.origin.y = (((s_height - TabHeight) - (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height))-viewframe.size.height)/2 + (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height);
+    m_css_view = [[UIView alloc] initWithFrame:viewframe];
+    [m_css_view setBackgroundColor:[UIColor whiteColor]];
+    
+    //1/3
+    viewframe.origin.y = 0;
+    viewframe.size.width = 0.5*s_witdh*0.57;
+    viewframe.origin.x = (s_witdh/2-viewframe.size.width)/2 + 0.5*s_witdh*0.1;
+    m_change_img_btn = [[WZFlashButton alloc] initWithFrame:viewframe];
+    [m_change_img_btn setBackgroundColor:myBlue];
+    [m_change_img_btn setText:NSLocalizedString(@"cut_change_img", nil) withTextColor:[UIColor whiteColor]];
+    m_change_img_btn.textLabel.font = [UIFont systemFontOfSize:14];
+    m_change_img_btn.layer.cornerRadius = viewframe.size.height/2;
+    [m_change_img_btn clipsToBounds];
+    __weak typeof(self)weakself = self;
+    m_change_img_btn.clickBlock = ^{
+        [weakself editPortrait];
+    };
+    [m_css_view addSubview:m_change_img_btn];
+    
+    viewframe.size.width = 0.5*s_witdh*0.57;
+    viewframe.origin.x = (s_witdh/2-viewframe.size.width)/2+s_witdh/2 - 0.5*s_witdh*0.1;
+    m_save_and_share_btn = [[WZFlashButton alloc] initWithFrame:viewframe];
+    [m_save_and_share_btn setBackgroundColor:myBlue];
+    m_save_and_share_btn.layer.cornerRadius = viewframe.size.height/2;
+    m_save_and_share_btn.textLabel.font = [UIFont systemFontOfSize:14];
+    [m_save_and_share_btn clipsToBounds];
+    [m_save_and_share_btn setText:NSLocalizedString(@"cut_save_and_share", nil) withTextColor:[UIColor whiteColor]];
+    m_save_and_share_btn.clickBlock = ^{
+        [weakself saveAndShare];
+    };
+    [m_css_view addSubview:m_save_and_share_btn];
+    [self.view addSubview:m_css_view];
+    [m_css_view setHidden:YES];
+}
+
+// 指定回调方法
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    if(error != NULL){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"save_failed", nil)
+                                                        message:[error description]
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"save_alert_ok",nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    }else{
+        NSLog(@"save success!");
+        
+    }
+}
+-(void)saveAndShare{
+    NSLog(@"saveAndShare");
+    UIImage *img = _portraitImageView.image;
+    UIImageWriteToSavedPhotosAlbum(img, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+}
 #pragma mark - CPPickerViewDataSource
 
 - (NSInteger)numberOfItemsInPickerView:(CPPickerView *)pickerView
@@ -134,7 +213,7 @@
 }
 - (NSString *)pickerView:(CPPickerView *)pickerView titleForItem:(NSInteger)item
 {
-    return [NSString stringWithFormat:@"%d", min_version + item];
+    return [NSString stringWithFormat:@"%d", (int)(min_version + item)];
 }
 #pragma mark - CPPickerViewDelegate
 
@@ -452,6 +531,8 @@
     sf.origin.y = s_height-f_height-sec_height;
     m_second_paraView.frame = sf;
     sf.origin.y = s_height-f_height;
+    CGRect css_frame= m_css_view.frame;
+    css_frame.origin.y = (((s_height - TabHeight) - (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height))-css_frame.size.height)/2 + (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height);
     [UIView animateWithDuration:0.25 //时长
                           delay:0 //延迟时间
                         options:UIViewAnimationOptionTransitionNone//动画效果
@@ -459,7 +540,7 @@
                          
                          m_second_paraView.frame = sf;
                          m_second_paraView.alpha = 0.0;
-                         
+                         m_css_view.frame = css_frame;
                      } completion:^(BOOL finish){
                          m_second_paraView_isShowed = NO;
                          //动画结束时调用
@@ -475,6 +556,10 @@
     sf.origin.y = s_height-f_height;
     m_second_paraView.frame = sf;
     sf.origin.y = s_height-f_height-sec_height;
+    
+    CGRect css_frame= m_css_view.frame;
+    css_frame.origin.y = (((s_height - TabHeight-ParaHeight) - (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height))-css_frame.size.height)/2 + (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height);
+    
     [UIView animateWithDuration:0.5 //时长
                           delay:0 //延迟时间
                         options:UIViewAnimationOptionTransitionNone//动画效果
@@ -482,6 +567,7 @@
                          
                          m_second_paraView.frame = sf;
                          m_second_paraView.alpha = 1;
+                         m_css_view.frame = css_frame;
                          
                      } completion:^(BOOL finish){
                          //动画结束时调用
@@ -501,6 +587,10 @@
     CGRect sf = m_second_paraView.frame;
     sf.origin.y = s_height-height;
     [m_generateBtn setHidden:YES];
+    [m_css_view setHidden:NO];
+    m_css_view.alpha = 0.0;
+    CGRect css_frame= m_css_view.frame;
+    css_frame.origin.y = (((s_height - TabHeight) - (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height))-css_frame.size.height)/2 + (_portraitImageView.frame.origin.y+_portraitImageView.frame.size.height);
     [UIView animateWithDuration:0.5 //时长
                           delay:0 //延迟时间
                         options:UIViewAnimationOptionTransitionNone//动画效果
@@ -511,6 +601,8 @@
                          m_control_View.alpha = 1.0;
                          
                          m_second_paraView.frame = sf;
+                         m_css_view.frame = css_frame;
+                         m_css_view.alpha = 1.0;
                          
                      } completion:^(BOOL finish){
                          //动画结束时调用
@@ -892,7 +984,7 @@
     if (!_portraitImageView) {
         CGFloat w = self.view.frame.size.width*0.67; CGFloat h = w;
         CGFloat x = (self.view.frame.size.width - w) / 2;
-        CGFloat y = (self.view.frame.size.height - h - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight) / 2+(StatusBatHeight + NavBatHeight);
+        CGFloat y = (self.view.frame.size.height - h - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight) / 2+(StatusBatHeight + NavBatHeight) - 18;
         _portraitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, w, h)];
         //[_portraitImageView.layer setCornerRadius:(_portraitImageView.frame.size.height/2)];
         [_portraitImageView.layer setMasksToBounds:YES];

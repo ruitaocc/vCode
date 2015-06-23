@@ -49,6 +49,8 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         m_btn_Scan.backgroundColor = UIColor(red: 67.0/255.0, green:209.0/255.0, blue: 250.0/255.0, alpha: 1.0)
         m_btn_Scan.flashColor = UIColor.whiteColor()
         m_btn_Scan.setTextColor(UIColor.whiteColor())
+        m_btn_Scan.layer.cornerRadius = 5;
+        m_btn_Scan.clipsToBounds = true;
         //__weak typeof(self) weakSefl = self;
         m_btn_Scan.clickBlock = {
             self.beginCapture()
@@ -65,6 +67,8 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         m_btn_Album.flashColor = UIColor.whiteColor()
         m_btn_Album.setTextColor(UIColor.whiteColor())
         //__weak typeof(self) weakSefl = self;
+        m_btn_Album.layer.cornerRadius = 5;
+        m_btn_Album.clipsToBounds = true;
         m_btn_Album.clickBlock = {
             self.readFromImage()
         }

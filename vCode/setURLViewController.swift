@@ -54,6 +54,8 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         m_btn_next.flashColor = UIColor.whiteColor()
         m_btn_next.textLabel.font  = UIFont.systemFontOfSize(sysFontSize*0.95)
         m_btn_next.setTextColor(UIColor.whiteColor())
+        m_btn_next.layer.cornerRadius = 5;
+        m_btn_next.clipsToBounds = true;
         //__weak typeof(self) weakSefl = self;
         m_btn_next.clickBlock = {
             self.next()

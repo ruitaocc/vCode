@@ -65,3 +65,7 @@
 "cut_isselect_user_img_ok"="Go on";
 "cut_isselect_user_img_cancel"="Choose";
 "cut_generate_btn"="Next Step: Design V Code";
+"cut_change_img"="Change Photo";
+"cut_save_and_share"="Save & Share";
+"save_failed"="Photo Save Failed";
+"save_alert_ok"="OK";
