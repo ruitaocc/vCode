@@ -376,7 +376,6 @@
     m_para_TabBar.infiniTabBarDelegate = self;
     m_para_TabBar.bounces = NO;
     //[m_para_TabBar setContentInset:UIEdgeInsetsMake(0, 30, 0, 0)];
-    [m_para_TabBar setContentOffset:CGPointMake(s_witdh/10, 0) animated:YES];
     [m_para_TabBar showsHorizontalScrollIndicator];
     [m_control_View addSubview:m_auto_TabBar];
     [m_control_View addSubview:m_para_TabBar];
@@ -493,6 +492,7 @@
 
 -(void)showParaMainControlTab{
     float s_height = self.view.frame.size.height;
+    float s_witdh = self.view.frame.size.width;
     float height = TabHeight;
     CGRect f = m_control_View.frame;
     f.origin.y = s_height -height;
@@ -515,6 +515,7 @@
                      } completion:^(BOOL finish){
                          //动画结束时调用
                          [self computeQR];
+                         [m_para_TabBar setContentOffset:CGPointMake(s_witdh/10, 0) animated:YES];
                      }];
 }
 
