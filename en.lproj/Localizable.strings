@@ -5,6 +5,23 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"wechat_timeline"="Moments";
+"wechat_session"="Wechat";
+"wechat_favourite"="Wechat Favorite";
+"sina"="Sina";
+"qq_session"="QQ";
+"qzone"="Qzone";
+"yixin"="Yixin";
+"yixin_timeline"="YX Moments";
+"instagram"="Instagram";
+"fackbook"="Facebook";
+"twitter"="Twitter";
+"whatsapp"="Whatsapp";
+"tumblr"="Tumblr";
+"line"="Line";
+"txweibo"="Tencent";
+"renren"="Renren";
+
 "skip_text"="      Design V Code";
 "menu_qnamecard"="Online\nNameCard";
 "menu_history"="History";

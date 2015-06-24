@@ -10,9 +10,22 @@
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import "../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMFeedback.h"
-#import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
+#import "UMSocial.h"
+
+#import "UMSocialYixinHandler.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialInstagramHandler.h"
+#import "UMSocialWhatsappHandler.h"
+#import "UMSocialLineHandler.h"
+#import "UMSocialTumblrHandler.h"
 #import "UIDeviceHardware.h"
 #import "HistoryEntry.h"
+
+#define UmengAppkey @"5566c41067e58e4d69004417"
+#define WechatAppid @"wx2fbcb9c2b0d608b7"
+#define WechatSecret @"df0b45523a99f9c46d0194b16159c746"
+#define VcodeHome @"http://www.2vma.co"
 
 @interface AppDelegate (){
     bool isSkip;
@@ -36,11 +49,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     /*test*/
-    HistoryEntry *h1 = [[HistoryEntry alloc] init];
-    [h1 saveToDB];
     
-    NSMutableArray *his = [HistoryEntry getAllHistory];
-    NSLog(@"history row:%d",(int)[his count]);
+    [self configUMeng];
     
     UIDeviceHardware* hw = [[UIDeviceHardware alloc] init];
     BOOL is_ip56 = [hw Is_IPH_56];
@@ -128,14 +138,71 @@
 //    [self.window addSubview:tview];
     //[self.window bringSubviewToFront:lunchView];
     isSkip = false;
-    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:6.5 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     
     //UMengFeedBack otion
-    
-    [UMFeedback setAppkey:@"5566c41067e58e4d69004417"];
-    [UMSocialData setAppKey:@"5566c41067e58e4d69004417"];
     return YES;
 }
+-(void)configUMeng{
+    //feedback sdk
+    [UMFeedback setAppkey:UmengAppkey];
+    
+    //sns sdk//设置友盟社会化组件appkey
+    [UMSocialData setAppKey:UmengAppkey];
+    
+    //打开调试log的开关
+    [UMSocialData openLog:YES];
+    
+    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
+    //[UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
+    
+    //设置微信AppId，设置分享url，默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:WechatAppid appSecret:WechatSecret url:VcodeHome];
+    
+    //打开新浪微博的SSO开关
+    //   [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    //打开腾讯微博SSO开关，设置回调地址，只支持32位
+    //    [UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://sns.whalecloud.com/tencent2/callback"];
+    
+    //    //设置分享到QQ空间的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:VcodeHome];
+    
+    //    //设置易信Appkey和分享url地址
+    [UMSocialYixinHandler setYixinAppKey:@"yx35664bdff4db42c2b7be1e29390c1a06" url:VcodeHome];
+    
+    //    //设置来往AppId，appscret，显示来源名称和url地址，只支持32位
+    //    [UMSocialLaiwangHandler setLaiwangAppId:@"8112117817424282305" appSecret:@"9996ed5039e641658de7b83345fee6c9" appDescription:@"友盟社会化组件" urlStirng:@"http://www.umeng.com/social"];
+    
+    //打开人人网SSO开关
+    //[UMSocialRenrenHandler openSSO];
+    
+    //使用友盟统计
+    //[MobClick startWithAppkey:UmengAppkey];
+    
+    ////    设置facebook应用ID，和分享纯文字用到的url地址
+    //[UMSocialFacebookHandler setFacebookAppID:@"91136964205" shareFacebookWithURL:@"http://www.umeng.com/social"];
+    //
+    ////    下面打开Instagram的开关
+    [UMSocialInstagramHandler openInstagramWithScale:NO paddingColor:[UIColor blackColor]];
+    //
+    //[UMSocialTwitterHandler openTwitter];
+    
+    //打开whatsapp
+    [UMSocialWhatsappHandler openWhatsapp:UMSocialWhatsappMessageTypeImage];
+    
+    //打开Tumblr
+    [UMSocialTumblrHandler openTumblr];
+    
+    //打开line
+    NSLog(@"share app names:%@",NSLocalizedStringFromTable(@"wechat_session", @"UMSocialLocalizable", nil));
+    [UMSocialLineHandler openLineShare:UMSocialLineMessageTypeImage];
+    for (NSString *snsName in [UMSocialSnsPlatformManager sharedInstance].allSnsValuesArray) {
+        NSLog(@"%@",snsName);
+    }
+}
+
 -(void)skip_btn_click{
     [self removeLun];
 }
@@ -165,6 +232,13 @@
         isSkip=!isSkip;
     }
 }
+/**
+ 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
+ */
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -182,6 +256,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [UMSocialSnsService  applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

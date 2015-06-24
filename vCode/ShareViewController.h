@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShareViewController : UIViewController
+#import "UMSocialControllerService.h"
+@interface ShareViewController : UIViewController<UMSocialUIDelegate>
 
 @end

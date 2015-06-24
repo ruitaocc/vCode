@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>wechat_timeline</key>
+	<string>UMS_wechat_timeline_icon</string>
+	<key>wechat_session</key>
+	<string>UMS_wechat_session_icon</string>
+	<key>wechat_favourite</key>
+	<string>UMS_wechat_favorite_icon</string>
+	<key>sina</key>
+	<string>UMS_sina_icon</string>
+	<key>qq_session</key>
+	<string>UMS_qq_icon</string>
+	<key>qzone</key>
+	<string>UMS_qzone_icon</string>
+	<key>instagram</key>
+	<string>UMS_instagram</string>
+	<key>fackbook</key>
+	<string>UMS_facebook_icon</string>
+	<key>twitter</key>
+	<string>UMS_twitter_icon</string>
+	<key>whatsapp</key>
+	<string>UMS_whatsapp_icon</string>
+	<key>tumblr</key>
+	<string>UMS_tumblr_icon</string>
+	<key>line</key>
+	<string>UMS_line_icon</string>
+	<key>yixin</key>
+	<string>UMS_yixin_session</string>
+	<key>yixin_timeline</key>
+	<string>UMS_yixin_timeline</string>
+	<key>txweibo</key>
+	<string>UMS_tencent_icon</string>
+	<key>renren</key>
+	<string>UMS_renren_icon</string>
+</dict>
+</plist>
