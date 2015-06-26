@@ -4,7 +4,9 @@
 
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
-*/
+ */
+"sharelabel"="分享到:";
+"home"="首页";
 "wechat_timeline"="朋友圈";
 "wechat_session"="微信好友";
 "wechat_favourite"="微信收藏";

@@ -51,6 +51,7 @@
 		B626E3241B3AF68A0033614F /* libSocialYiXin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B626E30A1B3AF68A0033614F /* libSocialYiXin.a */; };
 		B626E3251B3AF68A0033614F /* libYixinSDK_V2.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B626E30B1B3AF68A0033614F /* libYixinSDK_V2.2.a */; };
 		B626E3271B3B1A100033614F /* shareinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = B626E3261B3B1A100033614F /* shareinfo.plist */; };
+		B63018B01B3BCDCF00C18AC3 /* shareplatform.plist in Resources */ = {isa = PBXBuildFile; fileRef = B63018AF1B3BCDCF00C18AC3 /* shareplatform.plist */; };
 		B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97D1B1C1DC700C401B3 /* en.lproj */; };
 		B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */; };
 		B630A9861B1D6DE900C401B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630A9851B1D6DE900C401B3 /* StoreKit.framework */; };
@@ -230,6 +231,7 @@
 		B626E30D1B3AF68A0033614F /* YXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApi.h; sourceTree = "<group>"; };
 		B626E30E1B3AF68A0033614F /* YXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApiObject.h; sourceTree = "<group>"; };
 		B626E3261B3B1A100033614F /* shareinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shareinfo.plist; sourceTree = "<group>"; };
+		B63018AF1B3BCDCF00C18AC3 /* shareplatform.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shareplatform.plist; sourceTree = "<group>"; };
 		B630A97D1B1C1DC700C401B3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		B630A97F1B1C1DD400C401B3 /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		B630A9851B1D6DE900C401B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -691,6 +693,7 @@
 				B65B1CD11B16B4E90028F631 /* Localizable.strings */,
 				B67F974F1AE3A30E0085DBB3 /* Info.plist */,
 				B67F97501AE3A30E0085DBB3 /* main.m */,
+				B63018AF1B3BCDCF00C18AC3 /* shareplatform.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				B630A97E1B1C1DC700C401B3 /* en.lproj in Resources */,
 				B641DF641B380323004449FD /* ProgressHUD.bundle in Resources */,
 				B626E3161B3AF68A0033614F /* UMSLoginViewController.xib in Resources */,
+				B63018B01B3BCDCF00C18AC3 /* shareplatform.plist in Resources */,
 				B626E31F1B3AF68A0033614F /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				B626E3121B3AF68A0033614F /* UMSCommentInputController.xib in Resources */,
 				B6EB47281B18973E00495FBA /* ip4_bg.png in Resources */,

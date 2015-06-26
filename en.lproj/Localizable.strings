@@ -5,6 +5,8 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"sharelabel"="Share to";
+"home"="Home";
 "wechat_timeline"="Moments";
 "wechat_session"="Wechat";
 "wechat_favourite"="Wechat Favorite";
