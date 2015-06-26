@@ -5,6 +5,7 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"network_transform_label"="Use network to translate";
 "sharelabel"="Share to";
 "home"="Home";
 "wechat_timeline"="Moments";
@@ -28,7 +29,7 @@
 "menu_qnamecard"="Online\nNameCard";
 "menu_history"="History";
 "menu_qr2vc"="QR Code\nto V Code";
-"menu_text"="Text";
+"menu_text"="Custom\nVCode";
 "menu_url"="URL";
 "menu_weichat"="WeiChat\nNameCard";
 "alert_coming" = "coming soon...";

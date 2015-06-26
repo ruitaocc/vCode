@@ -165,7 +165,7 @@
     //
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"home", nil)
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(goBackHome)];
-    rightButton.image = [UIImage imageNamed:@"like_icon.png"];
+    //rightButton.image = [UIImage imageNamed:@"like_icon.png"];
     self.navigationItem.rightBarButtonItem = rightButton;
                                                                 
 }

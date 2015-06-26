@@ -715,7 +715,7 @@
         NSLog(@"%@",_dataToEncode);
         _haveDataToEncode = YES;
         [self configParameters];
-        [self computeQR];
+        [self next];
     }
     if ([notification.name isEqualToString:@"requestERROR"]) {
         NSLog(@"Network error!");

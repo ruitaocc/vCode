@@ -18,7 +18,9 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
     @IBOutlet var notesLabel:UILabel!
     
     var m_btn_next:WZFlashButton!
-    
+    @IBOutlet var m_network_transform_label:UILabel!
+    @IBOutlet var m_network_transform_switch:UISwitch!
+    var m_is_network_translate:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,9 +30,7 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         indicatorLabel.numberOfLines = 2
         indicatorLabel.text = NSLocalizedString("text_indicator", comment: "")
         
-       
-        
-        //
+                //
         let s_width = self.view.frame.size.width
         let s_height = self.view.frame.size.height
         let grid_size = s_width/10.0;
@@ -69,13 +69,39 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
         notesLabel.font = UIFont.systemFontOfSize(14)
         notesLabel.textColor = UIColor.lightGrayColor()
         
+        
+        var inputFrame:CGRect = textInput.frame
+        var switchFrame:CGRect = CGRect()
+        switchFrame.size = CGSizeMake(51, 31)
+        switchFrame.origin.y = inputFrame.origin.y + inputFrame.size.height + 10
+        switchFrame.origin.x = inputFrame.origin.x + inputFrame.size.width - 51
+        //m_network_transform_switch = UISwitch(frame: switchFrame)
+        m_network_transform_switch.setOn(m_is_network_translate, animated: true)
+        m_network_transform_switch.addTarget(self, action: "network_translate:", forControlEvents: UIControlEvents.ValueChanged)
+        self.view.addSubview(m_network_transform_switch)
+        
+        switchFrame.size.width = inputFrame.size.width - 51
+        switchFrame.origin.x = inputFrame.origin.x
+        //m_network_transform_label = UILabel(frame: switchFrame)
+        m_network_transform_label.text = NSLocalizedString("network_transform_label", comment: "")
+        m_network_transform_label.font = UIFont.systemFontOfSize(14)
+        m_network_transform_label.textAlignment = NSTextAlignment.Right
+        m_network_transform_label.textColor = UIColor.grayColor()
+        self.view.addSubview(m_network_transform_label)
+
         self.view.endEditing(true)
         
         self.title = NSLocalizedString("text_title", comment: "")
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
+    func network_translate(sender:UISwitch){
+        m_is_network_translate = sender.on
+        println(self.m_is_network_translate)
+    }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
+        self.view.bringSubviewToFront(m_network_transform_switch)
+        self.view.bringSubviewToFront(m_network_transform_label)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -102,28 +128,27 @@ class setTextViewController: UIViewController, UINavigationControllerDelegate,UI
             return
         }
         saveToUserDefaults()
-        //RequestSender.sendRequest()
-        println(RequestSender.shortURL)
-        /*if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
-            var picker:UIImagePickerController = UIImagePickerController()
-            picker.delegate = self
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            picker.mediaTypes = [kUTTypeImage]
-            picker.allowsEditing = false
-            
-            self.presentViewController(picker, animated: true, completion: nil)
-            
-        }*/
+        if(m_is_network_translate){
+            RequestSender.sendRequest()
+        }
         self.performSegueWithIdentifier("setTextToCutView", sender: self)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let receiver:UIViewController = segue.destinationViewController as! UIViewController
-        if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
-            let val:NSNumber = NSNumber(bool:true)
-            receiver.setValue(val, forKey: "haveDataToEncode")
-        }
-        if(receiver.respondsToSelector(Selector("setDataToEncode:"))){
-            receiver.setValue(textInput.text, forKey: "dataToEncode")
+        if(m_is_network_translate){
+            let receiver:UIViewController = segue.destinationViewController as! UIViewController
+            if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
+                let val:NSNumber = NSNumber(bool:false)
+                receiver.setValue(val, forKey: "haveDataToEncode")
+            }
+        }else{
+            let receiver:UIViewController = segue.destinationViewController as! UIViewController
+            if(receiver.respondsToSelector(Selector("setHaveDataToEncode:"))){
+                let val:NSNumber = NSNumber(bool:true)
+                receiver.setValue(val, forKey: "haveDataToEncode")
+            }
+            if(receiver.respondsToSelector(Selector("setDataToEncode:"))){
+                receiver.setValue(textInput.text, forKey: "dataToEncode")
+            }
         }
     }
 

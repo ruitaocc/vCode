@@ -5,6 +5,8 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
+
+"network_transform_label"="使用网络进行转码";
 "sharelabel"="分享到:";
 "home"="首页";
 "wechat_timeline"="朋友圈";
@@ -28,7 +30,7 @@
 "menu_qnamecard"="网络\n名片";
 "menu_history"="历史\n纪录";
 "menu_qr2vc"="二维码\n转2V码";
-"menu_text"="文本码";
+"menu_text"="自定义\n2V码";
 "menu_url"="网络\n链接";
 "menu_weichat"="微信\n名片";
 "alert_coming"="即将到来...";

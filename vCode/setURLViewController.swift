@@ -126,6 +126,7 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 final_URL = "http://" + (url as String)
             }
         }
+        final_URL = final_URL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         ud.setObject(final_URL, forKey: "url")
         ud.setObject("url", forKey: "uploadType")
         ud.synchronize()
