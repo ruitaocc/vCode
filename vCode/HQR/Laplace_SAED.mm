@@ -1013,10 +1013,10 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
                             r_error = 0;
                             cvSet2D(res, i, j, cvScalar(gray_val,gray_val,gray_val));
                         }else{
-                            double ratio = gray_val/gray_val_pre;
-                            b_error = b_val- b_val*ratio; b_val = b_val*ratio;
-                            g_error = g_val- g_val*ratio;g_val = g_val*ratio;
-                            r_error = r_val- r_val*ratio;r_val = r_val*ratio;
+                            //double ratio = gray_val/gray_val_pre;
+                            b_error = - (gray_val - gray_val_pre); b_val = b_val + (gray_val - gray_val_pre);
+                            g_error = - (gray_val - gray_val_pre); g_val = g_val+ (gray_val - gray_val_pre);
+                            r_error = - (gray_val - gray_val_pre); r_val = r_val+ (gray_val - gray_val_pre);
                             r_error*=GUIDE_RATIO;
                             g_error*=GUIDE_RATIO;
                             b_error*=GUIDE_RATIO;
@@ -1030,10 +1030,10 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
                             r_error = 0;
                             cvSet2D(res, i, j, cvScalar(gray_val,gray_val,gray_val));
                         }else{
-                            double ratio = gray_val/gray_val_pre;
-                            b_error = b_val- b_val*ratio; b_val = b_val*ratio;
-                            g_error = g_val- g_val*ratio;g_val = g_val*ratio;
-                            r_error = r_val- r_val*ratio;r_val = r_val*ratio;
+                            //double ratio = gray_val/gray_val_pre;
+                            b_error = - (gray_val - gray_val_pre); b_val = b_val + (gray_val - gray_val_pre);
+                            g_error = - (gray_val - gray_val_pre); g_val = g_val+ (gray_val - gray_val_pre);
+                            r_error = - (gray_val - gray_val_pre); r_val = r_val+ (gray_val - gray_val_pre);
                             r_error*=GUIDE_RATIO;
                             g_error*=GUIDE_RATIO;
                             b_error*=GUIDE_RATIO;
@@ -1056,10 +1056,10 @@ IplImage *Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(IplImage *I_color,Ipl
                                 cvSet2D(res, i, j, cvScalar(gray_val, gray_val, gray_val));
                             }
                             else{
-                                double ratio = gray_val/gray_val_pre;
-                                b_error = b_val- b_val*ratio; b_val = b_val*ratio;
-                                g_error = g_val- g_val*ratio;g_val = g_val*ratio;
-                                r_error = r_val- r_val*ratio;r_val = r_val*ratio;
+                                //double ratio = gray_val/gray_val_pre;
+                                b_error = - (gray_val - gray_val_pre); b_val = b_val + (gray_val - gray_val_pre);
+                                g_error = - (gray_val - gray_val_pre); g_val = g_val+ (gray_val - gray_val_pre);
+                                r_error = - (gray_val - gray_val_pre); r_val = r_val+ (gray_val - gray_val_pre);
                                 r_error*=GUIDE_RATIO;
                                 g_error*=GUIDE_RATIO;
                                 b_error*=GUIDE_RATIO;
