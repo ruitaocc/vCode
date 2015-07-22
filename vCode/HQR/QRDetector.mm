@@ -8,10 +8,11 @@
 
 #import "QRDetector.h"
 #import "HQR.h"
+#import "HQR_typedef.h"
 @implementation QRDetector
 +(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str isGray:(BOOL)isgray{
     HQR* hqr = [HQR getInstance];
-    return [hqr generateQRwithImg:img text:str version:0 level:QR_ECLEVEL_L isGray:isgray];
+    return [hqr generateQRwithImg:img text:str version:0 level:QR_ECLEVEL_L style:HQR_Style_ColorHalftone];
 }
 
 +(NSString *)decodeQRwithImg:(UIImage *)img{
@@ -27,7 +28,7 @@
         dispatch_sync(concurrentQueue, ^{
             HQR* hqr = [HQR getInstance];
             [hqr setThreshold_PaddingArea:paddingarea nodePaddingArea:codingarea GuideRatio:ratio];
-            image =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev isGray:NO];
+            image =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev style:HQR_Style_ColorHalftone];
         });
         dispatch_sync(dispatch_get_main_queue(), ^{
             [viewRef setImage:image];

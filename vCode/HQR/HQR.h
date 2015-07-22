@@ -64,7 +64,7 @@ typedef enum _imageType {
  *               version for the given input data.
  *  @param level:error correction level.QR_ECLEVEL_L = 0,QR_ECLEVEL_M,QR_ECLEVEL_Q,QR_ECLEVEL_H
  */
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev isGray:(BOOL)isgray;
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev style:(HQR_style)style;
 
 /*
  @param img: target image

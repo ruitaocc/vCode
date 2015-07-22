@@ -212,7 +212,7 @@
 
 - (void)loadPortrait {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        UIImage *protraitImg = [UIImage imageNamed:@"lena.jpg"] ;
+        UIImage *protraitImg = [UIImage imageNamed:@"defaultavatar.png"] ;
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.m_portraitImageView.image = protraitImg;
         });
@@ -502,7 +502,7 @@
         // _portraitImageView.layer.borderColor = [[UIColor blackColor] CGColor];
         m_portraitImageView.layer.borderWidth = .0f;
         m_portraitImageView.userInteractionEnabled = YES;
-        m_portraitImageView.backgroundColor = [UIColor blackColor];
+        m_portraitImageView.backgroundColor = [UIColor whiteColor];
         UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
         [m_portraitImageView addGestureRecognizer:portraitTap];
     }else{

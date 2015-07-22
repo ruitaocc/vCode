@@ -133,7 +133,7 @@
     spinner_frame.size.width = 40;
     spinner_frame.size.height = 40;
     spinner_frame.origin.x = (self.view.frame.size.width-spinner_frame.size.width)/2;
-    spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight)/2+(StatusBatHeight + NavBatHeight);
+    spinner_frame.origin.y = (self.view.frame.size.height-spinner_frame.size.height - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight)/2+(StatusBatHeight + NavBatHeight) - 18;
     m_spinnerView = [[MMMaterialDesignSpinner alloc] initWithFrame:spinner_frame];
     m_spinnerView.lineWidth = 2.5f;
     m_spinnerView.tintColor = [UIColor colorWithRed:69/255.0 green:209.0/255.0 blue:250/255.0 alpha:1.0];

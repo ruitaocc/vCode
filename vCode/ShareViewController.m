@@ -169,6 +169,11 @@
     self.navigationItem.rightBarButtonItem = rightButton;
                                                                 
 }
+-(void)getVerifiedList{
+    
+    
+    
+}
 -(void)goBackHome{
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

@@ -24,8 +24,23 @@
 
 #define UmengAppkey @"5566c41067e58e4d69004417"
 #define WechatAppid @"wx2fbcb9c2b0d608b7"
+
 #define WechatSecret @"df0b45523a99f9c46d0194b16159c746"
 #define VcodeHome @"http://www.2vma.co"
+
+#define QQAppid @"1104741802"
+#define QQAppKey @"vVW7B16n1TIc8WWP"
+
+#define InstagramAppid @"990cd77e467a404eaf50df8ed7838d93"
+#define InstagramAppKey @"27796fc5662f4df2ae642a6b8ccce9db"
+
+#define FacebookAppid @"103395366670682"
+#define FacebookAppKey @"0d38521dd72a49ab9a1fc54fd030c091"
+
+#define SinaAppid @"2296515498"
+#define SinaAppKey @"9758e17bd2305eaedca27016d3bb1d2b"
+
+#define YixinAppid @"yx9a50f14ca0a948d8b3e331a5f0f4fca7"
 
 @interface AppDelegate (){
     bool isSkip;
@@ -138,7 +153,7 @@
 //    [self.window addSubview:tview];
     //[self.window bringSubviewToFront:lunchView];
     isSkip = false;
-    [NSTimer scheduledTimerWithTimeInterval:6.5 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:65 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     
     //UMengFeedBack otion
     return YES;
@@ -159,6 +174,7 @@
     //设置微信AppId，设置分享url，默认使用友盟的网址
     [UMSocialWechatHandler setWXAppId:WechatAppid appSecret:WechatSecret url:VcodeHome];
     
+
     //打开新浪微博的SSO开关
     //   [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     //    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
@@ -167,10 +183,10 @@
     //    [UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://sns.whalecloud.com/tencent2/callback"];
     
     //    //设置分享到QQ空间的应用Id，和分享url 链接
-    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:VcodeHome];
+    [UMSocialQQHandler setQQWithAppId:QQAppid appKey:QQAppKey url:VcodeHome];
     
     //    //设置易信Appkey和分享url地址
-    [UMSocialYixinHandler setYixinAppKey:@"yx35664bdff4db42c2b7be1e29390c1a06" url:VcodeHome];
+    [UMSocialYixinHandler setYixinAppKey:YixinAppid url:VcodeHome];
     
     //    //设置来往AppId，appscret，显示来源名称和url地址，只支持32位
     //    [UMSocialLaiwangHandler setLaiwangAppId:@"8112117817424282305" appSecret:@"9996ed5039e641658de7b83345fee6c9" appDescription:@"友盟社会化组件" urlStirng:@"http://www.umeng.com/social"];
@@ -195,6 +211,7 @@
     //打开Tumblr
     [UMSocialTumblrHandler openTumblr];
     
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,UMShareToWechatTimeline]];
     //打开line
     NSLog(@"share app names:%@",NSLocalizedStringFromTable(@"wechat_session", @"UMSocialLocalizable", nil));
     [UMSocialLineHandler openLineShare:UMSocialLineMessageTypeImage];

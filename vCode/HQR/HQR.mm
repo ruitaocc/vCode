@@ -178,7 +178,7 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     return  resolved_version;
 };
 
--(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev isGray:(BOOL)isgra{
+-(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev style:(HQR_style)style{
     cout<<"start"<<endl;
     //string *inputfilepath = new string(inputfile);
     //string *outputfilepath = new string(outputfile);
@@ -309,9 +309,16 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
    // delete [] maskImage; maskImage = NULL;
     //delete [] bits; bits = NULL;
     //return [self UIImageFromMat:img_color_mat];
-    return [self UIImageFromIplImage:img_color_3_margin];
-    
-
+    if(style == HQR_Style_ColorHalftone){
+        return [self UIImageFromIplImage:img_color_3_margin];
+    }else if(style == HQR_Style_ColorHalftone){
+        return [self UIImageFromIplImage:img_color_3_margin];
+    }else if(style == HQR_Style_ImageGuide){
+        return [self UIImageFromIplImage:img_color_3_margin];
+    }else{
+        return [self UIImageFromIplImage:img_color_3_margin];
+    }
+    return nil;
     // return [self UIImageFromMat:img_color_3_margin_mat];
 }
 
