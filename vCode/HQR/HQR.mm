@@ -42,7 +42,7 @@
 -(UIImage *)UIImageFromIplImage:(IplImage *)image;
 -(UIImage *)UIImageFromMat:(cv::Mat)aMat;
 -(IplImage *)CreateIplImageFromUIImage:(UIImage *)image;
-
+-(UIImage *)generateNormalQRWithText:(NSString *)str verison:(int)ver level:(QRecLevel)lev;
 @end
 
 
@@ -170,7 +170,7 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     QRcode *minmumQRcode;
     unsigned char *tmp_text = (unsigned char *)[text UTF8String];
     int t_length = 0;
-    t_length = strlen((char *)tmp_text);
+    t_length = (int)strlen((char *)tmp_text);
     [self setVersion:0];
     [self setLevel:QR_ECLEVEL_L];
     minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
@@ -178,25 +178,84 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     return  resolved_version;
 };
 
+-(UIImage *)generateNormalQRWithText:(NSString *)str verison:(int)ver level:(QRecLevel)lev{
+    return nil;
+    /*
+    QRcode *qrcode;
+    unsigned char *intext =(unsigned char *)[str cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    int length = 0;
+    length = (int)strlen((char *)intext);
+    qrcode = QRcode_encodeString((char *)intext, ver, lev, _hint, _casesensitive, NULL);
+    int width = qrcode->width;
+    unsigned char * p = qrcode->data;
+    cv::Mat Qr(_h_qr_point,_h_qr_point,CV_8UC3,Scalar(255,255,255));
+    for(int i = 0; i< width; i++){
+        uchar *Qr.
+        for(int j = 0; j< width; j++){
+            if(*(p+i*width+j)%2==1){
+                for(int k = 0; k<_size; k++){
+                    for(int h = 0; h<_size; h++){
+                        cvSet2D(Qr, i*_size+k, j*_size+h, cvScalar(0));
+                    }
+                }
+            }else{
+                for(int k = 0; k<_size; k++){
+                    for(int h = 0; h<_size; h++){
+                        cvSet2D(Qr, i*_size+k, j*_size+h, cvScalar(255));
+                    }
+                }
+            }
+        }
+    }
+    // resize and add margin
+    IplImage *img_color_3 = cvCreateImage(cvSize(Qr->width * 3 , Qr->height * 3 ), Qr->depth, Qr->nChannels);
+    cvResize(Qr, img_color_3, CV_INTER_NN);
+    
+    IplImage *img_color_3_margin = cvCreateImage(cvSize(Qr->width * 3 + 24, Qr->height * 3 + 24), Qr->depth, Qr->nChannels);
+    
+    cv::Mat img_color_mat(Qr->width,Qr->height,CV_8UC3,Qr->imageData,Qr->widthStep);
+    cv::Mat img_color_3_mat(img_color_3->width,img_color_3->height,CV_8UC3,img_color_3->imageData,img_color_3->widthStep);
+    
+    cv::Mat img_color_3_margin_mat(img_color_3_margin->width,img_color_3_margin->height,CV_8UC3,img_color_3_margin->imageData,img_color_3_margin->widthStep);
+    img_color_3_margin_mat.setTo(255);
+    cv::Mat imageROI_color;
+    imageROI_color = img_color_3_margin_mat(cv::Rect(12, 12, img_color_mat.cols * 3, img_color_mat.rows*3));
+    img_color_3_mat.copyTo(imageROI_color);
+    IplImage color_3_margin = img_color_3_margin_mat;
+    //img_color_3_margin = (IplImage*)(&color_3_margin);
+    //cvSaveImage(outputfilepath->c_str(), img_color_3_margin);
+    
+    UIImage *ret = [self UIImageFromIplImage:&color_3_margin];
+    
+    cvReleaseImage(&Qr);
+    cvReleaseImage(&img_color_3);
+    cvReleaseImage(&img_color_3_margin);
+    return ret;*/
+}
+
 -(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev style:(HQR_style)style{
     cout<<"start"<<endl;
-    //string *inputfilepath = new string(inputfile);
-    //string *outputfilepath = new string(outputfile);
     
     //resolve version
-    if (ver==0) {
-        int resolved_version = 0;
-        QRcode *minmumQRcode;
-        unsigned char *tmp_text = (unsigned char *)[str UTF8String];
-        int t_length = 0;
-        t_length = strlen((char *)tmp_text);
-        minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
-        resolved_version = minmumQRcode->version;
+    int resolved_version = 0;
+    QRcode *minmumQRcode;
+    unsigned char *tmp_text = (unsigned char *)[str UTF8String];
+    int t_length = 0;
+    t_length =(int) strlen((char *)tmp_text);
+    minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
+    resolved_version = minmumQRcode->version;
+    if (ver < resolved_version) {
         [self setVersion:resolved_version];
     }else{
         [self setVersion:ver];
     }
     [self setLevel:lev];
+   
+    if(style == HQR_Style_Normal){
+        //return [self generateNormalQRWithText:str verison:_version level:_level];
+    }
+    
     
     int * maskImage = new int[_qr_point*_qr_point];
     int * paddingArea = new int[_qr_point*_qr_point];

@@ -28,7 +28,7 @@
         dispatch_sync(concurrentQueue, ^{
             HQR* hqr = [HQR getInstance];
             [hqr setThreshold_PaddingArea:paddingarea nodePaddingArea:codingarea GuideRatio:ratio];
-            image =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev style:HQR_Style_ColorHalftone];
+            image =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev style:(HQR_style)style];
         });
         dispatch_sync(dispatch_get_main_queue(), ^{
             [viewRef setImage:image];
