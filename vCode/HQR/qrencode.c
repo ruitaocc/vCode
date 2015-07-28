@@ -720,7 +720,7 @@ static QRcode *QRcode_encodeMask(QRinput *input, int mask,int *maskImage)
 		if(p == NULL)  goto EXIT;
 		*p = 0x02;
 	}
-#if MuskPreDefineType
+#ifdef MuskPreDefineType
 	mask = 0;
 #endif
 	/* masking */

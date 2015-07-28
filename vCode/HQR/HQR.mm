@@ -179,59 +179,40 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
 };
 
 -(UIImage *)generateNormalQRWithText:(NSString *)str verison:(int)ver level:(QRecLevel)lev{
-    return nil;
-    /*
     QRcode *qrcode;
     unsigned char *intext =(unsigned char *)[str cStringUsingEncoding:NSUTF8StringEncoding];
-    
     int length = 0;
     length = (int)strlen((char *)intext);
-    qrcode = QRcode_encodeString((char *)intext, ver, lev, _hint, _casesensitive, NULL);
+    qrcode = QRcode_encodeString((char *)intext, 0, QRecLevel::QR_ECLEVEL_H, _hint, _casesensitive, NULL);
     int width = qrcode->width;
     unsigned char * p = qrcode->data;
-    cv::Mat Qr(_h_qr_point,_h_qr_point,CV_8UC3,Scalar(255,255,255));
-    for(int i = 0; i< width; i++){
-        uchar *Qr.
-        for(int j = 0; j< width; j++){
-            if(*(p+i*width+j)%2==1){
-                for(int k = 0; k<_size; k++){
-                    for(int h = 0; h<_size; h++){
-                        cvSet2D(Qr, i*_size+k, j*_size+h, cvScalar(0));
-                    }
-                }
+    int version = qrcode->version;
+    int qrpoint = (version-1)*4+21;
+    int hqrpoint = qrpoint*_size*3;
+    cv::Mat Qr(hqrpoint,hqrpoint,CV_8UC3,Scalar(255,255,255));
+    for(int i = 0; i< hqrpoint; i++){
+        uchar *pm = Qr.ptr(i);
+        for(int j = 0; j< hqrpoint; j++){
+            int x = i/(_size*3);
+            int y =j/(_size*3);
+            
+            if(*(p+x*width+y)%2==1){
+                pm[j*3+0] = 0.;
+                pm[j*3+1] = 0.;
+                pm[j*3+2] = 0.;
             }else{
-                for(int k = 0; k<_size; k++){
-                    for(int h = 0; h<_size; h++){
-                        cvSet2D(Qr, i*_size+k, j*_size+h, cvScalar(255));
-                    }
-                }
+                pm[j*3+0] = 255.;
+                pm[j*3+1] = 255.;
+                pm[j*3+2] = 255.;
             }
         }
     }
-    // resize and add margin
-    IplImage *img_color_3 = cvCreateImage(cvSize(Qr->width * 3 , Qr->height * 3 ), Qr->depth, Qr->nChannels);
-    cvResize(Qr, img_color_3, CV_INTER_NN);
-    
-    IplImage *img_color_3_margin = cvCreateImage(cvSize(Qr->width * 3 + 24, Qr->height * 3 + 24), Qr->depth, Qr->nChannels);
-    
-    cv::Mat img_color_mat(Qr->width,Qr->height,CV_8UC3,Qr->imageData,Qr->widthStep);
-    cv::Mat img_color_3_mat(img_color_3->width,img_color_3->height,CV_8UC3,img_color_3->imageData,img_color_3->widthStep);
-    
-    cv::Mat img_color_3_margin_mat(img_color_3_margin->width,img_color_3_margin->height,CV_8UC3,img_color_3_margin->imageData,img_color_3_margin->widthStep);
-    img_color_3_margin_mat.setTo(255);
-    cv::Mat imageROI_color;
-    imageROI_color = img_color_3_margin_mat(cv::Rect(12, 12, img_color_mat.cols * 3, img_color_mat.rows*3));
-    img_color_3_mat.copyTo(imageROI_color);
-    IplImage color_3_margin = img_color_3_margin_mat;
-    //img_color_3_margin = (IplImage*)(&color_3_margin);
-    //cvSaveImage(outputfilepath->c_str(), img_color_3_margin);
-    
+    cv::Mat Qr6margin(hqrpoint+24,hqrpoint+24,CV_8UC3,Scalar(255,255,255));
+    cv::Mat roi = Qr6margin(cv::Rect(12, 12,hqrpoint,hqrpoint));
+    Qr.copyTo(roi);
+    IplImage color_3_margin = Qr6margin;
     UIImage *ret = [self UIImageFromIplImage:&color_3_margin];
-    
-    cvReleaseImage(&Qr);
-    cvReleaseImage(&img_color_3);
-    cvReleaseImage(&img_color_3_margin);
-    return ret;*/
+    return ret;
 }
 
 -(UIImage *)generateQRwithImg:(UIImage *)img text:(NSString *)str version:(int)ver level:(QRecLevel)lev style:(HQR_style)style{
@@ -239,21 +220,20 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     
     //resolve version
     int resolved_version = 0;
-    QRcode *minmumQRcode;
     unsigned char *tmp_text = (unsigned char *)[str UTF8String];
     int t_length = 0;
     t_length =(int) strlen((char *)tmp_text);
-    minmumQRcode = [self encode:tmp_text length:t_length maskImage:NULL];
-    resolved_version = minmumQRcode->version;
+    resolved_version = [self getMinimunVersionWithText:str];
     if (ver < resolved_version) {
         [self setVersion:resolved_version];
     }else{
         [self setVersion:ver];
     }
     [self setLevel:lev];
-   
+  
+    
     if(style == HQR_Style_Normal){
-        //return [self generateNormalQRWithText:str verison:_version level:_level];
+        return [self generateNormalQRWithText:str verison:_version level:_level];
     }
     
     
@@ -263,27 +243,19 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     
     IplImage *I_gray;
     IplImage *I_color;
-    IplImage *Ih_gray;//qr_guide_halftone
-    IplImage *Ih_color;//qr_guide_halftone
-   
-    IplImage *Iqr_color;//halftone-qr-with-ditector
     
     IplImage * color_original  = [self CreateIplImageFromUIImage:img];
     //gray
     //cvCvtColor(fromUiimage, color_original, CV_BGR2GRAY);
     IplImage *color_resized = cvCreateImage(cvSize(_h_qr_point, _h_qr_point), color_original->depth, color_original->nChannels);
     cvResize(color_original, color_resized);
+    I_color = color_resized;
+    I_gray = cvCreateImage(cvSize(color_resized->width, color_resized->height), color_original->depth, 1);
+    cvCvtColor(color_resized, I_gray, CV_BGR2GRAY);
     
-    IplImage *gray_original = cvCreateImage(cvSize(color_original->width, color_original->height), color_original->depth, 1);
-    cvCvtColor(color_original, gray_original, CV_BGR2GRAY);
     
-    IplImage *gray_resized = cvCreateImage(cvSize(_h_qr_point, _h_qr_point), IPL_DEPTH_8U, gray_original->nChannels);
-    cvResize(gray_original, gray_resized);
-    I_gray = gray_resized;
     DitheringHalftone(I_gray,maskImage);//
     memcpy(paddingArea,maskImage,sizeof(int)*_qr_point*_qr_point);//
-    
-    cout<<"pos1"<<endl;
     
     QRcode *qrcode;
     IplImage *Qr;//qr-code
@@ -322,65 +294,60 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
             }
         }
     }
-    I_color = color_resized;
-    cout<<"gray qr generated"<<endl;
+   
     
-    // Ih = QR_Guide_OstromoukhovHalftone(I,Qr);
-    Ih_gray = Qr_Guide_Laplace_SAED_Halftone_gray(I_gray,Qr);
-    cout<<"gray halftone generated"<<endl;
-    //Ih_color = Qr_Guide_Laplace_SAED_Halftone_color(I_color,I_gray,Qr);
-    Ih_color = Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(I_color,I_gray,Qr,paddingArea,_size);
-    cout<<"half tone img generated"<<endl;
+    IplImage *targetQR = NULL;
     
-    //Iqr_gray = cvCloneImage(Ih_gray);
-    Iqr_color = cvCloneImage(Ih_color);
-#if OTHER_INFO
-   // 	addAlignMentPatterm_gray(Iqr_gray,Qr,qrcode,_size);
-    addAlignMentPatterm_color(Iqr_color,Qr,qrcode,_size);
-#endif
-    cout<<"saving"<<endl;
-    IplImage *img_color_3 = cvCreateImage(cvSize(Iqr_color->width * 3 , Iqr_color->height * 3 ), Iqr_color->depth, Iqr_color->nChannels);
-    cvResize(Iqr_color, img_color_3, CV_INTER_NN);
-    
-    IplImage *img_color_3_margin = cvCreateImage(cvSize(Iqr_color->width * 3 + 24, Iqr_color->height * 3 + 24), Iqr_color->depth, Iqr_color->nChannels);
-    IplImage i;
-    //cv::Mat m(i.imageData);
-    //cv::Mat img_color_mat(Iqr_color);66
-    cv::Mat img_color_mat(Iqr_color->width,Iqr_color->height,CV_8UC3,Iqr_color->imageData,Iqr_color->widthStep);
-    //cv::Mat img_color_3_mat(img_color_3);
-    cv::Mat img_color_3_mat(img_color_3->width,img_color_3->height,CV_8UC3,img_color_3->imageData,img_color_3->widthStep);
-    
-    //cv::Mat img_color_3_margin_mat(img_color_3_margin);
-    cv::Mat img_color_3_margin_mat(img_color_3_margin->width,img_color_3_margin->height,CV_8UC3,img_color_3_margin->imageData,img_color_3_margin->widthStep);
-    img_color_3_margin_mat.setTo(255);
-    cv::Mat imageROI_color;
-    imageROI_color = img_color_3_margin_mat(cv::Rect(12, 12, img_color_mat.cols * 3, img_color_mat.rows*3));
-    img_color_3_mat.copyTo(imageROI_color);
-    IplImage color_3_margin = img_color_3_margin_mat;
-    img_color_3_margin = (IplImage*)(&color_3_margin);
-    //cvSaveImage(outputfilepath->c_str(), img_color_3_margin);
-    cout<<"saved img"<<endl;
-    //  cvReleaseImage(&Iqr);
-    // cvReleaseImage(&fimg2);
-    // cvReleaseImage(&img8bit3);    
-    
-    cout<<"finish"<<endl;
-   // delete [] maskImage; maskImage = NULL;
-    //delete [] bits; bits = NULL;
-    //return [self UIImageFromMat:img_color_mat];
     if(style == HQR_Style_ColorHalftone){
-        return [self UIImageFromIplImage:img_color_3_margin];
-    }else if(style == HQR_Style_ColorHalftone){
-        return [self UIImageFromIplImage:img_color_3_margin];
+        targetQR =Qr_Guide_Laplace_SAED_Halftone_color(I_color,I_gray,Qr);
+    }else if(style == HQR_Style_GrayHalftone){
+        targetQR =Qr_Guide_Laplace_SAED_Halftone_gray(I_gray,Qr);
     }else if(style == HQR_Style_ImageGuide){
-        return [self UIImageFromIplImage:img_color_3_margin];
-    }else{
-        return [self UIImageFromIplImage:img_color_3_margin];
+        targetQR =Qr_Guide_Laplace_SAED_Halftone_color_paddingdata(I_color,I_gray,Qr,paddingArea,_size);
     }
-    return nil;
-    // return [self UIImageFromMat:img_color_3_margin_mat];
+    if(targetQR->nChannels==1){
+        addAlignMentPatterm_gray(targetQR, Qr, qrcode, _size);
+    }else{
+        addAlignMentPatterm_color(targetQR, Qr, qrcode, _size);
+    }
+    cout<<"saving"<<endl;
+    cv::Mat target3Channel = cv::Mat(targetQR->width,targetQR->height,CV_8UC3);
+    
+    for(int i =0;i<target3Channel.rows;i++){
+        uchar *p = target3Channel.ptr(i);
+        for(int j=0;j<target3Channel.cols;j++){
+            if (targetQR->nChannels==1) {
+                cv::Scalar s = cvGet2D(targetQR, i, j);
+                *(p+j*3+0 ) = s.val[0];
+                *(p+j*3+1 ) = s.val[0];
+                *(p+j*3+2 ) = s.val[0];
+            }else{
+                cv::Scalar s = cvGet2D(targetQR, i, j);
+                *(p+j*3+0 ) = s.val[0];
+                *(p+j*3+1 ) = s.val[1];
+                *(p+j*3+2 ) = s.val[2];
+            }
+        }
+    }
+    cout<<"converted"<<endl;
+    cv::Mat targetExtend3x(target3Channel.rows*3,target3Channel.cols*3,CV_8UC3,Scalar(255,255,255));
+    cv::resize(target3Channel, targetExtend3x, targetExtend3x.size(),0,0,CV_INTER_NN);
+    
+    cv::Mat targetExtend3xMargin(targetExtend3x.rows+24,targetExtend3x.cols+24,CV_8UC3,Scalar(255,255,255));
+    cv::Mat roi = targetExtend3xMargin(cv::Rect(12, 12,targetExtend3x.rows,targetExtend3x.cols));
+    targetExtend3x.copyTo(roi);
+    
+    IplImage color_3_margin = targetExtend3xMargin;
+    
+    
+    cvReleaseImage(&targetQR);
+    cvReleaseImage(&I_color);
+    cvReleaseImage(&I_gray);
+    cvReleaseImage(&Qr);
+    QRcode_free(qrcode);
+    return [self UIImageFromIplImage:&color_3_margin];
+    
 }
-
 -(QRcode*) encode:(const unsigned char *)intext length:(int)length maskImage:(int *)maskImg {
     QRcode *code;
     

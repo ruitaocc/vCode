@@ -559,7 +559,7 @@ extern char *QRcode_APIVersionString(void);
  */
 extern void QRcode_clearCache(void);
 
-#define MuskPreDefineType 1  //是否采用特定掩码方式的开关。
+#define MuskPreDefineType   //是否采用特定掩码方式的开关。
 
 #if defined(__cplusplus)
 }

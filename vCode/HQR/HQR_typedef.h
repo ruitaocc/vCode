@@ -19,9 +19,9 @@ typedef enum _HQR_type{
 }HQR_type;
 
 typedef enum _HQR_style{
+    HQR_Style_ImageGuide,
     HQR_Style_ColorHalftone,
     HQR_Style_GrayHalftone,
-    HQR_Style_ImageGuide,
     HQR_Style_Normal
 }HQR_style;
 
