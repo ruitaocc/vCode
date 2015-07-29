@@ -58,6 +58,46 @@
 
     return self;
 }
+- (id)initWithItemFrame:(CGRect)frame withItems:(NSArray *)items{
+	self = [super initWithFrame:frame];
+	
+    if (self) {
+		self.pagingEnabled = NO;
+        self.scrollEnabled = YES;
+		self.delegate = self;
+		
+		self.tabBars = [[NSMutableArray alloc] init] ;
+		
+		float x = 0.0;
+        NSLog(@"ceil: %f",ceil(items.count / 5.0));
+		for (double d = 0; d < ceil(items.count / 5.0); d ++) {
+            
+						
+			int len = 0;
+			
+			for (int i = d * 5; i < d * 5 + 5; i ++)
+				if (i < items.count)
+					len ++;
+            float width =  frame.size.width;
+            UITabBar *tabBar = [[UITabBar alloc] initWithFrame:CGRectMake(x, 0.0, width, 49.0)];
+            tabBar.delegate = self;
+
+			tabBar.items = [items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(d * 5, len)]];
+			
+			[self addSubview:tabBar];
+			
+			[self.tabBars addObject:tabBar];
+			
+			
+			x += width;
+        
+		}
+		
+		self.contentSize = CGSizeMake(x, 49.0);
+	}
+
+    return self;
+};
 
 - (void)setBounces:(BOOL)bounces {
 	if (bounces) {

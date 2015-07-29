@@ -22,6 +22,7 @@ typedef enum _HQR_style{
     HQR_Style_ImageGuide,
     HQR_Style_ColorHalftone,
     HQR_Style_GrayHalftone,
+    HQR_Style_PaddingOptimize,
     HQR_Style_Normal
 }HQR_style;
 

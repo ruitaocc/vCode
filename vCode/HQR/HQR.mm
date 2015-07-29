@@ -297,8 +297,9 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
    
     
     IplImage *targetQR = NULL;
-    
-    if(style == HQR_Style_ColorHalftone){
+    if(style == HQR_Style_PaddingOptimize){
+        targetQR = cvCloneImage(Qr);
+    }else if(style == HQR_Style_ColorHalftone){
         targetQR =Qr_Guide_Laplace_SAED_Halftone_color(I_color,I_gray,Qr);
     }else if(style == HQR_Style_GrayHalftone){
         targetQR =Qr_Guide_Laplace_SAED_Halftone_gray(I_gray,Qr);

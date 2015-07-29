@@ -259,11 +259,8 @@
     UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:11];
     UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:12];
     UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:13];
-    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithFrame:CGRectMake(0.2*s_witdh, (ParaHeight-TabHeight)/2, 0.78*s_witdh, TabHeight) withItems:[NSArray arrayWithObjects:topRated,
-                                                                                                                          featured,
-                                                                                                                          recents,
-                                                                                                                          contacts,
-                                                                                                                          nil]];
+    UITabBarItem *contacts2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:14];
+    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithItemFrame:CGRectMake(0.2*s_witdh, (ParaHeight-TabHeight)/2, 0.78*s_witdh, TabHeight) withItems:[NSArray arrayWithObjects:topRated,featured,recents,contacts,contacts2,nil]];
     [m_style_TabBar selectItemWithTag:10];
     m_style_TabBar.infiniTabBarDelegate = self;
     m_style_TabBar.bounces = NO;
@@ -484,7 +481,7 @@
     NSLog(@"select tag %d",tag);
     
     //
-    if(tag>=10 && tag<=13){
+    if(tag>=10 && tag<=14){
         m_para_style = tag-10;
         NSLog(@"Style:%d",m_para_style);
         [self computeQR];

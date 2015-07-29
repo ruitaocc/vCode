@@ -23,6 +23,7 @@
 @property (nonatomic, retain) UITabBar *bTabBar;
 
 - (id)initWithFrame:(CGRect)frame withItems:(NSArray *)items;
+- (id)initWithItemFrame:(CGRect)frame withItems:(NSArray *)items;
 - (void)setBounces:(BOOL)bounces;
 // Don't set more items than initially
 - (void)setItems:(NSArray *)items animated:(BOOL)animated;
