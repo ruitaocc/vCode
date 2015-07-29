@@ -379,6 +379,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */,
 				B626E2D21B3AF50E0033614F /* Accounts.framework in Frameworks */,
 				B626E2D01B3AF4F00033614F /* ImageIO.framework in Frameworks */,
 				B626E31E1B3AF68A0033614F /* TencentOpenAPI.framework in Frameworks */,
@@ -410,7 +411,6 @@
 				B6A448E21AE514FD0024F109 /* Foundation.framework in Frameworks */,
 				B626E31A1B3AF68A0033614F /* libSocialInstagram.a in Frameworks */,
 				B6A448E01AE514E90024F109 /* CoreGraphics.framework in Frameworks */,
-				B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */,
 				B6A4489E1AE4E19B0024F109 /* opencv2.framework in Frameworks */,
 				9941A2B1ACD03EA21D674C08 /* libPods.a in Frameworks */,
 				B626E3251B3AF68A0033614F /* libYixinSDK_V2.2.a in Frameworks */,

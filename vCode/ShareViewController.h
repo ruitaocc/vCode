@@ -10,5 +10,5 @@
 
 #import "UMSocialControllerService.h"
 @interface ShareViewController : UIViewController<UMSocialUIDelegate>
-
+@property (nonatomic,strong)UIImage* m_shareImg;
 @end

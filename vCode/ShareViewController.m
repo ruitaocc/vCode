@@ -5,7 +5,7 @@
 //  Created by ruitaocc on 15/6/23.
 //  Copyright (c) 2015年 ruitaocc. All rights reserved.
 //
-
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "ShareViewController.h"
 #import "WZFlashButton.h"
 #import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
@@ -54,6 +54,7 @@
 
 @implementation ShareViewController
 @synthesize m_modify_btn;
+@synthesize m_shareImg;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:NSLocalizedString(@"cut_save_and_share", nil)];
@@ -181,28 +182,41 @@
         //
 }
 -(void)shareAction:(UIButton*)sender{
+    
     NSLog(@"sender tag:%d",(int)sender.tag);
     //NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:@"shareinfo.plist"];
     
     NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.umeng.com/social";
-    UIImage *shareImage = [UIImage imageNamed:@"lena.jpg"];
+    UIImage *shareImage = m_shareImg;
     
-    
+   // [[UMSocialControllerService defaultControllerService]setSocialUIDelegate:self];
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:self];
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline];
     snsPlatform.snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
     
 }
-////下面可以设置根据点击不同的分享平台，设置不同的分享文字
-//-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData
-//{
-//    if ([platformName isEqualToString:UMShareToSina]) {
-//        socialData.shareText = @"分享到新浪微博";
-//    }
-//    else{
-//        socialData.shareText = @"分享内嵌文字";
-//    }
-//}
+//下面可以设置根据点击不同的分享平台，设置不同的分享文字
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData
+{
+    
+    
+    //UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:m_shareImg_URL]];
+    if([platformName isEqualToString:UMShareToWechatTimeline]){
+        NSLog(@"wechat");
+        NSLog(@"m_shareImg:%@",m_shareImg);
+        socialData.shareText = @"#from 2V码";
+        socialData.shareImage = m_shareImg;//[UIImage imageNamed:@"lena.jpg"];
+        socialData.extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+    }
+    else if ([platformName isEqualToString:UMShareToSina]) {
+        socialData.shareText = @"分享到新浪微博";
+    }
+    else{
+        socialData.shareText = @"分享内嵌文字";
+    }
+    
+    
+}
 
 -(void)didCloseUIViewController:(UMSViewControllerType)fromViewControllerType
 {

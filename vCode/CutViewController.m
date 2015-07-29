@@ -16,7 +16,6 @@
 #import "ASValueTrackingSlider.h"
 #import "WZFlashButton.h"
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
-
 #define ORIGINAL_MAX_WIDTH 640.0f
 
 #define TabHeight 49.0f
@@ -38,6 +37,7 @@
     float m_para_ratio;
 }
 @property(strong ,nonatomic)UIImage *m_selected_img;
+@property(strong ,nonatomic)UIImage *m_saved_img;
 
 @property(strong ,nonatomic)UIImage *m_default_img;
 @property(strong ,nonatomic)CPPickerView *horizontalPickerView;
@@ -80,7 +80,7 @@
 @synthesize m_css_view;
 @synthesize m_change_img_btn;
 @synthesize m_save_and_share_btn;
-
+@synthesize m_saved_img;
 - (void)viewDidLoad
 {
     m_second_paraView_isShowed = NO;
@@ -209,16 +209,48 @@
         }
     }else{
         NSLog(@"save success!");
+        NSLog(@"path: %@",contextInfo);
+        m_saved_img = image;
         [self performSegueWithIdentifier:@"gotoSaveAndShare" sender:self];
     }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UIViewController *receiver = segue.destinationViewController;
+    if([receiver respondsToSelector:@selector(setM_shareImg:)]){
+        [receiver setValue:m_saved_img forKey:@"m_shareImg"];
+       // [receiver setValue:[m_historyAry objectAtIndex:m_selected_index]forKey:@"item"];
+    }
 }
 -(void)saveAndShare{
     NSLog(@"saveAndShare");
     UIImage *img = _portraitImageView.image;
     UIImageWriteToSavedPhotosAlbum(img, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-    
+    return;
+//    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//    [library writeImageToSavedPhotosAlbum:[img CGImage] orientation:(ALAssetOrientation)[img imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+//        if(error){
+//            if ([error code]==-3310) {
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"premission_deny_title", nil)
+//                                                                message:NSLocalizedString(@"premission_deny_msg", nil)
+//                                                               delegate:self
+//                                                      cancelButtonTitle:NSLocalizedString(@"save_alert_ok",nil)
+//                                                      otherButtonTitles:nil];
+//                [alert show];
+//            }else{
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"save_failed", nil)
+//                                                                message:[error description]
+//                                                               delegate:self
+//                                                      cancelButtonTitle:NSLocalizedString(@"save_alert_ok",nil)
+//                                                      otherButtonTitles:nil];
+//                [alert show];
+//            }
+//        }else{
+//            NSLog(@"save success!");
+//            m_asset_url = assetURL ;
+//            NSLog(@"path: %@",m_asset_url);
+//            [self performSegueWithIdentifier:@"gotoSaveAndShare" sender:self];
+//        }
+//    }];
 }
 #pragma mark - CPPickerViewDataSource
 
@@ -296,7 +328,7 @@
     horizontalPickerView.showGlass = YES;
     horizontalPickerView.peekInset = UIEdgeInsetsMake(0, 0.6*s_witdh*0.3, 0, 0.6*s_witdh*0.3);
     [horizontalPickerView reloadData];;
-   // horizontalPickerView setSelectedItem:<#(NSUInteger)#>
+   // horizontalPickerView setSelectedItem:
     [sub_verison_view addSubview:horizontalPickerView];
     [m_second_paraView addSubview:sub_verison_view];
     
