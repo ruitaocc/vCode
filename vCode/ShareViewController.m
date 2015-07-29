@@ -135,7 +135,7 @@
     lrect.size.width = s_width;
     lrect.size.height = 44;
     lrect.origin.x = 0;
-    lrect.origin.y = (btn_frame.origin.y - (rect.origin.y+rect.size.height))/2+rect.origin.y+rect.size.height;
+    lrect.origin.y = rect.origin.y+rect.size.height;
     UILabel *saveedLabel = [[UILabel alloc] initWithFrame:lrect];
     [saveedLabel setText:NSLocalizedString(@"saveed_note", nil)];
     [saveedLabel setTextAlignment:NSTextAlignmentCenter];

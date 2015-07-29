@@ -192,12 +192,21 @@
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
 {
     if(error != NULL){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"save_failed", nil)
+        if ([error code]==-3310) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"premission_deny_title", nil)
+                                                        message:NSLocalizedString(@"premission_deny_msg", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"save_alert_ok",nil)
+                                              otherButtonTitles:nil];
+            [alert show];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"save_failed", nil)
                                                         message:[error description]
                                                        delegate:self
                                               cancelButtonTitle:NSLocalizedString(@"save_alert_ok",nil)
                                               otherButtonTitles:nil];
-        [alert show];
+            [alert show];
+        }
     }else{
         NSLog(@"save success!");
         [self performSegueWithIdentifier:@"gotoSaveAndShare" sender:self];

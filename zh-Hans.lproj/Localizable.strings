@@ -6,6 +6,8 @@
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
 
+"premission_deny_title" = "存储失败";
+"premission_deny_msg" = "允许相册存储，请打开 设置－隐私－照片 2V码。";
 "network_transform_label"="使用网络进行转码";
 "sharelabel"="分享到:";
 "home"="首页";
