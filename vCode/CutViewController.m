@@ -35,6 +35,7 @@
     float m_para_coding_area;
     float m_para_padding_area;
     float m_para_ratio;
+    bool firstTimeChooseImg;
 }
 @property(strong ,nonatomic)UIImage *m_selected_img;
 @property(strong ,nonatomic)UIImage *m_saved_img;
@@ -81,10 +82,13 @@
 @synthesize m_change_img_btn;
 @synthesize m_save_and_share_btn;
 @synthesize m_saved_img;
+@synthesize hasImage;
+@synthesize preAvatar;
 - (void)viewDidLoad
 {
     m_second_paraView_isShowed = NO;
     m_isSelectUserImg = NO;
+    firstTimeChooseImg = YES;
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [super viewDidLoad];
@@ -820,13 +824,27 @@
     //self.portraitImageView.image = protraitImg;
 }
 
-- (void)editPortrait {
-    UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
+- (void)editPortrait{
+    if(firstTimeChooseImg && hasImage && preAvatar!=nil){
+        UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:NSLocalizedString(@"actionsheet_cancel", nil)
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:NSLocalizedString(@"actionsheet_take_photo", nil), NSLocalizedString(@"actionsheet_select_form_albums", nil), nil];
-    [choiceSheet showInView:self.view];
+                                                    otherButtonTitles:NSLocalizedString(@"actionsheet_take_photo", nil), NSLocalizedString(@"actionsheet_select_form_albums", nil),
+                                                        NSLocalizedString(@"actionsheet_select_form_previous", nil), nil];
+        choiceSheet.tag = 10301;
+        [choiceSheet showInView:self.view];
+        firstTimeChooseImg =NO;
+        NSLog(@"action sheet with previous chooice");
+    }else{
+        UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"actionsheet_cancel", nil)
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:NSLocalizedString(@"actionsheet_take_photo", nil), NSLocalizedString(@"actionsheet_select_form_albums", nil), nil];
+        choiceSheet.tag = 10302;
+        [choiceSheet showInView:self.view];
+    }
 }
 
 #pragma mark VPImageCropperDelegate
@@ -881,6 +899,10 @@
                                  NSLog(@"Picker View Controller is presented");
                              }];
         }
+    }else if(actionSheet.tag==10301 && buttonIndex ==2){
+        //form previous view
+        self.portraitImageView.image = preAvatar;
+        m_isSelectUserImg = YES; 
     }
 }
 

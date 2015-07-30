@@ -15,6 +15,7 @@
 @interface OnlineNameCardController : UITableViewController<UITableViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate>
 @property(strong,nonatomic)IBOutlet WZFlashButton *m_gebtn;
 @property(strong,nonatomic)IBOutlet UIImageView *m_portraitImageView;
+@property(nonatomic, assign)BOOL hasAvatar;
 
 @property(strong, nonatomic)IBOutlet HoshiTextField *m_ui_fullname;
 @property(strong, nonatomic)IBOutlet HoshiTextField *m_ui_nickname;

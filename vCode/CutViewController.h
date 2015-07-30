@@ -11,4 +11,6 @@
 @interface CutViewController : UIViewController
 @property BOOL haveDataToEncode;
 @property NSString* dataToEncode;
+@property (nonatomic,assign)BOOL hasImage;
+@property (nonatomic,strong)UIImage * preAvatar;
 @end

@@ -48,6 +48,7 @@
 "actionsheet_cancel" = "取消";
 "actionsheet_take_photo" = "拍照";
 "actionsheet_select_form_albums" = "从相册中选取";
+"actionsheet_select_form_previous" = "使用名片头像";
 "namecard_must_fill" = "带有(*)的项目不能为空";
 "namecard_email_format_error"="邮箱格式不正确，请重新填写";
 "infodetail"="关于我";

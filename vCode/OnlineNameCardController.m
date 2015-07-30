@@ -41,11 +41,12 @@
 @synthesize m_ui_wechat;
 @synthesize m_tableView;
 @synthesize m_pickview;
+@synthesize hasAvatar;
 -(void)viewDidLoad{
     [self setTitle:NSLocalizedString(@"OnlineNameCardTittle", nil) ];
     //UITableViewCell* lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:10 inSection:0]];
     
-    
+    hasAvatar = NO;
     [m_ui_fullname setLimmitLength:30];
     [m_ui_address setLimmitLength:80];
     [m_ui_birthday setLimmitLength:20];
@@ -197,6 +198,14 @@
         NSNumber *val = [NSNumber numberWithBool:false];
         [receiver setValue:val forKey:@"haveDataToEncode"];
     }
+    if([receiver respondsToSelector:@selector(setHasImage:)]){
+        NSNumber *val = [NSNumber numberWithBool:hasAvatar];
+        [receiver setValue:val forKey:@"hasImage"];
+    }
+    if(hasAvatar && [receiver respondsToSelector:@selector(setPreAvatar:)]){
+        UIImage *avatar = self.m_portraitImageView.image;
+        [receiver setValue:avatar forKey:@"preAvatar"];
+    }
     
 }
 
@@ -266,6 +275,7 @@
 #pragma mark VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     self.m_portraitImageView.image = editedImage;
+    hasAvatar = true;
     //save doc
     
     NSString *docDir  = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];

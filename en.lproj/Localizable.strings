@@ -47,6 +47,7 @@
 "OnlineNameCardTittle"="Online NameCard";
 "actionsheet_cancel" = "Cancel";
 "actionsheet_take_photo" = "Take a photo";
+"actionsheet_select_form_previous" = "Use NameCard Avatar";
 "actionsheet_select_form_albums" = "Select form albums";
 "namecard_must_fill" = "Items with (*) must be filled";
 "namecard_email_format_error"="The e-mail should be filled in proper format";
