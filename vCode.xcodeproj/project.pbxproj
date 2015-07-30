@@ -109,6 +109,7 @@
 		B6A448F11AE527B20024F109 /* UIImage+opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = B6A448F01AE527B20024F109 /* UIImage+opencv.mm */; };
 		B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448F21AE5282E0024F109 /* CoreImage.framework */; };
 		B6A448F71AE7EC310024F109 /* lena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F61AE7EC310024F109 /* lena.jpg */; };
+		B6A4F2CD1B6A1550006AC380 /* libSocialFacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A4F2CB1B6A1550006AC380 /* libSocialFacebook.a */; };
 		B6D2AD391B1B01AD0024AA42 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */; };
 		B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA7D1B2466E5008334C8 /* OnlineNameCardController.m */; };
 		B6DBAA971B24759C008334C8 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA961B24759C008334C8 /* HoshiTextField.swift */; };
@@ -324,6 +325,8 @@
 		B6A448F01AE527B20024F109 /* UIImage+opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+opencv.mm"; sourceTree = "<group>"; };
 		B6A448F21AE5282E0024F109 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B6A448F61AE7EC310024F109 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = HQR/lena.jpg; sourceTree = "<group>"; };
+		B6A4F2CB1B6A1550006AC380 /* libSocialFacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialFacebook.a; sourceTree = "<group>"; };
+		B6A4F2CC1B6A1550006AC380 /* UMSocialFacebookHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialFacebookHandler.h; sourceTree = "<group>"; };
 		B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		B6DBAA7C1B2466E5008334C8 /* OnlineNameCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineNameCardController.h; sourceTree = "<group>"; };
@@ -379,6 +382,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A4F2CD1B6A1550006AC380 /* libSocialFacebook.a in Frameworks */,
 				B6A448A11AE4F3C20024F109 /* AssetsLibrary.framework in Frameworks */,
 				B626E2D21B3AF50E0033614F /* Accounts.framework in Frameworks */,
 				B626E2D01B3AF4F00033614F /* ImageIO.framework in Frameworks */,
@@ -484,6 +488,7 @@
 		B626E2EE1B3AF68A0033614F /* UMSocial_Sdk_Extra_Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6A4F2CA1B6A1550006AC380 /* Facebook */,
 				B626E2EF1B3AF68A0033614F /* Instagram */,
 				B626E2F21B3AF68A0033614F /* LaiWang */,
 				B626E2F51B3AF68A0033614F /* Line */,
@@ -821,6 +826,15 @@
 				B6A4487D1AE4E01C0024F109 /* QR_GuideOstromoukhov.hpp */,
 			);
 			name = LSAED;
+			sourceTree = "<group>";
+		};
+		B6A4F2CA1B6A1550006AC380 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				B6A4F2CB1B6A1550006AC380 /* libSocialFacebook.a */,
+				B6A4F2CC1B6A1550006AC380 /* UMSocialFacebookHandler.h */,
+			);
+			path = Facebook;
 			sourceTree = "<group>";
 		};
 		B6DBAAAD1B249302008334C8 /* TextEffects */ = {
@@ -1342,6 +1356,8 @@
 					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Line",
 					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Tumblr",
 					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Whatsapp",
+					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Facebook",
+					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Twitter",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "vCode/vCode-Bridging-Header.h";
@@ -1384,6 +1400,8 @@
 					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Line",
 					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Tumblr",
 					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Whatsapp",
+					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Facebook",
+					"$(PROJECT_DIR)/vCode/UMSocial_Sdk_Extra_Frameworks/Twitter",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "vCode/vCode-Bridging-Header.h";

@@ -10,6 +10,7 @@
 #import "WZFlashButton.h"
 #import "UMSocial_Sdk_4.2.3/Header/UMSocial.h"
 #import "UMSocial_Sdk_Extra_Frameworks/Wechat/WXApi.h"
+#import "UMSocial_Sdk_Extra_Frameworks/YiXin/YXApi.h"
 #import "UMSocial_Sdk_Extra_Frameworks/Wechat/UMSocialWechatHandler.h"
 #define TabHeight 49.0f
 #define ParaHeight 64.0f
@@ -75,9 +76,96 @@
     
     NSString *filePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"shareplatform.plist"];
     NSArray *sharedic = [NSArray arrayWithContentsOfFile:filePath];
-    int i = 0;
+    int i = 0; int index = 0;
     float sHeight = x_magin*2 +grid_height*(ceil([sharedic count]/4.0));
     for(NSArray *item in sharedic){
+        if (index == 0 || index==1 ||index==2) {
+            //wechat
+            NSURL *url = [NSURL URLWithString:@"weixin://"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has wechat:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 4 || index==5){
+            //qq qzone
+            NSURL *url = [NSURL URLWithString:@"mqq://"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has qq & qzone:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+
+        }else if(index == 6){
+            //instagram
+            NSURL *url = [NSURL URLWithString:@"instagram://"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has qq & qzone:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 7){
+            //facebook
+            NSURL *url = [NSURL URLWithString:@"fb://"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has facebook:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 8){
+            //twwiter
+            NSURL *url = [NSURL URLWithString:@"twitter://"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has twitter:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 9){
+            //whatapp
+            NSURL *url = [NSURL URLWithString:@"whatsapp://"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has whatsapp:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 10){
+            //tumblr
+            NSURL *url = [NSURL URLWithString:@"tumblr://x-callback-url/dashboard"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has tumblr:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 11){
+            //line
+            NSURL *url = [NSURL URLWithString:@"line://msg/text/vCode"];
+            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+            NSLog(@"has line:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index == 12 || index==13){
+            //yixin
+            bool hasApp =   [YXApi isYXAppInstalled];
+            NSLog(@"has yixin:%d",hasApp);
+            if(!hasApp){
+                index++;
+                continue;
+            }
+        }else if(index ==14){
+            //tencent
+        }else if(index ==15){
+            //renren
+        }
+        
         NSString *itemName = NSLocalizedString(item[0], nil);
         NSString *itemImg = [NSString stringWithFormat:@"UMSocialSDKResourcesNew.bundle/SnsPlatform/%@",item[1]];
         UIImage *img = [UIImage imageNamed:itemImg];
@@ -86,7 +174,7 @@
         float x = x_magin + column * grid_width;
         float y = x_magin + saveView.frame.origin.y+saveView.frame.size.height+ row * grid_height;
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(x, y, grid_width, grid_height)];
-        btn.tag = i+10000;
+        btn.tag = index+10000;
         btn.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [btn setImage:img withTitle:itemName forState:UIControlStateNormal];
         //btn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -95,6 +183,7 @@
         [btn clipsToBounds];
          [btn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
         [scrollview addSubview:btn];
+        index++;
         i++;
     }
     [self.view addSubview:scrollview];
@@ -186,14 +275,46 @@
     NSLog(@"sender tag:%d",(int)sender.tag);
     //NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:@"shareinfo.plist"];
     
-    NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.umeng.com/social";
+    NSString *shareText = NSLocalizedString(@"sharetext", nil);
+    NSLog(@"shareText:%@",shareText);
     UIImage *shareImage = m_shareImg;
-    
-   // [[UMSocialControllerService defaultControllerService]setSocialUIDelegate:self];
+    NSString *platform;
+    if (sender.tag == 10000) {
+        platform = UMShareToWechatTimeline;
+    }else  if (sender.tag == 10001) {
+        platform = UMShareToWechatSession;
+    }else  if (sender.tag == 10002) {
+        platform = UMShareToWechatFavorite;
+    }else  if (sender.tag == 10003) {
+        platform = UMShareToSina;
+    }else  if (sender.tag == 10004) {
+        platform = UMShareToQQ;
+    }else  if (sender.tag == 10005) {
+        platform = UMShareToQzone;
+    }else  if (sender.tag == 10006) {
+        platform = UMShareToInstagram;
+    }else  if (sender.tag == 10007) {
+        platform = UMShareToFacebook;
+    }else  if (sender.tag == 10008) {
+        platform = UMShareToTwitter;
+    }else  if (sender.tag == 10009) {
+        platform = UMShareToWhatsapp;
+    }else  if (sender.tag == 10010) {
+        platform = UMShareToTumblr;
+    }else  if (sender.tag == 10011) {
+        platform = UMShareToLine;
+    }else  if (sender.tag == 10012) {
+        platform = UMShareToYXSession;
+    }else  if (sender.tag == 10013) {
+        platform = UMShareToYXTimeline;
+    }else  if (sender.tag == 10014) {
+        platform = UMShareToTencent;
+    }else  if (sender.tag == 10015) {
+        platform = UMShareToRenren;
+    }
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:self];
-    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline];
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platform];
     snsPlatform.snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
-    
 }
 //下面可以设置根据点击不同的分享平台，设置不同的分享文字
 -(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData
@@ -201,18 +322,20 @@
     
     
     //UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:m_shareImg_URL]];
-    if([platformName isEqualToString:UMShareToWechatTimeline]){
-        NSLog(@"wechat");
-        NSLog(@"m_shareImg:%@",m_shareImg);
-        socialData.shareText = @"#from 2V码";
-        socialData.shareImage = m_shareImg;//[UIImage imageNamed:@"lena.jpg"];
+    if([platformName isEqualToString:UMShareToWechatTimeline] || [platformName isEqualToString:UMShareToWechatFavorite] || [platformName isEqualToString:UMShareToWechatSession]){
         socialData.extConfig.wxMessageType = UMSocialWXMessageTypeImage;
-    }
-    else if ([platformName isEqualToString:UMShareToSina]) {
-        socialData.shareText = @"分享到新浪微博";
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToSina]) {
     }
     else{
-        socialData.shareText = @"分享内嵌文字";
     }
     
     

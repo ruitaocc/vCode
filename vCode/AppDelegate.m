@@ -19,6 +19,7 @@
 #import "UMSocialWhatsappHandler.h"
 #import "UMSocialLineHandler.h"
 #import "UMSocialTumblrHandler.h"
+#import "UMSocial_Sdk_Extra_Frameworks/Facebook/UMSocialFacebookHandler.h"
 #import "UIDeviceHardware.h"
 #import "HistoryEntry.h"
 
@@ -176,8 +177,8 @@
     
 
     //打开新浪微博的SSO开关
-    //   [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-    //    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //[UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //[UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
     //打开腾讯微博SSO开关，设置回调地址，只支持32位
     //    [UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://sns.whalecloud.com/tencent2/callback"];
@@ -198,7 +199,8 @@
     //[MobClick startWithAppkey:UmengAppkey];
     
     ////    设置facebook应用ID，和分享纯文字用到的url地址
-    //[UMSocialFacebookHandler setFacebookAppID:@"91136964205" shareFacebookWithURL:@"http://www.umeng.com/social"];
+
+    [UMSocialFacebookHandler setFacebookAppID:FacebookAppid shareFacebookWithURL:VcodeHome];
     //
     ////    下面打开Instagram的开关
     [UMSocialInstagramHandler openInstagramWithScale:NO paddingColor:[UIColor blackColor]];
