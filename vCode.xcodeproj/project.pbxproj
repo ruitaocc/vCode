@@ -110,6 +110,7 @@
 		B6A448F31AE5282E0024F109 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A448F21AE5282E0024F109 /* CoreImage.framework */; };
 		B6A448F71AE7EC310024F109 /* lena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A448F61AE7EC310024F109 /* lena.jpg */; };
 		B6A4F2CD1B6A1550006AC380 /* libSocialFacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A4F2CB1B6A1550006AC380 /* libSocialFacebook.a */; };
+		B6A4F2DF1B6B3BB7006AC380 /* 2vmawatermark.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A4F2DE1B6B3BB7006AC380 /* 2vmawatermark.png */; };
 		B6D2AD391B1B01AD0024AA42 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */; };
 		B6DBAA7E1B2466E5008334C8 /* OnlineNameCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA7D1B2466E5008334C8 /* OnlineNameCardController.m */; };
 		B6DBAA971B24759C008334C8 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBAA961B24759C008334C8 /* HoshiTextField.swift */; };
@@ -327,6 +328,7 @@
 		B6A448F61AE7EC310024F109 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = HQR/lena.jpg; sourceTree = "<group>"; };
 		B6A4F2CB1B6A1550006AC380 /* libSocialFacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialFacebook.a; sourceTree = "<group>"; };
 		B6A4F2CC1B6A1550006AC380 /* UMSocialFacebookHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialFacebookHandler.h; sourceTree = "<group>"; };
+		B6A4F2DE1B6B3BB7006AC380 /* 2vmawatermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2vmawatermark.png; sourceTree = "<group>"; };
 		B6D2AD371B1B01AD0024AA42 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		B6D2AD381B1B01AD0024AA42 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		B6DBAA7C1B2466E5008334C8 /* OnlineNameCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineNameCardController.h; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 				B68E7F951B344F53003EFEED /* shadowOverlay@2x.png */,
 				B68E7F961B344F53003EFEED /* stretchableGlass@2x.png */,
 				B68E7F971B344F53003EFEED /* wheelBackground@2x.png */,
+				B6A4F2DE1B6B3BB7006AC380 /* 2vmawatermark.png */,
 				B6EB47231B18973E00495FBA /* feedback_icon.png */,
 				B6EB47241B18973E00495FBA /* info_icon.png */,
 				B6EB47251B18973E00495FBA /* ip4_bg.png */,
@@ -1047,6 +1050,7 @@
 				B626E3161B3AF68A0033614F /* UMSLoginViewController.xib in Resources */,
 				B63018B01B3BCDCF00C18AC3 /* shareplatform.plist in Resources */,
 				B626E31F1B3AF68A0033614F /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				B6A4F2DF1B6B3BB7006AC380 /* 2vmawatermark.png in Resources */,
 				B626E3121B3AF68A0033614F /* UMSCommentInputController.xib in Resources */,
 				B6EB47281B18973E00495FBA /* ip4_bg.png in Resources */,
 				B626E30F1B3AF68A0033614F /* UMSocialLocalizable.strings in Resources */,

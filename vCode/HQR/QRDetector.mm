@@ -20,6 +20,26 @@
     return [hqr decodeQRwithImg:img];
 }
 
++(UIImage *)addWaterMarkToQRcode:(UIImage*)qrimg waterMark:(UIImage*)watermark{
+    // Create a thumbnail version of the image for the event object.
+    CGSize size = qrimg.size;
+    
+    // Crop the image before resize
+    // Done cropping
+    
+    // Resize the image
+    CGRect rect = CGRectMake(0.0, 0.0, size.width,size.height);
+    CGRect rect2 = CGRectMake((size.width-watermark.size.width)/2, size.height-24, watermark.size.width,24 );
+    UIGraphicsBeginImageContext(rect.size);
+    [qrimg drawInRect:rect];
+    [watermark drawInRect:rect2];
+    
+    
+    UIImage *ret = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // Done Resizing
+    return ret;
+};
 +(UIImage *)generatePhotoThumbnail:(UIImage*)image{
     // Create a thumbnail version of the image for the event object.
     CGSize size = image.size;
@@ -63,7 +83,9 @@
         dispatch_sync(concurrentQueue, ^{
             HQR* hqr = [HQR getInstance];
             [hqr setThreshold_PaddingArea:paddingarea nodePaddingArea:codingarea GuideRatio:ratio];
-            image =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev style:(HQR_style)style];
+            UIImage*qrcode =  [hqr generateQRwithImg:img text:str version:ver level:(QRecLevel)lev style:(HQR_style)style];
+            UIImage*watermark = [UIImage imageNamed:@"2vmawatermark.png"];
+            image = [QRDetector addWaterMarkToQRcode:qrcode waterMark:watermark];
         });
         dispatch_sync(dispatch_get_main_queue(), ^{
             [viewRef setImage:image];

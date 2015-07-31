@@ -1042,9 +1042,9 @@
 #pragma mark portraitImageView getter
 - (UIImageView *)portraitImageView {
     if (!_portraitImageView) {
-        CGFloat w = self.view.frame.size.width*0.67; CGFloat h = w;
+        CGFloat w = self.view.frame.size.width*0.75; CGFloat h = w;
         CGFloat x = (self.view.frame.size.width - w) / 2;
-        CGFloat y = (self.view.frame.size.height - h - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight) / 2+(StatusBatHeight + NavBatHeight) - 18;
+        CGFloat y = (self.view.frame.size.height - h - ParaHeight - TabHeight - StatusBatHeight - NavBatHeight) / 2 + (StatusBatHeight + NavBatHeight) - 30;
         _portraitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, w, h)];
         //[_portraitImageView.layer setCornerRadius:(_portraitImageView.frame.size.height/2)];
         [_portraitImageView.layer setMasksToBounds:YES];

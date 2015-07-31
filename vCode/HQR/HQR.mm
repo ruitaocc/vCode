@@ -207,8 +207,8 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
             }
         }
     }
-    cv::Mat Qr6margin(hqrpoint+24,hqrpoint+24,CV_8UC3,Scalar(255,255,255));
-    cv::Mat roi = Qr6margin(cv::Rect(12, 12,hqrpoint,hqrpoint));
+    cv::Mat Qr6margin(hqrpoint+48,hqrpoint+48,CV_8UC3,Scalar(255,255,255));
+    cv::Mat roi = Qr6margin(cv::Rect(24, 24,hqrpoint,hqrpoint));
     Qr.copyTo(roi);
     IplImage color_3_margin = Qr6margin;
     UIImage *ret = [self UIImageFromIplImage:&color_3_margin];
@@ -345,19 +345,15 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
         }
     }
     
-    cv::Mat targetExtend3xMargin(targetExtend3x.rows+24,targetExtend3x.cols+24,CV_8UC3,Scalar(255,255,255));
-    cv::Mat roi = targetExtend3xMargin(cv::Rect(12, 12,targetExtend3x.rows,targetExtend3x.cols));
+    cv::Mat targetExtend3xMargin(targetExtend3x.rows+48,targetExtend3x.cols+48,CV_8UC3,Scalar(255,255,255));
+    cv::Mat roi = targetExtend3xMargin(cv::Rect(24, 24,targetExtend3x.rows,targetExtend3x.cols));
     targetExtend3x.copyTo(roi);
-    
-    IplImage color_3_margin = targetExtend3xMargin;
-    
     
     cvReleaseImage(&targetQR);
     cvReleaseImage(&I_color);
     cvReleaseImage(&I_gray);
     cvReleaseImage(&Qr);
     QRcode_free(qrcode);
-//    return [self UIImageFromIplImage:&color_3_margin];
     return [self UIImageFromMat:targetExtend3xMargin];
     
 }
