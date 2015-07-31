@@ -188,13 +188,13 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     unsigned char * p = qrcode->data;
     int version = qrcode->version;
     int qrpoint = (version-1)*4+21;
-    int hqrpoint = qrpoint*_size*3;
+    int hqrpoint = qrpoint*_size*4;
     cv::Mat Qr(hqrpoint,hqrpoint,CV_8UC3,Scalar(255,255,255));
     for(int i = 0; i< hqrpoint; i++){
         uchar *pm = Qr.ptr(i);
         for(int j = 0; j< hqrpoint; j++){
-            int x = i/(_size*3);
-            int y =j/(_size*3);
+            int x = i/(_size*4);
+            int y =j/(_size*4);
             
             if(*(p+x*width+y)%2==1){
                 pm[j*3+0] = 0.;
@@ -331,8 +331,19 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
         }
     }
     cout<<"converted"<<endl;
-    cv::Mat targetExtend3x(target3Channel.rows*3,target3Channel.cols*3,CV_8UC3,Scalar(255,255,255));
-    cv::resize(target3Channel, targetExtend3x, targetExtend3x.size(),0,0,CV_INTER_NN);
+    cv::Mat targetExtend3x(target3Channel.rows*6,target3Channel.cols*6,CV_8UC3,Scalar(255,255,255));
+    //cv::resize(target3Channel, targetExtend3x, targetExtend3x.size(),0,0,CV_INTER_NN);
+    for(int i = 0; i< targetExtend3x.rows; i++){
+        uchar *pm = targetExtend3x.ptr(i);
+        int r = i/6;
+        uchar *p = target3Channel.ptr(r);
+        for(int j = 0; j< targetExtend3x.cols; j++){
+            int c =j/6;
+            *(pm + j*3 + 0) = *(p + c*3 +0);
+            *(pm + j*3 + 1) = *(p + c*3 +1);
+            *(pm + j*3 + 2) = *(p + c*3 +2);
+        }
+    }
     
     cv::Mat targetExtend3xMargin(targetExtend3x.rows+24,targetExtend3x.cols+24,CV_8UC3,Scalar(255,255,255));
     cv::Mat roi = targetExtend3xMargin(cv::Rect(12, 12,targetExtend3x.rows,targetExtend3x.cols));
