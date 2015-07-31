@@ -12,6 +12,7 @@
 #import "UMSocial_Sdk_Extra_Frameworks/Wechat/WXApi.h"
 #import "UMSocial_Sdk_Extra_Frameworks/YiXin/YXApi.h"
 #import "UMSocial_Sdk_Extra_Frameworks/Wechat/UMSocialWechatHandler.h"
+#import "QRDetector.h"
 #define TabHeight 49.0f
 #define ParaHeight 64.0f
 #define StatusBatHeight 22.0f
@@ -270,6 +271,7 @@
 -(void)loadShareView{
         //
 }
+
 -(void)shareAction:(UIButton*)sender{
     
     NSLog(@"sender tag:%d",(int)sender.tag);
@@ -277,14 +279,32 @@
     
     NSString *shareText = NSLocalizedString(@"sharetext", nil);
     NSLog(@"shareText:%@",shareText);
-    UIImage *shareImage = m_shareImg;
+    UIImage *shareImage = [UIImage imageWithData: UIImagePNGRepresentation(m_shareImg)];
     NSString *platform;
-    if (sender.tag == 10000) {
+    if (sender.tag == 10000 || sender.tag==10001 || sender.tag==10002) {
         platform = UMShareToWechatTimeline;
-    }else  if (sender.tag == 10001) {
-        platform = UMShareToWechatSession;
-    }else  if (sender.tag == 10002) {
-        platform = UMShareToWechatFavorite;
+        WXMediaMessage *message = [WXMediaMessage message];
+        [message setThumbImage:[QRDetector generatePhotoThumbnail:m_shareImg]];
+        
+        WXImageObject *ext = [WXImageObject object];
+        ext.imageData = UIImagePNGRepresentation(m_shareImg);
+        message.description = shareText;
+        message.mediaObject = ext;
+        message.mediaTagName = @"WECHAT_TAG_JUMP_APP";
+        message.messageExt = shareText;
+        message.messageAction = @"<action>dotalist</action>";
+        
+        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+        req.text = shareText;
+        req.bText = NO;
+        req.message = message;
+        if(sender.tag==10000)req.scene = 1;//timeline
+        if(sender.tag==10001)req.scene = 0;//session
+        if(sender.tag==10002)req.scene = 2;//favorite
+        
+        [WXApi sendReq:req];
+        
+        return;
     }else  if (sender.tag == 10003) {
         platform = UMShareToSina;
     }else  if (sender.tag == 10004) {
@@ -323,6 +343,7 @@
     
     //UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:m_shareImg_URL]];
     if([platformName isEqualToString:UMShareToWechatTimeline] || [platformName isEqualToString:UMShareToWechatFavorite] || [platformName isEqualToString:UMShareToWechatSession]){
+        
         socialData.extConfig.wxMessageType = UMSocialWXMessageTypeImage;
     }else if ([platformName isEqualToString:UMShareToSina]) {
     }else if ([platformName isEqualToString:UMShareToSina]) {

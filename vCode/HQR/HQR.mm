@@ -357,7 +357,8 @@ void convertToBits( QRcode * qrcode,int *A,const char* filename );//int
     cvReleaseImage(&I_gray);
     cvReleaseImage(&Qr);
     QRcode_free(qrcode);
-    return [self UIImageFromIplImage:&color_3_margin];
+//    return [self UIImageFromIplImage:&color_3_margin];
+    return [self UIImageFromMat:targetExtend3xMargin];
     
 }
 -(QRcode*) encode:(const unsigned char *)intext length:(int)length maskImage:(int *)maskImg {

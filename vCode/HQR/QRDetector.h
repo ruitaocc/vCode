@@ -15,5 +15,5 @@ typedef void (^FBlock) (void);
 
 +(UIImage *)generateQRforView:(UIImageView *) viewRef withImg:(UIImage *)img text:(NSString *)str style:(int)style version:(int)ver level:(int)lev codingarea:(float)codingarea paddingarea:(float)paddingarea guideratio:(float)ratio withFinishedBlock:(FBlock) block;
 +(int)getMinimunVersionWithText:(NSString*)text;
-
++(UIImage *)generatePhotoThumbnail:(UIImage*)image;
 @end

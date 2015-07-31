@@ -903,7 +903,7 @@
     }else if(actionSheet.tag==10301 && buttonIndex ==2){
         //form previous view
         self.portraitImageView.image = preAvatar;
-        m_isSelectUserImg = YES; 
+        m_isSelectUserImg = YES;
     }
 }
 
