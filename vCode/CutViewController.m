@@ -725,6 +725,7 @@
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
+    hasImage = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self  name:@"didReceiveURL" object:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self  name:@"requestERROR" object:nil];
