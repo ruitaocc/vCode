@@ -5,6 +5,11 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
+"tab_photo" = "全彩";
+"tab_rgb" = "半彩";
+"tab_gray" = "半色调";
+"tab_optimize" = "掩码优化";
+"tab_normal" = "普通";
 "cropper_title"="裁剪";
 "cropper_cancel"="取消";
 "cropper_ok"="确认";

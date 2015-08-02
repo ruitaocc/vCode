@@ -300,11 +300,11 @@
     style_label.font = [UIFont systemFontOfSize:0.9*sysFontSize];
     style_label.textColor = [UIColor blackColor];
     [stylesubview addSubview:style_label];
-    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:10];
-    UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:11];
-    UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:12];
-    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:13];
-    UITabBarItem *contacts2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:14];
+    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_photo", nil) image:[UIImage imageNamed:@"tab_photo"] tag:10];
+    UITabBarItem *featured = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_rgb", nil) image:[UIImage imageNamed:@"tab_rgb"] tag:11];
+    UITabBarItem *recents = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_gray", nil) image:[UIImage imageNamed:@"tab_gray"] tag:12];
+    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_optimize", nil) image:[UIImage imageNamed:@"tab_optimize"] tag:13];
+    UITabBarItem *contacts2 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_normal", nil) image:[UIImage imageNamed:@"tab_normal"] tag:14];
     InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithItemFrame:CGRectMake(0.2*s_witdh, (ParaHeight-TabHeight)/2, 0.78*s_witdh, TabHeight) withItems:[NSArray arrayWithObjects:topRated,featured,recents,contacts,contacts2,nil]];
     [m_style_TabBar selectItemWithTag:10];
     m_style_TabBar.infiniTabBarDelegate = self;
@@ -485,7 +485,7 @@
     [m_auto_TabBar setSelectedItem:auto_item];
     m_auto_TabBar.delegate = self;
    
-    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
+    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"d", nil) image:[UIImage imageNamed:@"photo"] tag:1];//initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
     UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:2];
     UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:3];
     UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:4];
