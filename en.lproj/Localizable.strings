@@ -5,6 +5,9 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"cropper_title"="Crop";
+"cropper_cancel"="Cancel";
+"cropper_ok"="OK";
 "sharetext" = "#vCode# Design colorful QR code.http://www.2vma.co/";
 "premission_deny_title" = "Permission deny";
 "premission_deny_msg" = "To obtain permission, go to Setting -> Privacy -> Photos and turn on vCode.";

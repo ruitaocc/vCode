@@ -17,7 +17,7 @@
 
 @end
 
-@interface VPImageCropperViewController : UIViewController
+@interface VPImageCropperViewController :UIViewController;
 
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) id<VPImageCropperDelegate> delegate;
