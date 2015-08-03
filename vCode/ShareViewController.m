@@ -309,8 +309,9 @@
         platform = UMShareToSina;
     }else  if (sender.tag == 10004) {
         platform = UMShareToQQ;
+        
     }else  if (sender.tag == 10005) {
-        platform = UMShareToQzone;
+        platform = UMShareToQQ;
     }else  if (sender.tag == 10006) {
         platform = UMShareToInstagram;
     }else  if (sender.tag == 10007) {
@@ -325,8 +326,39 @@
         platform = UMShareToLine;
     }else  if (sender.tag == 10012) {
         platform = UMShareToYXSession;
+        YXMediaMessage *msg = [YXMediaMessage message];
+        [msg setThumbData:UIImagePNGRepresentation([QRDetector generatePhotoThumbnail:m_shareImg])];
+        
+        YXImageObject *ext = [YXImageObject object];
+        ext.imageData =UIImagePNGRepresentation(m_shareImg);
+        msg.description = shareText;
+        msg.mediaObject = ext;
+        
+        SendMessageToYXReq*req = [[SendMessageToYXReq alloc] init];
+        req.text = shareText;
+        req.bText = NO;
+        req.message = msg;
+        req.scene = 0;
+        [YXApi sendReq:req];
+        return;
+        
     }else  if (sender.tag == 10013) {
         platform = UMShareToYXTimeline;
+        YXMediaMessage *msg = [YXMediaMessage message];
+        [msg setThumbData:UIImagePNGRepresentation([QRDetector generatePhotoThumbnail:m_shareImg])];
+        
+        YXImageObject *ext = [YXImageObject object];
+        ext.imageData =UIImagePNGRepresentation(m_shareImg);
+        msg.description = shareText;
+        msg.mediaObject = ext;
+        
+        SendMessageToYXReq*req = [[SendMessageToYXReq alloc] init];
+        req.text = shareText;
+        req.bText = NO;
+        req.message = msg;
+        req.scene = 1;
+        [YXApi sendReq:req];
+        return;
     }else  if (sender.tag == 10014) {
         platform = UMShareToTencent;
     }else  if (sender.tag == 10015) {
@@ -345,10 +377,16 @@
     if([platformName isEqualToString:UMShareToWechatTimeline] || [platformName isEqualToString:UMShareToWechatFavorite] || [platformName isEqualToString:UMShareToWechatSession]){
         
         socialData.extConfig.wxMessageType = UMSocialWXMessageTypeImage;
-    }else if ([platformName isEqualToString:UMShareToSina]) {
-    }else if ([platformName isEqualToString:UMShareToSina]) {
-    }else if ([platformName isEqualToString:UMShareToSina]) {
-    }else if ([platformName isEqualToString:UMShareToSina]) {
+    }else if ([platformName isEqualToString:UMShareToQQ]) {
+        socialData.extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+        //socialData.extConfig.qqData =nil;
+    }else if ([platformName isEqualToString:UMShareToQzone]) {
+        socialData.extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+    }else if ([platformName isEqualToString:UMShareToYXSession]) {
+        socialData.extConfig.yxtimelineData.yxMessageType = UMSocialYXMessageTypeImage;
+        socialData.extConfig.yxsessionData.yxMessageType = UMSocialYXMessageTypeImage;
+    }else if ([platformName isEqualToString:UMShareToYXTimeline]) {
+        socialData.extConfig.yxtimelineData.yxMessageType = UMSocialYXMessageTypeImage;
     }else if ([platformName isEqualToString:UMShareToSina]) {
     }else if ([platformName isEqualToString:UMShareToSina]) {
     }else if ([platformName isEqualToString:UMShareToSina]) {

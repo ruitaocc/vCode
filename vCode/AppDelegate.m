@@ -257,7 +257,7 @@
  */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+    return  [UMSocialSnsService handleOpenURL:url ];//wxApiDelegate:nil
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
