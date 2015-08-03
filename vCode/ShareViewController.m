@@ -110,13 +110,13 @@
             }
         }else if(index == 7){
             //facebook
-            NSURL *url = [NSURL URLWithString:@"fb://"];
-            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
-            NSLog(@"has facebook:%d",hasApp);
-            if(!hasApp){
-                index++;
-                continue;
-            }
+//            NSURL *url = [NSURL URLWithString:@"fb://"];
+//            bool hasApp = [[UIApplication sharedApplication]canOpenURL:url];
+//            NSLog(@"has facebook:%d",hasApp);
+//            if(!hasApp){
+//                index++;
+//                continue;
+//            }
         }else if(index == 8){
             //twwiter
             NSURL *url = [NSURL URLWithString:@"twitter://"];
