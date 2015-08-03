@@ -300,12 +300,12 @@
     style_label.font = [UIFont systemFontOfSize:0.9*sysFontSize];
     style_label.textColor = [UIColor blackColor];
     [stylesubview addSubview:style_label];
-    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_photo", nil) image:[UIImage imageNamed:@"tab_photo"] tag:10];
-    UITabBarItem *featured = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_rgb", nil) image:[UIImage imageNamed:@"tab_rgb"] tag:11];
-    UITabBarItem *recents = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_gray", nil) image:[UIImage imageNamed:@"tab_gray"] tag:12];
-    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_optimize", nil) image:[UIImage imageNamed:@"tab_optimize"] tag:13];
-    UITabBarItem *contacts2 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_normal", nil) image:[UIImage imageNamed:@"tab_normal"] tag:14];
-    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithItemFrame:CGRectMake(0.2*s_witdh, (ParaHeight-TabHeight)/2, 0.78*s_witdh, TabHeight) withItems:[NSArray arrayWithObjects:topRated,featured,recents,contacts,contacts2,nil]];
+    UITabBarItem *tab_photo = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_photo", nil) image:[UIImage imageNamed:@"tab_photo"] tag:10];
+    UITabBarItem *tab_rgb = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_rgb", nil) image:[UIImage imageNamed:@"tab_rgb"] tag:11];
+    UITabBarItem *tab_gray = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_gray", nil) image:[UIImage imageNamed:@"tab_gray"] tag:12];
+    UITabBarItem *tab_optimize = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_optimize", nil) image:[UIImage imageNamed:@"tab_optimize"] tag:13];
+    UITabBarItem *tab_normal = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_normal", nil) image:[UIImage imageNamed:@"tab_normal"] tag:14];
+    InfiniTabBar * m_style_TabBar = [[InfiniTabBar alloc] initWithItemFrame:CGRectMake(0.2*s_witdh, (ParaHeight-TabHeight)/2, 0.78*s_witdh, TabHeight) withItems:[NSArray arrayWithObjects:tab_photo,tab_rgb,tab_gray,tab_optimize,tab_normal,nil]];
     [m_style_TabBar selectItemWithTag:10];
     m_style_TabBar.infiniTabBarDelegate = self;
     m_style_TabBar.bounces = NO;
@@ -477,28 +477,35 @@
     
     //[m_control_View setBackgroundColor:[UIColor lightGrayColor]];
     m_auto_TabBar = [[UITabBar alloc]initWithFrame:CGRectMake(0, 0, auto_width, height)];
-    UITabBarItem *auto_item= [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:0];
+    UITabBarItem *tab_auto= [[UITabBarItem alloc]initWithTitle:NSLocalizedString(@"tab_auto", nil) image:[UIImage imageNamed:@"tab_auto"] tag:0];
+    [tab_auto setSelectedImage:[UIImage imageNamed:@"tab_auto_click"]];
    
-    NSArray *items = [NSArray arrayWithObjects:auto_item, nil];
+    NSArray *items = [NSArray arrayWithObjects:tab_auto, nil];
     [m_auto_TabBar setItems:items];
     m_selected_item_tag = 0;
-    [m_auto_TabBar setSelectedItem:auto_item];
+    [m_auto_TabBar setSelectedItem:tab_auto];
     m_auto_TabBar.delegate = self;
    
-    UITabBarItem *topRated = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"d", nil) image:[UIImage imageNamed:@"photo"] tag:1];//initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
-    UITabBarItem *featured = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:2];
-    UITabBarItem *recents = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:3];
-    UITabBarItem *contacts = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:4];
-    UITabBarItem *history = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:5];
-    UITabBarItem *bookmarks = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:6];
+    UITabBarItem *tab_style = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_style", nil) image:[UIImage imageNamed:@"tab_style"] tag:1];
+    [tab_style setSelectedImage:[UIImage imageNamed:@"tab_style_click"]];
+    UITabBarItem *tab_version = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_version", nil) image:[UIImage imageNamed:@"tab_version"] tag:2];
+    [tab_version setSelectedImage:[UIImage imageNamed:@"tab_version_click"]];
+    UITabBarItem *tab_correction = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_correction", nil) image:[UIImage imageNamed:@"tab_correction"] tag:3];
+    [tab_correction setSelectedImage:[UIImage imageNamed:@"tab_correction_click"]];
+    UITabBarItem *tab_coding = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_coding", nil) image:[UIImage imageNamed:@"tab_coding"] tag:4];
+    [tab_coding setSelectedImage:[UIImage imageNamed:@"tab_coding_click"]];
+    UITabBarItem *tab_padding = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_padding", nil) image:[UIImage imageNamed:@"tab_padding"] tag:5];
+    [tab_padding setSelectedImage:[UIImage imageNamed:@"tab_padding_click"]];
+    UITabBarItem *tab_ratio = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab_ratio", nil) image:[UIImage imageNamed:@"tab_ratio_normal"] tag:6];
+    [tab_ratio setSelectedImage:[UIImage imageNamed:@"tab_ratio_click"]];
     UIView *sep = [[UIView alloc] initWithFrame:CGRectMake(auto_width-1, 5, 2, height-10)];
     [sep setBackgroundColor:[UIColor lightGrayColor]];
-    m_para_TabBar = [[InfiniTabBar alloc] initWithFrame:CGRectMake(seperate+auto_width, 0, para_width, height) withItems:[NSArray arrayWithObjects:topRated,
-                                                         featured,
-                                                         recents,
-                                                         contacts,
-                                                         history,
-                                                         bookmarks,
+    m_para_TabBar = [[InfiniTabBar alloc] initWithFrame:CGRectMake(seperate+auto_width, 0, para_width, height) withItems:[NSArray arrayWithObjects:tab_style,
+                                                         tab_version,
+                                                         tab_correction,
+                                                         tab_coding,
+                                                         tab_padding,
+                                                         tab_ratio,
                                                          nil]];
     m_para_TabBar.infiniTabBarDelegate = self;
     m_para_TabBar.bounces = NO;

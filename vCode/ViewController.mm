@@ -118,7 +118,7 @@
     img_feedback = [UIImage imageNamed:@"feedback_icon.png"];
     img_info = [UIImage imageNamed:@"info_icon.png"];
     img_rating = [UIImage imageNamed:@"like_icon.png"];
-    img_slogan = [UIImage imageNamed:@"slogan.png"];
+    img_slogan = [UIImage imageNamed:NSLocalizedString(@"slogan_name", nil)];
     
     slogan = [[UIImageView alloc] initWithFrame:slogan_frame];
     [slogan setImage:img_slogan];

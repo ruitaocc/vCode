@@ -5,10 +5,23 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"slogan_name"="slogan_en.png";
+"tab_photo" = "Full color";
+"tab_rgb" = "8-color";
+"tab_gray" = "Halftone";
+"tab_optimize" = "Mask";
+"tab_normal" = "Normal";
+"tab_style"="Style";
+"tab_version"="Version";
+"tab_correction"="Level";
+"tab_coding"="CodingArea";
+"tab_padding"="PaddingArea";
+"tab_ratio"="Ratio";
+"tab_auto"="Auto";
 "cropper_title"="Crop";
 "cropper_cancel"="Cancel";
 "cropper_ok"="OK";
-"sharetext" = "#vCode# Design colorful QR code.http://www.2vma.co/";
+"sharetext" = "#vCode# Design colorful QR code. http://www.2vma.co/";
 "premission_deny_title" = "Permission deny";
 "premission_deny_msg" = "To obtain permission, go to Setting -> Privacy -> Photos and turn on vCode.";
 "network_transform_label"="Use network to translate";
@@ -37,7 +50,7 @@
 "menu_qr2vc"="QR Code\nto V Code";
 "menu_text"="Custom\nVCode";
 "menu_url"="URL";
-"menu_weichat"="WeiChat\nNameCard";
+"menu_weichat"="WeChat\nNameCard";
 "alert_coming" = "coming soon...";
 "alert_ok"="OK";
 "next_step"=" Next Step: Choose Your Photo";

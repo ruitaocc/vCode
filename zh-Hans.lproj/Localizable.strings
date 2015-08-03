@@ -6,14 +6,22 @@
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
 "tab_photo" = "全彩";
-"tab_rgb" = "半彩";
+"slogan_name"="slogan_ch.png";
+"tab_rgb" = "八色";
 "tab_gray" = "半色调";
 "tab_optimize" = "掩码优化";
 "tab_normal" = "普通";
+"tab_style"="风格样式";
+"tab_version"="版本大小";
+"tab_correction"="修正级别";
+"tab_coding"="码域强度";
+"tab_padding"="附域强度";
+"tab_ratio"="扩散比例";
+"tab_auto"="自动";
 "cropper_title"="裁剪";
 "cropper_cancel"="取消";
 "cropper_ok"="确认";
-"sharetext" = "#2V码# 创作造最IN的2V码.http://www.2vma.co/";
+"sharetext" = "#2V码#创作造多彩的2V码.http://www.2vma.co/";
 "premission_deny_title" = "存储失败";
 "premission_deny_msg" = "允许相册存储，请打开 设置－隐私－照片 2V码。";
 "network_transform_label"="使用网络进行转码";
