@@ -7,10 +7,10 @@
 //
 
 #import "VPImageCropperViewController.h"
-
+#import "WZFlashButton.h"
 #define SCALE_FRAME_Y 100.0f
 #define BOUNDCE_DURATION 0.3f
-
+#define myBlue [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f]
 @interface VPImageCropperViewController ()
 
 @property (nonatomic, retain) UIImage *originalImage;
@@ -25,11 +25,14 @@
 @property (nonatomic, assign) CGFloat limitRatio;
 
 @property (nonatomic, assign) CGRect latestFrame;
+@property(strong , nonatomic) WZFlashButton *m_cancel_btn;
+@property(strong , nonatomic) WZFlashButton *m_ok_btn;
 
 @end
 
 @implementation VPImageCropperViewController
-
+@synthesize m_cancel_btn;
+@synthesize m_ok_btn;
 - (void)dealloc {
     self.originalImage = nil;
     self.showImgView = nil;
@@ -66,6 +69,7 @@
     [self.showImgView setImage:self.originalImage];
     [self.showImgView setUserInteractionEnabled:YES];
     [self.showImgView setMultipleTouchEnabled:YES];
+    [self.showImgView setBackgroundColor:[UIColor whiteColor]];
     
     // scale to fit the screen
     CGFloat oriWidth = self.cropFrame.size.width;
@@ -82,8 +86,8 @@
     [self.view addSubview:self.showImgView];
     
     self.overlayView = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.overlayView.alpha = .5f;
-    self.overlayView.backgroundColor = [UIColor blackColor];
+    self.overlayView.alpha = .7f;
+    self.overlayView.backgroundColor = [UIColor whiteColor];
     self.overlayView.userInteractionEnabled = NO;
     self.overlayView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -92,7 +96,7 @@
     [self.view addSubview:self.overlayView];
     
     self.ratioView = [[UIView alloc] initWithFrame:self.cropFrame];
-    self.ratioView.layer.borderColor = [UIColor yellowColor].CGColor;
+    self.ratioView.layer.borderColor = myBlue.CGColor;
     self.ratioView.layer.borderWidth = 1.0f;
     self.ratioView.autoresizingMask = UIViewAutoresizingNone;
     UIImage* mask = [UIImage imageNamed:@"qrcode_mask.png"];
@@ -105,30 +109,38 @@
 }
 
 - (void)initControlBtn {
-    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50.0f, 100, 50)];
-    cancelBtn.backgroundColor = [UIColor blackColor];
-    cancelBtn.titleLabel.textColor = [UIColor whiteColor];
-    [cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
-    [cancelBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
-    [cancelBtn.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [cancelBtn.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [cancelBtn.titleLabel setNumberOfLines:0];
-    [cancelBtn setTitleEdgeInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
-    [cancelBtn addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:cancelBtn];
+    float s_witdh = self.view.frame.size.width;
+    float s_height = self.view.frame.size.height;
+    CGRect viewframe;
+    viewframe.size.height = 38;
+    viewframe.size.width = 0.5*s_witdh*0.57;
+    viewframe.origin.y = (s_height - 46);
+    viewframe.origin.x = (s_witdh/2-viewframe.size.width)/2 ;
+    m_cancel_btn= [[WZFlashButton alloc] initWithFrame:viewframe];
+    [m_cancel_btn setBackgroundColor:myBlue];
+    [m_cancel_btn setText:NSLocalizedString(@"cropper_cancel", nil) withTextColor:[UIColor whiteColor]];
+    m_cancel_btn.textLabel.font = [UIFont systemFontOfSize:14];
+    m_cancel_btn.layer.cornerRadius = viewframe.size.height/2;
+    [m_cancel_btn clipsToBounds];
+    __weak typeof(self)weakself = self;
+    m_cancel_btn.clickBlock = ^{
+        [weakself cancel:nil];
+    };
+    [self.view addSubview:m_cancel_btn];
     
-    UIButton *confirmBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 100.0f, self.view.frame.size.height - 50.0f, 100, 50)];
-    confirmBtn.backgroundColor = [UIColor blackColor];
-    confirmBtn.titleLabel.textColor = [UIColor whiteColor];
-    [confirmBtn setTitle:@"OK" forState:UIControlStateNormal];
-    [confirmBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
-    [confirmBtn.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    confirmBtn.titleLabel.textColor = [UIColor whiteColor];
-    [confirmBtn.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [confirmBtn.titleLabel setNumberOfLines:0];
-    [confirmBtn setTitleEdgeInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
-    [confirmBtn addTarget:self action:@selector(confirm:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:confirmBtn];
+    
+    viewframe.size.width = 0.5*s_witdh*0.57;
+    viewframe.origin.x = (s_witdh/2-viewframe.size.width)/2+s_witdh/2 ;
+    m_ok_btn = [[WZFlashButton alloc] initWithFrame:viewframe];
+    [m_ok_btn setBackgroundColor:myBlue];
+    m_ok_btn.layer.cornerRadius = viewframe.size.height/2;
+    m_ok_btn.textLabel.font = [UIFont systemFontOfSize:14];
+    [m_ok_btn clipsToBounds];
+    [m_ok_btn setText:NSLocalizedString(@"cropper_ok", nil) withTextColor:[UIColor whiteColor]];
+    m_ok_btn.clickBlock = ^{
+        [weakself confirm:nil];
+    };
+    [self.view addSubview:m_ok_btn];
 }
 
 - (void)cancel:(id)sender {
