@@ -227,8 +227,25 @@
         });
     });
 }
+-(void)hideKeyboard{
+    [m_ui_birthday resignFirstResponder];
+    [m_ui_address resignFirstResponder];
+    [m_ui_fullname resignFirstResponder];
+    [m_ui_address resignFirstResponder];
+    [m_ui_birthday resignFirstResponder];
+    [m_ui_email resignFirstResponder];
+    [m_ui_homepage resignFirstResponder];
+    [m_ui_intr resignFirstResponder];
+    [m_ui_job resignFirstResponder];
+    [m_ui_nickname resignFirstResponder];
+    [m_ui_org resignFirstResponder];
+    [m_ui_wechat resignFirstResponder];
+    [m_ui_tel resignFirstResponder];
+    [m_ui_qq resignFirstResponder];
+}
 -(IBAction)birthdaySelect:(id)sender{
-    if(m_pickview){
+    [self hideKeyboard];
+        if(m_pickview){
         [m_pickview remove];
         m_pickview = nil;
     }
@@ -238,6 +255,8 @@
     [m_pickview show];
 };
 -(IBAction)AddressSelect:(id)sender{
+    
+    [self hideKeyboard];
     if(m_pickview){
         [m_pickview remove];
         m_pickview = nil;
