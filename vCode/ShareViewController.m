@@ -265,6 +265,56 @@
     
     
 }
+-(UIImage *)prepareForWechatTimeline:(UIImage*)image{
+    // Create a thumbnail version of the image for the event object.
+    CGSize size = image.size;
+    size.height+=28;
+    UIImage * white_placehodler = [UIImage imageNamed:@"white.png"];
+    UILabel * labe = [[UILabel alloc] init];
+    [labe setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightBold]];
+   NSString * text = NSLocalizedString(@"wechat_notes", nil);
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:24] forKey:NSFontAttributeName];
+    CGSize lsize  =[text sizeWithAttributes:attributes];
+    // Done cropping
+    [labe setText:text];
+    
+    // Resize the image
+    CGRect rect = CGRectMake(0.0, 0.0,size.width, image.size.height);
+    
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:rect];
+    rect =CGRectMake(0.0, image.size.height,size.width, size.height-image.size.height);
+    [white_placehodler drawInRect:rect];
+    rect.origin.x = (size.width-lsize.width)/2;
+    [labe drawTextInRect:rect];
+    UIImage *thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // Done Resizing
+    
+    return thumbnail;
+    
+};
+-(UIImage *)prepareForSinaWaterMark:(UIImage*)image{
+    // Create a thumbnail version of the image for the event object.
+    CGSize size = image.size;
+    size.height+=56;
+    UIImage * white_placehodler = [UIImage imageNamed:@"white.png"];
+    
+    // Resize the image
+    CGRect rect = CGRectMake(0.0, 0.0,size.width, image.size.height);
+    
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:rect];
+    rect =CGRectMake(0.0, image.size.height,size.width, size.height-image.size.height);
+    [white_placehodler drawInRect:rect];
+    
+    UIImage *thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // Done Resizing
+    
+    return thumbnail;
+    
+};
 -(void)goBackHome{
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -281,7 +331,31 @@
     NSLog(@"shareText:%@",shareText);
     UIImage *shareImage = [UIImage imageWithData: UIImagePNGRepresentation(m_shareImg)];
     NSString *platform;
-    if (sender.tag == 10000 || sender.tag==10001 || sender.tag==10002) {
+    if (sender.tag == 10000) {
+        UIImage *img = [self prepareForWechatTimeline:m_shareImg];
+        platform = UMShareToWechatTimeline;
+        WXMediaMessage *message = [WXMediaMessage message];
+        [message setThumbImage:[QRDetector generatePhotoThumbnail:m_shareImg]];
+        
+        WXImageObject *ext = [WXImageObject object];
+        ext.imageData = UIImagePNGRepresentation(img);
+        message.description = shareText;
+        message.mediaObject = ext;
+        message.mediaTagName = @"WECHAT_TAG_JUMP_APP";
+        message.messageExt = shareText;
+        message.messageAction = @"<action>dotalist</action>";
+        
+        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+        req.text = shareText;
+        req.bText = NO;
+        req.message = message;
+       req.scene = 1;//timeline
+       
+        
+        [WXApi sendReq:req];
+        
+        return;
+    }else if(sender.tag==10001){
         platform = UMShareToWechatTimeline;
         WXMediaMessage *message = [WXMediaMessage message];
         [message setThumbImage:[QRDetector generatePhotoThumbnail:m_shareImg]];
@@ -298,9 +372,30 @@
         req.text = shareText;
         req.bText = NO;
         req.message = message;
-        if(sender.tag==10000)req.scene = 1;//timeline
-        if(sender.tag==10001)req.scene = 0;//session
-        if(sender.tag==10002)req.scene = 2;//favorite
+        req.scene = 0;//session
+        
+        [WXApi sendReq:req];
+        
+        return;
+    }else if(sender.tag==10002){
+        platform = UMShareToWechatTimeline;
+        WXMediaMessage *message = [WXMediaMessage message];
+        [message setThumbImage:[QRDetector generatePhotoThumbnail:m_shareImg]];
+        
+        WXImageObject *ext = [WXImageObject object];
+        ext.imageData = UIImagePNGRepresentation(m_shareImg);
+        message.description = shareText;
+        message.mediaObject = ext;
+        message.mediaTagName = @"WECHAT_TAG_JUMP_APP";
+        message.messageExt = shareText;
+        message.messageAction = @"<action>dotalist</action>";
+        
+        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+        req.text = shareText;
+        req.bText = NO;
+        req.message = message;
+        
+        req.scene = 2;//favorite
         
         [WXApi sendReq:req];
         
@@ -344,11 +439,12 @@
         
     }else  if (sender.tag == 10013) {
         platform = UMShareToYXTimeline;
+        UIImage *img = [self prepareForWechatTimeline:m_shareImg];
         YXMediaMessage *msg = [YXMediaMessage message];
         [msg setThumbData:UIImagePNGRepresentation([QRDetector generatePhotoThumbnail:m_shareImg])];
         
         YXImageObject *ext = [YXImageObject object];
-        ext.imageData =UIImagePNGRepresentation(m_shareImg);
+        ext.imageData =UIImagePNGRepresentation(img);
         msg.description = shareText;
         msg.mediaObject = ext;
         
@@ -388,6 +484,8 @@
     }else if ([platformName isEqualToString:UMShareToYXTimeline]) {
         socialData.extConfig.yxtimelineData.yxMessageType = UMSocialYXMessageTypeImage;
     }else if ([platformName isEqualToString:UMShareToSina]) {
+        UIImage *img = [self prepareForSinaWaterMark:m_shareImg];
+        socialData.shareImage = img;
     }else if ([platformName isEqualToString:UMShareToSina]) {
     }else if ([platformName isEqualToString:UMShareToSina]) {
     }else if ([platformName isEqualToString:UMShareToSina]) {

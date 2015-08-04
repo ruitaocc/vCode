@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "vCode/CutViewController.m"
-            timestampString = "460283298.56484"
+            filePath = "vCode/ShareViewController.m"
+            timestampString = "460345929.706018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "877"
-            endingLineNumber = "877"
-            landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-prepareForWechatTimeline:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

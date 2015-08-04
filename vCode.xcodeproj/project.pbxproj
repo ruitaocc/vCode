@@ -58,6 +58,7 @@
 		B641DF641B380323004449FD /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B641DF611B380323004449FD /* ProgressHUD.bundle */; };
 		B641DF651B380323004449FD /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B641DF631B380323004449FD /* ProgressHUD.m */; };
 		B641DF671B382721004449FD /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = B641DF661B382721004449FD /* add.png */; };
+		B64EEC0C1B704C80005998A9 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EEC0B1B704C80005998A9 /* white.png */; };
 		B657C2C31B300CBB007DD277 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = B657C2C21B300CBB007DD277 /* city.plist */; };
 		B657C2C71B300CEF007DD277 /* ZHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = B657C2C61B300CEF007DD277 /* ZHPickView.m */; };
 		B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B1CC51B15C4DA0028F631 /* LaunchScreen.xib */; };
@@ -296,6 +297,7 @@
 		B641DF621B380323004449FD /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		B641DF631B380323004449FD /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		B641DF661B382721004449FD /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		B64EEC0B1B704C80005998A9 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		B657C2C21B300CBB007DD277 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		B657C2C51B300CEF007DD277 /* ZHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPickView.h; sourceTree = "<group>"; };
 		B657C2C61B300CEF007DD277 /* ZHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPickView.m; sourceTree = "<group>"; };
@@ -848,6 +850,7 @@
 			children = (
 				B6A4F2F81B6E7B02006AC380 /* tab */,
 				B641DF661B382721004449FD /* add.png */,
+				B64EEC0B1B704C80005998A9 /* white.png */,
 				B60EB63B1B397AE70037018B /* saveok.png */,
 				B6EB472D1B18976600495FBA /* ip56_bg.png */,
 				B6EB472A1B18975E00495FBA /* slogan.png */,
@@ -1275,6 +1278,7 @@
 				B6A4F35F1B6F5D20006AC380 /* tab_padding_click@2x.png in Resources */,
 				B65B1CC61B15C4DA0028F631 /* LaunchScreen.xib in Resources */,
 				B657C2C31B300CBB007DD277 /* city.plist in Resources */,
+				B64EEC0C1B704C80005998A9 /* white.png in Resources */,
 				B6A4F2ED1B6E71B7006AC380 /* photo@1x.png in Resources */,
 				B690E5CE1B3E988C00E98C9C /* defaultavatar.png in Resources */,
 				B6A4F3551B6F5D14006AC380 /* tab_correction_click@1x.png in Resources */,
