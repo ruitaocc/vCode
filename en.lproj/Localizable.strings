@@ -5,6 +5,23 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"nc_fullname"="Full name(*)";
+"nc_nickname"="Nick name";
+"nc_email" = "Email(*)";
+"nc_org" = "Company";
+"nc_job" = "Job tittle";
+"nc_address" = "City";
+"nc_birthday" = "Birthday";
+"nc_tel" = "Mobile phone";
+"nc_qq" = "QQ";
+"nc_wechat" = "Wechat";
+"nc_homepage"="Website";
+"nc_intr" = "Notes";
+"nc_gender_secret" = "Secret";
+"nc_gender_male" = "Male";
+"nc_gender_female" = "Female";
+
+"online_done"="Done";
 "wechat_notes"="Tap to detect";
 "slogan_name"="slogan_en.png";
 "tab_photo" = "Full color";
@@ -67,7 +84,7 @@
 "actionsheet_select_form_previous" = "Use NameCard Avatar";
 "actionsheet_select_form_albums" = "Select form albums";
 "namecard_must_fill" = "Items with (*) must be filled";
-"namecard_email_format_error"="The e-mail should be filled in proper format";
+"namecard_email_format_error"="Email should be filled in proper format";
 "infodetail"= "About Me";
 "scan_qr_code"="Scan QR Code";
 "album_qr_code"="Choose QR Code from Album";

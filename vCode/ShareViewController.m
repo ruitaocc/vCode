@@ -60,6 +60,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:NSLocalizedString(@"cut_save_and_share", nil)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"home", nil)
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(goBackHome)];
+    //rightButton.image = [UIImage imageNamed:@"like_icon.png"];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     float s_width = self.view.frame.size.width;
     float s_height = self.view.frame.size.height;
     float c_width = 0.9*s_width;
@@ -254,11 +259,7 @@
     
     //[self loadShareView];
     //
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"home", nil)
-                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(goBackHome)];
-    //rightButton.image = [UIImage imageNamed:@"like_icon.png"];
-    self.navigationItem.rightBarButtonItem = rightButton;
-                                                                
+    
 }
 -(void)getVerifiedList{
     

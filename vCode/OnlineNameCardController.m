@@ -16,7 +16,9 @@
 #import "SHEmailValidator.h"
 #import "ZHPickView.h"
 
-@interface OnlineNameCardController()<ZHPickViewDelegate>
+@interface OnlineNameCardController()<ZHPickViewDelegate>{
+    BOOL keyboardIsShowing;
+}
 @property (assign,nonatomic)BOOL isNeedWaitForAvatarUp;
 @property(nonatomic,strong)ZHPickView *m_pickview;
 @end
@@ -43,24 +45,45 @@
 @synthesize m_pickview;
 @synthesize hasAvatar;
 -(void)viewDidLoad{
+     [super viewDidLoad];
+    keyboardIsShowing = NO;
     [self setTitle:NSLocalizedString(@"OnlineNameCardTittle", nil) ];
     //UITableViewCell* lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:10 inSection:0]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"online_done", nil)
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(generateQRCode)];
+    //rightButton.image = [UIImage imageNamed:@"like_icon.png"];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
     hasAvatar = NO;
-    [m_ui_fullname setLimmitLength:30];
+    [m_ui_fullname setLimmitLength:32];
     [m_ui_address setLimmitLength:80];
-    [m_ui_birthday setLimmitLength:20];
-    [m_ui_email setLimmitLength:30];
-    [m_ui_homepage setLimmitLength:120];
-    [m_ui_intr setLimmitLength:60];
-    [m_ui_job setLimmitLength:40];
-    [m_ui_nickname setLimmitLength:30];
-    [m_ui_org setLimmitLength:60];
-    [m_ui_wechat setLimmitLength:40];
-    [m_ui_tel setLimmitLength:20];
-    [m_ui_qq setLimmitLength:20];
-    m_ui_fullname.text = @"cairuti";
-    m_ui_email.text = @"email@caruitao.com";
+    [m_ui_birthday setLimmitLength:10];
+    [m_ui_email setLimmitLength:64];
+    [m_ui_homepage setLimmitLength:1024];
+    [m_ui_intr setLimmitLength:512];
+    [m_ui_job setLimmitLength:32];
+    [m_ui_nickname setLimmitLength:32];
+    [m_ui_org setLimmitLength:64];
+    [m_ui_wechat setLimmitLength:64];
+    [m_ui_tel setLimmitLength:16];
+    [m_ui_qq setLimmitLength:16];
+    //m_ui_fullname.text = @"cairuti";
+    m_ui_fullname.placeholder = NSLocalizedString(@"nc_fullname", nil);
+    m_ui_nickname.placeholder = NSLocalizedString(@"nc_nickname", nil);
+    m_ui_email.placeholder = NSLocalizedString(@"nc_email", nil);
+    m_ui_org.placeholder = NSLocalizedString(@"nc_org", nil);
+    m_ui_job.placeholder = NSLocalizedString(@"nc_job", nil);
+    m_ui_address.placeholder = NSLocalizedString(@"nc_address", nil);
+    m_ui_birthday.placeholder = NSLocalizedString(@"nc_birthday", nil);
+    m_ui_tel.placeholder = NSLocalizedString(@"nc_tel", nil);
+    m_ui_qq.placeholder = NSLocalizedString(@"nc_qq", nil);
+    m_ui_wechat.placeholder = NSLocalizedString(@"nc_wechat", nil);
+    m_ui_homepage.placeholder = NSLocalizedString(@"nc_homepage", nil);
+    m_ui_intr.placeholder = NSLocalizedString(@"nc_intr", nil);
+    [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_secret", nil) forSegmentAtIndex:0];
+    [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_male", nil) forSegmentAtIndex:1];
+    [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_female", nil) forSegmentAtIndex:2];
+    //m_ui_email.text = @"email@caruitao.com";
     float s_width = self.view.frame.size.width;;
     CGRect btn_frame;
     btn_frame.size.width = 0.57*s_width;
@@ -171,6 +194,37 @@
    self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, -36, 0);
     isNeedWaitForAvatarUp = NO;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+}
+-(void) keyboardWillShow:(NSNotification *)note
+{
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    
+}
+
+
+-(void)generateQRCode{
+    [m_gebtn clickBlock]();
+
+}
 -(void)initPreference{
     
     [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"NC_K_FULLNAME"];
@@ -210,6 +264,11 @@
 }
 
 - (void)editPortrait {
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+    [self hideKeyboard];
     UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:NSLocalizedString(@"actionsheet_cancel", nil)
@@ -549,4 +608,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.0;
 };
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self  hideKeyboard];
+    if(m_pickview){
+        [m_pickview remove];
+        m_pickview = nil;
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSIndexPath *p = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0 ];
+    
+    [self.tableView scrollToRowAtIndexPath:p atScrollPosition: UITableViewScrollPositionBottom  animated:YES];
+};
+
 @end

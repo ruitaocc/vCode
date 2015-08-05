@@ -215,7 +215,8 @@
                                                             <exclude reference="N71-dS-EnE"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="148" y="0.0" width="232" height="44"/>
                                                         <mask key="constraints">
                                                             <include reference="N71-dS-EnE"/>
                                                         </mask>
@@ -1317,7 +1318,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hc-Lf-hD4">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOQ-ik-JWc">
@@ -1371,22 +1372,22 @@
                                 <exclude reference="KOQ-ik-JWc"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="0wH-7g-Fs6"/>
+                                <exclude reference="Ndr-Ok-3pr"/>
+                                <exclude reference="v8D-6H-LAU"/>
                                 <exclude reference="5a6-kP-gG1"/>
                                 <exclude reference="NcY-N4-b0O"/>
                                 <exclude reference="UAe-mj-lNK"/>
+                                <exclude reference="XhD-rc-aDc"/>
+                                <exclude reference="2eI-7Y-Y8f"/>
+                                <exclude reference="PbI-2Y-4QF"/>
+                                <exclude reference="SmZ-Sz-Kvz"/>
+                                <exclude reference="EOH-iE-4Uo"/>
                                 <exclude reference="AqT-R1-fyL"/>
                                 <exclude reference="B4r-27-D8E"/>
                                 <exclude reference="MoF-rM-sDM"/>
                                 <exclude reference="iSu-BB-MTv"/>
                                 <exclude reference="mGo-Ih-hoz"/>
-                                <exclude reference="0wH-7g-Fs6"/>
-                                <exclude reference="Ndr-Ok-3pr"/>
-                                <exclude reference="v8D-6H-LAU"/>
-                                <exclude reference="2eI-7Y-Y8f"/>
-                                <exclude reference="PbI-2Y-4QF"/>
-                                <exclude reference="SmZ-Sz-Kvz"/>
-                                <exclude reference="XhD-rc-aDc"/>
-                                <exclude reference="EOH-iE-4Uo"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1399,22 +1400,22 @@
                                 <include reference="KOQ-ik-JWc"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="0wH-7g-Fs6"/>
+                                <include reference="Ndr-Ok-3pr"/>
+                                <include reference="v8D-6H-LAU"/>
                                 <include reference="5a6-kP-gG1"/>
                                 <include reference="NcY-N4-b0O"/>
                                 <include reference="UAe-mj-lNK"/>
+                                <include reference="XhD-rc-aDc"/>
+                                <include reference="2eI-7Y-Y8f"/>
+                                <include reference="PbI-2Y-4QF"/>
+                                <include reference="SmZ-Sz-Kvz"/>
+                                <include reference="EOH-iE-4Uo"/>
                                 <include reference="AqT-R1-fyL"/>
                                 <include reference="B4r-27-D8E"/>
                                 <include reference="MoF-rM-sDM"/>
                                 <include reference="iSu-BB-MTv"/>
                                 <include reference="mGo-Ih-hoz"/>
-                                <include reference="0wH-7g-Fs6"/>
-                                <include reference="Ndr-Ok-3pr"/>
-                                <include reference="v8D-6H-LAU"/>
-                                <include reference="2eI-7Y-Y8f"/>
-                                <include reference="PbI-2Y-4QF"/>
-                                <include reference="SmZ-Sz-Kvz"/>
-                                <include reference="XhD-rc-aDc"/>
-                                <include reference="EOH-iE-4Uo"/>
                             </mask>
                         </variation>
                     </view>
@@ -1670,8 +1671,8 @@
         <image name="lena.jpg" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AGe-FO-OBx"/>
         <segue reference="XPl-lD-00i"/>
         <segue reference="fXk-r7-AfF"/>
+        <segue reference="j6V-Cx-EPQ"/>
     </inferredMetricsTieBreakers>
 </document>

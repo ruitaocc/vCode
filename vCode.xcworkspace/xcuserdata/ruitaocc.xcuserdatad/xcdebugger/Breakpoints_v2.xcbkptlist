@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vCode/ShareViewController.m"
-            timestampString = "460345929.706018"
+            timestampString = "460363572.507288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "-prepareForWechatTimeline:"
             landmarkType = "5">
          </BreakpointContent>

@@ -5,6 +5,22 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
+"nc_fullname"="姓名(*)";
+"nc_nickname"="昵称";
+"nc_email" = "邮箱(*)";
+"nc_org" = "公司";
+"nc_job" = "工作";
+"nc_address" = "城市";
+"nc_birthday" = "生日";
+"nc_tel" = "联系方式";
+"nc_qq" = "QQ";
+"nc_wechat" = "微信";
+"nc_homepage"="个人主页";
+"nc_intr" = "个人简介";
+"nc_gender_secret" = "保密";
+"nc_gender_male" = "男";
+"nc_gender_female" = "女";
+"online_done"="完成";
 "wechat_notes"="长按识别";
 "tab_photo" = "全彩";
 "slogan_name"="slogan_ch.png";
