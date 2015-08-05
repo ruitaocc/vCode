@@ -25,7 +25,7 @@
 #define myBlue [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f]
 
 @interface CutViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITabBarDelegate,InfiniTabBarDelegate,CPPickerViewDataSource, CPPickerViewDelegate, ASValueTrackingSliderDelegate,UIAlertViewDelegate>{
-
+    bool m_bIsSelectAlertShowing;
     int min_version;
     int max_version;
     //parameter
@@ -793,6 +793,7 @@
             //cancel --> choose
             [self editPortrait];
         }
+        m_bIsSelectAlertShowing = NO;
     }
 
 }
@@ -801,11 +802,12 @@
     if (m_spinnerView && [m_spinnerView isAnimating]) {
         return;
     }
-    if(!m_isSelectUserImg){
+    if(!m_isSelectUserImg && !m_bIsSelectAlertShowing){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"cut_isselect_user_img_title",nil) message:NSLocalizedString(@"cut_isselect_user_img",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cut_isselect_user_img_cancel",nil)
                                              otherButtonTitles:NSLocalizedString(@"cut_isselect_user_img_ok", nil),nil];
         alert.tag = 101;
         [alert show];
+        m_bIsSelectAlertShowing = YES;
         return;
     }
     NSLog(@"prepare to compute QR code");
