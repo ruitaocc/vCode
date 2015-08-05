@@ -5,6 +5,7 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"namecard_phone_format_error" = "Mobile phone number format error.";
 "nc_fullname"="Full name(*)";
 "nc_nickname"="Nick name";
 "nc_email" = "Email(*)";

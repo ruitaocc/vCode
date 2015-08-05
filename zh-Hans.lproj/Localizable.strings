@@ -5,6 +5,7 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
+"namecard_phone_format_error" = "联系方式格式不对，请输入有效的电话号码";
 "nc_fullname"="姓名(*)";
 "nc_nickname"="昵称";
 "nc_email" = "邮箱(*)";

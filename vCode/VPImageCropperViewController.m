@@ -33,6 +33,7 @@
 @implementation VPImageCropperViewController
 @synthesize m_cancel_btn;
 @synthesize m_ok_btn;
+@synthesize useMaskImage;
 - (void)dealloc {
     self.originalImage = nil;
     self.showImgView = nil;
@@ -99,10 +100,11 @@
     self.ratioView.layer.borderColor = myBlue.CGColor;
     self.ratioView.layer.borderWidth = 1.0f;
     self.ratioView.autoresizingMask = UIViewAutoresizingNone;
-    UIImage* mask = [UIImage imageNamed:@"qrcode_mask.png"];
-    mask = [self scaleImage:mask scaledToSize:self.cropFrame.size];
-    [self.ratioView setBackgroundColor:[UIColor colorWithPatternImage:mask]];
-    
+    if(useMaskImage){
+        UIImage* mask = [UIImage imageNamed:@"qrcode_mask.png"];
+        mask = [self scaleImage:mask scaledToSize:self.cropFrame.size];
+        [self.ratioView setBackgroundColor:[UIColor colorWithPatternImage:mask]];
+    }
     [self.view addSubview:self.ratioView];
     
     [self overlayClipping];

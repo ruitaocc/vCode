@@ -921,6 +921,7 @@
         portraitImg = [self imageByScalingToMaxSize:portraitImg];
         // 裁剪
         VPImageCropperViewController *imgEditorVC = [[VPImageCropperViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
+       [imgEditorVC setUseMaskImage:YES]; 
         imgEditorVC.delegate = self;
         [self presentViewController:imgEditorVC animated:YES completion:^{
             // TO DO

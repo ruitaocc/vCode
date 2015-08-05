@@ -83,6 +83,7 @@
     [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_secret", nil) forSegmentAtIndex:0];
     [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_male", nil) forSegmentAtIndex:1];
     [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_female", nil) forSegmentAtIndex:2];
+    
     //m_ui_email.text = @"email@caruitao.com";
     float s_width = self.view.frame.size.width;;
     CGRect btn_frame;
@@ -122,6 +123,23 @@
             return ;
         }
         
+//        //tel
+//        NSString *phone = [weakSefl.m_ui_tel text];
+//        NSString * regularexpression= @"^[+]()";
+//        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularexpression
+//                                                                               options:NSRegularExpressionCaseInsensitive
+//                                                                                 error:nil];
+//        NSUInteger numberOfMatches = [regex numberOfMatchesInString:phone
+//                                                            options:0
+//                                                              range:NSMakeRange(0, [phone length])];
+//        
+//        if (numberOfMatches == 0) {
+//            UIAlertView *alert = [[UIAlertView alloc] init];
+//            [alert setTitle:NSLocalizedString(@"namecard_phone_format_error", nil)];
+//            [alert addButtonWithTitle:@"OK"];
+//            [alert show];
+//            return ;
+//        }
         if (![RequestSender getIsPendingReq]) {
             //
             /*
@@ -440,6 +458,7 @@
         portraitImg = [self imageByScalingToMaxSize:portraitImg];
         // 裁剪
         VPImageCropperViewController *imgEditorVC = [[VPImageCropperViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
+        [imgEditorVC setUseMaskImage:NO];
         imgEditorVC.delegate = self;
         [self presentViewController:imgEditorVC animated:YES completion:^{
             // TO DO
