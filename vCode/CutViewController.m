@@ -765,7 +765,7 @@
         NSLog(@"%@",_dataToEncode);
         _haveDataToEncode = YES;
         [self configParameters];
-        [self next];
+        //[self next];
     }
     if ([notification.name isEqualToString:@"requestERROR"]) {
         NSLog(@"Network error!");
@@ -803,11 +803,12 @@
         return;
     }
     if(!m_isSelectUserImg && !m_bIsSelectAlertShowing){
+        m_bIsSelectAlertShowing = YES;
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"cut_isselect_user_img_title",nil) message:NSLocalizedString(@"cut_isselect_user_img",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cut_isselect_user_img_cancel",nil)
                                              otherButtonTitles:NSLocalizedString(@"cut_isselect_user_img_ok", nil),nil];
         alert.tag = 101;
         [alert show];
-        m_bIsSelectAlertShowing = YES;
+        
         return;
     }
     NSLog(@"prepare to compute QR code");
