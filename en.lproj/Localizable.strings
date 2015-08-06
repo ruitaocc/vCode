@@ -86,6 +86,8 @@
 "actionsheet_take_photo" = "Take a photo";
 "actionsheet_select_form_previous" = "Use NameCard Avatar";
 "actionsheet_select_form_albums" = "Select form albums";
+"namecard_qq_format_error"="QQ format errer, must be numberic.";
+"namecard_phone_format_error"="Mobile phone format error. 15889945227 or 02087654321";
 "namecard_must_fill" = "Items with (*) must be filled";
 "namecard_email_format_error"="Email should be filled in proper format";
 "infodetail"= "About Me";

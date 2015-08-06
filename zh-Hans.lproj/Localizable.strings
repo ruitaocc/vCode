@@ -85,6 +85,8 @@
 "actionsheet_take_photo" = "拍照";
 "actionsheet_select_form_albums" = "从相册中选取";
 "actionsheet_select_form_previous" = "使用名片头像";
+"namecard_qq_format_error"="QQ格式错误，必须是数字";
+"namecard_phone_format_error"="联系方式格式错误，如15889945227 或者 02087654321";
 "namecard_must_fill" = "带有(*)的项目不能为空";
 "namecard_email_format_error"="邮箱格式不正确，请重新填写";
 "infodetail"="关于我";
