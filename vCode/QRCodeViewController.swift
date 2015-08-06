@@ -27,8 +27,14 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     var qrcodeimg:UIImage?
     var stringInQRCode:String = ""
     var setted:Bool = false
+    var imageView:UIImageView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
+    }
+    override func viewWillAppear(animated: Bool) {
         nextstep.setTitle(NSLocalizedString("next_step", comment: ""), forState: UIControlState.Normal)
         //
         
@@ -36,6 +42,11 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         let s_height = self.view.frame.size.height
         let grid_size = s_width/10.0;
         
+        
+        imageView = UIImageView(frame:CGRectMake(10, s_height/5, s_width-20, s_width-20))
+        imageView?.image = UIImage(named:"intro_musk351_325.png")
+        self.view.addSubview(imageView!)
+        imageView?.hidden=true
         
         //Scan
         m_btn_Album = WZFlashButton()
@@ -95,7 +106,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         }
         self.view.addSubview(m_btn_next)
         self.view.endEditing(true)
-
+        
         
         //lable
         label = UILabel()
@@ -128,10 +139,6 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         self.view.addSubview(noteLabel)
         self.view.addSubview(m_btn_Scan)
         self.view.addSubview(m_btn_Album)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true);
-    }
-    override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
 
@@ -165,8 +172,19 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             self.presentViewController(picker, animated: true, completion: nil)
         }
     }
+    
+    
+    
     func beginCaptureSession(){
+        
         setted = false
+        
+        m_btn_Scan.hidden = true
+        m_btn_Album.hidden = true
+        m_btn_next.hidden = true
+        imageView?.hidden = false
+        label.hidden = true
+        
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         
         var error:NSError?
@@ -176,6 +194,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             println("\(error?.localizedDescription)")
             return
         }
+        
         captureSession = AVCaptureSession()
         captureSession?.addInput(input as! AVCaptureInput)
 
@@ -187,17 +206,34 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer)
-        view.bringSubviewToFront(label)
+        view.layer.insertSublayer(videoPreviewLayer, atIndex: 0);
+        //view.bringSubviewToFront(label)
         captureSession?.startRunning()
         
+        videoPreviewLayer?.opacity=1
+        videoPreviewLayer?.frame = imageView!.frame
         
-        qrCodeFrameView = UIView()
-        qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
-        qrCodeFrameView?.layer.borderWidth = 2
-        view.addSubview(qrCodeFrameView!)
-        view.bringSubviewToFront(qrCodeFrameView!)
-
+//        imglayer.frame = CGRect(x: 0, y: self.view.frame.size.height/3, width: self.view.frame.size.width/3, height: self.view.frame.width/3);
+//        imglayer.contents = rectimg
+//        println(imglayer.contents)
+        
+//        UIImage* mask = [UIImage imageNamed:@"qrcode_mask.png"];
+//        mask = [self scaleImage:mask scaledToSize:self.cropFrame.size];
+//        [self.ratioView setBackgroundColor:[UIColor colorWithPatternImage:mask]];
+        
+        //view.layer.addSublayer(imglayer);
+//        videoPreviewLayer?.addSublayer(imglayer);
+        
+        
+//        qrCodeFrameView = UIView()
+//        qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
+//        qrCodeFrameView?.layer.borderWidth = 2
+//        
+//        view?.addSubview(rectimg);
+//        
+//        view.addSubview(qrCodeFrameView!)
+//        view.bringSubviewToFront(qrCodeFrameView!)
+//        view.bringSubviewToFront(rectimg);
     }
     
     override func didReceiveMemoryWarning() {
@@ -227,6 +263,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
                 videoPreviewLayer?.removeFromSuperlayer()
                 qrCodeFrameView?.removeFromSuperview()
                 self.performSegueWithIdentifier("QRtoCutView", sender: self)
+                imageView?.hidden = true
             }
         }
     }

@@ -112,7 +112,7 @@
     //
     
     frame = CGRectMake(center_x-i_width-shift, center_y-i_width-shift, i_width, i_width);
-    UIImage *img2= [UIImage imageNamed:@"lena.jpg"];
+    UIImage *img2= [UIImage imageNamed:@"chengchuigen.png"];
     m_super_didi =  [[UIImageView alloc] initWithFrame:frame];
     [m_super_didi setImage:img2];
     m_super_didi.layer.cornerRadius = frame.size.width/2;
@@ -133,7 +133,7 @@
     [self.view addSubview:m_super_didi];
     //
     frame = CGRectMake(center_x+shift*1.5, center_y-i_width-shift*1.9, i_width*1.1, i_width*1.1);
-    UIImage *img3= [UIImage imageNamed:@"luojiajun.jpg"];
+    UIImage *img3= [UIImage imageNamed:@"luojiajun.png"];
     m_super_luo =  [[UIImageView alloc] initWithFrame:frame];
     [m_super_luo setImage:img3];
     m_super_luo.layer.cornerRadius = frame.size.width/2;
@@ -185,19 +185,19 @@
 
 -(void)avatarClick2{
     //cai
-    m_url = @"http://2vima.sinaapp.com/";
+    m_url = @"http://2vima.sinaapp.com/c/DCK";
     [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
 }
 
 -(void)avatarClick3{
     //didi
-    m_url = @"http://www.2vma.co/";
+    m_url = @"http://chuigeng.github.io/adi/";
     [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
 }
 
 -(void)avatarClick4{
     //jiajun
-    m_url = @"http://www.2vma.co/";
+    m_url = @"http://jiajunlo.github.io/blog/";
     [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
 }
 

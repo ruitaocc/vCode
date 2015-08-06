@@ -13,7 +13,6 @@
 		2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1121B00E3E200DC9432 /* FinalViewController.swift */; };
 		2672D1151B01D5B200DC9432 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672D1141B01D5B200DC9432 /* RequestSender.swift */; };
 		267BB3781B060D0D00F5031A /* setURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267BB3771B060D0D00F5031A /* setURLViewController.swift */; };
-		267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267BB3791B061FC400F5031A /* QRCodeViewController.swift */; };
 		267BB37E1B06207E00F5031A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB37D1B06207E00F5031A /* AVFoundation.framework */; };
 		267BB3801B06208900F5031A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB37F1B06208900F5031A /* CoreMedia.framework */; };
 		267BB3821B06209000F5031A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BB3811B06209000F5031A /* CoreVideo.framework */; };
@@ -59,7 +58,6 @@
 		B641DF651B380323004449FD /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B641DF631B380323004449FD /* ProgressHUD.m */; };
 		B641DF671B382721004449FD /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = B641DF661B382721004449FD /* add.png */; };
 		B64EEC0C1B704C80005998A9 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EEC0B1B704C80005998A9 /* white.png */; };
-		B6503DB41B738D8B00D0394B /* luojiajun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6503DB31B738D8B00D0394B /* luojiajun.jpg */; };
 		B6503DB61B738E0200D0394B /* wangliwu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6503DB51B738E0200D0394B /* wangliwu.jpg */; };
 		B6503DB81B738F7900D0394B /* cairuitao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6503DB71B738F7900D0394B /* cairuitao.jpg */; };
 		B6503DBA1B73926C00D0394B /* 2vma.png in Resources */ = {isa = PBXBuildFile; fileRef = B6503DB91B73926C00D0394B /* 2vma.png */; };
@@ -204,6 +202,9 @@
 		B6EBB5DF1B32D9CD0083D8D5 /* InfiniTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EBB5DE1B32D9CD0083D8D5 /* InfiniTabBar.m */; };
 		B6EF27531B35547100D485F2 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EF27501B35547100D485F2 /* ASValuePopUpView.m */; };
 		B6EF27541B35547100D485F2 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EF27521B35547100D485F2 /* ASValueTrackingSlider.m */; };
+		B6F2ABEB1B73A548008F373B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2ABEA1B73A548008F373B /* QRCodeViewController.swift */; };
+		B6F2ABED1B73AFA1008F373B /* chengchuigen.png in Resources */ = {isa = PBXBuildFile; fileRef = B6F2ABEC1B73AFA1008F373B /* chengchuigen.png */; };
+		B6F2ABEF1B73B670008F373B /* luojiajun.png in Resources */ = {isa = PBXBuildFile; fileRef = B6F2ABEE1B73B670008F373B /* luojiajun.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,7 +228,6 @@
 		2672D1121B00E3E200DC9432 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		2672D1141B01D5B200DC9432 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		267BB3771B060D0D00F5031A /* setURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setURLViewController.swift; sourceTree = "<group>"; };
-		267BB3791B061FC400F5031A /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		267BB37D1B06207E00F5031A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		267BB37F1B06208900F5031A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		267BB3811B06209000F5031A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -302,7 +302,6 @@
 		B641DF631B380323004449FD /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		B641DF661B382721004449FD /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		B64EEC0B1B704C80005998A9 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
-		B6503DB31B738D8B00D0394B /* luojiajun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = luojiajun.jpg; sourceTree = "<group>"; };
 		B6503DB51B738E0200D0394B /* wangliwu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wangliwu.jpg; sourceTree = "<group>"; };
 		B6503DB71B738F7900D0394B /* cairuitao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cairuitao.jpg; sourceTree = "<group>"; };
 		B6503DB91B73926C00D0394B /* 2vma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2vma.png; sourceTree = "<group>"; };
@@ -497,6 +496,9 @@
 		B6EF27501B35547100D485F2 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
 		B6EF27511B35547100D485F2 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		B6EF27521B35547100D485F2 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		B6F2ABEA1B73A548008F373B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		B6F2ABEC1B73AFA1008F373B /* chengchuigen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chengchuigen.png; sourceTree = "<group>"; };
+		B6F2ABEE1B73B670008F373B /* luojiajun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luojiajun.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -717,9 +719,10 @@
 			isa = PBXGroup;
 			children = (
 				B6503DB51B738E0200D0394B /* wangliwu.jpg */,
+				B6F2ABEE1B73B670008F373B /* luojiajun.png */,
 				B6503DB91B73926C00D0394B /* 2vma.png */,
+				B6F2ABEC1B73AFA1008F373B /* chengchuigen.png */,
 				B6503DB71B738F7900D0394B /* cairuitao.jpg */,
-				B6503DB31B738D8B00D0394B /* luojiajun.jpg */,
 			);
 			name = us;
 			sourceTree = "<group>";
@@ -804,10 +807,10 @@
 				B67F97551AE3A30E0085DBB3 /* ViewController.h */,
 				B67F97561AE3A30E0085DBB3 /* ViewController.mm */,
 				2672D1121B00E3E200DC9432 /* FinalViewController.swift */,
+				B6F2ABEA1B73A548008F373B /* QRCodeViewController.swift */,
 				2672D1141B01D5B200DC9432 /* RequestSender.swift */,
 				267C3E741B004F93001D917A /* md5Encryptor.m */,
 				267C3E781B005408001D917A /* setTextViewController.swift */,
-				267BB3791B061FC400F5031A /* QRCodeViewController.swift */,
 				267BB3771B060D0D00F5031A /* setURLViewController.swift */,
 				267C3E761B004FB9001D917A /* md5Encryptor.h */,
 				B67F975B1AE3A30E0085DBB3 /* Images.xcassets */,
@@ -1226,6 +1229,7 @@
 				B65B1CD61B16C7EE0028F631 /* skip_normal.png in Resources */,
 				B6EB472C1B18975E00495FBA /* slogan.png in Resources */,
 				B6A4F33F1B6F5746006AC380 /* tab_version_click@3x.png in Resources */,
+				B6F2ABEF1B73B670008F373B /* luojiajun.png in Resources */,
 				B630A9801B1C1DD400C401B3 /* zh-Hans.lproj in Resources */,
 				B6A4F3371B6F5746006AC380 /* tab_style_click@1x.png in Resources */,
 				B6A4F3481B6F583B006AC380 /* tab_auto_click@3x.png in Resources */,
@@ -1303,6 +1307,7 @@
 				B64EEC0C1B704C80005998A9 /* white.png in Resources */,
 				B6A4F2ED1B6E71B7006AC380 /* photo@1x.png in Resources */,
 				B690E5CE1B3E988C00E98C9C /* defaultavatar.png in Resources */,
+				B6F2ABED1B73AFA1008F373B /* chengchuigen.png in Resources */,
 				B6A4F3551B6F5D14006AC380 /* tab_correction_click@1x.png in Resources */,
 				B6A4F2E61B6E66D8006AC380 /* feedback_icon.png in Resources */,
 				B6503DB81B738F7900D0394B /* cairuitao.jpg in Resources */,
@@ -1315,7 +1320,6 @@
 				B6A4F3361B6F5746006AC380 /* tab_ratio_normal@3x.png in Resources */,
 				B6A4F3281B6F5746006AC380 /* tab_auto@1x.png in Resources */,
 				B6A4F3421B6F5746006AC380 /* tab_version@3x.png in Resources */,
-				B6503DB41B738D8B00D0394B /* luojiajun.jpg in Resources */,
 				B6A4F3051B6F0E3E006AC380 /* tab_normal@1x.png in Resources */,
 				B6A4F3081B6F0E3E006AC380 /* tab_optimize@2x.png in Resources */,
 				B6A4F3471B6F583B006AC380 /* tab_auto_click@2x.png in Resources */,
@@ -1378,7 +1382,6 @@
 				B6A4488C1AE4E01C0024F109 /* Dithering.mm in Sources */,
 				B6EB47301B189DC100495FBA /* UIDeviceHardware.m in Sources */,
 				B6A448921AE4E01C0024F109 /* mqrspec.c in Sources */,
-				267BB37A1B061FC400F5031A /* QRCodeViewController.swift in Sources */,
 				B661C7321B2DC87300B501EF /* SHValidationResult.m in Sources */,
 				B6EB91341B23496A00F403B1 /* HistoryDetailViewController.m in Sources */,
 				B6A448961AE4E01C0024F109 /* qrinput.c in Sources */,
@@ -1418,6 +1421,7 @@
 				B6A448991AE4E01C0024F109 /* split.c in Sources */,
 				B6EB912E1B2331E000F403B1 /* DateHelper.m in Sources */,
 				2672D1131B00E3E200DC9432 /* FinalViewController.swift in Sources */,
+				B6F2ABEB1B73A548008F373B /* QRCodeViewController.swift in Sources */,
 				B6DBAA971B24759C008334C8 /* HoshiTextField.swift in Sources */,
 				B6A448911AE4E01C0024F109 /* mmask.c in Sources */,
 				B67F97541AE3A30E0085DBB3 /* AppDelegate.m in Sources */,
