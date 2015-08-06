@@ -47,7 +47,8 @@ class RequestSender:NSObject{
         }
         
         self.status = RSatus.Uploading
-        var uuid:String = "123"
+        var uuid:String = "defaultuuid"
+        uuid = UIDevice.currentDevice().identifierForVendor.UUIDString;
         var message:String = ""
         var url:String = ""
         var vcard:String = ""
@@ -57,19 +58,20 @@ class RequestSender:NSObject{
         var namecard:NameCardEntry = NameCardEntry();
         
         self.uploadType = NSUserDefaults.standardUserDefaults().objectForKey("uploadType") as! String
-        
+        println("uuid: "+uuid)
         //set tm
 
         let dat:NSDate = NSDate(timeIntervalSinceNow: 0)
         let a:NSTimeInterval = dat.timeIntervalSince1970
         tm = String(stringInterpolationSegment: a)
         tm = tm.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
         println("tm: "+tm)
         
         //set sign
         let secretKey:String = "C10-705"
         sign = md5Encryptor.md5(secretKey+tm+uuid)
-        
+        println("sign: "+sign)
         let request = NSMutableURLRequest();
         var postData:String = ""
         request.HTTPMethod = "POST"
@@ -188,7 +190,6 @@ class RequestSender:NSObject{
             
             if (error != nil){
                 println(error)
-                
                 NSNotificationCenter.defaultCenter().postNotificationName("requestERROR", object: self)
                 self.alert(error.localizedDescription, button: "OK")
                 self.status = RSatus.OK
@@ -248,9 +249,11 @@ class RequestSender:NSObject{
                 }
             }
             else{
+                self.status = RSatus.OK
+                self.hasPendingReq = false
                 NSNotificationCenter.defaultCenter().postNotificationName("requestERROR", object: self)
                 
-                self.alert("Unexpected Error", button: "OK")
+                //self.alert("Unexpected Error", button: "OK")
                 
                 return
             }

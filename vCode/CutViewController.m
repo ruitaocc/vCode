@@ -769,6 +769,12 @@
     }
     if ([notification.name isEqualToString:@"requestERROR"]) {
         NSLog(@"Network error!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:NSLocalizedString(@"networkerror", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:nil, nil];
+        alert.tag = 102;
+        [alert show];
     }
     [self configParameters];
 }
@@ -784,6 +790,8 @@
                 [self showParaMainControlTab];
             }
             else{
+                bool ret = [RequestSender sendRequest];
+                NSLog(@"RequestSender sendRequest: %d",ret);
                 [self.view addSubview:m_spinnerView];
                 [m_spinnerView startAnimating];
             }
@@ -817,6 +825,8 @@
         [self showParaMainControlTab];
     }
     else{
+        bool ret = [RequestSender sendRequest];
+        NSLog(@"RequestSender sendRequest: %d",ret);
         [self.view addSubview:m_spinnerView];
         [m_spinnerView startAnimating];
     }
@@ -924,7 +934,7 @@
         portraitImg = [self imageByScalingToMaxSize:portraitImg];
         // 裁剪
         VPImageCropperViewController *imgEditorVC = [[VPImageCropperViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
-       [imgEditorVC setUseMaskImage:YES]; 
+       [imgEditorVC setUseMaskImage:YES];
         imgEditorVC.delegate = self;
         [self presentViewController:imgEditorVC animated:YES completion:^{
             // TO DO

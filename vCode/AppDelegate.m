@@ -155,7 +155,7 @@
 //    [self.window addSubview:tview];
     //[self.window bringSubviewToFront:lunchView];
     isSkip = false;
-    [NSTimer scheduledTimerWithTimeInterval:65 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:7.0 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     
     //UMengFeedBack otion
     return YES;
@@ -168,7 +168,7 @@
     [UMSocialData setAppKey:UmengAppkey];
     
     //打开调试log的开关
-    [UMSocialData openLog:YES];
+    [UMSocialData openLog:NO];
     
     //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
     //[UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
