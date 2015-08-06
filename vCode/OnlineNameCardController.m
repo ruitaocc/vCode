@@ -145,7 +145,7 @@
         //qq
         NSString *qq = [weakSefl.m_ui_qq text];
         if(![qq isEqualToString:@""]){
-            NSString * qregular = @"^[1-9]\\d{3,14}$";//+86-15889933539
+            NSString * qregular = @"^[1-9]\\d{3,14}$";//
             NSPredicate *regextestphs = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", qregular];
             if ( ([regextestphs evaluateWithObject:qq] == NO))
             {
@@ -172,7 +172,7 @@
                 }
             }
             NSString *url = [weakSefl.m_ui_homepage text];
-            NSString * qregular1 = @"^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$";//+86-15889933539
+            NSString * qregular1 = @"^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$";//+
             NSPredicate *regextestphs = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", qregular1];
             if ( ([regextestphs evaluateWithObject:url] == NO))
             {

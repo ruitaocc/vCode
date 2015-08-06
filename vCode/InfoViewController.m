@@ -14,6 +14,7 @@
 @property(strong ,nonatomic)UIImageView *m_super_luo;
 @property(strong ,nonatomic)UIImageView *m_super_xiao;
 @property(strong ,nonatomic)UIImageView *m_super_center;
+@property(strong ,nonatomic)NSString *m_url;
 @end
 
 @implementation InfoViewController
@@ -22,6 +23,7 @@
 @synthesize m_super_luo;
 @synthesize m_super_xiao;
 @synthesize m_super_center;
+@synthesize m_url;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -66,7 +68,7 @@
     float center_y = s_height/2;
     
     CGRect frame0 = CGRectMake((s_width-i_width)/2,(s_height-i_width)/2, c_width, c_width);
-    UIImage *img0= [UIImage imageNamed:@"lena.jpg"];
+    UIImage *img0= [UIImage imageNamed:@"2vma.png"];
     m_super_center =  [[UIImageView alloc] initWithFrame:frame0];
     [m_super_center setImage:img0];
     m_super_center.layer.cornerRadius = frame0.size.width/2;
@@ -77,17 +79,18 @@
     m_super_center.layer.shadowOffset = CGSizeMake(4, 4);
     m_super_center.layer.shadowOpacity = 0.5;
     m_super_center.layer.shadowRadius = 2.0;
-    m_super_center.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    m_super_center.layer.borderColor = [[UIColor whiteColor] CGColor];
     m_super_center.layer.borderWidth = 2.0f;
     m_super_center.userInteractionEnabled = YES;
     m_super_center.backgroundColor = [UIColor blackColor];
-    UITapGestureRecognizer *portraitTap0 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick)];
+    m_super_center.tag = 2001;
+    UITapGestureRecognizer *portraitTap0 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick1)];
     [m_super_center addGestureRecognizer:portraitTap0];
     [self.view addSubview:m_super_center];
 
     
     CGRect frame = CGRectMake(center_x+i_width/2.5, center_y+i_width/2.5, i_width*0.9, i_width*0.9);
-    UIImage *img= [UIImage imageNamed:@"lena.jpg"];
+    UIImage *img= [UIImage imageNamed:@"cairuitao.jpg"];
     m_super_cai =  [[UIImageView alloc] initWithFrame:frame];
     [m_super_cai setImage:img];
     m_super_cai.layer.cornerRadius = frame.size.width/2;
@@ -102,7 +105,8 @@
     m_super_cai.layer.borderWidth = 2.0f;
     m_super_cai.userInteractionEnabled = YES;
     m_super_cai.backgroundColor = [UIColor blackColor];
-    UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick)];
+    m_super_cai.tag = 2002;
+    UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick2)];
     [m_super_cai addGestureRecognizer:portraitTap];
     [self.view addSubview:m_super_cai];
     //
@@ -123,13 +127,13 @@
     m_super_didi.layer.borderWidth = 2.0f;
     m_super_didi.userInteractionEnabled = YES;
     m_super_didi.backgroundColor = [UIColor blackColor];
-    
-    UITapGestureRecognizer *portraitTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick)];
+    m_super_didi.tag = 2003;
+    UITapGestureRecognizer *portraitTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick3)];
     [m_super_didi addGestureRecognizer:portraitTap2];
     [self.view addSubview:m_super_didi];
     //
     frame = CGRectMake(center_x+shift*1.5, center_y-i_width-shift*1.9, i_width*1.1, i_width*1.1);
-    UIImage *img3= [UIImage imageNamed:@"lena.jpg"];
+    UIImage *img3= [UIImage imageNamed:@"luojiajun.jpg"];
     m_super_luo =  [[UIImageView alloc] initWithFrame:frame];
     [m_super_luo setImage:img3];
     m_super_luo.layer.cornerRadius = frame.size.width/2;
@@ -144,13 +148,13 @@
     m_super_luo.layer.borderWidth = 2.0f;
     m_super_luo.userInteractionEnabled = YES;
     m_super_luo.backgroundColor = [UIColor blackColor];
-    
-    UITapGestureRecognizer *portraitTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick)];
+    m_super_luo.tag = 2004;
+    UITapGestureRecognizer *portraitTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick4)];
     [m_super_luo addGestureRecognizer:portraitTap3];
     [self.view addSubview:m_super_luo];
     //
     frame = CGRectMake(center_x-i_width-shift*1.6, center_y+shift*1.5, i_width*1.1, i_width*1.1);
-    UIImage *img4= [UIImage imageNamed:@"lena.jpg"];
+    UIImage *img4= [UIImage imageNamed:@"wangliwu.jpg"];
     m_super_xiao =  [[UIImageView alloc] initWithFrame:frame];
     [m_super_xiao setImage:img4];
     m_super_xiao.layer.cornerRadius = frame.size.width/2;
@@ -165,20 +169,51 @@
     m_super_xiao.layer.borderWidth = 2.0f;
     m_super_xiao.userInteractionEnabled = YES;
     m_super_xiao.backgroundColor = [UIColor blackColor];
-    UITapGestureRecognizer *portraitTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick)];
+    m_super_xiao.tag = 2005;
+    UITapGestureRecognizer *portraitTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClick5)];
+    
     [m_super_xiao addGestureRecognizer:portraitTap4];
     [self.view addSubview:m_super_xiao];
     
 }
--(void)avatarClick{
+
+-(void)avatarClick1{
+    //2vma
+    m_url = @"http://www.2vma.co/";
     [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
 }
+
+-(void)avatarClick2{
+    //cai
+    m_url = @"http://2vima.sinaapp.com/";
+    [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
+}
+
+-(void)avatarClick3{
+    //didi
+    m_url = @"http://www.2vma.co/";
+    [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
+}
+
+-(void)avatarClick4{
+    //jiajun
+    m_url = @"http://www.2vma.co/";
+    [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
+}
+
+-(void)avatarClick5{
+    //xiao
+    m_url =@"http://a554b554.github.io/";
+    [self performSegueWithIdentifier:@"InfoToWebInfo" sender:self];
+}
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     UIViewController *receiver = segue.destinationViewController;
     if([receiver respondsToSelector:@selector(setUrl:)]){
         
-        [receiver setValue:@"http://2vma.co/static/index.html" forKey:@"url"];
+        [receiver setValue:m_url forKey:@"url"];
     }
 }
 

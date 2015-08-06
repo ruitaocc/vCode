@@ -191,9 +191,9 @@
     fbtn_History = [[WZFlashButton alloc]initWithFrame:menu_btn_frame ];
     fbtn_History.backgroundColor = [UIColor colorWithRed:67.0/255.0f green:209.0f/255.0f blue:250.0/255.0 alpha:1.0f];
     fbtn_History.flashColor = [UIColor whiteColor];
-    [fbtn_History setText:NSLocalizedString(@"menu_history", nil) withTextColor:nil];
+    [fbtn_History setText:NSLocalizedString(@"menu_about", nil) withTextColor:nil];
     fbtn_History.clickBlock = ^(void){
-        [weakSelf performSegueWithIdentifier:@"Home2History" sender:weakSelf];
+        [weakSelf btn_click_info];
     };
 
     menu_btn_frame.origin.x = grid_size;
@@ -241,7 +241,7 @@
     
     [self.view addSubview:bg_view];
     [self.view addSubview:btn_rating];
-    [self.view addSubview:btn_info];
+    //[self.view addSubview:btn_info];
     [self.view addSubview:btn_feedback];
     [self.view addSubview:fbtn_URL];
     [self.view addSubview:fbtn_WeiChat];

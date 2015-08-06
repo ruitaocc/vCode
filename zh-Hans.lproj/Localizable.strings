@@ -66,6 +66,7 @@
 
 "skip_text"="     开启创作V码";
 "menu_qnamecard"="网络\n名片";
+"menu_about"="关于\n我们";
 "menu_history"="历史\n纪录";
 "menu_qr2vc"="二维码\n转2V码";
 "menu_text"="自定义\n2V码";
