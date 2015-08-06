@@ -67,7 +67,6 @@
     [m_ui_wechat setLimmitLength:64];
     [m_ui_tel setLimmitLength:16];
     [m_ui_qq setLimmitLength:16];
-    //m_ui_fullname.text = @"cairuti";
     m_ui_fullname.placeholder = NSLocalizedString(@"nc_fullname", nil);
     m_ui_nickname.placeholder = NSLocalizedString(@"nc_nickname", nil);
     m_ui_email.placeholder = NSLocalizedString(@"nc_email", nil);
@@ -85,6 +84,9 @@
     [m_ui_gender setTitle:NSLocalizedString(@"nc_gender_female", nil) forSegmentAtIndex:2];
     
     //m_ui_email.text = @"email@caruitao.com";
+    //m_ui_fullname.text = @"cairuti";
+    //m_ui_tel.text = @"15889933539";
+    
     float s_width = self.view.frame.size.width;;
     CGRect btn_frame;
     btn_frame.size.width = 0.57*s_width;
@@ -103,7 +105,12 @@
         //[weakSelf performSegueWithIdentifier:@"HomeToURL" sender:weakSelf];
         //vilad data
         NSLog(@"Generate but click");
-        if([[weakSefl.m_ui_fullname text] isEqualToString:@""]||[[weakSefl.m_ui_email text] isEqualToString:@""]){
+        if([[weakSefl.m_ui_fullname text] isEqualToString:@""]
+           ||[[weakSefl.m_ui_org text] isEqualToString:@""]
+           ||[[weakSefl.m_ui_job text] isEqualToString:@""]
+           ||[[weakSefl.m_ui_address text] isEqualToString:@""]
+           ||[[weakSefl.m_ui_birthday text] isEqualToString:@""]
+           ){
             UIAlertView *alert = [[UIAlertView alloc] init];
             [alert setTitle:NSLocalizedString(@"namecard_must_fill", nil)];
             [alert addButtonWithTitle:@"OK"];
@@ -123,23 +130,60 @@
             return ;
         }
         
-//        //tel
-//        NSString *phone = [weakSefl.m_ui_tel text];
-//        NSString * regularexpression= @"^[+]()";
-//        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularexpression
-//                                                                               options:NSRegularExpressionCaseInsensitive
-//                                                                                 error:nil];
-//        NSUInteger numberOfMatches = [regex numberOfMatchesInString:phone
-//                                                            options:0
-//                                                              range:NSMakeRange(0, [phone length])];
-//        
-//        if (numberOfMatches == 0) {
-//            UIAlertView *alert = [[UIAlertView alloc] init];
-//            [alert setTitle:NSLocalizedString(@"namecard_phone_format_error", nil)];
-//            [alert addButtonWithTitle:@"OK"];
-//            [alert show];
-//            return ;
-//        }
+        //tel
+        NSString *phone = [weakSefl.m_ui_tel text];
+        if(![phone isEqualToString:@""]){
+            BOOL isOk = [weakSefl isMobileNumber:phone];
+            if (!isOk) {
+                UIAlertView *alert = [[UIAlertView alloc] init];
+                [alert setTitle:NSLocalizedString(@"namecard_phone_format_error", nil)];
+                [alert addButtonWithTitle:@"OK"];
+                [alert show];
+                return ;
+            }
+        }
+        //qq
+        NSString *qq = [weakSefl.m_ui_qq text];
+        if(![qq isEqualToString:@""]){
+            NSString * qregular = @"^[1-9]\\d{3,14}$";//+86-15889933539
+            NSPredicate *regextestphs = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", qregular];
+            if ( ([regextestphs evaluateWithObject:qq] == NO))
+            {
+                UIAlertView *alert = [[UIAlertView alloc] init];
+                [alert setTitle:NSLocalizedString(@"namecard_qq_format_error", nil)];
+                [alert addButtonWithTitle:@"OK"];
+                [alert show];
+                return ;
+            }
+        }
+        //qq
+        NSString *homepage = [weakSefl.m_ui_homepage text];
+        if(![homepage isEqualToString:@""]){
+            if ([homepage length]<7) {
+                NSMutableString *prefix =[[NSMutableString alloc] initWithString:@"http://"];
+                [prefix appendString:homepage];
+                weakSefl.m_ui_homepage.text = prefix;
+            }else{
+                NSString *sub = [homepage substringWithRange:NSMakeRange(0, 7)];
+                if(![sub isEqualToString:@"http://"]){
+                    NSMutableString *prefix =[[NSMutableString alloc] initWithString:@"http://"];
+                    [prefix appendString:homepage];
+                    weakSefl.m_ui_homepage.text = prefix;
+                }
+            }
+            NSString *url = [weakSefl.m_ui_homepage text];
+            NSString * qregular1 = @"^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$";//+86-15889933539
+            NSPredicate *regextestphs = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", qregular1];
+            if ( ([regextestphs evaluateWithObject:url] == NO))
+            {
+                UIAlertView *alert = [[UIAlertView alloc] init];
+                [alert setTitle:NSLocalizedString(@"namecard_homepage_format_error", nil)];
+                [alert addButtonWithTitle:@"OK"];
+                [alert show];
+                return ;
+            
+            }
+        }
         if (![RequestSender getIsPendingReq]) {
             //
             /*
@@ -211,6 +255,25 @@
     [self initPreference];
    self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, -36, 0);
     isNeedWaitForAvatarUp = NO;
+}
+- (BOOL)isMobileNumber:(NSString *)mobileNum
+{
+    NSString * MOBILE = @"^(\\+\\d{2}(\\-)?)?1\\d{10}$"; //+86-15889933539
+    NSString * PHS = @"^(0(10|2[0-5789]|\\d{3})(\\-)?)?\\d{7,8}$";//0754-86208096
+    
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+   
+    NSPredicate *regextestphs = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", PHS];
+    
+    if (([regextestmobile evaluateWithObject:mobileNum] == YES)
+        || ([regextestphs evaluateWithObject:mobileNum] == YES))
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

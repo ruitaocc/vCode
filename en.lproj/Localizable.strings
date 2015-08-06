@@ -11,10 +11,10 @@
 "nc_fullname"="Full name(*)";
 "nc_nickname"="Nick name";
 "nc_email" = "Email(*)";
-"nc_org" = "Company";
-"nc_job" = "Job tittle";
-"nc_address" = "City";
-"nc_birthday" = "Birthday";
+"nc_org" = "Company(*)";
+"nc_job" = "Job tittle(*)";
+"nc_address" = "City(*)";
+"nc_birthday" = "Birthday(*)";
 "nc_tel" = "Mobile phone";
 "nc_qq" = "QQ";
 "nc_wechat" = "Wechat";
