@@ -205,6 +205,7 @@
 		B6F2ABEB1B73A548008F373B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2ABEA1B73A548008F373B /* QRCodeViewController.swift */; };
 		B6F2ABED1B73AFA1008F373B /* chengchuigen.png in Resources */ = {isa = PBXBuildFile; fileRef = B6F2ABEC1B73AFA1008F373B /* chengchuigen.png */; };
 		B6F2ABEF1B73B670008F373B /* luojiajun.png in Resources */ = {isa = PBXBuildFile; fileRef = B6F2ABEE1B73B670008F373B /* luojiajun.png */; };
+		B6F2ABF31B73C9EE008F373B /* OMGToast.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F2ABF21B73C9EE008F373B /* OMGToast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -499,6 +500,8 @@
 		B6F2ABEA1B73A548008F373B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		B6F2ABEC1B73AFA1008F373B /* chengchuigen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chengchuigen.png; sourceTree = "<group>"; };
 		B6F2ABEE1B73B670008F373B /* luojiajun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luojiajun.png; sourceTree = "<group>"; };
+		B6F2ABF11B73C970008F373B /* OMGToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OMGToast.h; sourceTree = "<group>"; };
+		B6F2ABF21B73C9EE008F373B /* OMGToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGToast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1091,6 +1094,7 @@
 		B6EB912B1B2331C400F403B1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B6F2ABF01B73C94F008F373B /* Toast */,
 				B641DF601B3802C8004449FD /* ProgressHUD */,
 				B6EF274E1B35542900D485F2 /* ASValueTrackingSlider */,
 				B6EBB5DD1B32D9CD0083D8D5 /* InfiniTabBar.h */,
@@ -1111,6 +1115,15 @@
 				B6EF27521B35547100D485F2 /* ASValueTrackingSlider.m */,
 			);
 			name = ASValueTrackingSlider;
+			sourceTree = "<group>";
+		};
+		B6F2ABF01B73C94F008F373B /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				B6F2ABF11B73C970008F373B /* OMGToast.h */,
+				B6F2ABF21B73C9EE008F373B /* OMGToast.m */,
+			);
+			name = Toast;
 			sourceTree = "<group>";
 		};
 		EF63D086C40D816A2ED01E1A /* Frameworks */ = {
@@ -1433,6 +1446,7 @@
 				B6DBAAA51B2475C9008334C8 /* TextFieldsEffects.swift in Sources */,
 				266FDAB91B174651000675CB /* VPImageCropperViewController.m in Sources */,
 				B6A448ED1AE526DD0024F109 /* HQR.mm in Sources */,
+				B6F2ABF31B73C9EE008F373B /* OMGToast.m in Sources */,
 				B6DBAAA61B2475C9008334C8 /* YokoTextField.swift in Sources */,
 				267C3E791B005408001D917A /* setTextViewController.swift in Sources */,
 				B6EB91311B233D9A00F403B1 /* HistoryViewController.m in Sources */,

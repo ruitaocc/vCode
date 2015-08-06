@@ -5,6 +5,10 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
 */
+"padding_toast"="Smaller ratio will decrease recognition rate.";
+"coding_toast"="Smaller ratio will decrease recognition rate.";
+"version_toast"="Higher version will decrease recognition rate.";
+"level_toast"="Higher correction level can increase recognition rate but decrease visual quality";
 "cancel"="Cancel";
 "networkerror"="Network error!";
 "namecard_phone_format_error" = "Mobile phone number format error.";

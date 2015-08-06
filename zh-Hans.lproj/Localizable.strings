@@ -5,6 +5,10 @@
   Created by ruitaocc on 15/5/28.
   Copyright (c) 2015年 ruitaocc. All rights reserved.
  */
+"padding_toast"="数值太低会导致无法识别";
+"coding_toast"="数值太低会导致无法识别";
+"version_toast"="版本过高会降低二维码识别率";
+"level_toast"="更高的纠正级别能提高识别率，同时降低二维码的视觉质量。";
 "cancel"="取消";
 "networkerror"="网络错误";
 "namecard_phone_format_error" = "联系方式格式不对，请输入有效的电话号码";

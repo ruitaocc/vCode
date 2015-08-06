@@ -16,6 +16,7 @@
 #import "ASValueTrackingSlider.h"
 #import "WZFlashButton.h"
 #import "../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h"
+#import "OMGToast.h"
 #define ORIGINAL_MAX_WIDTH 640.0f
 
 #define TabHeight 49.0f
@@ -144,6 +145,7 @@
     [self setTitle:NSLocalizedString(@"cut_view_title", nil)];
     
     //self.navigationController.navigationBar.barTintColor = myBlue;
+    
     NSLog(@"my storyboard = %@", self.storyboard);
 }
 
@@ -272,7 +274,9 @@
 {
     NSLog(@"Version :%@",[NSString stringWithFormat:@"%d", min_version + item]);
     m_para_version = (int)(min_version + item);
-    
+    if(m_para_version >= 10){
+        [OMGToast showWithText:NSLocalizedString(@"version_toast", nil) duration:3];
+    }
     [self computeQR];
 }
 
@@ -444,8 +448,14 @@
     if(slider.tag == 40){
         m_para_coding_area = slider.value;
         NSLog(@"m_para_coding_area : %f",m_para_coding_area);
+        if(m_para_coding_area <= 50){
+            [OMGToast showWithText:NSLocalizedString(@"coding_toast", nil) duration:3];
+        }
     }else if (slider.tag == 50){
         m_para_padding_area = slider.value;
+        if(m_para_padding_area <= 50){
+            [OMGToast showWithText:NSLocalizedString(@"padding_toast", nil) duration:3];
+        }
         NSLog(@"m_para_padding_area : %f",m_para_padding_area);
     }else if (slider.tag == 60){
         m_para_ratio = slider.value;
@@ -562,6 +572,9 @@
     }
     if (!m_second_paraView_isShowed) {
         [self showSecondParaView];
+    }
+    if(tag == 3){
+            [OMGToast showWithText:NSLocalizedString(@"level_toast", nil) duration:3];
     }
     [self scrollSecondParaViewToTPageWithTag:tag-1 animated:YES];
     
@@ -746,11 +759,11 @@
         min_version = [QRDetector getMinimunVersionWithText:_dataToEncode];
         NSLog(@"min_version:%d",min_version);
         m_para_version = min_version > 5 ? min_version: 5;
-        m_para_level = 0;
+        m_para_level = 1;
         m_para_style = 0;
-        m_para_padding_area = 50;
-        m_para_coding_area = 70;
-        m_para_ratio = 1.0;
+        m_para_padding_area = 70;
+        m_para_coding_area = 90;
+        m_para_ratio = 0.8;
         [horizontalPickerView reloadData];
     }
 }
