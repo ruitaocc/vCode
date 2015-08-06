@@ -49,8 +49,10 @@ dependencies: /Users/changxiao/Documents/vCode/vCode/ViewController.mm \
   /Users/changxiao/Documents/vCode/vCode/HQR/OstrHeader.hpp \
   /Users/changxiao/Documents/vCode/vCode/HQR/Laplace_SAED.hpp \
   /Users/changxiao/Documents/vCode/vCode/HQR/Dithering.h \
+  /Users/changxiao/Documents/vCode/vCode/HQR/HQR_typedef.h \
   /Users/changxiao/Documents/vCode/vCode/md5Encryptor.h \
-  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h \
-  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMRecorder.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMFeedback.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMRecorder.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/MMMaterialDesignSpinner/Pod/Classes/MMMaterialDesignSpinner.h \
   /Users/changxiao/Documents/vCode/vCode/WZFlashButton.h \
   /Users/changxiao/Documents/vCode/vCode/UIDeviceHardware.h

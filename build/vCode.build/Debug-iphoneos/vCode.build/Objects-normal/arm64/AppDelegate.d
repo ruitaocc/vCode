@@ -1,8 +1,8 @@
 dependencies: /Users/changxiao/Documents/vCode/vCode/AppDelegate.m \
   /Users/changxiao/Documents/vCode/vCode/vCode.pch \
   /Users/changxiao/Documents/vCode/vCode/AppDelegate.h \
-  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMFeedback.h \
-  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.2/UMengFeedback_SDK_2.2/UMRecorder.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMFeedback.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/UMengFeedback/UMFeedback_iOS_2.3/UMengFeedback_SDK_2.3/UMRecorder.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocial.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialData.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialSnsData.h \
@@ -14,4 +14,24 @@ dependencies: /Users/changxiao/Documents/vCode/vCode/AppDelegate.m \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialSnsService.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialBar.h \
   /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_4.2.3/Header/UMSocialConfig.h \
-  /Users/changxiao/Documents/vCode/vCode/UIDeviceHardware.h
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/YiXin/UMSocialYiXinHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/Wechat/UMSocialWechatHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/UMSocialQQHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework/Headers/QQApiInterface.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework/Headers/QQApiInterfaceObject.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework/Headers/TencentOAuth.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework/Headers/sdkdef.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework/Headers/TencentOAuthObject.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/Instagram/UMSocialInstagramHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/Whatsapp/UMSocialWhatsappHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/Line/UMSocialLineHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/Tumblr/UMSocialTumblrHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UMSocial_Sdk_Extra_Frameworks/Facebook/UMSocialFacebookHandler.h \
+  /Users/changxiao/Documents/vCode/vCode/UIDeviceHardware.h \
+  /Users/changxiao/Documents/vCode/vCode/HistoryEntry.h \
+  /Users/changxiao/Documents/vCode/vCode/HQR/HQR_typedef.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/LKDBHelper/LKDBHelper/Helper/LKDBHelper.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/LKDBHelper/LKDBHelper/Helper/LKDBUtils.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/LKDBHelper/LKDBHelper/Helper/LKDB+Mapping.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/LKDBHelper/LKDBHelper/Helper/NSObject+LKModel.h \
+  /Users/changxiao/Documents/vCode/vCode/../Pods/LKDBHelper/LKDBHelper/Helper/NSObject+LKDBHelper.h

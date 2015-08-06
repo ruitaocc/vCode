@@ -14,6 +14,26 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Pods-FMDB.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Pods-LKDBHelper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Pods-MMMaterialDesignSpinner-MaterialDesignSpinner.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>Pods-MMMaterialDesignSpinner.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Pods-UMengFeedback.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,7 +52,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0F928C0DA905C6C6F90D1257</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2BD50C3FF5A1DD960EB56184</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C1C2461452035D38EFC3561</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>48F24F9DDE74312D18CFC3D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +82,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6BCABB675562FD8482F5317F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7B8205AC033C4DBF53875B93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>82D4EF3F233F48DBDBA161AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E756A0BDD41A3B91E00090A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FAACA9C2022DE0CECC750BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C222A31FF08DD3EB9F71725E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4E2129CC655C1095B9ABE75</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8A621C2C319A88EFAEDA0C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

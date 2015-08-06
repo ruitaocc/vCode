@@ -48,6 +48,7 @@ dependencies: /Users/changxiao/Documents/vCode/vCode/HQR/HQR.mm \
   /Users/changxiao/Documents/vCode/vCode/HQR/OstrHeader.hpp \
   /Users/changxiao/Documents/vCode/vCode/HQR/Laplace_SAED.hpp \
   /Users/changxiao/Documents/vCode/vCode/HQR/Dithering.h \
+  /Users/changxiao/Documents/vCode/vCode/HQR/HQR_typedef.h \
   /Users/changxiao/Documents/vCode/vCode/HQR/../../Pods/Headers/Public/ZXingObjC/ZXLuminanceSource.h \
   /Users/changxiao/Documents/vCode/vCode/HQR/../../Pods/Headers/Public/ZXingObjC/ZXingObjC.h \
   /Users/changxiao/Documents/vCode/Pods/Headers/Public/ZXingObjC/ZXingObjCAztec.h \
