@@ -121,8 +121,10 @@ class setURLViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         if(url.length<7){
             final_URL = "http://" + (url as String)
         }else{
-            var prefix :NSString = url.substringToIndex(7)
-            if(!prefix.isEqualToString("http://") && !prefix.isEqualToString("ftp://")){
+            var prefix :NSString = url.substringToIndex(6)
+            if(prefix.isEqualToString("http:/") || prefix.isEqualToString("https:") || prefix.isEqualToString("ftp://")){
+                
+            }else{
                 final_URL = "http://" + (url as String)
             }
         }
