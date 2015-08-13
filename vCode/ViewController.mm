@@ -74,9 +74,9 @@
     float grid_size = s_width/10;
     UIDeviceHardware*hd =  [[UIDeviceHardware  alloc ]init ];
     BOOL isIPH56 = [hd Is_IPH_56];
-    BOOL isSumulator = [hd Is_Simulator];
-    isIPH56 = isSumulator?YES:NO;
-    
+    //BOOL isSumulator = [hd Is_Simulator];
+    //isIPH56 = isSumulator?YES:NO;
+    //isIPH56 = NO;
     UIImage *bg;
     UIImage *img_rating,*img_feedback,*img_info,*img_slogan;
     CGRect bg_frame,bg_view_frame;

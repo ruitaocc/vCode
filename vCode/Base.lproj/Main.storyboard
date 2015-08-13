@@ -215,8 +215,7 @@
                                                             <exclude reference="N71-dS-EnE"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="148" y="0.0" width="232" height="44"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="N71-dS-EnE"/>
                                                         </mask>
