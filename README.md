@@ -21,7 +21,7 @@ QRcode endode everything as text, with certain capacity constraint. As to endoin
 Input a QR code and a photo, reencode it into visual QR code.
 * Customize  
 You can input any text as you like.
-* Online NameCard 
+* Online NameCard
 You can edit you namecard, and design your personal QR code, when scan this code, it will redirect to your noline namecard.
 
 Examples:
@@ -36,13 +36,19 @@ Try to design your own QR code by downloading our App! [vCode](https://itunes.ap
 * Open vCode.xcworkspace with XCode
 * Build and Run it  
 
+#Source Code
+* vCode/vCode/HQR/    //this src dir is the kernel algorithm implementation
 
 #Contributors
 * [ADi](https://github.com/chuigeng)  
 * [Jun](https://github.com/jiajunlo)
 * [a554b554](https://github.com/a554b554)  
 * [ruitaocc](https://github.com/ruitaocc/)
- 
+
+#Reference
+* Halftone QR Code(http://www0.cs.ucl.ac.uk/staff/n.mitra/research/halftone_QR/paper_docs/halftoneQR_sigga13.pdf)
+* qrencode(https://github.com/fukuchi/libqrencode)
+
 #License
 The MIT License  
 Copyright © 2016 all contributors.  
